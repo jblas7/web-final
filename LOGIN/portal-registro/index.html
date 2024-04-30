@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario registro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="fondo-formulario">
+        <div class="formulario-registro">
+            <h1 class="titulo-registro">REGISTRO DE NUEVA CUENTA</h1>
+            <form method="post">
+                <div class="casilla-info-registro">
+                    <label class="enunciado-casilla-info-registros" for="nombre">Nombre:</label>
+                    <input class="formulario-input-registros" type="text" id="nombre" required
+                        placeholder="Introduzca su nombre">
+                </div>
+                <div class="casilla-info-registro">
+                    <label class="enunciado-casilla-info-registros" for="apellido1">Primer Apellido:</label>
+                    <input class="formulario-input-registros" type="text" id="apellido1" required
+                        placeholder="Introduzca su primer apellido">
+                </div>
+                <div class="casilla-info-registro">
+                    <label class="enunciado-casilla-info-registros" for="apellido2">Segundo Apellido (opcional):</label>
+                    <input class="formulario-input-registros" type="text" id="apellido2"
+                        placeholder="Introduzca su segundo apellido">
+                </div>
+                <div class="casilla-info-registro">
+                    <label class="enunciado-casilla-info-registros" for="email">Correo Electrónico:</label>
+                    <input class="formulario-input-registros" type="email" id="email" required
+                        placeholder="Seleccione un email">
+                </div>
+                <div class="casilla-info-registro">
+                    <label class="enunciado-casilla-info-registros" for="contrasena">Contraseña:</label>
+                    <input class="formulario-input-registros" type="password" id="contrasena" required
+                        placeholder="Seleccione una contraseña">
+                </div>
+                <button class="crear-cuenta-boton">Crear cuenta</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
