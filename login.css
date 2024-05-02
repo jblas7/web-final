@@ -5,8 +5,8 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-.fondo-formulario {
-    background-image: url(imagenes/login/fondo.jpg);
+.fondo-formulario-login {
+    background-image: url(imagenes/fondos/fondo-formulario.jpg);
     background-color: #f0232349;
     width: 100%;
     height: 100vh;

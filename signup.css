@@ -1,62 +1,179 @@
-.fondo-formulario {
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.fondo-formulario-signup {
+    background-image: url(imagenes/fondos/fondo-formulario.jpg);
     background-color: #f0232349;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.formulario-registro {
-    background-color: rgb(248, 242, 242);
+.formulario-registro-signup {
+    background-color: rgba(238, 134, 134, 0.84);
     padding: 5%;
     border-radius: 15px;
-    width: 25%; 
+    width: 90%;
+    max-width: 600px;
+}
+.titulo-registro-signup {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10%;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    font-size: 36px;
+    font-weight: bold;
+    border: 2px solid #000000;
+    background-color: rgb(214, 47, 47);
+    border-radius: 15px;
 }
 
-.enunciado-casilla-info-registros{
+.casilla-info-registro-signup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.enunciado-casilla-info-registros-signup {
+    color: #ffffff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    font-size: 26px;
+    font-weight: bold;
     padding-bottom: 15px;
 }
 
-.titulo-registro {
-    color: #000000;
-    text-align: center;
-    margin-bottom: 10%;
-
-}
-
-.casilla-info-registro {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px; 
-}
-
-.formulario-input-registros {
+.formulario-input-registros-signup {
     padding: 8px;
     border-radius: 5px;
-    background-color: #f0f0f0; 
-    margin-bottom: 10px; 
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+}
+.enlace-iniciar-sesion-signup {
+    white-space: nowrap;
+    overflow: hidden;
+    color: #ffffff;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    background-color: rgb(214, 47, 47);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .crear-cuenta-boton {
     width: 100%;
     padding: 10px;
-    background-color: #ff5252;;
+    background-color: #ff5252;
     color: white;
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
 }
 
+.footer {
+    background-color: rgb(214, 47, 47);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.ya-tiene-cuenta-enlace {
+    margin-top: 10%;
+    color: #ffffff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.politicas-footer {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.politicas-footer a {
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.nombre-footer {
+    text-align: center;
+    flex-grow: 1;
+    font-family: 'Jersey 25', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.redes-footer {
+    display: flex;
+    align-items: center;
+}
+
+.redes-footer a {
+    margin-left: 30px;
+}
+
+.iconos-footer {
+    width: 25px;
+    height: 25px;
+}
 
 @media (max-width: 1024px) {
-    .formulario-registro {
+    .formulario-registro-signup {
         width: 60%;
     }
 }
 
 @media (max-width: 768px) {
-    .formulario-registro {
+    .formulario-registro-signup {
         width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .casilla-info-registro-signup label {
+        text-align: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    
+    .ya-tiene-cuenta-enlace {
+        text-align: center;
+    }
+
+    .politicas-footer,
+    .redes-footer {
+        margin: 10px 0;
+    }
+    
+    .enlace-iniciar-sesion-signup {
+        display: block;
+        width: calc(100% - 40px);
+        margin: 10px auto;
+        text-align: center;
     }
 }
+
