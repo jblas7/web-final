@@ -1,0 +1,114 @@
+/* Estilos generales */
+
+body {
+    margin: 0;
+    background-image: url("Imagenes_Header/Fondo.png");
+}
+
+.CajaHeader {
+    background-color: rgb(214, 47, 47);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 50% 10% 10% 10% 10%;
+    align-items: center;
+}
+
+/* LogoHeader */
+.ColumnaLogo {
+    width: 100px;
+}
+
+.ColumnaLogo img {
+    width: 100%;
+}
+/* LogoHeader */
+
+/* ColumnaDesplegable */
+.ColumnaDesplegable {
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.ColumnaDesplegable button {
+    width: 100%;
+    font-size: 1.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 20px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000;
+}
+
+/* ColumnasHeader */
+.ColumnasHeader {
+    border-radius: 5px;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+}
+
+.ColumnasHeader button {
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-shadow: -1px -1px 0 #000;
+}
+
+/* ColumnasInicioSesion */
+.ColumnasInicioSesion {
+    border-radius: 5px;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+}
+
+.BotonSesion {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.BotonSesion img {
+    width: 50px;
+}
+
+/* Media queries para hacer el diseño responsive */
+@media screen and (max-width: 768px) {
+    .CajaHeader {
+        grid-template-columns: 10% 40% 10% 10% 10% 20%;
+    }
+
+    .ColumnaDesplegable button,
+    .ColumnasHeader button,
+    .ColumnasInicioSesion button {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .BotonSesion img {
+        width: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .CajaHeader {
+        grid-template-columns: 5% 60% 5% 5% 5% 20%;
+    }
+
+    .ColumnaDesplegable button,
+    .ColumnasHeader button,
+    .ColumnasInicioSesion button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .BotonSesion img {
+        width: 30px;
+    }
+}
