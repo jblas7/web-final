@@ -57,10 +57,21 @@ html, body {
     margin-bottom: 10px;
 }
 
+
+.iniciar-sesion-boton:hover,
+.enlace-crear-cuenta-login:hover {
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    background-color: #ff5252;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+
 .iniciar-sesion-boton {
     width: 100%;
     padding: 10px;
-    background-color: #ff5252;
+    background-color: rgb(202, 43, 43);
     color: white;
     border-radius: 10px;
     cursor: pointer;
