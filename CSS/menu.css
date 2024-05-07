@@ -678,31 +678,14 @@ nav.principal a:hover {
 
 
 /*TEXTO ESCRIBIENDOSE*/
-#texto {
-  border-right: 2px solid black;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 20em;
-  animation: escribir 2s steps(40, end) forwards;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  
+.cursor {
+  animation: blink .75s step-end infinite;
 }
 
-@keyframes escribir {
-  from {
-    width: 0%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    
-  }
+@keyframes blink {
+  from, to { color: transparent }
+  50% { color: black }
 }
-
-
 
 
 

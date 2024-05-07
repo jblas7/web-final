@@ -73,34 +73,52 @@ function scrollToSection(sectionId) {
 
 /*PARTE DEL TEXTO QUE CAMBIA*/
 var textos = [
-  "DELICIOUS DISHES AWAIT",
-  "EXPERIENCE CULINARY BLISS",
-  "TASTE THE MAGIC OF OUR MENU",
-  "UNFORGETTABLE FLAVORS EVERY BITE",
-  "OUR FANTASTIC MENU"
+  ['DELICIOUS STARTERS', 'HEALTHY SALADS', 'VEGAN OPTIONS'],
+  ['TASTY MAINS', 'MEAT LOVERS', 'SEAFOOD DELIGHTS'],
+  ['SWEET DESSERTS', 'CHOCOLATE HEAVEN', 'FRUIT PARADISE'],
+  ['REFRESHING DRINKS', 'COOL COCKTAILS', 'NON-ALCOHOLIC BEVERAGES'],
+  ['HAPPY HOUR SPECIALS', 'LATE NIGHT SNACKS', 'EARLY BIRD DISCOUNTS']
 ];
+var i = 0;
+var j = 0;
+var k = 0;
+var currentText = '';
+var isDeleting = false;
+var isWaiting = false;
+var waitTime = 2000; // Tiempo de espera en milisegundos
+var deleteSpeed = 160; // Velocidad de borrado en milisegundos
+var id = setInterval(typeWriter, 80);
 
-function cambiarTexto() {
-  var textoAleatorio = textos[Math.floor(Math.random() * textos.length)];
-  document.getElementById("texto").innerHTML = textoAleatorio;
-  setTimeout(function() {
-    cambiarTextoAleatoriamente();
-  }, 5000); // Cambia el texto aleatoriamente cada 5 segundos
+function typeWriter() {
+  var idElemento = 'tx-en' + (i + 1);
+  var elemento = document.getElementById(idElemento);
+  if (elemento) {
+      if (isDeleting) {
+          if (!isWaiting) {
+              currentText = currentText.slice(0, currentText.length - 1);
+              elemento.innerHTML = currentText + '<span class="cursor">|</span>';
+              if (currentText === '') {
+                  isDeleting = false;
+                  k = (k + 1) % textos[i].length;
+                  if (k === 0) {
+                      i = (i + 1) % textos.length;
+                  }
+              }
+          }
+      } else {
+          if (!isWaiting) {
+              currentText = textos[i][k].slice(0, j + 1);
+              elemento.innerHTML = currentText + '<span class="cursor">|</span>';
+              j++;
+              if (currentText === textos[i][k]) {
+                  isDeleting = true;
+                  j = 0;
+                  isWaiting = true;
+                  setTimeout(function() { isWaiting = false; }, waitTime);
+              }
+          }
+      }
+  } else {
+      clearInterval(id);
+  }
 }
-
-function cambiarTextoAleatoriamente() {
-  var textoAleatorio = textos[Math.floor(Math.random() * textos.length)];
-  document.getElementById("texto").innerHTML = textoAleatorio;
-  setTimeout(function() {
-    cambiarTextoAleatoriamente();
-  }, 5000); // Cambia el texto aleatoriamente cada 5 segundos
-}
-
-// Iniciar con un texto aleatorio al cargar la página
-window.onload = function() {
-  cambiarTexto();
-};
-
-
-
-
