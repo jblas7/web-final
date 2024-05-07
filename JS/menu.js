@@ -19,8 +19,7 @@
       dropdownMenu.style.display = "none";
     });
   });
-
-  
+/**/  
   
 
   /*APERTURA PARA INFORMACION*/  
