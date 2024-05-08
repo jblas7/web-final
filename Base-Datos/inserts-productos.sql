@@ -1,4 +1,4 @@
-/* INSERTS PARA CATEGORIAS */
+	/* INSERTS PARA CATEGORIAS */
 
 INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(1, 'STARTERS');
@@ -16,7 +16,7 @@ INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(5, 'DESSERTS');
 
 
-/* INSERTS PARA PRODUCTOS */
+	/* INSERTS PARA PRODUCTOS */
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
 VALUES (1, 'CHICKEN LOLIPOPS', 'Uncover delight with each bite of our 8 Chicken Lollipop Wings: cooked at
@@ -53,11 +53,11 @@ VALUES (7, 'PECTINENTE BURGER', 'Our homemade brioche bun with 2 smash burgers, 
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
 VALUES (8, 'THE PECADORA', 'House-made brioche bun, double beef patty and cheddar cheese, shredded
-                            lettuce, all accompanied by the world's most famous burger sauce containing pickles and
+                            lettuce, all accompanied by the worlds most famous burger sauce containing pickles and
                             onions.', 15.00, 2);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
-VALUES (9, 'MC & PEC'S BURGER', 'Our fabolus brioche bun with 2 smash burgers, pickles, and mac & cheese
+VALUES (9, 'MC & PECS BURGER', 'Our fabolus brioche bun with 2 smash burgers, pickles, and mac & cheese
                             oozing from all sides. An irresistible combination!', 13.90, 2);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
@@ -84,13 +84,13 @@ VALUES (14, 'PECAMINOSA BURGER', 'An excellent slow-cooked roasted pork Pulled P
 
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
-VALUES (15, 'LITTLE PEC'S', 'Our homemade brioche bun accompanied by a Morucha and Ox beef burger,
+VALUES (15, 'LITTLE PECS', 'Our homemade brioche bun accompanied by a Morucha and Ox beef burger,
                             caramelized onions, bacon, cheddar cheese, pickles, PECranch sauce, and right before
                             your eyes, we heap on loads of bacon ash-infused mac & cheese. Are you going to miss out
-                            on this?', 16.00, 3);
+                            on this?"', 16.00, 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
-VALUES (16, 'BIG PEC'S', 'Our homemade brioche bun paired with two Morucha and Ox beef patties
+VALUES (16, 'BIG PECS', 'Our homemade brioche bun paired with two Morucha and Ox beef patties
                             totaling 220g, caramelized onions, bacon, pickles, cheddar cheese, PECranch sauce, and
                             right in front of you, we pile on heaps of mac & cheese. An absolute madness!', 21.00, 3);
 
@@ -115,15 +115,15 @@ VALUES (20, 'FELIPEC SANDWICH', 'Feel presidential with our grilled high-quality
                             topped with a smooth sauce and served on artisan brioche bread.', 15.50, 4);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
-VALUES (21, 'THE CHEESERO', 'The 'Cheese Craze': Brioche bun with gooey melted cheddar,
+VALUES (21, 'THE CHEESERO', 'The "Cheese Craze": Brioche bun with gooey melted cheddar,
                             Monterrey Jack, and Manchego cheeses, topped with pickles and chipotle mayo.', 9.90, 4);
 
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
-VALUES (22, 'LOTUS CHEESPEC', 'The 'Deliciously creamy cheesecake with Lotus cream and a Lotus biscuit base.', 7.50, 5);
+VALUES (22, 'LOTUS CHEESPEC', 'The Deliciously creamy cheesecake with Lotus cream and a Lotus biscuit base.', 7.50, 5);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
-VALUES (23, 'HAPPY HIPO CHEESPEC', 'The 'Deliciously creamy cheesecake infused with Kinder cream and a touch of hippopotamus. What could possibly go wrong with this delightful mix?', 8.00, 5);
+VALUES (23, 'HAPPY HIPO CHEESPEC', 'The Deliciously creamy cheesecake infused with Kinder cream and a touch of hippopotamus. What could possibly go wrong with this delightful mix?', 8.00, 5);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, ID_Categoria)
 VALUES (24, 'TRADITIONAL CHEESPEC', 'The queen of the house, the classic cheesecake, creamy, sweet, with that cheesy flavor, simply spectacular.', 7.00, 5);
