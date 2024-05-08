@@ -10,6 +10,7 @@ CREATE TABLE Metodo_Pago(
     ID_Metodo_Pago INTEGER PRIMARY KEY,
     Numero INTEGER,
     CVV INTEGER,
+    Titular VARCHAR2(60),
     Fecha_Caducidad DATE,
     Contrareembolso CHAR
 );
@@ -37,13 +38,6 @@ CREATE TABLE Pedidos(
     FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador)
 );
 
-CREATE TABLE Detalle_Pedido(
-    ID_Detalle INTEGER PRIMARY KEY,
-    Cantidad INTEGER NOT NULL,
-    ID_Pedido INTEGER,
-    FOREIGN KEY (ID_Pedido) REFERENCES Pedidos(ID_Pedido)
-);
-
 CREATE TABLE Categoria(
     ID_Categoria INTEGER PRIMARY KEY,
     Nombre VARCHAR2(20) UNIQUE
@@ -56,4 +50,13 @@ CREATE TABLE Productos(
     Precio NUMBER(4, 2) NOT NULL,
     ID_Categoria INTEGER,
     FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
+);
+
+CREATE TABLE Detalle_Pedido(
+    ID_Detalle INTEGER PRIMARY KEY,
+    Cantidad INTEGER NOT NULL,
+    ID_Pedido INTEGER,
+    ID_Producto INTEGER,
+    FOREIGN KEY (ID_Pedido) REFERENCES Pedidos(ID_Pedido),
+    FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto)
 );

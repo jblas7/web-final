@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-06T16:50:33.497Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="mX7fx4ZMpuFmRIRALEp8" version="24.3.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-08T14:40:43.396Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="lmpOEzDOASwAmw8RnyE_" version="24.3.1" type="device">
   <diagram name="Página-1" id="al79PRzEsN4C3lmTY9LC">
-    <mxGraphModel dx="1343" dy="663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1195" dy="663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -109,7 +109,7 @@
             <mxPoint x="320" y="280" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TFa83CtxomrTN633iHs5-30" value="1:N" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="TFa83CtxomrTN633iHs5-30" value="N:1" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="470" y="420" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="TFa83CtxomrTN633iHs5-31" value="Tiene" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
