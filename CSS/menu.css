@@ -698,7 +698,7 @@ text-align: center;
 .item .details h3 {
   text-align: right;
   font-size: 28px;
- 
+  word-spacing: 5px;
   font-family: "Seymour One", sans-serif;
 
 }
