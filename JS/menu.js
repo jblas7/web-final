@@ -72,53 +72,94 @@ function scrollToSection(sectionId) {
 
 
 /*PARTE DEL TEXTO QUE CAMBIA*/
-var textos = [
-  ['DELICIOUS STARTERS', 'HEALTHY SALADS', 'VEGAN OPTIONS'],
-  ['TASTY MAINS', 'MEAT LOVERS', 'SEAFOOD DELIGHTS'],
-  ['SWEET DESSERTS', 'CHOCOLATE HEAVEN', 'FRUIT PARADISE'],
-  ['REFRESHING DRINKS', 'COOL COCKTAILS', 'NON-ALCOHOLIC BEVERAGES'],
-  ['HAPPY HOUR SPECIALS', 'LATE NIGHT SNACKS', 'EARLY BIRD DISCOUNTS']
+// Textos para los elementos existentes y el nuevo elemento
+const texts = [
+    ['STARTERS', 'TO OPEN STOMACH', 'FAST AND FORCEFUL', 'STAR STARTERS '],
+    ['SMASH BURGER', 'THE CRUSHED', 'FINE BURGER', 'DOESN\'T FAIL'],
+    ['MEDALLION BURGER', 'BIG BURGER', 'THE TASTY', 'JUICE AND PLEASURE'],
+    ['SANDWICHES', 'MEAT AND BREAD', 'TOASTED AND CRISPY', 'SANDWICHEESE'],
+    ['DESSERTS', 'EVERYONE\'S CRAVING', 'CHEESPECS', 'SENSATIONAL'],
+    ['ENJOY', 'DIRTY','SNAP','RETURN','FEEL'] // Nuevo elemento añadido
 ];
-var i = 0;
-var j = 0;
-var k = 0;
-var currentText = '';
-var isDeleting = false;
-var isWaiting = false;
-var waitTime = 2000; // Tiempo de espera en milisegundos
-var deleteSpeed = 160; // Velocidad de borrado en milisegundos
-var id = setInterval(typeWriter, 80);
 
-function typeWriter() {
-  var idElemento = 'tx-en' + (i + 1);
-  var elemento = document.getElementById(idElemento);
-  if (elemento) {
-      if (isDeleting) {
-          if (!isWaiting) {
-              currentText = currentText.slice(0, currentText.length - 1);
-              elemento.innerHTML = currentText + '<span class="cursor">|</span>';
-              if (currentText === '') {
-                  isDeleting = false;
-                  k = (k + 1) % textos[i].length;
-                  if (k === 0) {
-                      i = (i + 1) % textos.length;
-                  }
-              }
-          }
-      } else {
-          if (!isWaiting) {
-              currentText = textos[i][k].slice(0, j + 1);
-              elemento.innerHTML = currentText + '<span class="cursor">|</span>';
-              j++;
-              if (currentText === textos[i][k]) {
-                  isDeleting = true;
-                  j = 0;
-                  isWaiting = true;
-                  setTimeout(function() { isWaiting = false; }, waitTime);
-              }
-          }
-      }
-  } else {
-      clearInterval(id);
-  }
-}
+// Función para escribir el texto de manera animada
+const typeWriter = (element, textArray) => {
+    let i = 0;
+    let isDeleting = false;
+    let txt = '';
+
+    const typeSpeed = () => {
+        const fullTxt = textArray[i];
+        if (isDeleting) {
+            txt = fullTxt.substring(0, txt.length - 1);
+        } else {
+            txt = fullTxt.substring(0, txt.length + 1);
+        }
+
+        element.textContent = txt;
+
+        let speed = 50;
+        if (isDeleting) {
+            speed /= 2;
+        }
+
+        if (!isDeleting && txt === fullTxt) {
+            speed = 2000; // Tiempo que el texto se mantiene quieto
+            isDeleting = true;
+        } else if (isDeleting && txt === '') {
+            isDeleting = false;
+            i = (i + 1) % textArray.length;
+            speed = 200; // Tiempo que tarda en borrarse
+        }
+
+        setTimeout(typeSpeed, speed);
+    };
+
+    typeSpeed();
+};
+
+// Buscar y controlar cada elemento de texto
+texts.forEach((textArray, index) => {
+    const element = document.getElementById(`tx-en${index + 1}`);
+    
+    if (element) {
+        // Controlar el nuevo elemento solo si el índice es 5
+        if (index === 5) {
+            typeWriter(element, textArray);
+        } else {
+            // Para los otros elementos, puedes usar el código que tenías antes
+            let i = 0;
+            let isDeleting = false;
+            let txt = '';
+
+            const typeWriter = () => {
+                const fullTxt = textArray[i];
+                if (isDeleting) {
+                    txt = fullTxt.substring(0, txt.length - 1);
+                } else {
+                    txt = fullTxt.substring(0, txt.length + 1);
+                }
+
+                element.textContent = txt;
+
+                let typeSpeed = 150;
+                if (isDeleting) {
+                    typeSpeed /= 2;
+                }
+
+                if (!isDeleting && txt === fullTxt) {
+                    typeSpeed = 3000; // Tiempo que el texto se mantiene quieto
+                    isDeleting = true;
+                } else if (isDeleting && txt === '') {
+                    isDeleting = false;
+                    i = (i + 1) % textArray.length;
+                    typeSpeed = 200; // Tiempo que tarda en borrarse
+                }
+
+                setTimeout(typeWriter, typeSpeed);
+            };
+
+            typeWriter();
+        }
+    }
+});
