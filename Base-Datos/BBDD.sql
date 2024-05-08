@@ -47,7 +47,7 @@ CREATE TABLE Productos(
     ID_Producto INTEGER PRIMARY KEY,
     Nombre VARCHAR2(80) UNIQUE,
     Descripcion VARCHAR2(100),
-    Precio NUMBER(4, 2) NOT NULL,
+    Precio NUMBER(5, 2) NOT NULL,
     ID_Categoria INTEGER,
     FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
 );
