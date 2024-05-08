@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-05-08T14:39:41.749Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="NOxEqouyxh5C1gIFTBkY" version="24.3.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-08T15:32:44.901Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="GmSH5yxLTSIH_aPtCXbZ" version="24.3.1" type="device">
   <diagram name="Page-1" id="hHw1wzZmSoQQ5b5QwbxU">
     <mxGraphModel dx="1687" dy="936" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -122,7 +122,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="m9QhJa3I75lc1ZdL8t6L-3" value="Metodo_Pago" style="swimlane;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
-          <mxGeometry x="518" y="190" width="180" height="190" as="geometry" />
+          <mxGeometry x="518" y="150" width="180" height="230" as="geometry" />
         </mxCell>
         <mxCell id="m9QhJa3I75lc1ZdL8t6L-4" value="ID_Metodo_Pago (PK)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="m9QhJa3I75lc1ZdL8t6L-3" vertex="1">
           <mxGeometry x="20" y="30" width="140" height="30" as="geometry" />
@@ -137,7 +137,10 @@
           <mxGeometry x="30" y="120" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="m9QhJa3I75lc1ZdL8t6L-8" value="Contrarembolso&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="m9QhJa3I75lc1ZdL8t6L-3" vertex="1">
-          <mxGeometry x="35" y="150" width="110" height="30" as="geometry" />
+          <mxGeometry x="35" y="202" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9Q2CiwRjqtiN7n4ZBBdP-2" value="Titular" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="m9QhJa3I75lc1ZdL8t6L-3">
+          <mxGeometry x="60" y="164" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="m9QhJa3I75lc1ZdL8t6L-10" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="m9QhJa3I75lc1ZdL8t6L-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
