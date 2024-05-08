@@ -28,7 +28,9 @@ header {
 
 }
 
-
+p {
+  font-family: "Lexend", sans-serif;
+}
 
 
 
@@ -50,6 +52,7 @@ nav ul {
 nav ul li {
   display: inline-block;
   margin-left: 57px;
+  font-family: "Lexend", sans-serif;
 }
 
 nav ul li:first-child {
@@ -769,6 +772,7 @@ font-weight: bold;
 .politica-txt{
 font-weight: normal;
 margin-bottom: 15px;
+font-family: "Lexend", sans-serif
 }
 label {
   display: block;
