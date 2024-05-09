@@ -25,7 +25,6 @@ CREATE TABLE Pedidos(
     ID_Metodo_Pago INTEGER,
     ID_Trabajador INTEGER,
     FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
-    FOREIGN KEY (ID_Metodo_Pago) REFERENCES Metodo_Pago(ID_Metodo_Pago),
     FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador)
 );
 
