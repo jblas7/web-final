@@ -42,6 +42,12 @@ header {
   transform: scale(1.1);
 }
 
+
+.img-login {
+  width: 25px;
+  margin-right: 20px
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -296,8 +302,8 @@ nav.principal a:hover {
   background-color: #ffd5d5;
   color: #ff3b55;
   border: none;
-  padding: 12px 14px;
-  font-size: 12px;
+  padding: 10px 12px;
+  font-size: 8px;
   border-radius: 25px;
   transition: background-color 0.3s ease;
   font-weight: bold;
@@ -816,7 +822,8 @@ nav.principal a:hover {
   background: red;
   width: 100%;
   color: white;
-  padding: 10px;
+  padding-top: 40px;
+    padding-bottom: 30px;
   text-align: center;
 }
 
@@ -921,14 +928,6 @@ nav.principal a:hover {
   align-items: center;
 }
 
-.promo-section1 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-}
-
 .foodItem {
   margin: 10px;
 }
@@ -958,12 +957,18 @@ nav.principal a:hover {
   align-items: stretch;
   /* Asegura que ambos divs tengan la misma altura */
   justify-content: space-between;
- 
+  display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas del mismo tamaño */
   padding-left: 250px;
   padding-right: 250px;
   padding-top: 20px;
   /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
-  
+
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+
 }
 
 .promo-image1,
@@ -1018,7 +1023,44 @@ nav.principal a:hover {
 }
 
 
+/*BOTONES UTILES*/
 
+.boton-util{
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  border: none;
+  padding: 10px 12px;
+  font-size: 8px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: color 0.3 ease;
+  text-decoration: none;
+
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+ 
+}
+.boton-util:hover {
+  color: #ffffff;
+  background-color: #ff3b55;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px 14px;
+  font-size: 12px;
+  border-radius: 0px 25% 0px 25%;
+  word-spacing: 3px;
+    
+}
 
 
 
