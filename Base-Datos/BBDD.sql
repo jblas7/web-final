@@ -6,15 +6,6 @@ CREATE TABLE Cliente(
     Contrasena VARCHAR2(50) NOT NULL
 );
 
-CREATE TABLE Metodo_Pago(
-    ID_Metodo_Pago INTEGER PRIMARY KEY,
-    Numero INTEGER,
-    CVV INTEGER,
-    Titular VARCHAR2(60),
-    Fecha_Caducidad DATE,
-    Contrareembolso CHAR
-);
-
 CREATE TABLE Trabajador(
     ID_Trabajador INTEGER PRIMARY KEY,
     Nombre VARCHAR2(40) NOT NULL,
