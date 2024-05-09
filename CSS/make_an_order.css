@@ -44,7 +44,7 @@ header {
 
 
 .img-login {
-  width: 25px;
+  width: 18px;
   margin-right: 20px
 }
 
@@ -232,7 +232,7 @@ nav.principal a:hover {
   background-color: #ff3b55;
   color: #ffffff;
   border: none;
-  padding: 15px 20px;
+  padding: 12px 35px;
   font-size: 16px;
   border-radius: 25px 0% 25px 0%;
   transition: background-color 0.3s ease;
@@ -266,8 +266,9 @@ nav.principal a:hover {
   font-size: 12px;
   border-radius: 25px;
   transition: background-color 0.3s ease;
+ 
   font-weight: bold;
-  transition: color 0.3 ease;
+  
   text-decoration: none;
   width: 230px;
 
@@ -278,10 +279,10 @@ nav.principal a:hover {
 }
 
 .custom-boton3:hover {
-  font-family: "Seymour One", sans-serif;
-  background-color: #ffeff1;
-  color: #000000;
-  font-weight: bold;
+ 
+  background-color: #ff3b55;
+  color: #fff;
+
 
 }
 
@@ -893,7 +894,19 @@ nav.principal a:hover {
 
 }
 
+.h2-never-fails2{
+  font-family: "Seymour One", sans-serif;
+    font-size: 30x;
+    padding-top: 100px;
+}
 
+
+.h2-prodss2 {
+  font-family: "Seymour One", sans-serif;
+  font-size: 25px;
+
+
+}
 
 .h3-never-fails {
   font-family: "Lexend", sans-serif;
@@ -1794,4 +1807,96 @@ footer p {
 
 
 
+}
+
+
+
+
+
+
+
+/*PROMO SECTION 1 (TEXTO DEBAJO DE LAS BURGERS)*/
+.promo-section1 {
+  display: none !important;
+  align-items: stretch;
+  /* Asegura que ambos divs tengan la misma altura */
+  justify-content: space-between;
+  display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas del mismo tamaño */
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-top: 20px;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+
+}
+
+.promo-image1,
+.promo-content1 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.promo-image1 {
+  display: none;
+  width: 45%;
+  background-size: contain;
+  /* Asegura que la imagen esté contenida completamente dentro del div */
+  overflow: hidden;
+  /* Oculta cualquier parte de la imagen que exceda el contenedor */
+  background-size: cover;
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+
+}
+
+.ready-txt1{
+  font-family: "Seymour One", sans-serif;
+}
+
+.img-carta-sec1 {
+  display: none;
+
+  width: 100%;
+  height: auto;
+}
+
+
+
+.promo-content1 {
+  display: none;
+  width: 55%;
+  flex-direction: column;
+  /* Organiza el contenido en una columna vertical */
+  text-align: center;
+  /* Centra el texto horizontalmente */
+  padding: 1rem;
+  /* Añade un poco de espacio alrededor del contenido */
+}
+
+.txt-promo1 {
+  padding-bottom: 40px;
+
+}
+
+
+
+.foodItem {
+  display: none;
+  background-color: #333;
+  border-radius: 10px;
+  width: 300px;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
 }
