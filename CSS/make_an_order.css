@@ -1807,7 +1807,7 @@ footer p {
 
 
 
-}
+
 
 
 
@@ -1899,4 +1899,35 @@ footer p {
   align-items: center;
   position: relative;
   flex-direction: column;
+}
+
+
+
+
+
+.h2-never-fails{
+  display: none;
+}
+.h3-never-fails {
+  display: none;
+}
+
+.h2-never-fails2 {
+  padding-top: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
