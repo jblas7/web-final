@@ -200,7 +200,7 @@ nav.principal a:hover {
   background-color: #ffd5d5;
   color: #ff3b55;
   border: none;
-  padding: 12px 14px;
+  padding: 12px 25px;
   font-size: 16px;
   border-radius: 25px 0% 25px 0%;
   transition: background-color 0.3s ease;
@@ -208,7 +208,7 @@ nav.principal a:hover {
   margin-left: 620px;
   margin-top: -70px;
   text-decoration: none;
-  width: 250px;
+  width: 180px;
   display: flex;
   /* Usa flexbox */
   text-align: center;
@@ -710,12 +710,35 @@ nav.principal a:hover {
 
 
 
+.img-letras-lao {
+  width: 100px;
+}
 
 
 
 
+.promo-section3 {
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+  
+  border-radius: 0 0 40px 40px;
 
 
+
+}
+
+
+
+
+.cont-promo3-1 {
+  justify-content: center;
+  align-items: center;
+
+}
 
 
 /*SECCIÓN PROMO MENU */
@@ -727,7 +750,8 @@ nav.principal a:hover {
   /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
   background: rgb(254, 254, 254);
   background: radial-gradient(circle, rgba(254, 254, 254, 1) 0%, rgba(250, 250, 250, 1) 5%, rgba(249, 249, 249, 1) 16%, rgba(247, 247, 247, 1) 30%, rgba(231, 231, 231, 1) 48%, rgba(224, 224, 224, 1) 62%, rgba(212, 212, 212, 1) 100%);
-  
+  border-radius: 0 0 40px 40px;
+
 }
 
 .promo-image,
@@ -885,6 +909,11 @@ nav.principal a:hover {
     padding-top: 60px;
 }
 
+.h2-never-fails3{
+  font-family: "Seymour One", sans-serif;
+    font-size: 45px;
+    padding-top: 40px;
+}
 
 .h2-prodss {
   font-family: "Seymour One", sans-serif;
@@ -938,6 +967,7 @@ nav.principal a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 10px;
 }
 
 .foodItem {
