@@ -719,7 +719,7 @@ nav.principal a:hover {
 
 .promo-section3 {
   padding: 20px;
-
+  padding-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -757,6 +757,7 @@ display: flex;
 
 .maps-container {
     display: flex;
+   
 }
 .cont-promo3-1,
 .cont-promo3-2 {
@@ -785,16 +786,73 @@ display: flex;
   font-family: "Lexend", sans-serif;
   font-size: 40px;
   font-weight: bold;
+  text-align: center;
+  
 }
 
 .txt-2222 {
-  padding-top: 15px;
+  padding-top: 10px;
   padding-bottom: 10px;
   margin: 0 20px;
   font-family: "Lexend", sans-serif;
   font-size: 16px;
+  text-align: center;
  
 }
+
+.txt-2222-arr {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+.txt-2222-baj {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -969,12 +1027,14 @@ display: flex;
   font-family: "Seymour One", sans-serif;
     font-size: 60px;
     padding-top: 60px;
+   
 }
 
 .h2-never-fails3{
   font-family: "Seymour One", sans-serif;
     font-size: 45px;
     padding-top: 40px;
+    word-spacing: 5px;
 }
 
 .h2-prodss {
@@ -1155,7 +1215,7 @@ display: flex;
 }
 .boton-util:hover {
   color: #ffffff;
-  background-color: #ff3b55;
+  background-color: #ea344c;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -1999,8 +2059,39 @@ footer p {
 
 
 
-.h2-never-fails{
-  display: none;
+
+
+
+
+
+
+.promo-section2 img {
+  margin: 5px;
+}
+
+.img-3pasos {
+  width: 400px;
+  padding-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.h2-never-fails3{
+
+  font-size: 35px;
+  text-align: center;
 }
 .h3-never-fails {
   display: none;
@@ -2015,6 +2106,108 @@ footer p {
 
 
 
+.promo-section3 {
+  padding: 20px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+  
+  border-radius: 0 0 40px 40px;
+
+
+
+}
+
+
+
+
+.cont-promo3-1 {
+ 
+display: flex;
+}
+.cont-promo3-2 {
+
+display: flex;
+}
+
+.promo-section3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.text-container {
+    margin-bottom: 20px; /* Espacio entre el texto y los mapas */
+}
+
+.maps-container {
+    display: flex;
+    flex-direction: column;
+}
+.cont-promo3-1,
+.cont-promo3-2 {
+    margin: 0 10px; /* Espacio entre los mapas */
+}
+
+.cont-promo3-1 iframe,
+.cont-promo3-2 iframe {
+    width: 360px; /* Ancho de los mapas */
+    height: 300px; /* Altura de los mapas */
+    margin: 0 20px; /* Espacio entre los mapas */ 
+}
+
+.cont-promo3-1{
+  flex-direction: column;
+}
+
+.cont-promo3-2{
+  flex-direction: column;
+}
+
+
+.h222222 {
+  padding-top: 35px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+.txt-2222 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+.txt-2222-arr {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+.txt-2222-baj {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
 
 
 
