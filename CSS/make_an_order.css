@@ -200,7 +200,7 @@ nav.principal a:hover {
   background-color: #ffd5d5;
   color: #ff3b55;
   border: none;
-  padding: 18px 20px;
+  padding: 12px 14px;
   font-size: 16px;
   border-radius: 25px 0% 25px 0%;
   transition: background-color 0.3s ease;
@@ -268,7 +268,7 @@ nav.principal a:hover {
   transition: background-color 0.3s ease;
  
   font-weight: bold;
-  
+  word-spacing: 2px;
   text-decoration: none;
   width: 230px;
 
@@ -723,7 +723,6 @@ nav.principal a:hover {
   display: flex;
   align-items: stretch;
   /* Asegura que ambos divs tengan la misma altura */
- 
   justify-content: center;
   /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
   background: rgb(254, 254, 254);
@@ -820,7 +819,7 @@ nav.principal a:hover {
 .foodItem .details {
   position: absolute;
   bottom: 0;
-  background: red;
+  background:  rgb(255, 59, 85);
   width: 100%;
   color: white;
   padding-top: 40px;
@@ -956,7 +955,10 @@ nav.principal a:hover {
   margin: 5px;
 }
 
-
+.img-3pasos {
+  width: 900px;
+  padding-top: 20px;
+}
 
 
 
@@ -970,7 +972,7 @@ nav.principal a:hover {
   align-items: stretch;
   /* Asegura que ambos divs tengan la misma altura */
   justify-content: space-between;
-  display: grid;
+
     grid-template-columns: repeat(3, 1fr); /* Crea tres columnas del mismo tamaño */
   padding-left: 250px;
   padding-right: 250px;
