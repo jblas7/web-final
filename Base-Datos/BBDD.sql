@@ -1,3 +1,8 @@
+CREATE TABLE Categoria(
+    ID_Categoria INTEGER PRIMARY KEY,
+    Nombre VARCHAR2(20) UNIQUE
+);
+
 CREATE TABLE Cliente(
     ID_Cliente INTEGER PRIMARY KEY,
     Nombre VARCHAR2(40) NOT NULL,
@@ -16,6 +21,15 @@ CREATE TABLE Trabajador(
     Fecha_Contratacion DATE NOT NULL
 );
 
+CREATE TABLE Productos(
+    ID_Producto INTEGER PRIMARY KEY,
+    Nombre VARCHAR2(80) UNIQUE,
+    Descripcion VARCHAR2(400),
+    Precio NUMBER(5, 2) NOT NULL,
+    ID_Categoria INTEGER,
+    FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
+);
+
 CREATE TABLE Pedidos(
     ID_Pedido INTEGER PRIMARY KEY,
     Fecha DATE NOT NULL,
@@ -26,20 +40,6 @@ CREATE TABLE Pedidos(
     ID_Trabajador INTEGER,
     FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
     FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador)
-);
-
-CREATE TABLE Categoria(
-    ID_Categoria INTEGER PRIMARY KEY,
-    Nombre VARCHAR2(20) UNIQUE
-);
-
-CREATE TABLE Productos(
-    ID_Producto INTEGER PRIMARY KEY,
-    Nombre VARCHAR2(80) UNIQUE,
-    Descripcion VARCHAR2(400),
-    Precio NUMBER(5, 2) NOT NULL,
-    ID_Categoria INTEGER,
-    FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
 );
 
 CREATE TABLE Detalle_Pedido(
