@@ -735,10 +735,72 @@ nav.principal a:hover {
 
 
 .cont-promo3-1 {
-  justify-content: center;
-  align-items: center;
+ 
+display: flex;
+}
+.cont-promo3-2 {
+
+display: flex;
+}
+
+.promo-section3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
+
+.text-container {
+    margin-bottom: 20px; /* Espacio entre el texto y los mapas */
+}
+
+.maps-container {
+    display: flex;
+}
+.cont-promo3-1,
+.cont-promo3-2 {
+    margin: 0 10px; /* Espacio entre los mapas */
+}
+
+.cont-promo3-1 iframe,
+.cont-promo3-2 iframe {
+    width: 500px; /* Ancho de los mapas */
+    height: 300px; /* Altura de los mapas */
+    margin: 0 20px; /* Espacio entre los mapas */ 
+}
+
+.cont-promo3-1{
+  flex-direction: column;
+}
+
+.cont-promo3-2{
+  flex-direction: column;
+}
+
+
+.h222222 {
+  padding-top: 35px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.txt-2222 {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+ 
+}
+
+
+
+
+
+
 
 
 /*SECCIÓN PROMO MENU */
