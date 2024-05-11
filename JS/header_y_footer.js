@@ -138,3 +138,8 @@ carousel.addEventListener('mousemove', (e) => {
     const walk = (x - startX) * 1; // Puedes ajustar el multiplicador para cambiar la sensibilidad
     carousel.scrollLeft = scrollLeft - walk;
 });
+
+
+
+
+

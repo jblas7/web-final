@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEC Burger - Make your order online</title>
+    <link rel="stylesheet" href="../CSS/make_order.css">
+    <link rel="icon" href="../IMG/favicon1.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!--LINK CARRUSEL AUTOMATICO [DEJAR PUESTO PARA EL FORMATO CORRECTO] (SOLO CAMBIA CUANDO NO SE PONE EL RATON ENCIMA)-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Seymour+One&display=swap');
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+
+
+
+
+        <!--PARTE DEL MENÚ PARA EL RESPONSIVE-->
+        <div class="dropdown">
+            <button id="dropdownButton" class="dropbtn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div id="dropdownMenu" class="dropdown-content">
+                <button id="closeBtn">✘</button> <!-- BOTON DE CIERRE-->
+                <a href="#">MENU</a>
+                <a href="#">THIS IS PEC</a>
+                <a href="#">ABOUT US</a>
+                <a href="#">CONTACT</a>
+
+                <div class="reservsss">
+
+                    <a href="#">MAKE AN ORDER</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!--NAV (HEADER)-->
+        <div class="parte-izqda">
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo" src="../IMG/logo-img.png"
+                    alt="logo">
+            </a>
+
+
+        </div>
+
+
+        <div class="parte-dcha">
+
+            <div class="parte-norm-dcha">
+
+
+
+                <nav role="navigation">
+                    <div id="menuToggle">
+
+                        <input type="checkbox" />
+
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <ul id="menu">
+
+
+
+
+                            <div class="medio"></div>
+                            <a class="custom-boton" href="#"><img class="img-login" src="../IMG/img-usuario2.png"
+                                    alt="">LOGIN</a>
+                            <a href="../HTML/menu.html">
+                                <li class="li-menuuuu1">MENU</li>
+                            </a>
+                            <a href="../HTML/make_an_order.html">
+                                <li class="li-menuuuu">ORDER</li>
+                            </a>
+                            <a href="#">
+                                <li class="li-menuuuu">US</li>
+                            </a>
+                            <a href="#">
+                                <li class="li-menuuuu">CONTACT</li>
+                            </a>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="parte-guay-dcha">
+
+                <div class="medio">
+                    <a class="custom-boton2" href="#"> <img class="img-login" src="../IMG/img-usuario2.png"
+                            alt="">LOGIN</a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+
+    <!--PARTE VENTANA EMERGENTE PARA CONTINUAR CON EL PEDIDO-->
+   
+
+    <div class="cuerpo-web">
+
+
+
+        <form id="myForm">
+            <div>
+                <label for="delivery">Elige una opción:</label>
+                <select id="delivery" name="delivery" onchange="showInput(this)">
+                    <option value="">Selecciona una opción</option>
+                    <option value="pick">Recoger</option>
+                    <option value="home">A domicilio</option>
+                </select>
+                <span id="deliveryError" class="error"></span>
+            </div>
+        
+            <div id="pick" class="hidden">
+                <label for="pickupOption">Elige una opción de recogida:</label>
+                <select id="pickupOption" name="pickupOption" onchange="showPickupTime(this)">
+                    <option value="">Selecciona una opción</option>
+                    <option value="schedule">Programar envío</option>
+                    <option value="now">Pedir para ahora</option>
+                </select>
+                <span id="pickupOptionError" class="error"></span>
+        
+                <div id="pickupTime" class="hidden">
+                    <label for="pickupDate">Fecha de recogida:</label>
+                    <input type="date" id="pickupDate" name="pickupDate">
+                    <label for="pickupTime">Hora de recogida:</label>
+                    <input type="time" id="pickupTime" name="pickupTime">
+                    <span id="pickupTimeError" class="error"></span>
+                </div>
+        
+                <label for="location">Elige un lugar:</label>
+                <select id="location" name="location">
+                    <option value="">Selecciona un lugar</option>
+                    <option value="madrid">Pec Madrid</option>
+                    <option value="zaragoza">Pec Zaragoza</option>
+                </select>
+                <span id="locationError" class="error"></span>
+            </div>
+        
+            <div id="home" class="hidden">
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" name="address" placeholder="Calle, número, portal, piso">
+                <span id="addressError" class="error"></span>
+        
+                <label for="deliveryOption">Elige una opción de entrega:</label>
+                <select id="deliveryOption" name="deliveryOption" onchange="showDeliveryTime(this)">
+                    <option value="">Selecciona una opción</option>
+                    <option value="schedule">Programar entrega</option>
+                    <option value="now">Pedir para ahora</option>
+                </select>
+                <span id="deliveryOptionError" class="error"></span>
+        
+                <div id="deliveryTime" class="hidden">
+                    <label for="deliveryDate">Fecha de entrega:</label>
+                    <input type="date" id="deliveryDate" name="deliveryDate">
+                    <label for="deliveryTime">Hora de entrega:</label>
+                    <input type="time" id="deliveryTime" name="deliveryTime">
+                    <span id="deliveryTimeError" class="error"></span>
+                </div>
+            </div>
+        </form>
+        
+        <div class="button">
+            <button onclick="submitForm()">Enviar</button>
+        </div>
+        
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <footer>
+        <div class="redes-footer">
+            <a class="letra-redes">ALL OUR CRAZIES ON NETWORKS</a>
+
+
+        </div>
+        <div class="redes">
+            <a href="#" class="social-img"><img src="../IMG/instagram.png" alt="Instagram"></a>
+
+            <a href="#" class="social-img"><img src="../IMG/tik-tok.png" alt="TikTok"></a>
+
+            <a href="#" class="social-img"><img src="../IMG/facebook.png" alt="Facebook"></a>
+        </div>
+
+
+        <div class="img-fin">
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo-footer"
+                    src="../IMG/logo-bajo.png" alt="logo-bajo"></a>
+        </div>
+
+        <div class="footer-links">
+            <div class="contenedor-links">
+                <a class="item-footer" href="#">JOBS</a>
+                <a class="item-footer" href="#">REQUEST INVOICE</a>
+                <a class="item-footer" href="#">WARNING</a>
+                <a class="item-footer" href="#">PRIVACY POLICY</a>
+                <a class="item-footer" href="#">COOKIES</a>
+            </div>
+
+        </div>
+        <div class="pt-abajo-footer">
+            <br>
+            <a>Innovating burgers since 2020 - <a class="link-chorra" href="../HTML/">PEC Burger®</a></a>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+    <!--JS DEL CARRUSEL AUTOMÁTICO-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/make_order.js"></script>
+
+
+
+</body>
+
+</html>
