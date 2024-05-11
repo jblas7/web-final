@@ -40,9 +40,8 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
   
   
   
-  
-  
-  
+  /*VENTANA EMERGENTE PARA PEDIDOS*/
+
   
   
   
