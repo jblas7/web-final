@@ -128,99 +128,124 @@
 
 
     <!--PARTE VENTANA EMERGENTE PARA CONTINUAR CON EL PEDIDO-->
-   
+
 
     <div class="cuerpo-web">
 
 
-       
-        <form id="formularioPedido" onsubmit="return validarFormulario()">
-          <h2 class="h2-form">FORMULARIO DE PEDIDO</h2>
-          <label class="tit-tipo-ped" for="tipoPedido">Tipo de Pedido:</label><br>
-          <input type="radio" id="entregaDomicilio" name="tipoPedido" value="entregaDomicilio" onclick="mostrarOpciones()"> Entrega a Domicilio<br>
-          <input type="radio" id="recogerLocal" name="tipoPedido" value="recogerLocal" onclick="mostrarOpciones()"> Recoger en Local<br><br>
-      
-          <div id="opcionesEntrega" class="opciones">
-            <label>Dirección de Entrega:</label><br>
-            <input type="text" id="calle" name="calle" placeholder="Calle"><br><br>
-            <input type="text" id="portal" name="portal" placeholder="Portal" style="width: 80px;">
-            <input type="text" id="piso" name="piso" placeholder="Piso" style="width: 70px;">
-            <input type="text" id="letra" name="letra" placeholder="Letra" style="width: 75px;"><br><br>
-            <label for="modoEntrega">Modo de Entrega:</label><br>
-            <select id="modoEntrega" name="modoEntrega" onchange="mostrarHoraEntrega()">
-              <option value="pedirAhora">Pedir Ahora</option>
-              <option value="programarEnvio">Programar Envío</option>
-            </select><br><br>
-            <div id="horaEntregaDiv" style="display: none;">
-              <label for="horaEntrega">Hora de Entrega:</label><br>
-              <input type="time" id="horaEntrega" name="horaEntrega"><br><br>
+        <div class="form-pt-arr">
+                    <div class="parte-dcha-arr">
+            <img class="img-letras" src="../IMG/LETRAS_PEC_DELIVERYYYY_NEGRAS.png" alt="">
+
+
+
+
+
+
+        </div>
+
+            <div class="form-arr">
+                <form id="formularioPedido" onsubmit="return validarFormulario()">
+                    <h2 class="h2-form">FORMULARIO DE PEDIDO</h2>
+                    <label class="tit-tipo-ped" for="tipoPedido">Tipo de Pedido:</label><br>
+                    <input type="radio" id="entregaDomicilio" name="tipoPedido" value="entregaDomicilio"
+                        onclick="mostrarOpciones()"> Entrega a Domicilio<br>
+                    <input type="radio" id="recogerLocal" name="tipoPedido" value="recogerLocal"
+                        onclick="mostrarOpciones()"> Recoger en Local<br><br>
+    
+                    <div id="opcionesEntrega" class="opciones">
+                        <label>Dirección de Entrega:</label><br>
+                        <input type="text" id="calle" name="calle" placeholder="Calle"><br><br>
+                        <input type="text" id="portal" name="portal" placeholder="Portal" style="width: 80px;">
+                        <input type="text" id="piso" name="piso" placeholder="Piso" style="width: 70px;">
+                        <input type="text" id="letra" name="letra" placeholder="Letra" style="width: 75px;"><br><br>
+                        <label for="modoEntrega">Modo de Entrega:</label><br>
+                        <select id="modoEntrega" name="modoEntrega" onchange="mostrarHoraEntrega()">
+                            <option value="pedirAhora">Pedir Ahora</option>
+                            <option value="programarEnvio">Programar Envío</option>
+                        </select><br><br>
+                        <div id="horaEntregaDiv" style="display: none;">
+                            <label for="horaEntrega">Hora de Entrega:</label><br>
+                            <input type="time" id="horaEntrega" name="horaEntrega"><br><br>
+                        </div>
+                    </div>
+    
+                    <div id="opcionesRecoger" class="opciones" style="display: none;">
+                        <label for="nombre">Nombre:</label><br>
+                        <input type="text" id="nombre" name="nombre"><br><br>
+                        <label for="telefono">Teléfono:</label><br>
+                        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}"
+                            placeholder="Formato: 123456789"><br><br>
+                        <label for="pec">Recoger en:</label><br>
+                        <select id="pec" name="pec">
+                            <option value="madrid">Pec Madrid</option>
+                            <option value="zaragoza">Pec Zaragoza</option>
+                        </select><br><br>
+                        <label for="modoRecoger">Modo de Recogida:</label><br>
+                        <select id="modoRecoger" name="modoRecoger" onchange="mostrarHoraRecoger()">
+                            <option value="pedirAhora">Pedir Ahora</option>
+                            <option value="programarRecogida">Programar Recogida</option>
+                        </select><br><br>
+                        <div id="horaRecogerDiv" style="display: none;">
+                            <label for="horaRecoger">Hora de Recogida:</label><br>
+                            <input type="time" id="horaRecoger" name="horaRecoger"><br><br>
+                            <!-- Step de 300 segundos (5 minutos) -->
+                        </div>
+                    </div>
+    
+                    <input type="submit" value="Enviar">
+                </form>
+
+
+
             </div>
-          </div>
-      
-          <div id="opcionesRecoger" class="opciones">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre"><br><br>
-            <label for="telefono">Teléfono:</label><br>
-            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" placeholder="Formato: 123456789"><br><br>
-            <label for="modoRecoger">Modo de Recogida:</label><br>
-            <select id="modoRecoger" name="modoRecoger" onchange="mostrarHoraRecoger()">
-              <option value="pedirAhora">Pedir Ahora</option>
-              <option value="programarRecogida">Programar Recogida</option>
-            </select><br><br>
-            <div id="horaRecogerDiv" style="display: none;">
-              <label for="horaRecoger">Hora de Recogida:</label><br>
-              <input type="time" id="horaRecoger" name="horaRecoger" step="300"><br><br> <!-- Step de 300 segundos (5 minutos) -->
+            
+
+
+
+
+
+
+        </div>
+
+
+
+
+        <footer>
+            <div class="redes-footer">
+                <a class="letra-redes">ALL OUR CRAZIES ON NETWORKS</a>
+
+
             </div>
-          </div>
-      
-          <input type="submit" value="Enviar">
-        </form>
+            <div class="redes">
+                <a href="#" class="social-img"><img src="../IMG/instagram.png" alt="Instagram"></a>
 
+                <a href="#" class="social-img"><img src="../IMG/tik-tok.png" alt="TikTok"></a>
 
-
-    </div>
-
-
-
-
-
-
-
-    <footer>
-        <div class="redes-footer">
-            <a class="letra-redes">ALL OUR CRAZIES ON NETWORKS</a>
-
-
-        </div>
-        <div class="redes">
-            <a href="#" class="social-img"><img src="../IMG/instagram.png" alt="Instagram"></a>
-
-            <a href="#" class="social-img"><img src="../IMG/tik-tok.png" alt="TikTok"></a>
-
-            <a href="#" class="social-img"><img src="../IMG/facebook.png" alt="Facebook"></a>
-        </div>
-
-
-        <div class="img-fin">
-            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo-footer"
-                    src="../IMG/logo-bajo.png" alt="logo-bajo"></a>
-        </div>
-
-        <div class="footer-links">
-            <div class="contenedor-links">
-                <a class="item-footer" href="#">JOBS</a>
-                <a class="item-footer" href="#">REQUEST INVOICE</a>
-                <a class="item-footer" href="#">WARNING</a>
-                <a class="item-footer" href="#">PRIVACY POLICY</a>
-                <a class="item-footer" href="#">COOKIES</a>
+                <a href="#" class="social-img"><img src="../IMG/facebook.png" alt="Facebook"></a>
             </div>
 
-        </div>
-        <div class="pt-abajo-footer">
-            <br>
-            <a>Innovating burgers since 2020 - <a class="link-chorra" href="../HTML/">PEC Burger®</a></a>
-        </div>
-    </footer>
+
+            <div class="img-fin">
+                <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo-footer"
+                        src="../IMG/logo-bajo.png" alt="logo-bajo"></a>
+            </div>
+
+            <div class="footer-links">
+                <div class="contenedor-links">
+                    <a class="item-footer" href="#">JOBS</a>
+                    <a class="item-footer" href="#">REQUEST INVOICE</a>
+                    <a class="item-footer" href="#">WARNING</a>
+                    <a class="item-footer" href="#">PRIVACY POLICY</a>
+                    <a class="item-footer" href="#">COOKIES</a>
+                </div>
+
+            </div>
+            <div class="pt-abajo-footer">
+                <br>
+                <a>Innovating burgers since 2020 - <a class="link-chorra" href="../HTML/">PEC Burger®</a></a>
+            </div>
+        </footer>
 
 
 
@@ -230,10 +255,10 @@
 
 
 
-    <!--JS DEL CARRUSEL AUTOMÁTICO-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JS/make_order.js"></script>
+        <!--JS DEL CARRUSEL AUTOMÁTICO-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../JS/make_order.js"></script>
 
 
 

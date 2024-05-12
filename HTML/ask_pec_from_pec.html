@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/ask_pec_from_pec.css">
     <link rel="icon" href="../IMG/favicon1.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
 
     <!--LINK CARRUSEL AUTOMATICO [DEJAR PUESTO PARA EL FORMATO CORRECTO] (SOLO CAMBIA CUANDO NO SE PONE EL RATON ENCIMA)-->
 
@@ -30,7 +31,7 @@
 
 </head>
 
-<body>
+<body onload="enviarFormularioDespuesDeRedireccion()">
     <header class="header">
 
 
@@ -133,6 +134,77 @@
     <div class="cuerpo-web">
 
 
+       
+        <!--VENTANA EMRGENTE, FORMULARIO-->
+        <div id="ventanaEmergente" class="ventana-emergente">
+          <div class="contenido-ventana">
+            <span class="cerrar" onclick="cerrarVentana()">×</span>
+            <div class="form-arr">
+                <form id="formularioPedido" onsubmit="return validarFormulario()">
+                    <h2 class="h2-form">FORMULARIO DE PEDIDO</h2>
+                    <label class="tit-tipo-ped" for="tipoPedido">Tipo de Pedido:</label><br>
+                    <input type="radio" id="entregaDomicilio" name="tipoPedido" value="entregaDomicilio"
+                        onclick="mostrarOpciones()"> Entrega a Domicilio<br>
+                    <input type="radio" id="recogerLocal" name="tipoPedido" value="recogerLocal"
+                        onclick="mostrarOpciones()"> Recoger en Local<br><br>
+    
+                    <div id="opcionesEntrega" class="opciones">
+                        <label>Dirección de Entrega:</label><br>
+                        <input type="text" id="calle" name="calle" placeholder="Calle"><br><br>
+                        <input type="text" id="portal" name="portal" placeholder="Portal" style="width: 80px;">
+                        <input type="text" id="piso" name="piso" placeholder="Piso" style="width: 70px;">
+                        <input type="text" id="letra" name="letra" placeholder="Letra" style="width: 75px;"><br><br>
+                        <label for="modoEntrega">Modo de Entrega:</label><br>
+                        <select id="modoEntrega" name="modoEntrega" onchange="mostrarHoraEntrega()">
+                            <option value="pedirAhora">Pedir Ahora</option>
+                            <option value="programarEnvio">Programar Envío</option>
+                        </select><br><br>
+                        <div id="horaEntregaDiv" style="display: none;">
+                            <label for="horaEntrega">Hora de Entrega:</label><br>
+                            <input type="time" id="horaEntrega" name="horaEntrega"><br><br>
+                        </div>
+                    </div>
+    
+                    <div id="opcionesRecoger" class="opciones" style="display: none;">
+                        <label for="nombre">Nombre:</label><br>
+                        <input type="text" id="nombre" name="nombre"><br><br>
+                        <label for="telefono">Teléfono:</label><br>
+                        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}"
+                            placeholder="Formato: 123456789"><br><br>
+                        <label for="pec">Recoger en:</label><br>
+                        <select id="pec" name="pec">
+                            <option value="madrid">Pec Madrid</option>
+                            <option value="zaragoza">Pec Zaragoza</option>
+                        </select><br><br>
+                        <label for="modoRecoger">Modo de Recogida:</label><br>
+                        <select id="modoRecoger" name="modoRecoger" onchange="mostrarHoraRecoger()">
+                            <option value="pedirAhora">Pedir Ahora</option>
+                            <option value="programarRecogida">Programar Recogida</option>
+                        </select><br><br>
+                        <div id="horaRecogerDiv" style="display: none;">
+                            <label for="horaRecoger">Hora de Recogida:</label><br>
+                            <input type="time" id="horaRecoger" name="horaRecoger"><br><br>
+                            <!-- Step de 300 segundos (5 minutos) -->
+                        </div>
+                    </div>
+    
+                 
+                    <form action="../HTML/make_order.html" method="post">
+                        <!-- Aquí van los campos del formulario -->
+                        <input type="submit" id="enviarBtn" value="Enviar">
+                 
+                    </form>
+
+                  
+                  
+                </form>
+
+
+
+            </div>
+          </div>
+        </div>
+
 
         <div class="secc-img-burg-text">
             <div class="movida">
@@ -140,7 +212,8 @@
                 <h2>ASK PEC FROM PEC</h2>
                 <h3>FREE ON ORDERS OVER €30</h3>
                 <div class="cont-custom-boton3">
-                    <a href="../HTML/inicio.html" class="custom-boton3">PLACE YOUR ORDER</a>
+                    <button class="custom-boton3" onclick="mostrarVentana()">PLACE YOUR ORDER</button>
+                    
                 </div>
 
             </div>

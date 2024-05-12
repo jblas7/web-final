@@ -297,6 +297,196 @@ nav.principal a:hover {
 
 
 
+.ventana-emergente {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  z-index: 9999; /* Colocar en la parte superior */
+  padding: 20px;
+}
+
+/* Estilo para el contenido de la ventana emergente */
+.contenido-ventana {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+/* Estilo para el botón de cerrar */
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+.h2-form {
+  font-family: 'Seymour One';
+  font-size: 26px;
+
+  margin-bottom: 30px;
+
+}
+
+
+
+
+.tit-tipo-ped {
+  font-weight: bold;
+}
+
+
+
+
+.form-pt-arr {
+  width: 100%;
+  /* Asegura que el contenedor ocupe todo el ancho disponible */
+
+
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+
+
+}
+
+
+.parte-dcha-arr {
+
+
+
+  display: flex !important;
+  justify-content: center !important;
+
+}
+
+
+
+.img-letras {
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+
+}
+
+
+
+.form-arr {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+
+
+form {
+  max-width: 600px;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 80px;
+  margin-top: 30px;
+  font-family: 'Lexend';
+  font-size: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+fieldset {
+  margin-bottom: 20px;
+}
+
+
+
+
+legend {
+  font-weight: bold;
+}
+
+
+
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+
+
+
+
+input[type="text"],
+input[type="tel"],
+input[type="time"],
+input[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ff3b55;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 16px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+
+input[type="submit"]:hover {
+  font-family: "Seymour One", sans-serif;
+  color: #ff3b55;
+  background-color: #ffd5d5;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.opciones {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .custom-boton3-2 {

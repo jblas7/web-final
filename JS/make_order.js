@@ -144,6 +144,7 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
 
 
 
+  /*PARTE FORMULARIO GORDO*/
 
   function validarFormulario() {
     var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
@@ -162,11 +163,14 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
         return false;
       }
 
-      var horaEntrega = document.getElementById("horaEntrega").value.trim();
-      if (horaEntrega === "") {
-        alert("Por favor, ingrese la hora de entrega.");
-        document.getElementById("horaEntrega").focus();
-        return false;
+      var modoEntrega = document.getElementById("modoEntrega").value;
+      if (modoEntrega === "programarEnvio") {
+        var horaEntrega = document.getElementById("horaEntrega").value.trim();
+        if (horaEntrega === "") {
+          alert("Por favor, ingrese la hora de entrega.");
+          document.getElementById("horaEntrega").focus();
+          return false;
+        }
       }
     } else if (tipoPedido.value === "recogerLocal") {
       var nombre = document.getElementById("nombre").value.trim();
@@ -183,18 +187,21 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
         return false;
       }
 
-      var horaRecoger = document.getElementById("horaRecoger").value.trim();
-      if (horaRecoger === "") {
-        alert("Por favor, ingrese la hora de recogida.");
-        document.getElementById("horaRecoger").focus();
-        return false;
+      var modoRecoger = document.getElementById("modoRecoger").value;
+      if (modoRecoger === "programarRecogida") {
+        var horaRecoger = document.getElementById("horaRecoger").value.trim();
+        if (horaRecoger === "") {
+          alert("Por favor, ingrese la hora de recogida.");
+          document.getElementById("horaRecoger").focus();
+          return false;
+        }
       }
     }
 
     return true;
-  }
+}
 
-  function mostrarOpciones() {
+function mostrarOpciones() {
     var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
     var opcionesEntrega = document.getElementById("opcionesEntrega");
     var opcionesRecoger = document.getElementById("opcionesRecoger");
@@ -206,52 +213,89 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
       opcionesEntrega.style.display = "none";
       opcionesRecoger.style.display = "block";
     }
-  }
+}
 
-  function generarHoras() {
-    var selectHoraEntrega = document.getElementById("horaEntrega");
-    selectHoraEntrega.innerHTML = ""; // Limpiar opciones anteriores
-
-    var selectHoraRecoger = document.getElementById("horaRecoger");
-    selectHoraRecoger.innerHTML = ""; // Limpiar opciones anteriores
-
-    for (var hora = 0; hora < 24; hora++) {
-      for (var minuto = 0; minuto < 60; minuto += 5) {
-        var horaString = (hora < 10 ? "0" + hora : hora) + ":" + (minuto < 10 ? "0" + minuto : minuto);
-        var opcion = document.createElement("option");
-        opcion.text = horaString;
-        opcion.value = horaString;
-        selectHoraEntrega.add(opcion.cloneNode(true));
-        selectHoraRecoger.add(opcion.cloneNode(true));
-      }
-    }
-  }
-
-  // Llamar a la función para generar las opciones de hora al cargar la página
-  window.onload = function() {
-    mostrarOpciones();
-    generarHoras();
-  };
-  function mostrarHoraEntrega() {
+function mostrarHoraEntrega() {
     var modoEntrega = document.getElementById("modoEntrega").value;
     var horaEntregaDiv = document.getElementById("horaEntregaDiv");
-  
+
     if (modoEntrega === "programarEnvio") {
       horaEntregaDiv.style.display = "block";
-      generarHoras("horaEntrega");
     } else {
       horaEntregaDiv.style.display = "none";
     }
-  }
-  function mostrarHoraRecoger() {
+}
+
+function mostrarHoraRecoger() {
     var modoRecoger = document.getElementById("modoRecoger").value;
     var horaRecogerDiv = document.getElementById("horaRecogerDiv");
-  
+
     if (modoRecoger === "programarRecogida") {
       horaRecogerDiv.style.display = "block";
-      generarHoras("horaRecoger");
     } else {
       horaRecogerDiv.style.display = "none";
     }
-  }
-  
+}
+
+window.onload = function() {
+    mostrarOpciones();
+};
+
+document.getElementById("formularioPedido").addEventListener("submit", function(event) {
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+    if (!tipoPedido) {
+        alert("Por favor, seleccione el tipo de pedido.");
+        event.preventDefault();
+        return;
+    }
+
+    if (tipoPedido.value === "entregaDomicilio") {
+        var calle = document.getElementById("calle").value.trim();
+        var portal = document.getElementById("portal").value.trim();
+        var piso = document.getElementById("piso").value.trim();
+        var letra = document.getElementById("letra").value.trim();
+        if (calle === "" || portal === "" || piso === "" || letra === "") {
+            alert("Por favor, complete todos los campos para la dirección de entrega.");
+            event.preventDefault();
+            return;
+        }
+
+        var modoEntrega = document.getElementById("modoEntrega").value;
+        if (modoEntrega === "programarEnvio") {
+            var horaEntrega = document.getElementById("horaEntrega").value.trim();
+            if (horaEntrega === "") {
+                alert("Por favor, ingrese la hora de entrega.");
+                document.getElementById("horaEntrega").focus();
+                event.preventDefault();
+                return;
+            }
+        }
+    } else if (tipoPedido.value === "recogerLocal") {
+        var nombre = document.getElementById("nombre").value.trim();
+        if (nombre === "") {
+            alert("Por favor, ingrese su nombre.");
+            document.getElementById("nombre").focus();
+            event.preventDefault();
+            return;
+        }
+
+        var telefono = document.getElementById("telefono").value.trim();
+        if (telefono === "") {
+            alert("Por favor, ingrese su número de teléfono.");
+            document.getElementById("telefono").focus();
+            event.preventDefault();
+            return;
+        }
+
+        var modoRecoger = document.getElementById("modoRecoger").value;
+        if (modoRecoger === "programarRecogida") {
+            var horaRecoger = document.getElementById("horaRecoger").value.trim();
+            if (horaRecoger === "") {
+                alert("Por favor, ingrese la hora de recogida.");
+                document.getElementById("horaRecoger").focus();
+                event.preventDefault();
+                return;
+            }
+        }
+    }
+});

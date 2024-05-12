@@ -143,8 +143,194 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
   
 
 
+ /*PARTE FORMULARIO GORDO*/
+
+ function validarFormulario() {
+  var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+  if (!tipoPedido) {
+    alert("Por favor, seleccione el tipo de pedido.");
+    return false;
+  }
+
+  if (tipoPedido.value === "entregaDomicilio") {
+    var calle = document.getElementById("calle").value.trim();
+    var portal = document.getElementById("portal").value.trim();
+    var piso = document.getElementById("piso").value.trim();
+    var letra = document.getElementById("letra").value.trim();
+    if (calle === "" || portal === "" || piso === "" || letra === "") {
+      alert("Por favor, complete todos los campos para la dirección de entrega.");
+      return false;
+    }
+
+    var modoEntrega = document.getElementById("modoEntrega").value;
+    if (modoEntrega === "programarEnvio") {
+      var horaEntrega = document.getElementById("horaEntrega").value.trim();
+      if (horaEntrega === "") {
+        alert("Por favor, ingrese la hora de entrega.");
+        document.getElementById("horaEntrega").focus();
+        return false;
+      }
+    }
+  } else if (tipoPedido.value === "recogerLocal") {
+    var nombre = document.getElementById("nombre").value.trim();
+    if (nombre === "") {
+      alert("Por favor, ingrese su nombre.");
+      document.getElementById("nombre").focus();
+      return false;
+    }
+
+    var telefono = document.getElementById("telefono").value.trim();
+    if (telefono === "") {
+      alert("Por favor, ingrese su número de teléfono.");
+      document.getElementById("telefono").focus();
+      return false;
+    }
+
+    var modoRecoger = document.getElementById("modoRecoger").value;
+    if (modoRecoger === "programarRecogida") {
+      var horaRecoger = document.getElementById("horaRecoger").value.trim();
+      if (horaRecoger === "") {
+        alert("Por favor, ingrese la hora de recogida.");
+        document.getElementById("horaRecoger").focus();
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+function mostrarOpciones() {
+  var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+  var opcionesEntrega = document.getElementById("opcionesEntrega");
+  var opcionesRecoger = document.getElementById("opcionesRecoger");
+
+  if (tipoPedido && tipoPedido.value === "entregaDomicilio") {
+    opcionesEntrega.style.display = "block";
+    opcionesRecoger.style.display = "none";
+  } else if (tipoPedido && tipoPedido.value === "recogerLocal") {
+    opcionesEntrega.style.display = "none";
+    opcionesRecoger.style.display = "block";
+  }
+}
+
+function mostrarHoraEntrega() {
+  var modoEntrega = document.getElementById("modoEntrega").value;
+  var horaEntregaDiv = document.getElementById("horaEntregaDiv");
+
+  if (modoEntrega === "programarEnvio") {
+    horaEntregaDiv.style.display = "block";
+  } else {
+    horaEntregaDiv.style.display = "none";
+  }
+}
+
+function mostrarHoraRecoger() {
+  var modoRecoger = document.getElementById("modoRecoger").value;
+  var horaRecogerDiv = document.getElementById("horaRecogerDiv");
+
+  if (modoRecoger === "programarRecogida") {
+    horaRecogerDiv.style.display = "block";
+  } else {
+    horaRecogerDiv.style.display = "none";
+  }
+}
+
+window.onload = function() {
+  mostrarOpciones();
+};
+
+document.getElementById("formularioPedido").addEventListener("submit", function(event) {
+  var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+  if (!tipoPedido) {
+      alert("Por favor, seleccione el tipo de pedido.");
+      event.preventDefault();
+      return;
+  }
+
+  if (tipoPedido.value === "entregaDomicilio") {
+      var calle = document.getElementById("calle").value.trim();
+      var portal = document.getElementById("portal").value.trim();
+      var piso = document.getElementById("piso").value.trim();
+      var letra = document.getElementById("letra").value.trim();
+      if (calle === "" || portal === "" || piso === "" || letra === "") {
+          alert("Por favor, complete todos los campos para la dirección de entrega.");
+          event.preventDefault();
+          return;
+      }
+
+      var modoEntrega = document.getElementById("modoEntrega").value;
+      if (modoEntrega === "programarEnvio") {
+          var horaEntrega = document.getElementById("horaEntrega").value.trim();
+          if (horaEntrega === "") {
+              alert("Por favor, ingrese la hora de entrega.");
+              document.getElementById("horaEntrega").focus();
+              event.preventDefault();
+              return;
+          }
+      }
+  } else if (tipoPedido.value === "recogerLocal") {
+      var nombre = document.getElementById("nombre").value.trim();
+      if (nombre === "") {
+          alert("Por favor, ingrese su nombre.");
+          document.getElementById("nombre").focus();
+          event.preventDefault();
+          return;
+      }
+
+      var telefono = document.getElementById("telefono").value.trim();
+      if (telefono === "") {
+          alert("Por favor, ingrese su número de teléfono.");
+          document.getElementById("telefono").focus();
+          event.preventDefault();
+          return;
+      }
+
+      var modoRecoger = document.getElementById("modoRecoger").value;
+      if (modoRecoger === "programarRecogida") {
+          var horaRecoger = document.getElementById("horaRecoger").value.trim();
+          if (horaRecoger === "") {
+              alert("Por favor, ingrese la hora de recogida.");
+              document.getElementById("horaRecoger").focus();
+              event.preventDefault();
+              return;
+          }
+      }
+  }
+});
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function mostrarVentana() {
+    var ventanaEmergente = document.getElementById("ventanaEmergente");
+    ventanaEmergente.style.display = "block";
+    document.body.style.overflow = "hidden"; // Bloquear el scroll
+  }
+  
+  function cerrarVentana() {
+    var ventanaEmergente = document.getElementById("ventanaEmergente");
+    ventanaEmergente.style.display = "none";
+    document.body.style.overflow = "auto"; // Habilitar el scroll nuevamente
+  }
   
