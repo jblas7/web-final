@@ -133,72 +133,33 @@
     <div class="cuerpo-web">
 
 
-
-        <form id="myForm">
-            <div>
-                <label for="delivery">Elige una opción:</label>
-                <select id="delivery" name="delivery" onchange="showInput(this)">
-                    <option value="">Selecciona una opción</option>
-                    <option value="pick">Recoger</option>
-                    <option value="home">A domicilio</option>
-                </select>
-                <span id="deliveryError" class="error"></span>
-            </div>
-        
-            <div id="pick" class="hidden">
-                <label for="pickupOption">Elige una opción de recogida:</label>
-                <select id="pickupOption" name="pickupOption" onchange="showPickupTime(this)">
-                    <option value="">Selecciona una opción</option>
-                    <option value="schedule">Programar envío</option>
-                    <option value="now">Pedir para ahora</option>
-                </select>
-                <span id="pickupOptionError" class="error"></span>
-        
-                <div id="pickupTime" class="hidden">
-                    <label for="pickupDate">Fecha de recogida:</label>
-                    <input type="date" id="pickupDate" name="pickupDate">
-                    <label for="pickupTime">Hora de recogida:</label>
-                    <input type="time" id="pickupTime" name="pickupTime">
-                    <span id="pickupTimeError" class="error"></span>
-                </div>
-        
-                <label for="location">Elige un lugar:</label>
-                <select id="location" name="location">
-                    <option value="">Selecciona un lugar</option>
-                    <option value="madrid">Pec Madrid</option>
-                    <option value="zaragoza">Pec Zaragoza</option>
-                </select>
-                <span id="locationError" class="error"></span>
-            </div>
-        
-            <div id="home" class="hidden">
-                <label for="address">Dirección:</label>
-                <input type="text" id="address" name="address" placeholder="Calle, número, portal, piso">
-                <span id="addressError" class="error"></span>
-        
-                <label for="deliveryOption">Elige una opción de entrega:</label>
-                <select id="deliveryOption" name="deliveryOption" onchange="showDeliveryTime(this)">
-                    <option value="">Selecciona una opción</option>
-                    <option value="schedule">Programar entrega</option>
-                    <option value="now">Pedir para ahora</option>
-                </select>
-                <span id="deliveryOptionError" class="error"></span>
-        
-                <div id="deliveryTime" class="hidden">
-                    <label for="deliveryDate">Fecha de entrega:</label>
-                    <input type="date" id="deliveryDate" name="deliveryDate">
-                    <label for="deliveryTime">Hora de entrega:</label>
-                    <input type="time" id="deliveryTime" name="deliveryTime">
-                    <span id="deliveryTimeError" class="error"></span>
-                </div>
-            </div>
+        <h2 class="h2-form">Formulario de Pedido</h2>
+        <form id="formularioPedido" onsubmit="return validarFormulario()">
+          <label for="tipoPedido">Tipo de Pedido:</label><br>
+          <input type="radio" id="entregaDomicilio" name="tipoPedido" value="entregaDomicilio" onclick="mostrarOpciones()"> Entrega a Domicilio<br>
+          <input type="radio" id="recogerLocal" name="tipoPedido" value="recogerLocal" onclick="mostrarOpciones()"> Recoger en Local<br><br>
+      
+          <div id="opcionesEntrega" class="opciones">
+            <label>Dirección de Entrega:</label><br>
+            <input type="text" id="calle" name="calle" placeholder="Calle"><br><br>
+            <input type="text" id="portal" name="portal" placeholder="Portal" style="width: 80px;">
+            <input type="text" id="piso" name="piso" placeholder="Piso" style="width: 60px;">
+            <input type="text" id="letra" name="letra" placeholder="Letra" style="width: 40px;"><br><br>
+            <label for="horaEntrega">Hora de Entrega:</label><br>
+            <input type="time" id="horaEntrega" name="horaEntrega"><br><br>
+          </div>
+      
+          <div id="opcionesRecoger" class="opciones">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre"><br><br>
+            <label for="telefono">Teléfono:</label><br>
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" placeholder="Formato: 123456789"><br><br>
+            <label for="horaRecoger">Hora de Recogida:</label><br>
+            <input type="time" id="horaRecoger" name="horaRecoger" step="300"><br><br> <!-- Step de 300 segundos (5 minutos) -->
+          </div>
+      
+          <input type="submit" value="Enviar">
         </form>
-        
-        <div class="button">
-            <button onclick="submitForm()">Enviar</button>
-        </div>
-        
-
 
 
 

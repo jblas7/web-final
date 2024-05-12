@@ -145,70 +145,90 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
 
 
 
-
- function submitForm() {
-        var delivery = document.getElementById("delivery").value;
-        var isValid = false;
-
-        if (delivery === "pick") {
-            var pickupOption = document.getElementById("pickupOption").value;
-            if (pickupOption === "schedule") {
-                var pickupDate = document.getElementById("pickupDate").value;
-                var pickupTime = document.getElementById("pickupTime").value;
-                if (pickupDate !== "" && pickupTime !== "") {
-                    isValid = true;
-                } else {
-                    document.getElementById("pickupTimeError").textContent = "Selecciona fecha y hora de recogida.";
-                }
-            } else if (pickupOption === "now") {
-                isValid = true;
-            } else {
-                document.getElementById("pickupOptionError").textContent = "Selecciona una opción de recogida.";
-            }
-        } else if (delivery === "home") {
-            var address = document.getElementById("address").value;
-            if (address !== "") {
-                isValid = true;
-            } else {
-                document.getElementById("addressError").textContent = "Ingresa una dirección.";
-            }
-        } else {
-            document.getElementById("deliveryError").textContent = "Selecciona una opción de entrega.";
-        }
-
-        if (isValid) {
-            document.getElementById("myForm").submit();
-        }
+  function validarFormulario() {
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+    if (!tipoPedido) {
+      alert("Por favor, seleccione el tipo de pedido.");
+      return false;
     }
 
-    function showInput(selectElement) {
-        var selectedOption = selectElement.value;
-        var pickDiv = document.getElementById("pick");
-        var homeDiv = document.getElementById("home");
+    if (tipoPedido.value === "entregaDomicilio") {
+      var calle = document.getElementById("calle").value.trim();
+      var portal = document.getElementById("portal").value.trim();
+      var piso = document.getElementById("piso").value.trim();
+      var letra = document.getElementById("letra").value.trim();
+      if (calle === "" || portal === "" || piso === "" || letra === "") {
+        alert("Por favor, complete todos los campos para la dirección de entrega.");
+        return false;
+      }
 
-        pickDiv.classList.add("hidden");
-        homeDiv.classList.add("hidden");
+      var horaEntrega = document.getElementById("horaEntrega").value.trim();
+      if (horaEntrega === "") {
+        alert("Por favor, ingrese la hora de entrega.");
+        document.getElementById("horaEntrega").focus();
+        return false;
+      }
+    } else if (tipoPedido.value === "recogerLocal") {
+      var nombre = document.getElementById("nombre").value.trim();
+      if (nombre === "") {
+        alert("Por favor, ingrese su nombre.");
+        document.getElementById("nombre").focus();
+        return false;
+      }
 
-        document.getElementById("deliveryError").textContent = "";
-        document.getElementById("pickupOptionError").textContent = "";
-        document.getElementById("pickupTimeError").textContent = "";
-        document.getElementById("addressError").textContent = "";
+      var telefono = document.getElementById("telefono").value.trim();
+      if (telefono === "") {
+        alert("Por favor, ingrese su número de teléfono.");
+        document.getElementById("telefono").focus();
+        return false;
+      }
 
-        if (selectedOption === "pick") {
-            pickDiv.classList.remove("hidden");
-        } else if (selectedOption === "home") {
-            homeDiv.classList.remove("hidden");
-        }
+      var horaRecoger = document.getElementById("horaRecoger").value.trim();
+      if (horaRecoger === "") {
+        alert("Por favor, ingrese la hora de recogida.");
+        document.getElementById("horaRecoger").focus();
+        return false;
+      }
     }
 
-    function showPickupTime(selectElement) {
-        var selectedOption = selectElement.value;
-        var pickupTimeDiv = document.getElementById("pickupTime");
+    return true;
+  }
 
-        pickupTimeDiv.classList.add("hidden");
-        document.getElementById("pickupTimeError").textContent = "";
+  function mostrarOpciones() {
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+    var opcionesEntrega = document.getElementById("opcionesEntrega");
+    var opcionesRecoger = document.getElementById("opcionesRecoger");
 
-        if (selectedOption === "schedule") {
-            pickupTimeDiv.classList.remove("hidden");
-        }
+    if (tipoPedido && tipoPedido.value === "entregaDomicilio") {
+      opcionesEntrega.style.display = "block";
+      opcionesRecoger.style.display = "none";
+    } else if (tipoPedido && tipoPedido.value === "recogerLocal") {
+      opcionesEntrega.style.display = "none";
+      opcionesRecoger.style.display = "block";
     }
+  }
+
+  function generarHoras() {
+    var selectHoraEntrega = document.getElementById("horaEntrega");
+    selectHoraEntrega.innerHTML = ""; // Limpiar opciones anteriores
+
+    var selectHoraRecoger = document.getElementById("horaRecoger");
+    selectHoraRecoger.innerHTML = ""; // Limpiar opciones anteriores
+
+    for (var hora = 0; hora < 24; hora++) {
+      for (var minuto = 0; minuto < 60; minuto += 5) {
+        var horaString = (hora < 10 ? "0" + hora : hora) + ":" + (minuto < 10 ? "0" + minuto : minuto);
+        var opcion = document.createElement("option");
+        opcion.text = horaString;
+        opcion.value = horaString;
+        selectHoraEntrega.add(opcion.cloneNode(true));
+        selectHoraRecoger.add(opcion.cloneNode(true));
+      }
+    }
+  }
+
+  // Llamar a la función para generar las opciones de hora al cargar la página
+  window.onload = function() {
+    mostrarOpciones();
+    generarHoras();
+  };
