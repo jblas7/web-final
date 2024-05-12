@@ -429,13 +429,28 @@ body {
   
   /*FORMULARIO ENTREGAS Y TAL*/
   .h2-form {
-    text-align: center;
-    margin-top: 45px;
+    font-family: 'Seymour One';
+    font-size: 26px;
+    
     margin-bottom: 30px;
+    
   }
+
+.tit-tipo-ped {
+  font-weight: bold;
+}
+
   form {
     max-width: 600px;
-    margin: 0 auto;
+    margin-left: 60px;
+    margin-bottom: 80px;
+    margin-top: 60px;
+    font-family: 'Lexend';  
+    font-size: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 40px;
+   
   }
   
   fieldset {

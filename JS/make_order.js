@@ -232,3 +232,26 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
     mostrarOpciones();
     generarHoras();
   };
+  function mostrarHoraEntrega() {
+    var modoEntrega = document.getElementById("modoEntrega").value;
+    var horaEntregaDiv = document.getElementById("horaEntregaDiv");
+  
+    if (modoEntrega === "programarEnvio") {
+      horaEntregaDiv.style.display = "block";
+      generarHoras("horaEntrega");
+    } else {
+      horaEntregaDiv.style.display = "none";
+    }
+  }
+  function mostrarHoraRecoger() {
+    var modoRecoger = document.getElementById("modoRecoger").value;
+    var horaRecogerDiv = document.getElementById("horaRecogerDiv");
+  
+    if (modoRecoger === "programarRecogida") {
+      horaRecogerDiv.style.display = "block";
+      generarHoras("horaRecoger");
+    } else {
+      horaRecogerDiv.style.display = "none";
+    }
+  }
+  
