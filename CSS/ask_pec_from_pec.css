@@ -742,9 +742,9 @@ input[type="submit"]:hover {
   position: relative;
   top: 5px;
   left: 5px;
-
+  color: #000000;
   z-index: 1;
-
+  z-index: 999;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -772,6 +772,7 @@ input[type="submit"]:hover {
 
   cursor: pointer;
 
+
   opacity: 0;
   /* hide this */
   z-index: 2;
@@ -780,9 +781,7 @@ input[type="submit"]:hover {
   -webkit-touch-callout: none;
 }
 
-¡
- * Just a quick hamburger
- */
+
 #menuToggle span {
   display: block;
   width: 33px;
@@ -798,7 +797,7 @@ input[type="submit"]:hover {
   transform-origin: 4px 0px;
 
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+  background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
     opacity 0.55s ease;
 }
 
@@ -2450,7 +2449,6 @@ display: flex;
 
 
 }
-
 
 
 
