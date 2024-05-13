@@ -858,6 +858,7 @@ header {
     font-size: 25px;
     margin-right: 15%;
     text-align: center;
+    
     @media (max-width: 768px) {
   .fondo-formulario-login {
     height: auto;
