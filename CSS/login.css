@@ -858,6 +858,7 @@ header {
     font-size: 25px;
     margin-right: 15%;
     text-align: center;
+  }
     
     @media (max-width: 768px) {
   .fondo-formulario-login {
@@ -891,22 +892,24 @@ header {
     display: block;
     margin-bottom: 10px;
   }
-}
 
-  }
-
-  .iniciar-sesion-boton {
-    width: 50%;
-    font-size: 30px;
-  }
-
-  .registrarse-enlace {
+  .casilla-info-login input{
     text-align: center;
   }
+    
+    .iniciar-sesion-boton {
+      width: 50%;
+      font-size: 30px;
+    }
 
-  .casilla-info-login label {
-    text-align: center;
-    display: block;
-    margin-bottom: 10px;
+    .registrarse-enlace {
+      text-align: center;
+    }
+
+    .casilla-info-login label {
+      text-align: center;
+      display: block;
+      margin-bottom: 10px;
+    }
   }
-}
+  }
