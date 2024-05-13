@@ -1,13 +1,13 @@
 CREATE TABLE Categoria(
     ID_Categoria INTEGER PRIMARY KEY,
-    Nombre VARCHAR2(20) UNIQUE
+    Nombre VARCHAR2(20) NOT NULL
 );
 
 CREATE TABLE Cliente(
     ID_Cliente INTEGER PRIMARY KEY,
     Nombre VARCHAR2(40) NOT NULL,
     Telefono VARCHAR2(15) NOT NULL,
-    Email VARCHAR2(60) UNIQUE,
+    Email VARCHAR2(60) NOT NULL,
     Contrasena VARCHAR2(50) NOT NULL
 );
 
@@ -15,15 +15,15 @@ CREATE TABLE Trabajador(
     ID_Trabajador INTEGER PRIMARY KEY,
     Nombre VARCHAR2(40) NOT NULL,
     Numero_SS INTEGER UNIQUE,
-    Telefono VARCHAR2(15) UNIQUE,
-    Email VARCHAR2(60) UNIQUE,
+    Telefono VARCHAR2(15) NOT NULL,
+    Email VARCHAR2(60) NOT NULL,
     Contrasena VARCHAR2(50) NOT NULL,
     Fecha_Contratacion DATE NOT NULL
 );
 
 CREATE TABLE Productos(
     ID_Producto INTEGER PRIMARY KEY,
-    Nombre VARCHAR2(80) UNIQUE,
+    Nombre VARCHAR2(80) NOT NULL,
     Descripcion VARCHAR2(400),
     Precio NUMBER(5, 2) NOT NULL,
     Ruta_Imagen VARCHAR2(100) NOT NULL,
