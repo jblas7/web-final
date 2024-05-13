@@ -27,7 +27,7 @@ CREATE TABLE Productos(
     Descripcion VARCHAR2(400),
     Precio NUMBER(5, 2) NOT NULL,
     Ruta_Imagen VARCHAR2(100) NOT NULL,
-    ID_Categoria INTEGER,
+    ID_Categoria INTEGER NOT NULL,
     FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
 );
 
@@ -37,8 +37,8 @@ CREATE TABLE Pedidos(
     Estado VARCHAR2(20) NOT NULL,
     Direccion VARCHAR2(50) NOT NULL,
     ID_Cliente INTEGER,
-    ID_Metodo_Pago INTEGER,
-    ID_Trabajador INTEGER,
+    ID_Metodo_Pago INTEGER NOT NULL,
+    ID_Trabajador INTEGER NOT NULL,
     FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
     FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador)
 );
@@ -46,8 +46,8 @@ CREATE TABLE Pedidos(
 CREATE TABLE Detalle_Pedido(
     ID_Detalle INTEGER PRIMARY KEY,
     Cantidad INTEGER NOT NULL,
-    ID_Pedido INTEGER,
-    ID_Producto INTEGER,
+    ID_Pedido INTEGER NOT NULL,
+    ID_Producto INTEGER NOT NULL,
     FOREIGN KEY (ID_Pedido) REFERENCES Pedidos(ID_Pedido),
     FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto)
 );
