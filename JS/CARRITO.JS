@@ -1,3 +1,33 @@
+/*BOTON DESPLEGABLE RESPONSIVE*/
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownButton = document.getElementById("dropdownButton");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const closeBtn = document.getElementById("closeBtn");
+  
+    dropdownButton.addEventListener("click", function () {
+      if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
+        dropdownMenu.style.display = "block";
+      } else {
+        dropdownMenu.style.display = "none";
+      }
+    });
+  
+    closeBtn.addEventListener("click", function () {
+      dropdownMenu.style.display = "none";
+    });
+  });
+  
+  
+  
+
+  
+  
+
+
+
+
+/*CARRITO TOCHOOO*/
+
 //Variable que mantiene el estado visible del carrito
 var carritoVisible = false;
 
@@ -192,6 +222,6 @@ function actualizarTotalCarrito(){
     }
     total = Math.round(total * 100)/100;
 
-    document.getElementsByClassName('carrito-precio-total')[0].innerText = '$'+total.toLocaleString("es") + ",00";
+    document.getElementsByClassName('carrito-precio-total')[0].innerText = '$'+total.toLocaleString("es");
 
 }
