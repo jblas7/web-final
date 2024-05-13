@@ -408,25 +408,17 @@ body {
   }
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  .cuerpo-web {
-    margin-top: 95px;
-  
-  
-  
-  }
-  
 
-  .contenedor{
+
+
+
+
+
+
+
+
+
+.contenedor{
     max-width: 1200px;
     padding: 10px;
     margin: auto;
@@ -616,42 +608,56 @@ body {
     }
   }
 
+
+  .cuerpo-web {
+    margin-top: 95px;
   
   
   
-  
-  /*VENTANA EMERGENTE PARA PEDIDOS*/
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /*MENU HAMBURGUESA DESPLEGABLE GRANDE*/
   
   #menuToggle {
@@ -2046,6 +2052,5 @@ body {
     }   
   
   }
-  
   
   
