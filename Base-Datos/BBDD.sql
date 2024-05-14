@@ -5,7 +5,8 @@ CREATE TABLE Categoria(
 
 CREATE TABLE Cliente(
     ID_Cliente INTEGER PRIMARY KEY,
-    Nombre VARCHAR2(40) NOT NULL,
+    Nombre VARCHAR2(60) NOT NULL,
+    Apellido VARCHAR2(60) NOT NULL,
     Telefono VARCHAR2(15) NOT NULL,
     Email VARCHAR2(60) NOT NULL,
     Contrasena VARCHAR2(50) NOT NULL
@@ -13,11 +14,14 @@ CREATE TABLE Cliente(
 
 CREATE TABLE Trabajador(
     ID_Trabajador INTEGER PRIMARY KEY,
-    Nombre VARCHAR2(40) NOT NULL,
+    Nombre VARCHAR2(60) NOT NULL,
+    Apellido VARCHAR2(60) NOT NULL,
     Numero_SS INTEGER UNIQUE,
+    Salario NUMBER(6,2) NOT NULL,
     Telefono VARCHAR2(15) NOT NULL,
     Email VARCHAR2(60) NOT NULL,
     Contrasena VARCHAR2(50) NOT NULL,
+    Tipo_Trabajo VARCHAR2(50) NOT NULL,
     Fecha_Contratacion DATE NOT NULL
 );
 
