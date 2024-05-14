@@ -40,8 +40,7 @@ CREATE TABLE Pedidos(
     Fecha DATE NOT NULL,
     Estado VARCHAR2(20) NOT NULL,
     Direccion VARCHAR2(50) NOT NULL,
-    ID_Cliente INTEGER,
-    ID_Metodo_Pago INTEGER NOT NULL,
+    ID_Cliente INTEGER NOT NULL,
     ID_Trabajador INTEGER NOT NULL,
     FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
     FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador)
