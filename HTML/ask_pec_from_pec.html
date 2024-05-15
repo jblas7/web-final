@@ -140,7 +140,7 @@
           <div class="contenido-ventana">
             <span class="cerrar" onclick="cerrarVentana()">×</span>
             <div class="form-arr">
-                <form id="formularioPedido" onsubmit="return validarFormulario()">
+                <form id="formularioPedido" onsubmit="return validarFormulario()" action="../HTML/detalles_compra.html" method="get" onsubmit="return validarFormulario()">
                     <h2 class="h2-form">FORMULARIO DE PEDIDO</h2>
                     <label class="tit-tipo-ped" for="tipoPedido">Tipo de Pedido:</label><br>
                     <input type="radio" id="entregaDomicilio" name="tipoPedido" value="entregaDomicilio"
@@ -189,7 +189,7 @@
                     </div>
     
                  
-                    <form action="../HTML/make_order.html" method="post">
+                    <form action="../HTML/detalles_compra.html" method="post">
                         <!-- Aquí van los campos del formulario -->
                         <input type="submit" id="enviarBtn" value="Enviar">
                  

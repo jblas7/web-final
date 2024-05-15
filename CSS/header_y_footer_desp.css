@@ -507,7 +507,7 @@ body {
     -webkit-touch-callout: none;
   }
   
-  ¡
+  
   #menuToggle span {
     display: block;
     width: 33px;
@@ -1064,9 +1064,7 @@ body {
       -webkit-touch-callout: none;
     }
   
-    /*
-     * Just a quick hamburger
-     */
+  
     #menuToggle span {
       display: none;
       display: block;
@@ -1705,9 +1703,7 @@ body {
     -webkit-touch-callout: none;
   }
   
-  /*
-   * Just a quick hamburger
-   */
+
   #menuToggle span {
     display: block;
     width: 33px;

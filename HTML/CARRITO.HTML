@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CARRITO PRUEBA</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="../CSS/CARRITO.CSS">
     <script src="../JS/CARRITO.JS" async></script>
     <link rel="icon" href="../IMG/favicon1.ico">
@@ -152,13 +150,13 @@
                         <span class="titulo-item">CHIKEN LOLIPOPS</span>
                         <img src="../IMG/img-carta-1.jpg" alt="" class="img-item">
                         <span class="precio-item">11.95</span>
-                        <button class="boton-item">ADD TO CART</button>
+                        <button class="boton-item" onclick="agregarAlCarrito('CHIKEN LOLIPOPS', 11.95)">ADD TO CART</button>
                     </div>
                     <div class="item">
                         <span class="titulo-item">SPECIAL PECEÑOS</span>
                         <img src="../IMG/img-carta-2.jpg" alt="" class="img-item">
                         <span class="precio-item">8.90</span>
-                        <button class="boton-item">ADD TO CART</button>
+                        <button class="boton-item" onclick="agregarAlCarrito('SPECIAL PECEÑOS', 8.90)">ADD TO CART</button>
                     </div>
                     <div class="item">
                         <span class="titulo-item">PECRANCHO POTATOES</span>
@@ -480,7 +478,7 @@
                     <div class="fila">
                         <strong>TOTAL</strong>
                         <span class="carrito-precio-total">
-                            €120.000,00
+                            $120.000,00
                         </span>
                     </div>
                     <button class="btn-pagar">PAY<i class="fa-solid fa-bag-shopping"></i> </button>
