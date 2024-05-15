@@ -492,7 +492,7 @@ nav.principal a:hover {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: 28px;
   margin-bottom: 15px;
 }
 
@@ -500,7 +500,8 @@ nav.principal a:hover {
   display: block;
   text-align: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
+  font-family: 'Seymour One';
   margin-top: 10px;
 }
 
@@ -553,7 +554,7 @@ nav.principal a:hover {
 
 /* seccion carrito */
 .carrito {
-  border: 1px solid #666;
+  border: 2px solid #666;
   width: 35%;
   margin-top: 100px;
   border-radius: 10px;
@@ -838,7 +839,7 @@ nav.principal a:hover {
   align-items: center;
   justify-content: center;
 
-  padding: 30px;
+  padding: 25px 30px;
   /* Ajusta el tamaño del botón según sea necesario */
   border-radius: 50%;
   /* Hace que el botón sea redondo */

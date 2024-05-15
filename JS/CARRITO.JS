@@ -271,3 +271,9 @@ function actualizarTotalCarrito() {
 
     document.getElementsByClassName('carrito-precio-total')[0].innerText = formattedTotal + '€';
 }
+
+
+function pagarClicked() {
+    // Redirige a la página de pago
+    window.location.href = '../HTML/inicio.html';
+}
