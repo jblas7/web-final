@@ -419,7 +419,8 @@ nav.principal a:hover {
 
 .contenedor {
   max-width: 1200px;
-  padding: 10px;
+  padding: 40px;
+  gap: 150px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -852,6 +853,71 @@ nav.principal a:hover {
   /* Mostrar el botón cuando sea necesario */
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FORMULARIO TARJETA*/
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-group .half-width {
+  width: 45%;
+  float: left;
+  margin-right: 10%;
+}
+.form-group .half-width:last-child {
+  margin-right: 0;
+}
+.clear {
+  clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
