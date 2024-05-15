@@ -1,8 +1,8 @@
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
-VALUES (1, 'Juan', 'Hernandez', 111111111333, 2000.00, 123456789,'juanhernandez123@gmail.com', '123456789', 'Cocinero', '10/10/2023');
+VALUES (1, 'Juan', 'Hernandez', 111111111333, 2000.00, 123456789,'juan@gmail.com', '123456789', 'Admin', '10/10/2023');
 
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
-VALUES (2, 'Maria', 'Gonzalez', 111111111111, 2000.00, 234567890, 'mariagonzalez456@gmail.com', '123456789', 'Cocinero', '15/05/2023');
+VALUES (2, 'Maria', 'Gonzalez', 111111111111, 2000.00, 234567890, 'maria@gmail.com', '123456789', 'Admin', '15/05/2023');
 
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
 VALUES (3, 'Luis', 'Martinez', 222222222222, 2200.00, 345678901, 'luismartinez789@gmail.com', '123456789', 'Cocinero', '20/06/2023');
@@ -23,13 +23,13 @@ INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Tel
 VALUES (8, 'Sara', 'Lopez', 777777777777, 2600.00, 890123456, 'saralopez456@gmail.com', '123456789', 'Repartidor', '15/11/2023');
 
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
-VALUES (9, 'Manuel', 'Fernandez', 888888888888, 2300.00, 901234567, 'manuelfernandez789@gmail.com', '123456789', 'Cocinero', '20/12/2023');
+VALUES (9, 'Manuel', 'Fernandez', 888888888888, 2300.00, 901234567, 'manuelfernandez789@gmail.com', '123456789', 'Admin', '20/12/2023');
 
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
 VALUES (10, 'Elena', 'Diaz', 999999999999, 2400.00, 012345678, 'elenadiaz123@gmail.com', '123456789', 'Cajero', '25/01/2024');
 
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
-VALUES (11, 'Carlos', 'Ruiz', 101010101010, 2200.00, 123456789, 'carlosruiz456@gmail.com', '123456789', 'Cocinero', '01/02/2024');
+VALUES (11, 'Carlos', 'Ruiz', 101010101010, 2200.00, 123456789, 'carlosruiz456@gmail.com', '123456789', 'Admin', '01/02/2024');
 
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
 VALUES (12, 'Isabel', 'Jimenez', 111111111011, 2100.00, 234567890, 'isabeljimenez789@gmail.com', '123456789', 'Cocinero', '15/03/2024');
