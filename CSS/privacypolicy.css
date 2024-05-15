@@ -22,11 +22,12 @@ body {
 }
 
 .titulo-politica-privacidad {
+    font-family: "Ubuntu Sans Mono", monospace;
     font-size: 36px;
     text-align: center;
-    color: #ffffff;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #ff3b55;
+    color: #ff3b55;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ec0020;
     margin-bottom: 20px;
 }
 
@@ -151,7 +152,6 @@ header {
     transition: 1s all;
   }
   
-  /* Estilos sencillos para decorar los links */
   nav.principal ul {
   
     margin: 0;
@@ -188,13 +188,9 @@ header {
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 18px;
-    /*tamaño letra header*/
     font-weight: bold;
-    /*letra negrita header*/
     font-family: "Seymour One", sans-serif;
-    /*tipografía para el header*/
     word-spacing: 10px;
-    /*espaciado entre palabras*/
   
   }
   
@@ -246,10 +242,10 @@ header {
     transition: background-color 0.3s ease;
     font-weight: bold;
     text-decoration: none;
-    display: flex; /* Usa flexbox */
+    display: flex;
     text-align: center;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+    justify-content: center;
   }
   
   .custom-boton:hover {
@@ -271,10 +267,10 @@ header {
     transition: background-color 0.3s ease;
     font-weight: bold;
     text-decoration: none;
-    display: flex; /* Usa flexbox */
+    display: flex;
     text-align: center;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+    justify-content: center;
   }
   
   .custom-boton2:hover {
@@ -295,15 +291,11 @@ header {
   
   
   
-  /* Estilos para el botón hamburguesa */
   .dropbtn {
     display: none;
     background-color: transparent;
-    /* Hacemos el fondo transparente */
     border: none;
-    /* Eliminamos el borde */
     padding: 0;
-    /* Eliminamos el relleno para que las líneas queden bien alineadas */
     cursor: pointer;
   }
   
@@ -313,15 +305,12 @@ header {
     height: 3px;
     background-color: #000000;
     margin: 4px auto;
-    /* Espaciado entre las barras */
   }
   
-  /* Cambiamos el color de las barras al pasar el mouse */
   .dropbtn:hover .bar {
     background-color: brown;
   }
   
-  /* Estilos para el menú desplegable */
   .dropdown {
     position: relative;
     display: inline-block;
@@ -329,13 +318,11 @@ header {
   
   .dropdown-content {
     display: none;
-    /* Ocultamos el menú por defecto */
     position: absolute;
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     z-index: 1;
     right: 0;
-    /* Posicionamos el menú a la derecha */
   }
   
   .dropdown-content a {
@@ -376,7 +363,6 @@ header {
     align-items: center;
     text-align: center;
     margin-top: auto;
-    /* Coloca el footer al final de la página */
   
   }
   
@@ -402,12 +388,9 @@ header {
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 14px;
-    /*tamaño letra header*/
   
     font-family: "Seymour One", sans-serif;
-    /*tipografía para el header*/
     word-spacing: 10px;
-    /*espaciado entre palabras*/
   
   }
   
@@ -429,13 +412,11 @@ header {
   
   .social-img {
     margin: 25px;
-    /* Ajusta el espacio entre cada icono */
     justify-content: center;
   }
   
   .social-img img {
     width: 37px;
-    /* Ajusta el tamaño de los iconos */
     height: auto;
     justify-content: center;
   }
@@ -472,12 +453,9 @@ header {
     transition: color 0.3s ease;
     margin-bottom: 10px;
     font-size: 10px;
-    /*tamaño letra footer*/
   
     font-family: "Seymour One", sans-serif;
-    /*tipografía para el footer*/
     word-spacing: 4px;
-    /*espaciado entre palabras*/
   
   
   }
@@ -583,13 +561,9 @@ header {
       text-decoration: none;
       transition: color 0.3s ease;
       font-size: 6px;
-      /*tamaño letra header*/
       font-weight: bold;
-      /*letra negrita header*/
       font-family: "Seymour One", sans-serif;
-      /*tipografía para el header*/
       word-spacing: 10px;
-      /*espaciado entre palabras*/
     }
   
   
@@ -632,12 +606,9 @@ header {
       transition: color 0.3s ease;
       margin-bottom: 10px;
       font-size: 8px;
-      /*tamaño letra footer*/
   
       font-family: "Seymour One", sans-serif;
-      /*tipografía para el footer*/
       word-spacing: 4px;
-      /*espaciado entre palabras*/
   
   
     }
@@ -657,17 +628,14 @@ header {
       cursor: pointer;
     }
   
-    /* Se le quita el borde azul cuando se pulsa en Chrome */
     .botonMenu:focus {
       outline: none;
     }
   
-    /* Cuando es pulsado, se quita el translate que lo ocultaba */
     .botonMenu:focus+.principal {
       transform: translateX(0rem);
     }
   
-    /* Se posiciona y se oculta con translate */
     nav.principal {
   
       top: 0;
@@ -679,7 +647,6 @@ header {
       transition: 1s all;
     }
   
-    /* Estilos sencillos para decorar los links */
     nav.principal ul {
       margin: 0;
       padding: 0;
@@ -707,15 +674,11 @@ header {
   
   
   
-    /* Estilos para el botón hamburguesa */
     .dropbtn {
       display: contents;
       background-color: transparent;
-      /* Hacemos el fondo transparente */
       border: none;
-      /* Eliminamos el borde */
       padding: 0;
-      /* Eliminamos el relleno para que las líneas queden bien alineadas */
       cursor: pointer;
     }
   
@@ -725,15 +688,12 @@ header {
       height: 3px;
       background-color: #000000;
       margin: 4px auto;
-      /* Espaciado entre las barras */
     }
   
-    /* Cambiamos el color de las barras al pasar el mouse */
     .dropbtn:hover .bar {
       background-color: rgb(255, 59, 85);
     }
   
-    /* Estilos para el menú desplegable */
     .dropdown {
   
       position: relative;
@@ -743,7 +703,6 @@ header {
   
     .dropdown-content {
       display: none;
-      /* Ocultamos el menú por defecto */
       position: absolute;
       background: rgb(110, 110, 110);
       background: radial-gradient(circle, rgba(110, 110, 110, 1) 0%, rgba(51, 51, 51, 1) 64%, rgba(0, 0, 0, 1) 100%);
@@ -751,7 +710,6 @@ header {
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
       z-index: 1;
       right: 0;
-      /* Posicionamos el menú a la derecha */
     }
   
     .dropdown-content a {
@@ -771,7 +729,6 @@ header {
   
     .dropdown:hover .dropdown-content {
       display: block;
-      /* Mostramos el menú al hacer hover */
     }
   
     #closeBtn {
