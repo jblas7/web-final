@@ -565,13 +565,16 @@ nav.principal a:hover {
   /* Estilos para ocultar */
   margin-right: -100%;
   opacity: 0;
+  font-family: "Lexend", sans-serif;
+  
 }
 
 .carrito .header-carrito {
-  background-color: #000;
+  background-color: #ff3b55;
   color: #fff;
   text-align: center;
   padding: 10px 0;
+  font-family: "Seymour One", sans-serif;
 }
 
 .carrito .carrito-item {
@@ -598,7 +601,9 @@ nav.principal a:hover {
 .carrito .carrito-item .selector-cantidad {
   display: inline-block;
   margin-right: 25px;
+  
 }
+
 
 .carrito .carrito-item .carrito-item-cantidad {
   border: none;
@@ -608,7 +613,7 @@ nav.principal a:hover {
   width: 30px;
   padding: 5px;
   text-align: center;
-  font-family: 'myFont';
+
 }
 
 .carrito .carrito-item .selector-cantidad i {
@@ -645,6 +650,11 @@ nav.principal a:hover {
   display: block;
   background: transparent;
   z-index: 20;
+  transition: all 0.3s ease;
+}
+.carrito .carrito-item .btn-eliminar:hover {
+  transform: scale(1.1);
+
 }
 
 .carrito .carrito-item .btn-eliminar i {
@@ -669,7 +679,7 @@ nav.principal a:hover {
   display: block;
   width: 100%;
   border: none;
-  background: #000;
+  background: #ff3b55;
   color: #fff;
   border-radius: 5px;
   font-size: 18px;
@@ -679,7 +689,7 @@ nav.principal a:hover {
   align-items: center;
   cursor: pointer;
   transition: .3s;
-  font-family: 'myFont';
+  font-family: 'Seymour One';
 }
 
 .carrito-total .btn-pagar:hover {
