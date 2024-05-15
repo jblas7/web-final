@@ -121,6 +121,35 @@
         
     </header>
     <div class="cuerpo-web">
+
+<!--VENTANA EMERGENTE CONFIRMAR PEDIDO-->
+<div id="ventanaEmergente" class="ventana-emergente">
+    <div class="contenido-ventana">
+      <span class="cerrar" onclick="cerrarVentana()">×</span>
+      <div class="form-arr">
+          <form id="formularioPedido" onsubmit="return validarFormulario()">
+              <h2 class="h2-form">CONFIRM ORDER</h2>
+              <label class="tit-tipo-ped" for="tipoPedido">ONCE CONFIRMED, YOU CAN'T CANCEL</label><br>  
+                <form action="../HTML/make_order.html" method="post">
+                  <!-- Aquí van los campos del formulario -->
+                  <button class="btn-pagar">PAY NOW<i class="fa-solid fa-bag-shopping"></i> </button>
+               
+                    
+                </form>
+            </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
         <div class="div-img-arr">
             <img class="img-delivery" src="../IMG/LETRAS_PEC_DELIVERYYYY_NEGRAS.png" alt="">
              <!--CONTROLADOR DE LOS BOTONES UTILES-->
@@ -441,6 +470,7 @@
                 </div>
     
                 <div class="carrito-items">
+                    
                     <!-- 
                     <div class="carrito-item">
                         <img src="img/boxengasse.png" width="80px" alt="">
@@ -481,7 +511,8 @@
                             $120.000,00
                         </span>
                     </div>
-                    <button class="btn-pagar">PAY<i class="fa-solid fa-bag-shopping"></i> </button>
+                    
+                    <button class="btn-pagar" onclick="mostrarVentana()">PAY<i class="fa-solid fa-bag-shopping"></i> </button>
                 </div>
             </div>
         </section>
