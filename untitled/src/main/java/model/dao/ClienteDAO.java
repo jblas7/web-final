@@ -34,6 +34,9 @@ public class ClienteDAO implements DAO<Cliente, Integer> {
                 if (bean.getNombre() != null) {
                     sql += "AND Nombre='" + bean.getNombre() + "'";
                 }
+                if (bean.getApellido() != null) {
+                    sql += "AND Apellido='" + bean.getApellido() + "'";
+                }
                 if (bean.getTelefono() != null) {
                     sql += "AND Telefono='" + bean.getTelefono() + "'";
                 }

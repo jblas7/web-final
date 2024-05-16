@@ -125,6 +125,7 @@ public class Pelicula {
                 + pelicula.getnVotos() + ", id=" + pelicula.getId() + ", precio=" + pelicula.getPrecio() + '}';
     }
 
+    /* Forma de añadir el formato del json de salida manual, usando Gson con setPrettyPrinting se hace solo */
     public static String fromArrayToJson(ArrayList<Pelicula> peliculas) {
         String resp = "[";
         for (Pelicula pelicula : peliculas) {
