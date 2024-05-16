@@ -1,4 +1,4 @@
 package main.java.Services;
 
-public interface IAction {
+public class ClienteAction {
 }
