@@ -159,7 +159,7 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc) {
     var nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
     for (var i = 0; i < nombresItemsCarrito.length; i++) {
         if (nombresItemsCarrito[i].innerText == titulo) {
-            alert("El item ya se encuentra en el carrito");
+            alert("The item is already in the cart");
             return;
         }
     }
@@ -272,7 +272,27 @@ function actualizarTotalCarrito() {
     document.getElementsByClassName('carrito-precio-total')[0].innerText = formattedTotal + '€';
 }
 
+ // Obtener la sección del carrito
+ const carrito = document.getElementById('carrito');
 
+ // Función para ajustar la altura del carrito y activar el scroll si es necesario
+ function ajustarAlturaCarrito() {
+   const items = document.querySelectorAll('.carrito-item');
+   if (items.length > 2) {
+     carrito.style.height = '322px'; // Altura fija si hay más de 2 elementos
+     carrito.style.overflowY = 'scroll'; // Activar scroll
+   } else {
+     carrito.style.height = 'auto'; // Altura automática si hay 2 o menos elementos
+     carrito.style.overflowY = 'hidden'; // Desactivar scroll
+   }
+ }
+
+ // Llamar a la función cuando se cargue la página y cada vez que se actualice el contenido del carrito
+ window.addEventListener('DOMContentLoaded', ajustarAlturaCarrito);
+ window.addEventListener('resize', ajustarAlturaCarrito);
+
+ // Puedes llamar a esta función cada vez que agregues o elimines un elemento del carrito para actualizar la altura
+ // ajustarAlturaCarrito();
 
 
 
