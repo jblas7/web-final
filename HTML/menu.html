@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEC Burger - Menu</title>
+    <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="icon" href="../IMG/favicon1.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!--LINK CARRUSEL AUTOMATICO [DEJAR PUESTO PARA EL FORMATO CORRECTO] (SOLO CAMBIA CUANDO NO SE PONE EL RATON ENCIMA)-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Seymour+One&display=swap');
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+
+
+
+
+        <!--PARTE DEL MENÚ PARA EL RESPONSIVE-->
+        <div class="dropdown">
+            <button id="dropdownButton" class="dropbtn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div id="dropdownMenu" class="dropdown-content">
+                <a href="../HTML/menu.html">MENU</a>
+                <a href="#">THIS IS PEC</a>
+                <a href="#">ABOUT US</a>
+                <a href="#">CONTACT</a>
+
+                <div class="reservsss">
+
+                    <a href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                </div>
+            </div>
+        </div>
+
+        <!--NAV (HEADER)-->
+        <div class="parte-izqda">
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo" src="../IMG/logo-img.png"
+                    alt="logo">
+            </a>
+
+
+        </div>
+
+
+        <div class="parte-dcha">
+
+            <div class="parte-norm-dcha">
+                <a class="item-header" href="../HTML/menu.html">MENU</a>
+
+                <a class="item-header" href="#">THIS IS PEC</a>
+                <a class="item-header" href="#">ABOUT US</a>
+                <a class="item-header" href="#">CONTACT</a>
+
+            </div>
+            <div class="parte-guay-dcha">
+
+                <div class="medio"></div>
+                <a class="custom-boton2" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+
+
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+    <!--TITULO DE LA PAGINA-->
+    <div class="menu-title">
+        <img class="IMG_PEC-LETRAS" src="../IMG/LETRAS-PEC_MENU.png" alt="">
+
+    </div>
+
+
+
+
+    <!--CONTROLADOR DE LOS BOTONES UTILES-->
+    <div class="botones-utiles">
+        <button class="boton-util" onclick="scrollToSection('tx-en')">STARTERS</button>
+        <button class="boton-util" onclick="scrollToSection('tx-smash')">SMASH</button>
+        <button class="boton-util" onclick="scrollToSection('tx-medall')">MEDALLION</button>
+        <button class="boton-util" onclick="scrollToSection('tx-sand')">SANDWICHES</button>
+        <button class="boton-util" onclick="scrollToSection('tx-postr')">DESSERTS</button>
+    </div>
+
+    <div class="cont-guarrear" id="tx-guar">
+        <div class="txt-entr-2">
+            <h2 class="tx-en-2">WHAT ARE YOU WAITING TO</h2>
+            <h2 class="tx-en" id="tx-en6"></h2>
+        </div>
+    </div>
+    <!--PARTE DE LOS PRODUCTOS-->
+    <div class="menu">
+        <div class="category" id="category">
+
+
+            <div class="cont-entrantes" id="tx-en">
+                <div class="txt-entr">
+                    <h2 class="tx-en" id="tx-en1"></h2>
+                </div>
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-1.jpg" alt="Entrante 1">
+                    <div class="details hidden">
+                        <h3>CHICKEN LOLIPOPS</h3>
+                        <p class="price">11,95€</p>
+                        <p class="ingredients">Uncover delight with each bite of our 8 Chicken Lollipop Wings: cooked at
+                            low temperature and glazed with homemade bourbon-infused barbecue sauce. An irresistible
+                            indulgence in every mouthful.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG//img-carta-2.jpg" alt="Entrante 2">
+                    <div class="details hidden">
+                        <h3>SPECIAL PECEÑOS</h3>
+                        <p class="price">8,90€</p>
+                        <p class="ingredients">Enjoy our crispy cheese fingers—melted cheese wrapped in golden wheat
+                            flour dough, fried to perfection.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-3.jpg" alt="Entrante 3">
+                    <div class="details hidden">
+                        <h3>PECRANCHO POTATOES</h3>
+                        <p class="price">11,90€</p>
+                        <p class="ingredients">Indulge in our delectable petal potatoes, perfectly paired with creamy
+                            mac & cheese, succulent fried chicken, and a drizzle of tangy barbecue sauce for an
+                            unforgettable culinary experience.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-4.jpg" alt="Entrante 6">
+                    <div class="details hidden">
+                        <h3>TABLESIDE PECAMOLE</h3>
+                        <p class="price">14,50€</p>
+                        <p class="ingredients">Petal potatoes, delightfully crispy, adorned with savory bacon,
+                            generously smothered in our velvety mac & cheese, and topped with a dollop of zesty ranch
+                            sauce, creating a harmonious blend of flavors and textures that will tantalize your taste
+                            buds.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="cont-hamburguesas-1" id="tx-smash">
+                <div class="txt-entr">
+                    <h2 class="tx-en" id="tx-en2"></h2>
+                </div>
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-5.jpg" alt="Medallion 1">
+                    <div class="details hidden">
+                        <h3>PECTINENTE BURGER</h3>
+                        <p class="price">14,60€</p>
+                        <p class="ingredients">Our homemade brioche bun with 2 smash burgers, Oxaca, Monterrey, and
+                            mozzarella cheese, crispy American bacon, pickles, tomato jam, and PECrancho sauce.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-6.jpg" alt="Smash 2">
+                    <div class="details hidden">
+                        <h3>PECADORA BURGER</h3>
+                        <p class="price">14,80€</p>
+                        <p class="ingredients">House-made brioche bun, double beef patty and cheddar cheese, shredded
+                            lettuce, all accompanied by the world's most famous burger sauce containing pickles and
+                            onions.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-7.jpg" alt="Smash 3">
+                    <div class="details hidden">
+                        <h3>MC & PEC'S BURGER</h3>
+                        <p class="price">13,90€</p>
+                        <p class="ingredients">Our fabolus brioche bun with 2 smash burgers, pickles, and mac & cheese
+                            oozing from all sides. An irresistible combination!</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-8.jpg" alt="Smash 4">
+                    <div class="details hidden">
+                        <h3>PECLICIOSA BURGER</h3>
+                        <p class="price">14,50€</p>
+                        <p class="ingredients">Brioche bun accompanied by 2 thin burgers with delicious cheddar cheese,
+                            pickles, and bacon—simple yet doubly satisfying.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="cont-hamburguesas-2" id="tx-medall">
+                <div class="txt-entr">
+                    <h2 class="tx-en" id="tx-en3"></h2>
+                </div>
+
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-9.jpg" alt="Medallion 2">
+                    <div class="details hidden">
+                        <h3>PECEÑITA BURGER</h3>
+                        <p class="price">15,90€</p>
+                        <p class="ingredients">Homemade brioche bun with Morucha and Ox beef, Raclette cheese
+                            breaded in panko, pickles, crispy bacon, and slightly spicy El Rancho sauce.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-10.jpg" alt="Medallion 3">
+                    <div class="details hidden">
+                        <h3>PECSCELENTE XXL</h3>
+                        <p class="price">18,50€</p>
+                        <p class="ingredients">Brioche bun with a base of smoked barbecue, pickles, Morucha and Ox
+                            beef, cheddar cheese, slow-cooked Pulled Pork, and tempura onion.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-11.jpg" alt="Medallion 4">
+                    <div class="details hidden">
+                        <h3>PECDEROSA BURGER</h3>
+                        <p class="price">15,95€</p>
+                        <p class="ingredients">Our homemade brioche bun accompanied by a Morucha and Ox beef burger,
+                            caramelized onions, bacon, cheddar cheese, pickles, PECranch sauce, and right before
+                            your eyes, we heap on loads of bacon ash-infused mac & cheese. Are you going to miss out
+                            on this?</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-12.jpg" alt="Medallion 5">
+                    <div class="details hidden">
+                        <h3>LITTLE PEC'S BURGER </h3>
+                        <p class="price">20,90€</p>
+                        <p class="ingredients">Our homemade brioche bun paired with two Morucha and Ox beef patties
+                            totaling 220g, caramelized onions, bacon, pickles, cheddar cheese, PECranch sauce, and
+                            right in front of you, we pile on heaps of mac & cheese. An absolute madness!</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-13.jpg" alt="Medallion 6">
+                    <div class="details hidden">
+                        <h3>BIG PEC'S BURGER</h3>
+                        <p class="price">16,50€</p>
+                        <p class="ingredients">The crown jewel, our new Pretzel bun, 200-gram Morucha and Ox beef,
+                            caramelized onions, Emmy sauce with a spicy kick, crispy American bacon, and smoked
+                            cheese.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-14.jpg" alt="Medallion 7">
+                    <div class="details hidden">
+                        <h3>PECULIAR BURGER </h3>
+                        <p class="price">16,10€</p>
+                        <p class="ingredients">Our foodie burger: 200-gram Morucha and Ox beef, served on our
+                            homemade brioche bun with a nest of shoestring potatoes, cheddar cheese, crispy bacon,
+                            cream, and Lotus biscuit crumble.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-15.jpg" alt="Medallion 8">
+                    <div class="details hidden">
+                        <h3>PECARAMEL BURGER </h3>
+                        <p class="price">16,90€</p>
+                        <p class="ingredients">Our ultimate vegan burger comes with our homemade brioche bun, Beyond
+                            Meat patty, lettuce, tomato, pico de gallo, pickles, and barbecue sauce (add cheddar
+                            cheese if desired).</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-16.jpg" alt="Medallion 9">
+                    <div class="details hidden">
+                        <h3>THE PECHUGERA BURGER</h3>
+                        <p class="price">13,90€</p>
+                        <p class="ingredients">Our ultimate vegan burger comes with our homemade brioche bun, Beyond
+                            Meat patty, lettuce, tomato, pico de gallo, pickles, and barbecue sauce (add cheddar
+                            cheese if desired).</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="cont-sandwiches" id="tx-sand">
+                <div class="txt-entr">
+                    <h2 class="tx-en" id="tx-en4"></h2>
+                </div>
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-17.jpg" alt="Sandwich 1">
+                    <div class="details hidden">
+                        <h3>THE FELIPECS SANDWICH</h3>
+                        <p class="price">15,50€</p>
+                        <p class="ingredients">Feel presidential with our grilled high-quality beef striploin
+                            sandwich, layered with sautéed peppers, onions, and melted cheddar cheese, all
+                            topped with a smooth sauce and served on artisan brioche bread.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-18.jpg" alt="Sandwich 2">
+                    <div class="details hidden">
+                        <h3>THE CHEESERO SANDWICH</h3>
+                        <p class="price">9,90€</p>
+                        <p class="ingredients">The 'Cheese Craze': Brioche bun with gooey melted cheddar,
+                            Monterrey Jack, and Manchego cheeses, topped with pickles and chipotle mayo.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-19.jpeg" alt="Sandwich 2">
+                    <div class="details hidden">
+                        <h3>THE CREAMY BACON BUTTER</h3>
+                        <p class="price">10,90€</p>
+                        <p class="ingredients">Simply spectacular. Homemade brioche bread, edam cheese, smoked bacon meremelada, smoked cheddar cheese, and to top it off, bacon crunchy to give that crunchy touch in every bite. Brutal.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-20.jpeg" alt="Sandwich 1">
+                    <div class="details hidden">
+                        <h3>THE PECAMOLE BRIOCHE</h3>
+                        <p class="price">10,50€</p>
+                        <p class="ingredients">A great and crazy sandwich, cradled in our brioche bread, with a creamy interior, thanks to our homemade guacamole...there's a surprise in every bite!</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+            <div class="cont-postr" id="tx-postr">
+                <div class="txt-entr">
+                    <h2 class="tx-en" id="tx-en5"></h2>
+                </div>
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-25.jpg" alt="Postre 1">
+                    <div class="details hidden">
+                        <h3>LOTUS CHEESPEC</h3>
+                        <p class="price">7,50€</p>
+                        <p class="ingredients">Deliciously creamy cheesecake with Lotus cream and a Lotus biscuit base.
+                        </p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-26.jpg" alt="Postre 2">
+                    <div class="details hidden">
+                        <h3>HIPO CHEESPEC</h3>
+                        <p class="price">8,45€</p>
+                        <p class="ingredients">Deliciously creamy cheesecake infused with Kinder cream and a touch of
+                            hippopotamus. What could possibly go wrong with this delightful mix?</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-27.jpg" alt="Postre 3">
+                    <div class="details hidden">
+                        <h3>TRADI CHEESPEC</h3>
+                        <p class="price">7,45€</p>
+                        <p class="ingredients">The queen of the house, the classic cheesecake, creamy, sweet, with that
+                            cheesy flavor, simply spectacular.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+                <div class="item" onclick="toggleInfo(this)">
+                    <img src="../IMG/img-carta-28.jpg" alt="Postre 4">
+                    <div class="details hidden">
+                        <h3>CHOCO BROWNIE</h3>
+                        <p class="price">6,45€</p>
+                        <p class="ingredients">Another great option, a chocolate brownie with nuts, accompanied by an almond nougat ice cream, moist, creamy ... delicious.</p>
+                        <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="redes-footer">
+            <a class="letra-redes">ALL OUR CRAZIES ON NETWORKS</a>
+
+
+        </div>
+        <div class="redes">
+            <a href="#" class="social-img"><img src="../IMG/instagram.png" alt="Instagram"></a>
+
+            <a href="#" class="social-img"><img src="../IMG/tik-tok.png" alt="TikTok"></a>
+
+            <a href="#" class="social-img"><img src="../IMG/facebook.png" alt="Facebook"></a>
+        </div>
+
+
+        <div class="img-fin">
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo-footer"
+                    src="../IMG/logo-bajo.png" alt="logo-bajo"></a>
+        </div>
+
+        <div class="footer-links">
+            <div class="contenedor-links">
+                <a class="item-footer" href="#">JOBS</a>
+                <a class="item-footer" href="#">REQUEST INVOICE</a>
+                <a class="item-footer" href="#">WARNING</a>
+                <a class="item-footer" href="#">PRIVACY POLICY</a>
+                <a class="item-footer" href="#">COOKIES</a>
+            </div>
+
+        </div>
+        <div class="pt-abajo-footer">
+            <br>
+            <a>Innovating burgers since 2020 - <a class="link-chorra" href="../HTML/">PEC Burger®</a></a>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+    <!--JS DEL CARRUSEL AUTOMÁTICO-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/menu.js"></script>
+
+
+
+</body>
+
+</html>
