@@ -1,9 +1,8 @@
-package main.java.Model.Entities;
+package model.entities;
 
+/*    EJEMPLO DE ALBERO AKKARI PARA USAR DE REFERENCIA, ELIMINAR CUANDO LOS DATOS SE PUEDAN MANEJAR CORRECTAMENTE    */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import model.entities.Pelicula;
-
 import java.util.ArrayList;
 
 public class Productos {
