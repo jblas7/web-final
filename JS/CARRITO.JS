@@ -292,3 +292,14 @@ function actualizarTotalCarrito() {
     document.body.style.overflow = "auto"; // Habilitar el scroll nuevamente
   }
   
+
+  document.getElementById("openPopup").addEventListener("click", function() {
+    document.getElementById("popup").classList.add("active");
+    document.body.classList.add("popup-background");
+  });
+  
+  document.getElementById("closePopup").addEventListener("click", function() {
+    document.getElementById("popup").classList.remove("active");
+    document.body.classList.remove("popup-background");
+  });
+  

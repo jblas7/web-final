@@ -298,24 +298,29 @@ nav.principal a:hover {
 }
 
 
-
+/* Estilo para la ventana emergente */
 .ventana-emergente {
   display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  height: 100%; /* Ocupa toda la altura de la pantalla */
   background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
   z-index: 9999; /* Colocar en la parte superior */
   padding: 20px;
+  box-sizing: border-box; /* Incluye padding en el tamaño total */
 }
 
 /* Estilo para el contenido de la ventana emergente */
 .contenido-ventana {
   background-color: white;
   padding: 20px;
-  border-radius: 5px;
-  position: relative;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%);
 }
 
 /* Estilo para el botón de cerrar */
@@ -325,7 +330,6 @@ nav.principal a:hover {
   right: 10px;
   cursor: pointer;
 }
-
 
 
 
