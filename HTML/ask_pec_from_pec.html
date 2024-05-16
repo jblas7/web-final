@@ -45,8 +45,7 @@
                 <span class="bar"></span>
             </button>
             <div id="dropdownMenu" class="dropdown-content">
-                <button id="closeBtn">✘</button> <!-- BOTON DE CIERRE-->
-                <a href="#">MENU</a>
+                <a href="../HTML/menu.html">MENU</a>
                 <a href="#">THIS IS PEC</a>
                 <a href="#">ABOUT US</a>
                 <a href="#">CONTACT</a>
@@ -101,7 +100,7 @@
                             <a href="../HTML/menu.html">
                                 <li class="li-menuuuu1">MENU</li>
                             </a>
-                            <a href="../HTML/make_an_order.html">
+                            <a href="../HTML/ask_pec_from_pec.html">
                                 <li class="li-menuuuu">ORDER</li>
                             </a>
                             <a href="#">
@@ -118,7 +117,7 @@
             <div class="parte-guay-dcha">
 
                 <div class="medio">
-                    <a class="custom-boton2" href="#"> <img class="img-login" src="../IMG/img-usuario2.png"
+                    <a class="custom-boton2" href="../HTML/login.html"> <img class="img-login" src="../IMG/img-usuario2.png"
                             alt="">LOGIN</a>
                 </div>
 
@@ -140,7 +139,7 @@
           <div class="contenido-ventana">
             <span class="cerrar" onclick="cerrarVentana()">×</span>
             <div class="form-arr">
-                <form id="formularioPedido" onsubmit="return validarFormulario()" action="../HTML/detalles_compra.html" method="get" onsubmit="return validarFormulario()">
+                <form id="formularioPedido" onsubmit="return validarFormulario()" action="../HTML/CARRITO.HTML" method="get" onsubmit="return validarFormulario()">
                     <h2 class="h2-form">FORMULARIO DE PEDIDO</h2>
                     <label class="tit-tipo-ped" for="tipoPedido">Tipo de Pedido:</label><br>
                     <input type="radio" id="entregaDomicilio" name="tipoPedido" value="entregaDomicilio"
@@ -212,7 +211,7 @@
                 <h2>ASK PEC FROM PEC</h2>
                 <h3>FREE ON ORDERS OVER €30</h3>
                 <div class="cont-custom-boton3">
-                    <button class="custom-boton3" onclick="mostrarVentana()">PLACE YOUR ORDER</button>
+                    <button class="custom-boton3" onclick="mostrarVentana()" >PLACE YOUR ORDER</button>
                     
                 </div>
 
@@ -245,28 +244,28 @@
                     <img src="../IMG/img-burgerrrrrrrr.jpg" alt="PECTINENTE BURGER">
                     <div class="details">
                         <h2 class="h2-prodss">PECTINENTE</h2>
-                        <a href="../HTML/inicio.html" class="boton-util">PLACE YOUR ORDER</a>
+                        <button class="custom-boton3" onclick="mostrarVentana()">PLACE YOUR ORDER</button>
                     </div>
                 </div>
                 <div class="foodItem">
                     <img src="../IMG/img-sandwiichhhh.jpg" alt="FELIPEC SANDWICH">
                     <div class="details">
                         <h2 class="h2-prodss">FELIPEC</h2>
-                        <a href="../HTML/inicio.html" class="boton-util">PLACE YOUR ORDER</a>
+                        <button class="custom-boton3" onclick="mostrarVentana()">PLACE YOUR ORDER</button>
                     </div>
                 </div>
                 <div class="foodItem">
                     <img src="../IMG/img-tartaaaa2.jpg" alt="CHEESPEC">
                     <div class="details">
                         <h2 class="h2-prodss">CHEESPEC</h2>
-                        <a href="../HTML/inicio.html" class="boton-util">PLACE YOUR ORDER</a>
+                        <button class="custom-boton3" onclick="mostrarVentana()">PLACE YOUR ORDER</button>
                     </div>
                 </div>
             </div>
 
             <div class="promo-section2">
                 <h2 class="h2-never-fails2">ORDER IN 3 EASY STEPS</h2>
-                <a href="../HTML/inicio.html" target="_blank"><img class="img-3pasos" src="../IMG/img-pasos3.png"
+                <a onclick="mostrarVentana()" target="_blank"><img class="img-3pasos" src="../IMG/img-pasos3.png"
                         alt="PASOS COMPRAR">
                 </a>
 
