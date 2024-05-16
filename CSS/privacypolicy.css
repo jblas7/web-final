@@ -1,6 +1,6 @@
 body {
-
-    margin-top: 5%;
+    margin: 0px;
+    margin-top: 10%;
     font-family: "Lexend", sans-serif;
     display: flex;
     flex-direction: column;
@@ -11,6 +11,7 @@ body {
 .politicas-privacidad {
     max-width: 800px;
     margin: 0 auto;
+    margin-bottom: 55px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -22,8 +23,8 @@ body {
 }
 
 .titulo-politica-privacidad {
-    font-family: "Ubuntu Sans Mono", monospace;
-    font-size: 36px;
+    
+    font-size: 38px;
     text-align: center;
     color: #ff3b55;
     -webkit-text-stroke-width: 1px;
