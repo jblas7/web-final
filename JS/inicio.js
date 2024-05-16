@@ -189,3 +189,23 @@ document.getElementById("emergente-pedido").addEventListener("mousemove", functi
     }
   }
 });
+
+
+
+
+/*COOKIES Y PRIVACIDAD*/
+function acceptCookies() {
+  var essentialCookies = document.querySelector('input[name="essentialCookies"]').checked;
+  var externalCookies = document.querySelector('input[name="externalCookies"]').checked;
+
+  if (essentialCookies) {
+      // Aquí puedes agregar tu lógica para establecer las cookies esenciales y cerrar la ventana emergente
+      closeCookiePopup();
+  } else {
+      alert("Por favor, acepta las cookies esenciales para continuar.");
+  }
+}
+
+function closeCookiePopup() {
+  document.getElementById('cookiePopup').style.display = 'none';
+}
