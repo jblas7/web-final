@@ -303,9 +303,59 @@ document.getElementById("formularioPedido").addEventListener("submit", function(
 
 
 
+/*GUARDAR INFO DEL FORMULARIO*/
 
+function mostrarOpciones() {
+  const tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
+  document.getElementById('opcionesEntrega').style.display = tipoPedido === 'entregaDomicilio' ? 'block' : 'none';
+  document.getElementById('opcionesRecoger').style.display = tipoPedido === 'recogerLocal' ? 'block' : 'none';
+}
 
+function mostrarHoraEntrega() {
+  const modoEntrega = document.getElementById('modoEntrega').value;
+  document.getElementById('horaEntregaDiv').style.display = modoEntrega === 'programarEnvio' ? 'block' : 'none';
+}
 
+function mostrarHoraRecoger() {
+  const modoRecoger = document.getElementById('modoRecoger').value;
+  document.getElementById('horaRecogerDiv').style.display = modoRecoger === 'programarRecogida' ? 'block' : 'none';
+}
+
+function guardarFormulario(event) {
+  event.preventDefault();
+
+  const tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
+  const calle = document.getElementById('calle').value;
+  const portal = document.getElementById('portal').value;
+  const piso = document.getElementById('piso').value;
+  const letra = document.getElementById('letra').value;
+  const modoEntrega = document.getElementById('modoEntrega').value;
+  const horaEntrega = document.getElementById('horaEntrega').value;
+  const nombre = document.getElementById('nombre').value;
+  const telefono = document.getElementById('telefono').value;
+  const pec = document.getElementById('pec').value;
+  const modoRecoger = document.getElementById('modoRecoger').value;
+  const horaRecoger = document.getElementById('horaRecoger').value;
+
+  const formularioDatos = {
+      tipoPedido,
+      calle,
+      portal,
+      piso,
+      letra,
+      modoEntrega,
+      horaEntrega,
+      nombre,
+      telefono,
+      pec,
+      modoRecoger,
+      horaRecoger
+  };
+
+  localStorage.setItem('formularioDatos', JSON.stringify(formularioDatos));
+  alert('Información guardada con éxito!');
+  window.location.href = '../HTML/CARRITO.HTML';
+}
 
 
 

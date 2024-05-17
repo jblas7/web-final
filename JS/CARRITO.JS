@@ -279,6 +279,72 @@ function actualizarTotalCarrito() {
 
 
 
+
+/*PARTE DE LA INFO DEL FORMULARIO*/
+document.addEventListener('DOMContentLoaded', function() {
+    const formularioDatos = JSON.parse(localStorage.getItem('formularioDatos'));
+    if (formularioDatos) {
+        const { tipoPedido, calle, portal, piso, letra, modoEntrega, horaEntrega, nombre, telefono, pec, modoRecoger, horaRecoger } = formularioDatos;
+        let infoHTML = `<h2>Detalles del Pedido</h2>`;
+
+        if (tipoPedido === 'entregaDomicilio') {
+            infoHTML += `
+                <h3>Entrega a Domicilio</h3>
+                <p>Dirección: ${calle}, ${portal}, ${piso}, ${letra}</p>
+                <p>Modo de Entrega: ${modoEntrega}</p>
+                ${modoEntrega === 'programarEnvio' ? `<p>Hora de Entrega: ${horaEntrega}</p>` : ''}
+            `;
+        } else if (tipoPedido === 'recogerLocal') {
+            infoHTML += `
+                <h3>Recoger en Local</h3>
+                <p>Nombre: ${nombre}</p>
+                <p>Teléfono: ${telefono}</p>
+                <p>Pec: ${pec}</p>
+                <p>Modo de Recogida: ${modoRecoger}</p>
+                ${modoRecoger === 'programarRecogida' ? `<p>Hora de Recogida: ${horaRecoger}</p>` : ''}
+            `;
+        }
+
+        document.getElementById('infoSection').innerHTML = infoHTML;
+    } else {
+        document.getElementById('infoSection').innerHTML = '<p>No hay información guardada.</p>';
+    }
+});
+
+
+
+ // Obtener referencia a la sección de información guardada
+ var infoSection = document.getElementById('infoSection');
+
+ // Mostrar la sección de información guardada cuando el carrito esté visible
+ function mostrarInfoSection() {
+     var carrito = document.getElementById('carrito');
+     if (carrito.style.display !== 'none') {
+         infoSection.style.display = 'block';
+     }
+ }
+
+ // Ocultar la sección de información guardada cuando el carrito esté oculto
+ function ocultarInfoSection() {
+     infoSection.style.display = 'none';
+ }
+
+ // Evento que se activa cuando se muestra el carrito
+ document.getElementById('dropdownButton').addEventListener('click', function () {
+     // Llamar a la función para mostrar u ocultar la sección de información guardada
+     if (infoSection.style.display !== 'none') {
+         ocultarInfoSection();
+     } else {
+         mostrarInfoSection();
+     }
+ });
+
+
+
+
+
+
+
  /*VENTANA EMERGENTE CONFIRMAR PEDIDO*/
 
   function mostrarVentana() {
