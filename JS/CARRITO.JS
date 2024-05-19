@@ -277,17 +277,18 @@ function actualizarTotalCarrito() {
 
 
 function toggleInfo() {
-    var infoSection = document.getElementById("infoSection");
-    var toggleButton = document.getElementById("toggleButton");
-    
-    if (infoSection.style.display === "none" || infoSection.style.display === "") {
-        infoSection.style.display = "block";
-        toggleButton.textContent = "Ver menos";
+    var section = document.getElementById("infoSection");
+    var button = document.getElementById("toggleButton");
+
+    if (section.style.display === "none") {
+        section.style.display = "block";
+        button.textContent = "SEE LESS";
     } else {
-        infoSection.style.display = "none";
-        toggleButton.textContent = "Ver más";
+        section.style.display = "none";
+        button.textContent = "SEE MORE";
     }
 }
+
 
 
 
@@ -380,4 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("popup").classList.remove("active");
     document.body.classList.remove("popup-background");
   });
+  
+
+
   
