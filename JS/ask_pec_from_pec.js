@@ -147,7 +147,7 @@
   function validarFormulario() {
     var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
     if (!tipoPedido) {
-        alert("Por favor, seleccione el tipo de pedido.");
+        alert("Please select the type of order.");
         return false;
     }
 
@@ -157,7 +157,7 @@
         var piso = document.getElementById("piso").value.trim();
         var letra = document.getElementById("letra").value.trim();
         if (calle === "" || portal === "" || piso === "" || letra === "") {
-            alert("Por favor, complete todos los campos para la dirección de entrega.");
+            alert("Please complete all fields for the delivery address.");
             return false;
         }
 
@@ -173,14 +173,14 @@
     } else if (tipoPedido.value === "recogerLocal") {
         var nombre = document.getElementById("nombre").value.trim();
         if (nombre === "") {
-            alert("Por favor, ingrese su nombre.");
+            alert("Please enter your name.");
             document.getElementById("nombre").focus();
             return false;
         }
 
         var telefono = document.getElementById("telefono").value.trim();
         if (telefono === "") {
-            alert("Por favor, ingrese su número de teléfono.");
+            alert("Please enter your phone number.");
             document.getElementById("telefono").focus();
             return false;
         }
@@ -189,7 +189,7 @@
         if (modoRecoger === "programarRecogida") {
             var horaRecoger = document.getElementById("horaRecoger").value.trim();
             if (horaRecoger === "") {
-                alert("Por favor, ingrese la hora de recogida.");
+                alert("Please enter the pick-up time.");
                 document.getElementById("horaRecoger").focus();
                 return false;
             }
@@ -263,7 +263,7 @@ function guardarFormulario(event) {
     };
 
     localStorage.setItem('formularioDatos', JSON.stringify(formularioDatos));
-    alert('Información guardada con éxito!');
+    alert('Information successfully saved!');
     window.location.href = '../HTML/CARRITO.HTML'; // Redirect after saving data
 }
 

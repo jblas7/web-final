@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyF - PEC Burger</title>
-    <link rel="stylesheet" href="../CSS/header_y_footer.css">
+    <title>PEC Burger - Log In With Your Account</title>
+    <link rel="stylesheet" href="../CSS//login_corr.css">
     <link rel="icon" href="../IMG/favicon1.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -45,14 +45,14 @@
             </button>
             <div id="dropdownMenu" class="dropdown-content">
               
-                <a href="../HTML/make_order.html">MENU</a>
+                <a href="#">MENU</a>
                 <a href="#">THIS IS PEC</a>
                 <a href="#">ABOUT US</a>
                 <a href="#">CONTACT</a>
 
                 <div class="reservsss">
 
-                    <a href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                    <a href="#">MAKE AN ORDER</a>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
             <div class="parte-guay-dcha">
 
                 <div class="medio"></div>
-                <a class="custom-boton2" href="../HTML/menu.html">MAKE AN ORDER</a>
+                <a class="custom-boton2" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
 
 
             </div>
@@ -94,7 +94,28 @@
     <div class="cuerpo-web">
 
 
+        <div class="fondo-formulario-login">
 
+            <div class="formulario-login">
+                <h1 class="titulo-login">LOGIN</h1>
+                <form method="post">
+                    <div class="formulario-inputs">
+                        <div class="casilla-info-login">
+                            <label class="enunciado-casilla-info-login" for="email">Email:</label>
+                            <input type="email" id="email" required placeholder="example@email.com">
+                        </div>
+                        <div class="casilla-info-login">
+                            <label class="enunciado-casilla-info-login" for="contrasena">Password:</label>
+                            <input type="password" id="contrasena" required placeholder="Enter your password">
+                        </div>
+                    </div>
+                    <button class="iniciar-sesion-boton">LOGIN</button>       
+                    <div class="registrarse-enlace">
+                        Dont have an account? <a class="enlace-crear-cuenta-login" href="../HTML/singup_corr.html">Sign Up</a>
+                    </div>
+                </form>
+            </div>   
+        </div>
 
 
 
@@ -181,7 +202,7 @@
     <!--JS DEL CARRUSEL AUTOMÁTICO-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JS/header_y_footer.js"></script>
+    <script src="../JS/login_corr.js"></script>
 
 
 
