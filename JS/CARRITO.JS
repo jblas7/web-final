@@ -276,7 +276,18 @@ function actualizarTotalCarrito() {
 
 
 
-
+function toggleInfo() {
+    var infoSection = document.getElementById("infoSection");
+    var toggleButton = document.getElementById("toggleButton");
+    
+    if (infoSection.style.display === "none" || infoSection.style.display === "") {
+        infoSection.style.display = "block";
+        toggleButton.textContent = "Ver menos";
+    } else {
+        infoSection.style.display = "none";
+        toggleButton.textContent = "Ver más";
+    }
+}
 
 
 
@@ -284,30 +295,30 @@ function actualizarTotalCarrito() {
 document.addEventListener('DOMContentLoaded', function() {
     const formularioDatos = JSON.parse(localStorage.getItem('formularioDatos'));
     if (formularioDatos) {
-        const { tipoPedido, calle, portal, piso, letra, modoEntrega, horaEntrega, nombre, telefono, pec, modoRecoger, horaRecoger } = formularioDatos;
-        let infoHTML = `<h2>Detalles del Pedido</h2>`;
+        const { tipoPedido, calle, portal, piso, letra, modoEntrega, horaEntrega, nombre, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
+        let infoHTML = ``;
 
         if (tipoPedido === 'entregaDomicilio') {
             infoHTML += `
-                <h3>Entrega a Domicilio</h3>
-                <p>Dirección: ${calle}, ${portal}, ${piso}, ${letra}</p>
-                <p>Modo de Entrega: ${modoEntrega}</p>
-                ${modoEntrega === 'programarEnvio' ? `<p>Hora de Entrega: ${horaEntrega}</p>` : ''}
+                <h3>Home Delivery</h3>
+                <p>Address: ${calle}, ${portal}, ${piso} ${letra}</p>
+                <p>Mode of Delivery: ${modoEntrega}</p>
+                ${modoEntrega === 'Schedule Shipment' ? `<p>Delivery Time: ${horaEntrega}</p>` : ''}
             `;
         } else if (tipoPedido === 'recogerLocal') {
             infoHTML += `
-                <h3>Recoger en Local</h3>
-                <p>Nombre: ${nombre}</p>
-                <p>Teléfono: ${telefono}</p>
-                <p>Pec: ${pec}</p>
-                <p>Modo de Recogida: ${modoRecoger}</p>
-                ${modoRecoger === 'programarRecogida' ? `<p>Hora de Recogida: ${horaRecoger}</p>` : ''}
+                <h3>Local Pick Up</h3>
+                <p>Name: ${nombre}</p>
+                <p>Phone: ${telefono}</p>
+                <p>Shop: ${Shop}</p>
+                <p>Pickup Mode: ${modoRecoger}</p>
+                ${modoRecoger === 'Schedule Pickup' ? `<p>Pick-up time: ${horaRecoger}</p>` : ''}
             `;
         }
 
         document.getElementById('infoSection').innerHTML = infoHTML;
     } else {
-        document.getElementById('infoSection').innerHTML = '<p>No hay información guardada.</p>';
+        document.getElementById('infoSection').innerHTML = '<p>No information is stored.</p>';
     }
 });
 

@@ -162,7 +162,7 @@
         }
 
         var modoEntrega = document.getElementById("modoEntrega").value;
-        if (modoEntrega === "programarEnvio") {
+        if (modoEntrega === "Schedule Shipment") {
             var horaEntrega = document.getElementById("horaEntrega").value.trim();
             if (horaEntrega === "") {
                 alert("Por favor, ingrese la hora de entrega.");
@@ -186,7 +186,7 @@
         }
 
         var modoRecoger = document.getElementById("modoRecoger").value;
-        if (modoRecoger === "programarRecogida") {
+        if (modoRecoger === "Schedule Pickup") {
             var horaRecoger = document.getElementById("horaRecoger").value.trim();
             if (horaRecoger === "") {
                 alert("Please enter the pick-up time.");
@@ -217,14 +217,14 @@ function mostrarHoraEntrega() {
     var modoEntrega = document.getElementById("modoEntrega").value;
     var horaEntregaDiv = document.getElementById("horaEntregaDiv");
 
-    horaEntregaDiv.style.display = modoEntrega === "programarEnvio" ? "block" : "none";
+    horaEntregaDiv.style.display = modoEntrega === "Schedule Shipment" ? "block" : "none";
 }
 
 function mostrarHoraRecoger() {
     var modoRecoger = document.getElementById("modoRecoger").value;
     var horaRecogerDiv = document.getElementById("horaRecogerDiv");
 
-    horaRecogerDiv.style.display = modoRecoger === "programarRecogida" ? "block" : "none";
+    horaRecogerDiv.style.display = modoRecoger === "Schedule Pickup" ? "block" : "none";
 }
 
 function guardarFormulario(event) {
@@ -243,7 +243,7 @@ function guardarFormulario(event) {
     var horaEntrega = document.getElementById("horaEntrega").value.trim();
     var nombre = document.getElementById("nombre").value.trim();
     var telefono = document.getElementById("telefono").value.trim();
-    var pec = document.getElementById("pec").value.trim();
+    var Shop = document.getElementById("Shop").value.trim();
     var modoRecoger = document.getElementById("modoRecoger").value;
     var horaRecoger = document.getElementById("horaRecoger").value.trim();
 
@@ -257,7 +257,7 @@ function guardarFormulario(event) {
         horaEntrega,
         nombre,
         telefono,
-        pec,
+        Shop,
         modoRecoger,
         horaRecoger
     };

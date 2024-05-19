@@ -145,13 +145,13 @@
                         <div id="opcionesEntrega" class="opciones">
                             <label>Delivery Address:</label><br>
                             <input type="text" id="calle" name="calle" placeholder="Street"><br><br>
-                            <input type="text" id="portal" name="portal" placeholder="Portal" style="width: 80px;">
+                            <input type="text" id="portal" name="portal" placeholder="Hall" style="width: 80px;">
                             <input type="text" id="piso" name="piso" placeholder="Floor" style="width: 70px;">
                             <input type="text" id="letra" name="letra" placeholder="Letter" style="width: 75px;"><br><br>
                             <label for="modoEntrega">Delivery Mode:</label><br>
                             <select id="modoEntrega" name="modoEntrega" onchange="mostrarHoraEntrega()">
-                                <option value="pedirAhora">Order Now</option>
-                                <option value="programarEnvio">Schedule Shipment</option>
+                                <option value="Order Now">Order Now</option>
+                                <option value="Schedule Shipment">Schedule Shipment</option>
                             </select><br><br>
                             <div id="horaEntregaDiv" style="display: none;">
                                 <label for="horaEntrega">Delivery Time:</label><br>
@@ -164,15 +164,15 @@
                             <input type="text" id="nombre" name="nombre"><br><br>
                             <label for="telefono">Phone:</label><br>
                             <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" placeholder="Format: 123456789"><br><br>
-                            <label for="pec">Pick up at:</label><br>
-                            <select id="pec" name="pec">
-                                <option value="madrid">Pec Madrid</option>
-                                <option value="zaragoza">Pec Zaragoza</option>
+                            <label for="Shop">Pick up at:</label><br>
+                            <select id="Shop" name="Shop">
+                                <option value="Pec Madrid">Pec Madrid</option>
+                                <option value="Pec Zaragoza">Pec Zaragoza</option>
                             </select><br><br>
                             <label for="modoRecoger">Pickup Mode:</label><br>
                             <select id="modoRecoger" name="modoRecoger" onchange="mostrarHoraRecoger()">
-                                <option value="pedirAhora">Order Now</option>
-                                <option value="programarRecogida">Schedule Pickup</option>
+                                <option value="Order Now">Order Now</option>
+                                <option value="Schedule Pickup">Schedule Pickup</option>
                             </select><br><br>
                             <div id="horaRecogerDiv" style="display: none;">
                                 <label for="horaRecoger">Pick-up Time:</label><br>
