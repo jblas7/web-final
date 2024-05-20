@@ -334,10 +334,12 @@ body {
   .texto-sobre-nosotros {
     grid-area: texto;
     padding-left: 20%;
+    width: 90%;
+    height: 100%;
   }
   
   .span-specialists {
-    font-size: 75px;
+    font-size: 450%;
     font-weight: bold;
     font-family: "Seymour One", sans-serif;
     text-decoration: underline;
@@ -348,20 +350,18 @@ body {
   }
   
   .span-in {
-    font-size: 42px;
+    font-size: 250%;
     font-weight: bold;
     font-family: "Seymour One", sans-serif;
     text-decoration: none;
     color: rgb(255, 59, 85);
     background-color: transparent;
-    text-align: left;
     opacity: 100%;
-    position: relative;
-    left: 150px;
+    padding-left: 13%;
   }
   
   .span-home{
-    font-size: 75px;
+    font-size: 450%;
     font-weight: bold;
     font-family: "Seymour One", sans-serif;
     text-decoration: none;
@@ -373,12 +373,26 @@ body {
 
   .ubicacion-sobre-nosotros{
     grid-area: ubicacion;
+    width: 100%;
+    height: 500px;
   }
   .mapa{
     border-radius: 50px;
+    width: 90%;
+    height: 90%;
+
     box-shadow: 0 0 50px rgb(92, 0, 0);
   }
 
+  .ubicacion-sobre-nosotros p{
+    margin-top: 5%;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Seymour One", sans-serif;
+    text-decoration: none;
+    color: #7e0000;
+    background-color: transparent;
+  }
 
   .historia{
     display: grid;
@@ -432,7 +446,11 @@ body {
   }
 
   .presentacion-local p{
+    font-size: 18px;
+    font-weight: bold;
     font-family: "Lexend", sans-serif;
+    text-decoration: none;
+    color: #7e0000;
   }
 
   .imagenes-historia-der{
@@ -490,6 +508,9 @@ body {
 
   .Personas-Crew{
     font-family: "Lexend", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
@@ -798,12 +819,11 @@ body {
   
     .cuerpo-web {
       margin-top: 5px;
-  
-  
-  
+
+
+
     }
-  
-  
+    
   
   
   
@@ -982,3 +1002,157 @@ body {
   
   }
 /*footer*/
+
+/*responsive main*/
+ @media (max-width:1240px) {
+
+  .texto-sobre-nosotros {
+    padding-top: 15%;
+  }
+  
+  .span-specialists {
+    font-size: 350%;
+  }
+  
+  .span-in {
+    font-size: 150%;
+  }
+  
+  .span-home{
+    font-size: 350%;
+  }
+ }
+
+  @media (max-width:990px) {
+
+    
+    .span-specialists {
+      font-size: 250%;
+    }
+    
+    .span-in {
+      font-size: 190%;
+      padding-left: 5%;
+    }
+    
+    .span-home{
+      font-size: 250%;
+    }
+  
+    .ubicacion-sobre-nosotros{
+      height: 300px;
+    }
+
+  
+    .ubicacion-sobre-nosotros p{
+      font-size: 13px;
+    }
+
+    .historia{
+      display: grid;
+      grid-template-columns: 2% 96% 2%;
+      grid-template-areas: "imagenes-historia-izq presentacion-local imagenes-historia-der";
+      background-image: url("../IMG/img-fondo-carr-desl.jpg");
+    }
+  
+    .presentacion-local{
+      grid-area: presentacion-local;
+      text-align: center;
+      padding-top: 10%;
+    }
+  
+    .presentacion-local h1{
+      padding-bottom: 5%;
+      font-family: "Seymour One", sans-serif;
+    }
+  
+    .presentacion-local p{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: "Lexend", sans-serif;
+      text-decoration: none;
+      color: #7e0000;
+    }
+  
+    .imagenes-historia-izq {
+      display: none;
+    }
+
+    .imagenes-historia-der {
+      display: none;
+    }
+    }
+
+    .Decoracion-Crew {
+      display: none;
+    }
+    @media (max-width:740px) {
+
+      .introduccion-sobre-nosotros {
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 
+        50% 
+        100%;
+        grid-template-areas: 
+        "texto"
+        "ubicacion";
+      }
+
+      
+      .span-specialists {
+        font-size: 150%;
+      }
+      
+      .span-in {
+        font-size: 90%;
+        padding-left: 0%;
+      }
+      
+      .span-home{
+        font-size: 150%;
+      }
+    
+      .ubicacion-sobre-nosotros{
+        height: 100px;
+      }
+      .mapa{
+        border-radius: 50px;
+        width: 90%;
+        height: 90%;
+        box-shadow: 0 0 0px;
+      }
+    
+      .ubicacion-sobre-nosotros p{
+        margin-top: 2%;
+        font-size: 13px;
+      }
+      }
+      
+      @media (max-width:450px) {
+        .cuerpo-web {
+          padding-top: 0px;
+        }
+      }
+
+      @media (max-width:380px) {
+
+        .introduccion-sobre-nosotros {
+          grid-template-rows: 
+          50% 
+          50%;
+        }
+
+        .mapa{
+          display: none;
+        }
+      
+        .ubicacion-sobre-nosotros p{
+          margin-top: 10%;
+          font-size: 15px;
+        }
+        }
