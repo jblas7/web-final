@@ -29,11 +29,11 @@ VALUES (2, 'PECEÑOS', 'Enjoy our crispy cheese fingers—melted cheese wrapped 
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (3, 'PECRANCHO POTATOES', 'Indulge in our delectable petal potatoes, perfectly paired with creamy
-                            mac & cheese, succulent fried chicken, and a drizzle of tangy barbecue sauce for an
+                            mac and cheese, succulent fried chicken, and a drizzle of tangy barbecue sauce for an
                             unforgettable culinary experience.', 11.90, '/IMG/', 1);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (4, 'BACON CHEESE FRIES', 'Petal potatoes adorned with crispy bacon, our signature mac & cheese, and
+VALUES (4, 'BACON CHEESE FRIES', 'Petal potatoes adorned with crispy bacon, our signature mac and cheese, and
                             a drizzle of tangy ranch sauce.', 9.90, '/IMG/', 1);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
@@ -43,7 +43,7 @@ VALUES (5, 'TEX-MEX CHICKEN SALAD', 'Romaine lettuce topped with crunchy, mildly
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (6, 'TABLESIDE PECAMOLE', 'Petal potatoes, delightfully crispy, adorned with savory bacon,
-                            generously smothered in our velvety mac & cheese, and topped with a dollop of zesty ranch
+                            generously smothered in our velvety mac and cheese, and topped with a dollop of zesty ranch
                             sauce, creating a harmonious blend of flavors and textures that will tantalize your taste
                             buds.', 14.50, '/IMG/', 1);
 
@@ -57,7 +57,7 @@ VALUES (8, 'THE PECADORA', 'House-made brioche bun, double beef patty and chedda
                             onions.', 15.00, '/IMG/', 2);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (9, 'MC & PECS BURGER', 'Our fabolus brioche bun with 2 smash burgers, pickles, and mac & cheese
+VALUES (9, 'MC AND PECS BURGER', 'Our fabolus brioche bun with 2 smash burgers, pickles, and mac and cheese
                             oozing from all sides. An irresistible combination!', 13.90, '/IMG/', 2);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
@@ -86,13 +86,13 @@ VALUES (14, 'PECAMINOSA BURGER', 'An excellent slow-cooked roasted pork Pulled P
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (15, 'LITTLE PECS', 'Our homemade brioche bun accompanied by a Morucha and Ox beef burger,
                             caramelized onions, bacon, cheddar cheese, pickles, PECranch sauce, and right before
-                            your eyes, we heap on loads of bacon ash-infused mac & cheese. Are you going to miss out
+                            your eyes, we heap on loads of bacon ash-infused mac and cheese. Are you going to miss out
                             on this?"', 16.00, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (16, 'BIG PECS', 'Our homemade brioche bun paired with two Morucha and Ox beef patties
                             totaling 220g, caramelized onions, bacon, pickles, cheddar cheese, PECranch sauce, and
-                            right in front of you, we pile on heaps of mac & cheese. An absolute madness!', 21.00, '/IMG/', 3);
+                            right in front of you, we pile on heaps of mac and cheese. An absolute madness!', 21.00, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (17, 'THE PECULIAR', 'The crown jewel, our new Pretzel bun, 200-gram Morucha and Ox beef,
