@@ -6,22 +6,31 @@
             min-height: 100vh;
             background-color: #fff;
             scroll-behavior: smooth;
+            margin: 0px;
                 }
         .terminos-y-condiciones {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 200px auto;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             background-color: #ffffff;
         }
 
+
+        .letra-terminos {
+
+          padding: 50px;
+
+
+
+        }
         .nombre-marca-destacar{
             -webkit-text-stroke-width: 0.2px;
             -webkit-text-stroke-color: #ff3b55;
         }
         .titulo-terminos-y-condiciones {
-            font-family: "Ubuntu Sans Mono", monospace;
+      
             font-size: 36px;
             text-align: center;
             color: #ff3b55;
@@ -29,6 +38,9 @@
             -webkit-text-stroke-color: #ec0020;
             margin-bottom: 20px;
         }
+
+
+
         .subtitulo-terminos-y-condiciones {
             font-size: 20px;
             margin-top: 30px;
@@ -39,9 +51,7 @@
         .subindice-terminos-y-condiciones {
             font-weight: bold;
         }
-        .indice-terminos-y-condiciones {
-            margin-left: 20px;
-        }
+      
         ul {
             list-style-type: none;
             padding: 0;
