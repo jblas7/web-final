@@ -324,7 +324,7 @@ body {
   
   
   .letra-terminos {
-  
+    text-align: justify;
     padding: 50px;
   
   
@@ -337,7 +337,7 @@ body {
   }
   
   .titulo-terminos-y-condiciones {
-  
+    font-weight: bold;
     font-size: 36px;
     text-align: center;
     color: #ff3b55;

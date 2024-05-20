@@ -1,218 +1,16 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
+body {
 
-.fondo-formulario-signup {
-    background-image: url(imagenes/fondos/fondo-formulario.jpg);
-    background-color: #f0232349;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.formulario-registro-signup {
-    background-color: rgba(54, 53, 53, 0.95);
-    padding: 5%;
-    border-radius: 15px;
-    width: 65%;
-}
-.titulo-registro-signup {
-    font-family: "Seymour One", sans-serif;
-    color: #ffffff;
-    border: none;
-    font-size: 40px;
-    border-radius: 25px 0% 25px 0%;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.casilla-info-registro-signup {
+    font-family: "Lexend", sans-serif;
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
-}
-
-.enunciado-casilla-info-registros-signup {
-    display: flex;
-    font-family: "Poppins", sans-serif;
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: bold;
-    padding-bottom: 15px;
-    margin-left: 15%;
-}
-
-.formulario-input-registros-signup {
-    padding: 8px;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    margin-bottom: 10px;
-    width: 65%;
-    margin-left: 15%;
-}
-.enlace-iniciar-sesion-signup {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    margin-top: 3%;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    background-color: #ff3b55;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 15px 20px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.crear-cuenta-boton {
-    margin: 0 auto;
-    width: 30%;
-    margin-top: 5%;
-    font-family: "Poppins", sans-serif;
-    background-color: #ff3b55;
-    color: #ffffff;
-    border: none;
-    font-size: 40px;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.enlace-iniciar-sesion-signup:hover {
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-    background-color: #ff5252;
-    color: #ffffff;
-    border-color: #ffffff;
-}
-
-.footer {
-    background-color: rgb(214, 47, 47);
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.ya-tiene-cuenta-enlace {
-    margin-top: 10%;
-    color: #ffffff;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-    font-size: 26px;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.politicas-footer {
-    display: flex;
-    align-items: center;
-    margin-right: 40px;
-    margin-left: 40px;
-}
-
-.politicas-footer a {
-    color: white;
-    text-decoration: none;
-    margin-right: 30px;
-}
-
-.nombre-footer {
-    text-align: center;
-    flex-grow: 1;
-    font-family: 'Jersey 25', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.redes-footer {
-    display: flex;
-    align-items: center;
-}
-
-.redes-footer a {
-    margin-left: 30px; /* Ajusta según tus necesidades */
-    color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
-    text-decoration: underline;
-}
-
-.iconos-footer {
-    width: 25px;
-    height: 25px;
-}
-
-@media (max-width: 1024px) {
-    .formulario-registro-signup {
-        width: 60%;
-    }
-}
-
-@media (max-width: 768px) {
-    .formulario-registro-signup {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .casilla-info-registro-signup label {
-        text-align: center;
-    }
-
-    .footer {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    
-    .ya-tiene-cuenta-enlace {
-        text-align: center;
-    }
-
-    .politicas-footer,
-    .redes-footer {
-        margin: 10px 0;
-    }
-    
-    .enlace-iniciar-sesion-signup {
-        display: block;
-        width: calc(100% - 40px);
-        margin: 10px auto;
-        text-align: center;
-    }
-}
-@media (max-width: 450px) {
-    .letra-redes {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-}
-
-header {
+    min-height: 100vh;
+    /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+    background-color: #fff;
+    scroll-behavior: smooth;
+  }
+  
+  header {
     top: 0;
     color: #fff;
     display: flex;
@@ -402,10 +200,10 @@ header {
     transition: background-color 0.3s ease;
     font-weight: bold;
     text-decoration: none;
-    display: flex;
+    display: flex; /* Usa flexbox */
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
   }
   
   .custom-boton:hover {
@@ -427,10 +225,10 @@ header {
     transition: background-color 0.3s ease;
     font-weight: bold;
     text-decoration: none;
-    display: flex;
+    display: flex; /* Usa flexbox */
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
   }
   
   .custom-boton2:hover {
@@ -455,8 +253,11 @@ header {
   .dropbtn {
     display: none;
     background-color: transparent;
+    /* Hacemos el fondo transparente */
     border: none;
+    /* Eliminamos el borde */
     padding: 0;
+    /* Eliminamos el relleno para que las líneas queden bien alineadas */
     cursor: pointer;
   }
   
@@ -466,12 +267,15 @@ header {
     height: 3px;
     background-color: #000000;
     margin: 4px auto;
+    /* Espaciado entre las barras */
   }
   
+  /* Cambiamos el color de las barras al pasar el mouse */
   .dropbtn:hover .bar {
     background-color: brown;
   }
   
+  /* Estilos para el menú desplegable */
   .dropdown {
     position: relative;
     display: inline-block;
@@ -479,11 +283,13 @@ header {
   
   .dropdown-content {
     display: none;
+    /* Ocultamos el menú por defecto */
     position: absolute;
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     z-index: 1;
     right: 0;
+    /* Posicionamos el menú a la derecha */
   }
   
   .dropdown-content a {
@@ -512,10 +318,154 @@ header {
   }
   
   
+  .fondo-formulario-signup {
+    background-image: url(imagenes/fondos/fondo-formulario.jpg);
+    background-color: #f0232349;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-registro-signup {
+    background-color: rgba(54, 53, 53, 0.95);
+    padding: 5%;
+    border-radius: 15px;
+    width: 65%;
+}
+.titulo-registro-signup {
+    font-family: "Seymour One", sans-serif;
+    color: #ffffff;
+    border: none;
+    font-size: 40px;
+    border-radius: 25px 0% 25px 0%;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.casilla-info-registro-signup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.enunciado-casilla-info-registros-signup {
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    margin-left: 15%;
+}
+
+.formulario-input-registros-signup {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    width: 65%;
+    margin-left: 15%;
+}
+.enlace-iniciar-sesion-signup {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 3%;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    background-color: #ff3b55;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.crear-cuenta-boton {
+    margin: 0 auto;
+    width: 30%;
+    margin-top: 5%;
+    font-family: "Poppins", sans-serif;
+    background-color: #ff3b55;
+    color: #ffffff;
+    border: none;
+    font-size: 40px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.enlace-iniciar-sesion-signup:hover {
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    background-color: #ff5252;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+  
+.ya-tiene-cuenta-enlace {
+    margin-top: 10%;
+    color: #ffffff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
   
   
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   footer {
     background-color: #ffffff00;
@@ -523,7 +473,10 @@ header {
     align-items: center;
     text-align: center;
     margin-top: auto;
-}
+    /* Coloca el footer al final de la página */
+  
+  }
+  
   .link-chorra {
     text-decoration: none;
     color: #ff3b55;
@@ -546,9 +499,12 @@ header {
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 14px;
+    /*tamaño letra header*/
   
     font-family: "Seymour One", sans-serif;
+    /*tipografía para el header*/
     word-spacing: 10px;
+    /*espaciado entre palabras*/
   
   }
   
@@ -570,11 +526,13 @@ header {
   
   .social-img {
     margin: 25px;
+    /* Ajusta el espacio entre cada icono */
     justify-content: center;
   }
   
   .social-img img {
     width: 37px;
+    /* Ajusta el tamaño de los iconos */
     height: auto;
     justify-content: center;
   }
@@ -654,9 +612,13 @@ header {
   
   
   
+  
+  
+  
   /*responsive*/
   
- 
+  @media (max-width:450px) {
+  
     header {
   
       color: #fff;
@@ -802,6 +764,7 @@ header {
       transform: translateX(0rem);
     }
   
+    /* Se posiciona y se oculta con translate */
     nav.principal {
   
       top: 0;
@@ -813,6 +776,7 @@ header {
       transition: 1s all;
     }
   
+    /* Estilos sencillos para decorar los links */
     nav.principal ul {
       margin: 0;
       padding: 0;
@@ -840,11 +804,15 @@ header {
   
   
   
+    /* Estilos para el botón hamburguesa */
     .dropbtn {
       display: contents;
       background-color: transparent;
+      /* Hacemos el fondo transparente */
       border: none;
+      /* Eliminamos el borde */
       padding: 0;
+      /* Eliminamos el relleno para que las líneas queden bien alineadas */
       cursor: pointer;
     }
   
@@ -854,12 +822,15 @@ header {
       height: 3px;
       background-color: #000000;
       margin: 4px auto;
+      /* Espaciado entre las barras */
     }
   
+    /* Cambiamos el color de las barras al pasar el mouse */
     .dropbtn:hover .bar {
       background-color: rgb(255, 59, 85);
     }
   
+    /* Estilos para el menú desplegable */
     .dropdown {
   
       position: relative;
@@ -869,6 +840,7 @@ header {
   
     .dropdown-content {
       display: none;
+      /* Ocultamos el menú por defecto */
       position: absolute;
       background: rgb(110, 110, 110);
       background: radial-gradient(circle, rgba(110, 110, 110, 1) 0%, rgba(51, 51, 51, 1) 64%, rgba(0, 0, 0, 1) 100%);
@@ -876,6 +848,7 @@ header {
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
       z-index: 1;
       right: 0;
+      /* Posicionamos el menú a la derecha */
     }
   
     .dropdown-content a {
@@ -895,6 +868,7 @@ header {
   
     .dropdown:hover .dropdown-content {
       display: block;
+      /* Mostramos el menú al hacer hover */
     }
   
     #closeBtn {
@@ -915,3 +889,4 @@ header {
   
   
   
+  }

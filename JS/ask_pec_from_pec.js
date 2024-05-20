@@ -264,7 +264,7 @@ function guardarFormulario(event) {
 
     localStorage.setItem('formularioDatos', JSON.stringify(formularioDatos));
     alert('Information successfully saved!');
-    window.location.href = '../HTML/CARRITO.HTML'; // Redirect after saving data
+    window.location.href = '../HTML/carrito.html'; // Redirect after saving data
 }
 
 window.onload = function() {

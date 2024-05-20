@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario registro</title>
-    <link rel="stylesheet" href="../CSS/login.css">
-       <!--LINK CARRUSEL AUTOMATICO [DEJAR PUESTO PARA EL FORMATO CORRECTO] (SOLO CAMBIA CUANDO NO SE PONE EL RATON ENCIMA)-->
+    <title>PEC Burger - Log In With Your Account</title>
+    <link rel="stylesheet" href="../CSS//login.css">
+    <link rel="icon" href="../IMG/favicon1.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    <!--LINK CARRUSEL AUTOMATICO [DEJAR PUESTO PARA EL FORMATO CORRECTO] (SOLO CAMBIA CUANDO NO SE PONE EL RATON ENCIMA)-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Seymour+One&display=swap');
-       </style>
+    </style>
+
 </head>
+
 <body>
     <header class="header">
 
@@ -28,10 +44,10 @@
                 <span class="bar"></span>
             </button>
             <div id="dropdownMenu" class="dropdown-content">
-                <button id="closeBtn">✘</button> <!-- BOTON DE CIERRE-->
+              
                 <a href="#">MENU</a>
                 <a href="#">THIS IS PEC</a>
-                <a href="#">ABOUT US</a>
+                <a href="#">JOIN US</a>
                 <a href="#">CONTACT</a>
 
                 <div class="reservsss">
@@ -43,7 +59,7 @@
 
 <!--NAV (HEADER)-->
         <div class="parte-izqda">
-            <a class="imagen" href="HTML/inicio.html" target="_blank"><img class="img-logo" src="../IMG/logo-img.png"
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo" src="../IMG/logo-img.png"
                     alt="logo">
             </a>
 
@@ -54,45 +70,92 @@
         <div class="parte-dcha">
 
             <div class="parte-norm-dcha">
-                <a class="item-header" href="HTML/">MENU</a>
+                <a class="item-header" href="../HTML/menu.html">MENU</a>
 
                 <a class="item-header" href="#">THIS IS PEC</a>
-                <a class="item-header" href="#">ABOUT US</a>
+                <a class="item-header" href="#">JOIN US</a>
                 <a class="item-header" href="#">CONTACT</a>
 
             </div>
             <div class="parte-guay-dcha">
 
                 <div class="medio"></div>
-                <a class="custom-boton2" href="#">MAKE AN ORDER</a>
+                <a class="custom-boton2" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
 
 
             </div>
         </div>
     </header>
 
-    <div class="fondo-formulario-login">
 
-        <div class="formulario-login">
-            <h1 class="titulo-login">LOGIN</h1>
-            <form method="post">
-                <div class="formulario-inputs">
-                    <div class="casilla-info-login">
-                        <label class="enunciado-casilla-info-login" for="email">Email:</label>
-                        <input type="email" id="email" required placeholder="example@email.com">
+
+
+
+    <div class="cuerpo-web">
+
+
+        <div class="fondo-formulario-login"   style="background-image: url('../IMG/fondo-formulario.jpg');
+        background-size: cover;">
+
+            <div class="formulario-login">
+                <h1 class="titulo-login">LOGIN</h1>
+                <form method="post">
+                    <div class="formulario-inputs">
+                        <div class="casilla-info-login">
+                            <label class="enunciado-casilla-info-login" for="email">Email:</label>
+                            <input type="email" id="email" required placeholder="example@email.com">
+                        </div>
+                        <div class="casilla-info-login">
+                            <label class="enunciado-casilla-info-login" for="contrasena">Password:</label>
+                            <input type="password" id="contrasena" required placeholder="Enter your password">
+                        </div>
                     </div>
-                    <div class="casilla-info-login">
-                        <label class="enunciado-casilla-info-login" for="contrasena">Password:</label>
-                        <input type="password" id="contrasena" required placeholder="Enter your password">
+                    <button class="iniciar-sesion-boton">LOGIN</button>       
+                    <div class="registrarse-enlace">
+                        Dont have an account? <a class="enlace-crear-cuenta-login" href="../HTML/signup.html">SIGN UP</a>
                     </div>
-                </div>
-                <button class="iniciar-sesion-boton">LOGIN</button>       
-                <div class="registrarse-enlace">
-                    Dont have an account? <a class="enlace-crear-cuenta-login" href="signup.html">Sign Up</a>
-                </div>
-            </form>
-        </div>   
+                </form>
+            </div>   
+        </div>
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
     </div>
+
+
+
+
+
+
+
     <footer>
         <div class="redes-footer">
             <a class="letra-redes">ALL OUR CRAZIES ON NETWORKS</a>
@@ -109,7 +172,7 @@
 
 
         <div class="img-fin">
-            <a class="imagen" href="HTML/inicio.html" target="_blank"><img class="img-logo-footer"
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo-footer"
                     src="../IMG/logo-bajo.png" alt="logo-bajo"></a>
         </div>
 
@@ -125,9 +188,14 @@
         </div>
         <div class="pt-abajo-footer">
             <br>
-            <a>Innovating burgers since 2020 - <a class="link-chorra" href="HTML/">PEC Burger®</a></a>
+            <a>Innovating burgers since 2020 - <a class="link-chorra" href="../HTML/">PEC Burger®</a></a>
         </div>
     </footer>
+
+
+
+
+
 
 
 
@@ -135,7 +203,10 @@
     <!--JS DEL CARRUSEL AUTOMÁTICO-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="JS/header_y_footer.js"></script>
+    <script src="../JS/login.js"></script>
+
+
 
 </body>
+
 </html>
