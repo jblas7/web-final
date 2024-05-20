@@ -1,4 +1,9 @@
-package main.java.Model.Entities;
+package Model.Entities;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
 
 public class Categoria {
 
@@ -7,18 +12,20 @@ public class Categoria {
 
     private String nombre;
 
+
     //Crearemos el constructor con todos los campos de los atributos anteriores
-    public CategoriaBean(Integer idCategoria, String nombre) {
+    public Categoria (Integer idCategoria, String nombre) {
         this.idCategoria = idCategoria;
         this.nombre = nombre;
     }
 
 
     //Crearemos el constructor vacio de los atributos anteriores
-    public CategoriaBean() {
+    public Categoria() {
     }
 
-    //Crear los Getter y setter de los atributos de la claSE CategoriaBean.
+
+    //Crear los Getter y setter de los atributos de la clase Categoria.
     public Integer getIdCategoria() {
         return idCategoria;
     }
@@ -36,16 +43,24 @@ public class Categoria {
     }
 
 
-    //Crear el metodo ToSting del objeto Cliente
+    //Crear el metodo ToSting del objeto Categoria
     @Override
     public String toString() {
-        return "Categoria{" + "idCategoria=" + idCategoria + ", nombre='" + nombre + '\'' + '}';
+        return "Categoria{" +
+                "idCategoria=" + idCategoria +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 
-    //Falta añadir el método Json en la clase.
 
+    //Creamos el método Json para pasar el arrayList a Json
+    public static String toArrayJson(ArrayList<Categoria> Categoria) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
 
+        Gson gson = builder.create();
 
-
+        return gson.toJson(Categoria);
+    }
 
 }

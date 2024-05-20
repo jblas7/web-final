@@ -1,5 +1,9 @@
-package main.java.Model.Entities;
+package Model.Entities;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Trabajador {
@@ -137,7 +141,16 @@ public class Trabajador {
     }
 
 
-    //Falta añadir el método Json en la clase.
+    //Creamos el método Json para pasar el arrayList a Json
+    public static String toArrayJson(ArrayList<Trabajador> Trabajador) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+
+        return gson.toJson(Trabajador);
+    }
+
 
 
 

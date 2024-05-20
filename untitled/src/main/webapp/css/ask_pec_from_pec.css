@@ -1,0 +1,2661 @@
+
+
+body {
+
+
+  font-family: "Lexend", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
+
+header {
+  top: 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 26%, rgba(244, 244, 244, 1) 54%, rgba(241, 241, 241, 1) 71%, rgba(251, 251, 251, 1) 100%);
+  position: fixed;
+  /*LEFT NO HACE FALTA*/
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 1;
+  width: 100%;
+
+}
+
+
+
+
+
+.img-logo {
+  width: 85px;
+  transition: transform 0.3s ease;
+
+}
+
+.img-logo:hover {
+  transform: scale(1.1);
+}
+
+
+.img-login {
+  width: 18px;
+  margin-right: 20px
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 57px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+}
+
+
+
+
+
+
+
+
+
+.botonMenu {
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #99B2B7;
+  border: 0;
+  color: white;
+  cursor: pointer;
+}
+
+/* Se le quita el borde azul cuando se pulsa en Chrome */
+.botonMenu:focus {
+
+  outline: none;
+}
+
+/* Cuando es pulsado, se quita el translate que lo ocultaba */
+.botonMenu:focus+.principal {
+
+  transform: translateX(0rem);
+}
+
+/* Se posiciona y se oculta con translate */
+nav.principal {
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 15rem;
+  background-color: #7A6A53;
+  transform: translateX(15rem);
+  transition: 1s all;
+}
+
+/* Estilos sencillos para decorar los links */
+nav.principal ul {
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav.principal a {
+
+  display: block;
+  color: #D5DED9;
+  padding: 1rem;
+  transition: .5s all;
+}
+
+nav.principal a:hover {
+
+  text-decoration: none;
+  background-color: #948C75;
+}
+
+
+
+
+
+
+
+
+
+
+
+.item-header {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 18px;
+  /*tamaño letra header*/
+  font-weight: bold;
+  /*letra negrita header*/
+  font-family: "Seymour One", sans-serif;
+  /*tipografía para el header*/
+  word-spacing: 10px;
+  /*espaciado entre palabras*/
+
+}
+
+.item-header:hover {
+  color: #ff3b55;
+}
+
+.parte-izqda {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 95px;
+  margin-left: 65px;
+}
+
+.parte-dcha {
+  display: flex;
+  align-items: center;
+  color: #000000;
+
+  width: calc(100% - 105px);
+
+}
+
+.parte-norm-dcha {
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.parte-guay-dcha {
+  margin-right: 50px;
+
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+
+}
+
+.custom-boton {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px 0% 25px 0%;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  margin-left: 620px;
+  margin-top: -70px;
+  text-decoration: none;
+  width: 180px;
+  display: flex;
+  /* Usa flexbox */
+  text-align: center;
+  align-items: center;
+  /* Centra verticalmente */
+  justify-content: center;
+  /* Centra horizontalmente */
+}
+
+.custom-boton:hover {
+  font-family: "Seymour One", sans-serif;
+  color: #ffffff;
+  background-color: #ff3b55;
+  font-weight: bold;
+
+}
+
+.custom-boton2 {
+
+  font-family: "Seymour One", sans-serif;
+  background-color: #ff3b55;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 16px;
+  border-radius: 25px 0% 25px 0%;
+  transition: background-color 0.3s ease;
+  
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  /* Usa flexbox */
+  text-align: center;
+  align-items: center;
+  /* Centra verticalmente */
+  justify-content: center;
+  /* Centra horizontalmente */
+}
+
+.custom-boton2:hover {
+  font-family: "Seymour One", sans-serif;
+  color: #ff3b55;
+  background-color: #ffd5d5;
+  font-weight: bold;
+  
+}
+
+
+
+.custom-boton3 {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  border: none;
+  padding: 16px 18px;
+  font-size: 12px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+ 
+  font-weight: bold;
+  word-spacing: 2px;
+  text-decoration: none;
+  width: 230px;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.custom-boton3:hover {
+ 
+  background-color: #ff3b55;
+  color: #fff;
+
+
+}
+
+
+.cont-custom-boton3 {
+  align-items: center;
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+
+/* Estilo para la ventana emergente */
+.ventana-emergente {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  height: 100%; /* Ocupa toda la altura de la pantalla */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  z-index: 9999; /* Colocar en la parte superior */
+  padding: 20px;
+  box-sizing: border-box; /* Incluye padding en el tamaño total */
+}
+
+/* Estilo para el contenido de la ventana emergente */
+.contenido-ventana {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%);
+}
+
+/* Estilo para el botón de cerrar */
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+.h2-form {
+  font-family: 'Seymour One';
+  font-size: 26px;
+
+  margin-bottom: 30px;
+
+}
+
+
+
+
+.tit-tipo-ped {
+  font-weight: bold;
+}
+
+
+
+
+.form-pt-arr {
+  width: 100%;
+  /* Asegura que el contenedor ocupe todo el ancho disponible */
+
+
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+
+
+}
+
+
+.parte-dcha-arr {
+
+
+
+  display: flex !important;
+  justify-content: center !important;
+
+}
+
+
+
+.img-letras {
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+
+}
+
+
+
+.form-arr {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+
+
+form {
+  max-width: 600px;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 80px;
+  margin-top: 30px;
+  font-family: 'Lexend';
+  font-size: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+fieldset {
+  margin-bottom: 20px;
+}
+
+
+
+
+legend {
+  font-weight: bold;
+}
+
+
+
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+
+
+
+
+input[type="text"],
+input[type="tel"],
+input[type="time"],
+input[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ff3b55;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 16px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+
+input[type="submit"]:hover {
+  font-family: "Seymour One", sans-serif;
+  color: #ff3b55;
+  background-color: #ffd5d5;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.opciones {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.custom-boton3-2 {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  border: none;
+  padding: 10px 12px;
+  font-size: 8px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: color 0.3 ease;
+  text-decoration: none;
+  width: 230px;
+  margin-bottom: 40px;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.custom-boton3-2:hover {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffeff1;
+  color: #000000;
+  font-weight: bold;
+
+}
+
+
+.cont-custom-boton3-2 {
+  align-items: center;
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el botón hamburguesa */
+.dropbtn {
+  display: none;
+  background-color: transparent;
+  /* Hacemos el fondo transparente */
+  border: none;
+  /* Eliminamos el borde */
+  padding: 0;
+  /* Eliminamos el relleno para que las líneas queden bien alineadas */
+  cursor: pointer;
+}
+
+.dropbtn .bar {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: #000000;
+  margin: 4px auto;
+  /* Espaciado entre las barras */
+}
+
+/* Cambiamos el color de las barras al pasar el mouse */
+.dropbtn:hover .bar {
+  background-color: #ff3b55;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  /* Ocultamos el menú por defecto */
+  position: absolute;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  right: 0;
+  /* Posicionamos el menú a la derecha */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.cuerpo-web {
+  margin-top: 95px;
+
+
+
+}
+
+
+
+
+
+
+/*VENTANA EMERGENTE PARA PEDIDOS*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SECCION IMAGEN Y HACER PEDIDOOO*/
+.secc-img-burg-text {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  background-image: url('../IMG/img-foto-grande-2.jpg');
+  /* Cambiar 'ruta/de/la/imagen.jpg' por la ruta de tu imagen */
+  background-color: rgba(0, 0, 0, 0.534);
+  background-size: cover;
+  background-position: center;
+  width: auto;
+  height: 800px;
+  /* Altura deseada para la sección */
+  display: flex;
+}
+
+.secc-img-burg-text h2 {
+  font-family: "Seymour One", sans-serif;
+  font-size: 60px;
+  padding-top: 40px;
+  padding-left: 520px;
+  padding-right: 520px;
+  color: white;
+  display: flex;
+}
+
+.secc-img-burg-text h3 {
+  font-family: "Lexend", sans-serif;
+  font-weight: bold;
+  color: white;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.titulo {
+  font-size: 24px;
+  /* Tamaño de fuente grande para el h2 */
+}
+
+.boton-pedido {
+  display: inline-block;
+  background-color: #ff356b;
+  /* Color de fondo del botón */
+  color: white;
+  /* Color del texto del botón */
+  padding: 10px 20px;
+  /* Relleno del botón */
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  /* Tamaño de fuente del botón */
+  margin: 20px auto;
+  /* Margen del botón */
+  border-radius: 5px;
+  /* Borde redondeado del botón */
+  border: none;
+  /* Sin borde */
+  cursor: pointer;
+}
+
+.boton-pedido:hover {
+  background-color: #bd0042;
+  /* Cambio de color de fondo al pasar el cursor sobre el botón */
+}
+
+
+
+.movida {
+  margin-top: 150px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 3));
+}
+
+
+.img-letras {
+  width: 130px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 3));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*MENU HAMBURGUESA DESPLEGABLE GRANDE*/
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  color: #000000;
+  z-index: 1;
+  z-index: 999;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  
+  display: table-caption;
+  transition: color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: #ffffff;
+}
+
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+
+  opacity: 0;
+  /* hide this */
+  z-index: 2;
+  /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #000000;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+  background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked~span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #f4eeee;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked~span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked~span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 300px;
+  font-family: "Seymour One", sans-serif;
+  font-size: 60px;
+  padding-bottom: 200px;
+  margin: -90px 0 0 -1200px;
+  padding: 1750px;
+  padding-bottom: 500px;
+  padding-top: 125px;
+
+  background: radial-gradient(circle, rgba(255, 98, 118, 1) 0%, rgba(255, 80, 103, 1) 44%, rgba(255, 59, 85, 1) 100%);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 80px;
+  margin-left: -190px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked~ul {
+  transform: none;
+}
+
+
+
+
+
+.li-menuuuu {
+  color: #f4eeee;
+  transition: color 0.3s ease, -webkit-text-stroke-color 0.4s ease;
+  /* Para navegadores basados en WebKit */
+  transition: color 0.3s ease, text-stroke-color 0.4s ease;
+  /* Propiedad estándar */
+
+
+}
+
+.li-menuuuu:hover {
+  border-color: #000000;
+  -webkit-text-stroke: 2px black;
+  /* Para navegadores basados en WebKit */
+
+  color: #d5ded900;
+}
+
+
+.li-menuuuu1 {
+  color: #f4eeee;
+  transition: color 0.3s ease, -webkit-text-stroke-color 0.4s ease;
+  /* Para navegadores basados en WebKit */
+  transition: color 0.3s ease, text-stroke-color 0.4s ease;
+  /* Propiedad estándar */
+  margin-top: 90px;
+  margin-left: 80px;
+
+
+
+}
+
+.li-menuuuu1:hover {
+  border-color: #000000;
+  -webkit-text-stroke: 2px black;
+  /* Para navegadores basados en WebKit */
+
+  color: #d5ded900;
+}
+
+
+
+
+
+
+.img-letras-lao {
+  width: 100px;
+}
+
+
+
+
+.promo-section3 {
+  padding: 20px;
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+  
+  border-radius: 0 0 40px 40px;
+
+
+
+}
+
+
+
+
+.cont-promo3-1 {
+ 
+display: flex;
+}
+.cont-promo3-2 {
+
+display: flex;
+}
+
+.promo-section3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.text-container {
+    margin-bottom: 20px; /* Espacio entre el texto y los mapas */
+}
+
+.maps-container {
+    display: flex;
+   
+}
+.cont-promo3-1,
+.cont-promo3-2 {
+    margin: 0 10px; /* Espacio entre los mapas */
+}
+
+.cont-promo3-1 iframe,
+.cont-promo3-2 iframe {
+    width: 500px; /* Ancho de los mapas */
+    height: 300px; /* Altura de los mapas */
+    margin: 0 20px; /* Espacio entre los mapas */ 
+}
+
+.cont-promo3-1{
+  flex-direction: column;
+}
+
+.cont-promo3-2{
+  flex-direction: column;
+}
+
+
+.h222222 {
+  padding-top: 35px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+.txt-2222 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+.txt-2222-arr {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+.txt-2222-baj {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SECCIÓN PROMO MENU */
+.promo-section {
+  display: flex;
+  align-items: stretch;
+  /* Asegura que ambos divs tengan la misma altura */
+  justify-content: center;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+  background: rgb(254, 254, 254);
+  background: radial-gradient(circle, rgba(254, 254, 254, 1) 0%, rgba(250, 250, 250, 1) 5%, rgba(249, 249, 249, 1) 16%, rgba(247, 247, 247, 1) 30%, rgba(231, 231, 231, 1) 48%, rgba(224, 224, 224, 1) 62%, rgba(212, 212, 212, 1) 100%);
+  border-radius: 0 0 40px 40px;
+
+}
+
+.promo-image,
+.promo-content {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.promo-image {
+  width: 45%;
+  background-size: contain;
+  /* Asegura que la imagen esté contenida completamente dentro del div */
+  overflow: hidden;
+  /* Oculta cualquier parte de la imagen que exceda el contenedor */
+  background-size: cover;
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+
+}
+
+.ready-txt{
+  font-family: "Seymour One", sans-serif;
+}
+
+.img-carta-sec {
+
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+.promo-content {
+  width: 55%;
+  flex-direction: column;
+  /* Organiza el contenido en una columna vertical */
+  text-align: center;
+  /* Centra el texto horizontalmente */
+  padding: 1rem;
+  /* Añade un poco de espacio alrededor del contenido */
+}
+
+.txt-promo {
+  padding-bottom: 40px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.foodItem {
+  background-color: #333;
+  border-radius: 10px;
+  width: 300px;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+
+.foodItem img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.foodItem .details {
+  position: absolute;
+  bottom: 0;
+  background:  rgb(255, 59, 85);
+  width: 100%;
+  color: white;
+  padding-top: 40px;
+    padding-bottom: 30px;
+  text-align: center;
+}
+
+.orderBtn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+
+
+
+/*PROMO SECTION 2 (TEXTO DEBAJO DE LAS BURGERS)*/
+.promo-section2 {
+  display: flex;
+  align-items: stretch;
+  /* Asegura que ambos divs tengan la misma altura */
+
+  justify-content: center;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+
+  
+}
+
+.promo-image2,
+.promo-content2 {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.promo-image2 {
+  width: 45%;
+  background-size: contain;
+  /* Asegura que la imagen esté contenida completamente dentro del div */
+  overflow: hidden;
+  /* Oculta cualquier parte de la imagen que exceda el contenedor */
+  background-size: cover;
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+
+}
+
+.h2-never-fails{
+  font-family: "Seymour One", sans-serif;
+    font-size: 60px;
+    padding-top: 60px;
+   
+}
+
+.h2-never-fails3{
+  font-family: "Seymour One", sans-serif;
+    font-size: 45px;
+    padding-top: 40px;
+    word-spacing: 5px;
+}
+
+.h2-prodss {
+  font-family: "Seymour One", sans-serif;
+  font-size: 25px;
+
+
+}
+
+.h2-never-fails2{
+  font-family: "Seymour One", sans-serif;
+    font-size: 30x;
+    padding-top: 100px;
+}
+
+
+.h2-prodss2 {
+  font-family: "Seymour One", sans-serif;
+  font-size: 25px;
+
+
+}
+
+.h3-never-fails {
+  font-family: "Lexend", sans-serif;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.promo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.foodItem {
+  margin: 10px;
+}
+
+.promo-section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.promo-section2 img {
+  margin: 5px;
+}
+
+.img-3pasos {
+  width: 900px;
+  padding-top: 20px;
+}
+
+
+
+
+
+
+
+/*PROMO SECTION 1 (TEXTO DEBAJO DE LAS BURGERS)*/
+.promo-section1 {
+  display: flex;
+  align-items: stretch;
+  /* Asegura que ambos divs tengan la misma altura */
+  justify-content: space-between;
+
+    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas del mismo tamaño */
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-top: 20px;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+
+}
+
+.promo-image1,
+.promo-content1 {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.promo-image1 {
+  width: 45%;
+  background-size: contain;
+  /* Asegura que la imagen esté contenida completamente dentro del div */
+  overflow: hidden;
+  /* Oculta cualquier parte de la imagen que exceda el contenedor */
+  background-size: cover;
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+
+}
+
+.ready-txt1{
+  font-family: "Seymour One", sans-serif;
+}
+
+.img-carta-sec1 {
+
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+.promo-content1 {
+  width: 55%;
+  flex-direction: column;
+  /* Organiza el contenido en una columna vertical */
+  text-align: center;
+  /* Centra el texto horizontalmente */
+  padding: 1rem;
+  /* Añade un poco de espacio alrededor del contenido */
+}
+
+.txt-promo1 {
+  padding-bottom: 40px;
+
+}
+
+
+/*BOTONES UTILES*/
+
+.boton-util{
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  border: none;
+  padding: 10px 12px;
+  font-size: 8px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: color 0.3 ease;
+  text-decoration: none;
+
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+ 
+}
+.boton-util:hover {
+  color: #ffffff;
+  background-color: #ea344c;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px 14px;
+  font-size: 12px;
+  border-radius: 0px 25% 0px 25%;
+  word-spacing: 3px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+  background-color: #ffffff00;
+  color: #000000;
+  align-items: center;
+  text-align: center;
+  margin-top: auto;
+  /* Coloca el footer al final de la página */
+
+}
+
+.link-chorra {
+  text-decoration: none;
+  color: #ff3b55;
+}
+
+.link-chorra:hover {
+  color: #ff94a0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 15px;
+}
+
+
+.letra-redes {
+  color: #f4eeee;
+  text-align: center;
+
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 14px;
+  /*tamaño letra header*/
+
+  font-family: "Seymour One", sans-serif;
+  /*tipografía para el header*/
+  word-spacing: 10px;
+  /*espaciado entre palabras*/
+
+}
+
+.redes-footer {
+  align-items: center;
+  padding-top: 80px;
+  background: rgb(255, 59, 85);
+  background: linear-gradient(0deg, rgb(255, 59, 85) 0%, rgb(255, 149, 163) 70%, rgb(252, 209, 215) 85%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+}
+
+.redes {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+  background: rgb(255, 59, 85);
+
+}
+
+
+.social-img {
+  margin: 25px;
+  /* Ajusta el espacio entre cada icono */
+  justify-content: center;
+}
+
+.social-img img {
+  width: 37px;
+  /* Ajusta el tamaño de los iconos */
+  height: auto;
+  justify-content: center;
+}
+
+
+
+
+.footer-links {
+  padding-bottom: 12px;
+  justify-content: space-around;
+  align-items: center;
+  word-spacing: 2px;
+
+
+  margin: 0 auto;
+  background: #ff3b55;
+
+}
+
+.contenedor-links {
+
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  max-width: 700px;
+  width: 100%;
+  word-spacing: 100px;
+}
+
+.item-footer {
+  color: #f4eeee;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-bottom: 10px;
+  font-size: 10px;
+  /*tamaño letra footer*/
+
+  font-family: "Seymour One", sans-serif;
+  /*tipografía para el footer*/
+  word-spacing: 4px;
+  /*espaciado entre palabras*/
+
+
+}
+
+.item-footer:hover {
+  color: #ffd5d5;
+}
+
+.img-logo-footer {
+  width: 115px;
+
+}
+
+.img-fin {
+  justify-content: space-around;
+  background: rgb(255, 59, 85);
+  align-items: center;
+  padding-top: 0x;
+  align-items: center;
+  padding-bottom: 30px;
+
+}
+
+
+.pt-abajo-footer {
+  font-family: "Lexend", sans-serif;
+  color: #f4eeee;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  font-size: 12px;
+  word-spacing: 2px;
+  background-color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*responsive*/
+
+@media (max-width:450px) {
+
+  header {
+
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+
+
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 26%, rgba(244, 244, 244, 1) 54%, rgba(241, 241, 241, 1) 71%, rgba(251, 251, 251, 1) 100%);
+    position: relative;
+    padding-left: 80px;
+    padding-right: 60px;
+    width: 100%;
+
+  }
+
+  .contenedor-links {
+
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+    word-spacing: 100px;
+    display: inline-grid;
+  }
+
+  .img-logo {
+    margin-left: -40px;
+    width: 85px;
+
+  }
+
+
+  .letra-redes {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .parte-izqda {
+    margin-right: 125px;
+  }
+
+  .parte-dcha {
+    display: none;
+    align-items: center;
+    color: #000000;
+    padding: 10px;
+    width: calc(100% - 105px);
+    margin-right: 60px;
+
+
+  }
+
+  .item-header {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 6px;
+    /*tamaño letra header*/
+    font-weight: bold;
+    /*letra negrita header*/
+    font-family: "Seymour One", sans-serif;
+    /*tipografía para el header*/
+    word-spacing: 10px;
+    /*espaciado entre palabras*/
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .cuerpo-web {
+    margin-top: 5px;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*SECCION IMAGEN Y HACER PEDIDOOO*/
+
+
+  .secc-img-burg-text h2 {
+    font-family: "Seymour One", sans-serif;
+    font-size: 40px;
+    padding-top: 40px;
+    margin: 0px;
+    padding: 20px;
+    color: white;
+    display: flex;
+  }
+
+  .secc-img-burg-text h3 {
+    font-family: "Lexend", sans-serif;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 20px;
+    font-size: 20px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #menuToggle {
+    display: none;
+    display: block;
+    position: relative;
+    top: 5px;
+    left: 5px;
+
+    z-index: 1;
+
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  #menuToggle a {
+    display: none;
+    text-decoration: none;
+    color: #232323;
+    display: table-caption;
+    transition: color 0.3s ease;
+  }
+
+  #menuToggle a:hover {
+    color: tomato;
+  }
+
+
+  #menuToggle input {
+    display: none;
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
+
+    -webkit-touch-callout: none;
+  }
+
+  /*
+   * Just a quick hamburger
+   */
+  #menuToggle span {
+    display: none;
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: #000000;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      opacity 0.55s ease;
+  }
+
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  /* 
+   * Transform all the slices of hamburger
+   * into a crossmark.
+   */
+  #menuToggle input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #f4eeee;
+  }
+
+  /*
+   * But let's hide the middle one.
+   */
+  #menuToggle input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  /*
+   * Ohyeah and the last one should go the other direction
+   */
+  #menuToggle input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  /*
+   * Make this absolute positioned
+   * at the top left of the screen
+   */
+  #menu {
+    display: none;
+    position: absolute;
+    width: 300px;
+    font-family: "Seymour One", sans-serif;
+    font-size: 60px;
+    padding-bottom: 200px;
+    margin: -90px 0 0 -1200px;
+    padding: 1600px;
+    padding-bottom: 500px;
+    padding-top: 125px;
+
+    background: radial-gradient(circle, rgba(255, 98, 118, 1) 0%, rgba(255, 80, 103, 1) 44%, rgba(255, 59, 85, 1) 100%);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  }
+
+  #menu li {
+    padding: 10px 0;
+    font-size: 60px;
+    margin-left: -150px;
+  }
+
+  /*
+   * And let's slide it in from the left
+   */
+  #menuToggle input:checked~ul {
+    transform: none;
+  }
+
+
+
+
+
+  .li-menuuuu {
+    color: #f4eeee;
+    transition: color 0.3s ease, -webkit-text-stroke-color 0.4s ease;
+    /* Para navegadores basados en WebKit */
+    transition: color 0.3s ease, text-stroke-color 0.4s ease;
+    /* Propiedad estándar */
+
+
+  }
+
+  .li-menuuuu:hover {
+    border-color: #000000;
+    -webkit-text-stroke: 2px black;
+    /* Para navegadores basados en WebKit */
+
+    color: #d5ded900;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .item-footer {
+    color: #f4eeee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-bottom: 10px;
+    font-size: 8px;
+    /*tamaño letra footer*/
+
+    font-family: "Seymour One", sans-serif;
+    /*tipografía para el footer*/
+    word-spacing: 4px;
+    /*espaciado entre palabras*/
+
+
+  }
+
+  .botonMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    position: static;
+    top: 1rem;
+    right: 1rem;
+    background-color: #99B2B7;
+    border: 0;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Se le quita el borde azul cuando se pulsa en Chrome */
+  .botonMenu:focus {
+    outline: none;
+  }
+
+  /* Cuando es pulsado, se quita el translate que lo ocultaba */
+  .botonMenu:focus+.principal {
+    transform: translateX(0rem);
+  }
+
+  /* Se posiciona y se oculta con translate */
+  nav.principal {
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 15rem;
+    background-color: #7A6A53;
+    transform: translateX(15rem);
+    transition: 1s all;
+  }
+
+  /* Estilos sencillos para decorar los links */
+  nav.principal ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav.principal a {
+    display: block;
+    color: #D5DED9;
+    padding: 1rem;
+    transition: .5s all;
+  }
+
+  nav.principal a:hover {
+    text-decoration: none;
+    background-color: #948C75;
+  }
+
+
+
+
+
+
+
+
+
+
+  /* Estilos para el botón hamburguesa */
+  .dropbtn {
+    display: contents;
+    background-color: transparent;
+    /* Hacemos el fondo transparente */
+    border: none;
+    /* Eliminamos el borde */
+    padding: 0;
+    /* Eliminamos el relleno para que las líneas queden bien alineadas */
+    cursor: pointer;
+  }
+
+  .dropbtn .bar {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: #000000;
+    margin: 4px auto;
+    /* Espaciado entre las barras */
+  }
+
+  /* Cambiamos el color de las barras al pasar el mouse */
+  .dropbtn:hover .bar {
+    background-color: rgb(255, 59, 85);
+  }
+
+  /* Estilos para el menú desplegable */
+  .dropdown {
+
+    position: relative;
+    display: inline-block;
+
+  }
+
+  .dropdown-content {
+    display: none;
+    /* Ocultamos el menú por defecto */
+    position: absolute;
+    background: rgb(110, 110, 110);
+    background: radial-gradient(circle, rgba(110, 110, 110, 1) 0%, rgba(51, 51, 51, 1) 64%, rgba(0, 0, 0, 1) 100%);
+    min-width: 230px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    right: 0;
+    /* Posicionamos el menú a la derecha */
+  }
+
+  .dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 16px 20px;
+    display: block;
+    font-family: "Seymour One", sans-serif;
+    font-size: 11px;
+    word-spacing: 3px;
+    margin: 10px;
+
+  }
+
+  .dropdown-content a:hover {
+    background-color: rgb(255, 59, 85);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+    /* Mostramos el menú al hacer hover */
+  }
+
+  #closeBtn {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  #closeBtn:hover {
+    background-color: rgb(255, 59, 85);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+/*PROMO SECTION 1 (TEXTO DEBAJO DE LAS BURGERS)*/
+.promo-section1 {
+  display: none !important;
+  align-items: stretch;
+  /* Asegura que ambos divs tengan la misma altura */
+  justify-content: space-between;
+  display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas del mismo tamaño */
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-top: 20px;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+
+}
+
+.promo-image1,
+.promo-content1 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.promo-image1 {
+  display: none;
+  width: 45%;
+  background-size: contain;
+  /* Asegura que la imagen esté contenida completamente dentro del div */
+  overflow: hidden;
+  /* Oculta cualquier parte de la imagen que exceda el contenedor */
+  background-size: cover;
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+
+}
+
+.ready-txt1{
+  font-family: "Seymour One", sans-serif;
+}
+
+.img-carta-sec1 {
+  display: none;
+
+  width: 100%;
+  height: auto;
+}
+
+
+
+.promo-content1 {
+  display: none;
+  width: 55%;
+  flex-direction: column;
+  /* Organiza el contenido en una columna vertical */
+  text-align: center;
+  /* Centra el texto horizontalmente */
+  padding: 1rem;
+  /* Añade un poco de espacio alrededor del contenido */
+}
+
+.txt-promo1 {
+  padding-bottom: 40px;
+
+}
+
+
+
+.foodItem {
+  display: none;
+  background-color: #333;
+  border-radius: 10px;
+  width: 300px;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+.promo-section2 img {
+  margin: 5px;
+}
+
+.img-3pasos {
+  width: 400px;
+  padding-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.h2-never-fails3{
+
+  font-size: 35px;
+  text-align: center;
+}
+.h3-never-fails {
+  display: none;
+}
+
+.h2-never-fails2 {
+  padding-top: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+
+.promo-section3 {
+  padding: 20px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ajusta la altura total de la sección a la mitad de la altura de la ventana */
+  
+  border-radius: 0 0 40px 40px;
+
+
+
+}
+
+
+
+
+.cont-promo3-1 {
+ 
+display: flex;
+}
+.cont-promo3-2 {
+
+display: flex;
+}
+
+.promo-section3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.text-container {
+    margin-bottom: 20px; /* Espacio entre el texto y los mapas */
+}
+
+.maps-container {
+    display: flex;
+    flex-direction: column;
+}
+.cont-promo3-1,
+.cont-promo3-2 {
+    margin: 0 10px; /* Espacio entre los mapas */
+}
+
+.cont-promo3-1 iframe,
+.cont-promo3-2 iframe {
+    width: 360px; /* Ancho de los mapas */
+    height: 300px; /* Altura de los mapas */
+    margin: 0 20px; /* Espacio entre los mapas */ 
+}
+
+.cont-promo3-1{
+  flex-direction: column;
+}
+
+.cont-promo3-2{
+  flex-direction: column;
+}
+
+
+.h222222 {
+  padding-top: 35px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+.txt-2222 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+.txt-2222-arr {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+.txt-2222-baj {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+/*responsive 2*/
+
+@media (max-width:1900px) {
+
+/*MENU HAMBURGUESA DESPLEGABLE GRANDE*/
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 5px;
+  left: 5px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+ 
+  display: table-caption;
+  transition: color 0.3s ease;
+  margin: 0px;
+  margin-left: 430px;
+ 
+}
+
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0;
+  /* hide this */
+  z-index: 2;
+  /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #000000;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked~span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #f4eeee;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked~span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked~span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 300px;
+  font-family: "Seymour One", sans-serif;
+  font-size: 60px;
+  padding-bottom: 200px;
+  margin: -90px 0 0 -1350px;
+ 
+
+  padding-bottom: 500px;
+  padding-top: 55px;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(255, 98, 118, 1) 0%, rgba(255, 80, 103, 1) 44%, rgba(255, 59, 85, 1) 100%);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 80px;
+  margin-left: -630px;
+  margin-top: 0px;
+  
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked~ul {
+  transform: none;
+}
+
+
+
+
+
+.li-menuuuu {
+  color: #f4eeee;
+  transition: color 0.3s ease, -webkit-text-stroke-color 0.4s ease;
+  /* Para navegadores basados en WebKit */
+  transition: color 0.3s ease, text-stroke-color 0.4s ease;
+  /* Propiedad estándar */
+ 
+
+
+}
+
+.li-menuuuu:hover {
+  border-color: #000000;
+  -webkit-text-stroke: 2px black;
+  /* Para navegadores basados en WebKit */
+
+  color: #d5ded900;
+}
+
+
+.li-menuuuu1 {
+  color: #f4eeee;
+  transition: color 0.3s ease, -webkit-text-stroke-color 0.4s ease;
+  /* Para navegadores basados en WebKit */
+  transition: color 0.3s ease, text-stroke-color 0.4s ease;
+  /* Propiedad estándar */
+  margin-top: 90px;
+  margin-left: 0px;
+  margin-right: -500px;
+
+
+
+}
+
+.li-menuuuu1:hover {
+  border-color: #000000;
+  -webkit-text-stroke: 2px black;
+  /* Para navegadores basados en WebKit */
+
+  color: #d5ded900;
+}
+.custom-boton {
+  margin-right: 300px;
+  
+  }   
+
+}
+
+

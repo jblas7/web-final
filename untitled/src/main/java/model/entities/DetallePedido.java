@@ -1,4 +1,9 @@
-package main.java.Model.Entities;
+package Model.Entities;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
 
 public class DetallePedido {
 
@@ -20,11 +25,10 @@ public class DetallePedido {
         this.idProducto = idProducto;
     }
 
-
     //Crearemos el constructor vacio de los atributos anteriores
-    public DetallePedido(Integer cantidad) {
-        this.cantidad = cantidad;
-    }
+    public DetallePedido()
+    {}
+
 
     //Crear los Getter y setter de los atributos de la clase DetallesPedidoBean.
     public Integer getIdDetallePedido() {
@@ -59,16 +63,27 @@ public class DetallePedido {
         this.idProducto = idProducto;
     }
 
-
     //Crearemos en método to String del objeto DetallePedido
     @Override
     public String toString() {
-        return "DetallePedido{" + "idDetallePedido=" + idDetallePedido + ", cantidad=" + cantidad + ", idpedidos=" + idpedidos + ", idProducto=" + idProducto + '}';
+        return "DetallePedido{" +
+                "idDetallePedido=" + idDetallePedido +
+                ", cantidad=" + cantidad +
+                ", idpedidos=" + idpedidos +
+                ", idProducto=" + idProducto +
+                '}';
     }
 
 
-    //Falta añadir el método Json en la clase.
+    //Creamos el método Json para pasar el arrayList a Json
+    public static String toArrayJson(ArrayList<DetallePedido> DetallePedido) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
 
+        Gson gson = builder.create();
+
+        return gson.toJson(DetallePedido);
+    }
 
 
 

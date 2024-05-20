@@ -1,35 +1,42 @@
-package model.entities;
+package Model.Entities;
 
-/*    EJEMPLO DE ALBERO AKKARI PARA USAR DE REFERENCIA, ELIMINAR CUANDO LOS DATOS SE PUEDAN MANEJAR CORRECTAMENTE    */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import java.util.ArrayList;
 
 public class Productos {
 
-    // Creamos los atributos del objeto cliente, que hace referencia a las columnas de la Tabla PRODUCTOS.
+    //Creamos los atributos del Objeto cliente, que hace referencia a las columnas de la Tabla PRODUCTOS.
     private Integer idProducto;
+
     private String nombre;
+
     private String descripcion;
+
     private Double precio;
-    private String urlImagen;
+
+    private String rutaImagen;
+
     private String idCategoria; /*FK hace referencia a la tabla CATEGORIA */
 
-    // Constructor con todos los campos de los atributos anteriores
-    public Productos(Integer idProducto, String nombre, String descripcion, Double precio, String urlImagen, String idCategoria) {
+
+    //Crearemos el constructor con todos los campos de los atributos anteriores
+    public Productos(Integer idProducto, String nombre, String descripcion, Double precio, String rutaImagen, String idCategoria) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.urlImagen = urlImagen;
+        this.rutaImagen = rutaImagen;
         this.idCategoria = idCategoria;
     }
 
-    // Constructor vacío de los atributos anteriores
+    //Crearemos el constructor vacio de los atributos anteriores
     public Productos() {
     }
 
-    // Getters y setters de los atributos de la clase Productos.
+
+    //Crear los Getter y setter de los atributos de la clase ProductosSBean.
     public Integer getIdProducto() {
         return idProducto;
     }
@@ -62,12 +69,12 @@ public class Productos {
         this.precio = precio;
     }
 
-    public String getUrlImagen() {
-        return urlImagen;
+    public String getRutaImagen() {
+        return rutaImagen;
     }
 
-    public void setUrlImagen(String urlImagen) {
-        this.urlImagen = urlImagen;
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 
     public String getIdCategoria() {
@@ -78,6 +85,10 @@ public class Productos {
         this.idCategoria = idCategoria;
     }
 
+
+
+
+    //Crear el metodo ToSting del objeto Cliente
     @Override
     public String toString() {
         return "Productos{" +
@@ -85,15 +96,20 @@ public class Productos {
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", precio=" + precio +
-                ", urlImagen='" + urlImagen + '\'' +
+                ", rutaImagen='" + rutaImagen + '\'' +
                 ", idCategoria='" + idCategoria + '\'' +
                 '}';
     }
 
-    public static String toJSon(ArrayList<Productos> productos) { //  conversor para la ddbb a json para el JS
+    //Creamos el método Json para pasar el arrayList a Json
+    public static String toArrayJson(ArrayList<Productos> Productos) {
         GsonBuilder builder = new GsonBuilder();
-        builder.setPrettyPrinting(); /* Da formato automatico sin tener que definir el formato del resp a mano */
+        builder.setPrettyPrinting();
+
         Gson gson = builder.create();
-        return gson.toJson(productos);
+
+        return gson.toJson(Productos);
     }
+
+
 }
