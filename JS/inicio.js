@@ -202,7 +202,7 @@ function acceptCookies() {
       // Aquí puedes agregar tu lógica para establecer las cookies esenciales y cerrar la ventana emergente
       closeCookiePopup();
   } else {
-      alert("Por favor, acepta las cookies esenciales para continuar.");
+      alert("Please accept essential cookies to continue.");
   }
 }
 
