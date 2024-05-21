@@ -420,7 +420,7 @@ body {
   
   .cuerpo-web {
     margin-top: 95px;
-  
+    padding-bottom: 40px;
   
   
   }
@@ -431,6 +431,38 @@ body {
 
 
 
+  .container {
+    max-width: 600px;
+    margin: auto;
+}
+.heading {
+    font-size: 2em;
+    color: #000000;
+    font-weight: bold;
+}
+.subheading {
+    font-size: 1.5em;
+    color: #000000;
+    font-weight: bold;
+}
+.benefits-list {
+    list-style-type: none;
+    padding: 0;
+}
+.benefits-list li {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+.cta {
+    display: block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
 
 
@@ -442,11 +474,62 @@ body {
 
 
 
+.container {
+  max-width: 600px;
+  
+}
+.heading {
+  font-size: 2em;
+  color: #000000;
+}
+.subheading {
+  font-size: 1.5em;
+  color: #000000;
+}
+.benefits-list {
+  list-style-type: none;
+  padding: 0;
+}
+.benefits-list li {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+.cta-section {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 300px;
+  margin-right: 300px;
+  font-family: "Seymour One", sans-serif;
+
+}
+.cta {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ff3b55;
+  color: #ffffff;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 25px 0% 25px 0%;
+  transition: all 0.3s ease;
+  font-weight: bold;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
 
 
+.cta:hover {
 
+  font-family: "Seymour One", sans-serif;
+  background-color: #ff8795;
 
+  color: #000000;
+  font-weight: bold;
 
+  
+}
 
 
 
@@ -500,7 +583,7 @@ body {
 }
 
 .oferta-trabajo-contenido {
-    padding: 20px;
+    padding: 60px;
     font-family: "Lexend", sans-serif;
 }
 
@@ -565,10 +648,10 @@ body {
 
 .img-delivery {
     width: 300px;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     transition: transform 0.3s ease, filter 0.3s ease;
   
     /* Transición suave */

@@ -316,6 +316,53 @@ body {
   
   
   }
+
+
+
+
+
+
+
+
+
+  .img-delivery {
+    width: 300px;
+  
+    margin-left: 50px;
+    margin-right: 50px;
+   
+    transition: transform 0.3s ease, filter 0.3s ease;
+  
+    /* Transición suave */
+  }
+  
+  
+  .div-img-arr {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  
+    width: 100%;
+  
+  }
+  
+  .div-img-arr :hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   .fondo-formulario-signup {
@@ -326,14 +373,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .formulario-registro-signup {
     background-color: rgba(54, 53, 53, 0.95);
     padding: 5%;
     border-radius: 15px;
-    width: 65%;
-}
+    width: 50%;
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
 .titulo-registro-signup {
     font-family: "Seymour One", sans-serif;
     color: #ffffff;
@@ -353,16 +408,20 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 .enunciado-casilla-info-registros-signup {
     display: flex;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Lexend';
     color: #ffffff;
     font-size: 40px;
+    margin-top: 40px;
     font-weight: bold;
     padding-bottom: 15px;
-    margin-left: 15%;
+   
+  
 }
 
 .formulario-input-registros-signup {
@@ -371,60 +430,129 @@ body {
     background-color: #f0f0f0;
     margin-bottom: 10px;
     width: 65%;
-    margin-left: 15%;
-}
-.enlace-iniciar-sesion-signup {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    margin-top: 3%;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    background-color: #ff3b55;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 15px 20px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
 
 }
+
+
+
 
 .crear-cuenta-boton {
-    margin: 0 auto;
-    width: 30%;
-    margin-top: 5%;
-    font-family: "Poppins", sans-serif;
-    background-color: #ff3b55;
-    color: #ffffff;
-    border: none;
-    font-size: 40px;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+  display: block;
+  margin: 10px auto;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  padding: 10px 16px;
+  font-size: 26px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.enlace-iniciar-sesion-signup:hover {
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-    background-color: #ff5252;
-    color: #ffffff;
-    border-color: #ffffff;
+.crear-cuenta-boton:hover {
+
+  color: #ffffff;
+  background-color: #ea344c;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+  padding: 10px 14px;
+  font-size: 30px;
+  border-radius: 0px 25% 0px 25%;
+  word-spacing: 3px;
 }
+
+
+
+.enlace-iniciar-sesion-signup {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 3%;
+  text-align: center;
+
+  background-color: #ff3b55;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 15px 20px;
+  font-size: 26px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.enlace-iniciar-sesion-signup {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 3%;
+  text-align: center;
+  font-family: 'Seymour One'; 
+
+  text-decoration: none;
+
+
+  border: none;
+  background: #ff3b55;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 19px;
+  align-items: center;
+  cursor: pointer;
+  transition: .3s;
+
+  transition: all 0.3s ease;
+}
+
+
+
+
+.enlace-iniciar-sesion-signup:hover {
+
+  scale: 1.05;
+  color: #ff3b55;
+  background-color: #fff;
+  border: 1px solid #000;
+  font-size: 21px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 .ya-tiene-cuenta-enlace {
     margin-top: 10%;
     color: #ffffff;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
+    font-family: 'Lexend';
     font-size: 26px;
     font-weight: bold;
     margin-left: auto;
