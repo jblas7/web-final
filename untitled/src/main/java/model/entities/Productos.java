@@ -18,11 +18,11 @@ public class Productos {
 
     private String rutaImagen;
 
-    private String idCategoria; /*FK hace referencia a la tabla CATEGORIA */
+    private Integer idCategoria; /*FK hace referencia a la tabla CATEGORIA */
 
 
     //Crearemos el constructor con todos los campos de los atributos anteriores
-    public Productos(Integer idProducto, String nombre, String descripcion, Double precio, String rutaImagen, String idCategoria) {
+    public Productos(Integer idProducto, String nombre, String descripcion, Double precio, String rutaImagen, Integer idCategoria) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -77,11 +77,11 @@ public class Productos {
         this.rutaImagen = rutaImagen;
     }
 
-    public String getIdCategoria() {
+    public Integer getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(String idCategoria) {
+    public void setIdCategoria(Integer idCategoria) {
         this.idCategoria = idCategoria;
     }
 

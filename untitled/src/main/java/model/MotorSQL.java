@@ -14,15 +14,14 @@ import java.sql.ResultSet;
         private Connection conn = null;
         private Statement st = null;
         private ResultSet rs = null;
-        //private static final String URL  = "jdbc:oracle:thin:database-1.cl4so6ecolo7.us-east-1.rds.amazonaws.com/:1521:orcl";
-        private static final String URL = "jdbc:mysql://localhost:3306/pecburger";
+        private static final String URL  = "jdbc:oracle:thin:@database-1.cl4so6ecolo7.us-east-1.rds.amazonaws.com:1521:orcl";
         private static final String USER  = "admin";
         private static final String PASSWORD  = "123456789";
         public void connect()
         {
             try {
                 //Class.forName("oracle.jdbc.OracleDriver").newInstance();
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName("oracle.jdbc.OracleDriver").newInstance();
                 conn = DriverManager.getConnection(URL, USER, PASSWORD);
                 st = conn.createStatement();
                 // Do something with the Connection

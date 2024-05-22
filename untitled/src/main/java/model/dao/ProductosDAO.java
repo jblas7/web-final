@@ -12,20 +12,23 @@ public class ProductosDao implements IDao<Productos,Integer> {
     private final String SQL_FIND_ALL = "SELECT * FROM PRODUCTOS";
 
     @Override
-    public int add(Productos productos) {throw new UnsupportedOperationException("Not supported yet.");
+    public int add(Productos productos) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public int delete(Integer e) {throw new UnsupportedOperationException("Not supported yet.");
+    public int delete(Integer e) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public int update(Productos productos) {throw new UnsupportedOperationException("Not supported yet.");
+    public int update(Productos productos) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public ArrayList<Productos> findAll(Productos objeto) {
-        ArrayList <Productos> productos = new ArrayList<>();
+        ArrayList<Productos> productos = new ArrayList<>();
         MotorSQL motor = new MotorSQL();
         try {
             //Esto es para conectarnos a la bbdd
@@ -35,26 +38,26 @@ public class ProductosDao implements IDao<Productos,Integer> {
             ResultSet rs = motor.executeQuery(SQL_FIND_ALL);
 
             //Mientras haya resultados se ejecuta el while
-            while (rs.next()){
+            while (rs.next()) {
                 Productos producto = new Productos();
                 producto.setIdProducto(rs.getInt("ID_Producto"));
                 producto.setNombre(rs.getString("Nombre"));
-                producto.setDescripcion(rs.getString("Descipcion"));
+                producto.setDescripcion(rs.getString("Descripcion"));
                 producto.setPrecio(rs.getDouble("Precio"));
                 producto.setRutaImagen(rs.getString("Ruta_Imagen"));
-                producto.setIdCategoria(rs.getString("ID_Categoria"));
+                producto.setIdCategoria(rs.getInt("ID_Categoria"));
 
                 productos.add(producto);
+
+                return productos;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             productos.clear();
-        }
-        finally {
+        } finally {
             motor.disconnect();
         }
 
         return productos;
     }
-
 }
+

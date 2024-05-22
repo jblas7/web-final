@@ -10,26 +10,25 @@ import java.util.ArrayList;
 
 public class ProductosAction implements IAction {
 
-
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, String action) {
         String resultado = "";
 
-        switch (action){
+        switch (action) {
             case "find_all":
-                resultado = findAll ();
+                resultado = findAll();
                 break;
 
-            default: resultado = "ERROR. Invalid action";
+            default:
+                resultado = "ERROR. Invalid action";
         }
 
         return resultado;
     }
 
-    private String findAll (){
+    private String findAll() {
         ProductosDao productosDao = new ProductosDao();
-        ArrayList<Productos> productos = productosDao.findAll(null);
-        return Productos.toArrayJson(productos);
+        ArrayList<Productos> producto = productosDao.findAll(null);
+        return Productos.toArrayJson(producto);
     }
-
 }

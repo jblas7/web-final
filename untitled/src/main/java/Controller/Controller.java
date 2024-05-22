@@ -1,9 +1,8 @@
 package Controller;
 
-import Controller.Actions.ClienteAction;
-import Controller.Actions.ProductosAction;
-import Controller.Actions.CategoriaAction;
-import Model.Person;
+import Controller.Action.ClienteAction;
+import Controller.Action.ProductosAction;
+import Controller.Action.CategoriaAction;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 
@@ -18,90 +17,63 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
-
+import java.io.IOException;
 
 @WebServlet(name = "Controller", urlPatterns = {"/Controller"})
 public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/plain;charset=UTF-8");
-        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir acceso desde cualquier origen
-        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Permitir los métodos HTTP
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Permitir ciertos encabezados
-        response.setHeader("Access-Control-Max-Age", "3600"); // Cache de opciones preflight durante 1 hora
+        response.setContentType("application/json;charset=UTF-8");
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        response.setHeader("Access-Control-Max-Age", "3600");
 
         PrintWriter out = response.getWriter();
-        String strAction = request.getParameter("action"); // strAction = value from the parameter "action"
+        String strAction = request.getParameter("action");
         String[] arrayAction = new String[2];
+
         if (strAction != null && !strAction.isEmpty()) {
-            arrayAction = strAction.split("\\."); // [0] = productos / [1] = find_all
+            arrayAction = strAction.split("\\.");
         }
 
-        switch (arrayAction[0].toLowerCase()) {
-            case "productos": {
-                out.print(new ProductosAction().execute(response, request, arrayAction[1]));
-                break;
+        if (arrayAction.length == 2 && arrayAction[0] != null && arrayAction[1] != null) {
+            try {
+                switch (arrayAction[0].toLowerCase()) {
+                    case "productos":
+                        out.print(new ProductosAction().execute(request, response, arrayAction[1]));
+                        break;
+                    case "clientes":
+                        out.print(new ClienteAction().execute(request, response, arrayAction[1]));
+                        break;
+                    case "categoria":
+                        out.print(new CategoriaAction().execute(request, response, arrayAction[1]));
+                        break;
+                    default:
+                        throw new ServletException("Acción " + arrayAction[0] + " no válida");
+                }
+            } catch (Exception e) {
+                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                out.print("{\"error\": \"" + e.getMessage() + "\"}");
+                e.printStackTrace();
             }
-            case "clientes": {
-                out.print(new ClienteAction().execute(response, request, arrayAction[1]));
-                break;
-            }
-            case "categoria": {
-                out.print(new CategoriaAction().execute(response, request, arrayAction[1]));
-                break;
-            }
-            default: {
-                System.out.println(arrayAction[0]);
-                throw new ServletException("Acción " + arrayAction[0] + " no válida");
-            }
+        } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            out.print("{\"error\": \"El parámetro 'action' es requerido y debe tener el formato 'entidad.accion'\"}");
         }
         System.out.println(strAction);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("UTF-8");
-
-        JsonParser parser = new JsonParser();
-        Gson gson = new Gson();
-        Person p = gson.fromJson(parser.parse(getBody(request)), Person.class);
-
-        System.out.println(gson.toJson(p));
-
-        response.getWriter().print("Hola " + p.name + "\r\n");
-    }
-
-    private static String getBody(HttpServletRequest request) {
-        StringBuilder stringBuilder = new StringBuilder();
-        BufferedReader bufferedReader = null;
-
-        try {
-            InputStream inputStream = request.getInputStream();
-            if (inputStream != null) {
-                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                char[] charBuffer = new char[128];
-                int bytesRead;
-                while ((bytesRead = bufferedReader.read(charBuffer)) != -1) {
-                    stringBuilder.append(charBuffer, 0, bytesRead);
-                }
-            }
-        } catch (IOException ex) {
-            return "";
-        } finally {
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException ex) {
-                }
-            }
-        }
-        return stringBuilder.toString();
+        processRequest(request, response);
     }
 }

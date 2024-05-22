@@ -16,7 +16,7 @@ public class Pedidos {
 
     //Elegir entre las tres siguientes opciones
     private String estado; /*3Estados */
-    private int estado; /*3Estados */
+    /*
     private eEstadoPedido estado; /*3Estados */
     /*¿¿?? private Enum  state; /* 1- Pendiente, 2- En proceso, 3- Finalizado ¿??*/
 
