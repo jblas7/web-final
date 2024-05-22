@@ -143,91 +143,98 @@
     
 
 
-  /*PARTE FORMULARIO GORDO*/
-  function validarFormulario() {
-    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
-    if (!tipoPedido) {
-        alert("Please select the type of order.");
-        return false;
-    }
+    function validarFormulario() {
+      var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+      if (!tipoPedido) {
+          alert("Please select the type of order.");
+          return false;
+      }
 
-    if (tipoPedido.value === "entregaDomicilio") {
-        var calle = document.getElementById("calle").value.trim();
-        var portal = document.getElementById("portal").value.trim();
-        var piso = document.getElementById("piso").value.trim();
-        var letra = document.getElementById("letra").value.trim();
-        if (calle === "" || portal === "" || piso === "" || letra === "") {
-            alert("Please complete all fields for the delivery address.");
-            return false;
-        }
+      if (tipoPedido.value === "entregaDomicilio") {
+          var calle = document.getElementById("calle").value.trim();
+          var portal = document.getElementById("portal").value.trim();
+          var piso = document.getElementById("piso").value.trim();
+          var letra = document.getElementById("letra").value.trim();
+          var telefonoEntrega = document.getElementById("telefonoEntrega").value.trim();
 
-        var modoEntrega = document.getElementById("modoEntrega").value;
-        if (modoEntrega === "Schedule Shipment") {
-            var horaEntrega = document.getElementById("horaEntrega").value.trim();
-            if (horaEntrega === "") {
-                alert("Por favor, ingrese la hora de entrega.");
-                document.getElementById("horaEntrega").focus();
-                return false;
-            }
-        }
-    } else if (tipoPedido.value === "recogerLocal") {
-        var nombre = document.getElementById("nombre").value.trim();
-        if (nombre === "") {
-            alert("Please enter your name.");
-            document.getElementById("nombre").focus();
-            return false;
-        }
+          if (calle === "" || portal === "" || piso === "" || letra === "") {
+              alert("Please complete all fields for the delivery address.");
+              return false;
+          }
 
-        var telefono = document.getElementById("telefono").value.trim();
-        if (telefono === "") {
-            alert("Please enter your phone number.");
-            document.getElementById("telefono").focus();
-            return false;
-        }
+          if (telefonoEntrega === "" || !/^[0-9]{9}$/.test(telefonoEntrega)) {
+              alert("Please enter a valid phone number for delivery.");
+              document.getElementById("telefonoEntrega").focus();
+              return false;
+          }
 
-        var modoRecoger = document.getElementById("modoRecoger").value;
-        if (modoRecoger === "Schedule Pickup") {
-            var horaRecoger = document.getElementById("horaRecoger").value.trim();
-            if (horaRecoger === "") {
-                alert("Please enter the pick-up time.");
-                document.getElementById("horaRecoger").focus();
-                return false;
-            }
-        }
-    }
+          var modoEntrega = document.getElementById("modoEntrega").value;
+          if (modoEntrega === "Schedule Shipment") {
+              var horaEntrega = document.getElementById("horaEntrega").value.trim();
+              if (horaEntrega === "") {
+                  alert("Please enter the delivery time.");
+                  document.getElementById("horaEntrega").focus();
+                  return false;
+              }
+          }
+      } else if (tipoPedido.value === "recogerLocal") {
+          var nombre = document.getElementById("nombre").value.trim();
+          var telefono = document.getElementById("telefono").value.trim();
 
-    return true;
-}
+          if (nombre === "") {
+              alert("Please enter your name.");
+              document.getElementById("nombre").focus();
+              return false;
+          }
 
-function mostrarOpciones() {
-    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
-    var opcionesEntrega = document.getElementById("opcionesEntrega");
-    var opcionesRecoger = document.getElementById("opcionesRecoger");
+          if (telefono === "" || !/^[0-9]{9}$/.test(telefono)) {
+              alert("Please enter a valid phone number for pickup.");
+              document.getElementById("telefono").focus();
+              return false;
+          }
 
-    if (tipoPedido && tipoPedido.value === "entregaDomicilio") {
-        opcionesEntrega.style.display = "block";
-        opcionesRecoger.style.display = "none";
-    } else if (tipoPedido && tipoPedido.value === "recogerLocal") {
-        opcionesEntrega.style.display = "none";
-        opcionesRecoger.style.display = "block";
-    }
-}
+          var modoRecoger = document.getElementById("modoRecoger").value;
+          if (modoRecoger === "Schedule Pickup") {
+              var horaRecoger = document.getElementById("horaRecoger").value.trim();
+              if (horaRecoger === "") {
+                  alert("Please enter the pick-up time.");
+                  document.getElementById("horaRecoger").focus();
+                  return false;
+              }
+          }
+      }
 
-function mostrarHoraEntrega() {
-    var modoEntrega = document.getElementById("modoEntrega").value;
-    var horaEntregaDiv = document.getElementById("horaEntregaDiv");
+      return true;
+  }
 
-    horaEntregaDiv.style.display = modoEntrega === "Schedule Shipment" ? "block" : "none";
-}
+  function mostrarOpciones() {
+      var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+      var opcionesEntrega = document.getElementById("opcionesEntrega");
+      var opcionesRecoger = document.getElementById("opcionesRecoger");
 
-function mostrarHoraRecoger() {
-    var modoRecoger = document.getElementById("modoRecoger").value;
-    var horaRecogerDiv = document.getElementById("horaRecogerDiv");
+      if (tipoPedido && tipoPedido.value === "entregaDomicilio") {
+          opcionesEntrega.style.display = "block";
+          opcionesRecoger.style.display = "none";
+      } else if (tipoPedido && tipoPedido.value === "recogerLocal") {
+          opcionesEntrega.style.display = "none";
+          opcionesRecoger.style.display = "block";
+      }
+  }
 
-    horaRecogerDiv.style.display = modoRecoger === "Schedule Pickup" ? "block" : "none";
-}
+  function mostrarHoraEntrega() {
+      var modoEntrega = document.getElementById("modoEntrega").value;
+      var horaEntregaDiv = document.getElementById("horaEntregaDiv");
 
-function guardarFormulario(event) {
+      horaEntregaDiv.style.display = modoEntrega === "Schedule Shipment" ? "block" : "none";
+  }
+
+  function mostrarHoraRecoger() {
+      var modoRecoger = document.getElementById("modoRecoger").value;
+      var horaRecogerDiv = document.getElementById("horaRecogerDiv");
+
+      horaRecogerDiv.style.display = modoRecoger === "Schedule Pickup" ? "block" : "none";
+  }
+  function guardarFormulario(event) {
     event.preventDefault(); // Prevent form submission
 
     if (!validarFormulario()) {
@@ -239,6 +246,7 @@ function guardarFormulario(event) {
     var portal = document.getElementById("portal").value.trim();
     var piso = document.getElementById("piso").value.trim();
     var letra = document.getElementById("letra").value.trim();
+    var telefonoEntrega = document.getElementById("telefonoEntrega").value.trim();
     var modoEntrega = document.getElementById("modoEntrega").value;
     var horaEntrega = document.getElementById("horaEntrega").value.trim();
     var nombre = document.getElementById("nombre").value.trim();
@@ -253,6 +261,7 @@ function guardarFormulario(event) {
         portal,
         piso,
         letra,
+        telefonoEntrega,
         modoEntrega,
         horaEntrega,
         nombre,
@@ -276,52 +285,38 @@ document.querySelectorAll('input[name="tipoPedido"]').forEach(el => el.addEventL
 document.getElementById("modoEntrega").addEventListener("change", mostrarHoraEntrega);
 document.getElementById("modoRecoger").addEventListener("change", mostrarHoraRecoger);
 
+function mostrarVentana() {
+    var ventanaEmergente = document.getElementById("ventanaEmergente");
+    ventanaEmergente.style.display = "block";
+    document.body.style.overflow = "hidden"; // Bloquear el scroll
+}
 
+function cerrarVentana() {
+    var ventanaEmergente = document.getElementById("ventanaEmergente");
+    ventanaEmergente.style.display = "none";
+    document.body.style.overflow = "auto"; // Habilitar el scroll nuevamente
+}
 
+document.addEventListener("DOMContentLoaded", function() {
+    var scrollTopButton = document.getElementById('scrollTopButton');
 
-
-
-
-
-
-
-
-
-
-
-
-    function mostrarVentana() {
-      var ventanaEmergente = document.getElementById("ventanaEmergente");
-      ventanaEmergente.style.display = "block";
-      document.body.style.overflow = "hidden"; // Bloquear el scroll
-    }
-    
-    function cerrarVentana() {
-      var ventanaEmergente = document.getElementById("ventanaEmergente");
-      ventanaEmergente.style.display = "none";
-      document.body.style.overflow = "auto"; // Habilitar el scroll nuevamente
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-      var scrollTopButton = document.getElementById('scrollTopButton');
-    
-      // Mostrar o ocultar el botón basado en el desplazamiento de la página
-      window.addEventListener('scroll', function() {
+    // Mostrar o ocultar el botón basado en el desplazamiento de la página
+    window.addEventListener('scroll', function() {
         if (window.scrollY > 200) { // Cambia 200 por la cantidad de píxeles de desplazamiento que desees antes de mostrar el botón
-          scrollTopButton.classList.add('show');
+            scrollTopButton.classList.add('show');
         } else {
-          scrollTopButton.classList.remove('show');
+            scrollTopButton.classList.remove('show');
         }
-      });
-    
-      // Animar el desplazamiento hacia arriba al hacer clic en el botón
-      scrollTopButton.addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth' // Para un desplazamiento suave
-        });
-      });
     });
 
+    // Animar el desplazamiento hacia arriba al hacer clic en el botón
+    scrollTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Para un desplazamiento suave
+        });
+    });
+});
     
 
 

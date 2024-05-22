@@ -367,6 +367,7 @@ body {
     text-decoration: none;
     color: #7e0000;
     background-color: transparent;
+    white-space: nowrap;
     text-align: left;
     opacity: 100%;
   }
@@ -394,7 +395,7 @@ body {
     background-color: transparent;
   }
 
-  .historia{
+  .historia{ 
     display: grid;
     grid-template-columns: 25% 50% 25%;
     grid-template-areas: "imagenes-historia-izq presentacion-local imagenes-historia-der";

@@ -291,18 +291,17 @@ function toggleInfo() {
 
 
 
-
-/*PARTE DE LA INFO DEL FORMULARIO*/
 document.addEventListener('DOMContentLoaded', function() {
     const formularioDatos = JSON.parse(localStorage.getItem('formularioDatos'));
     if (formularioDatos) {
-        const { tipoPedido, calle, portal, piso, letra, modoEntrega, horaEntrega, nombre, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
+        const { tipoPedido, calle, portal, piso, letra, telefonoEntrega, modoEntrega, horaEntrega, nombre, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
         let infoHTML = ``;
 
         if (tipoPedido === 'entregaDomicilio') {
             infoHTML += `
                 <h3>Home Delivery</h3>
                 <p>Address: ${calle}, ${portal}, ${piso} ${letra}</p>
+                <p>Phone: ${telefonoEntrega}</p>
                 <p>Mode of Delivery: ${modoEntrega}</p>
                 ${modoEntrega === 'Schedule Shipment' ? `<p>Delivery Time: ${horaEntrega}</p>` : ''}
             `;
@@ -322,8 +321,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('infoSection').innerHTML = '<p>No information is stored.</p>';
     }
 });
-
-
 
  // Obtener referencia a la sección de información guardada
  var infoSection = document.getElementById('infoSection');

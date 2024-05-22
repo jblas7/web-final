@@ -144,3 +144,46 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
   
   
   
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        if (!validarFormulario()) {
+            event.preventDefault();
+        }
+    });
+
+    function validarFormulario() {
+        var email = document.getElementById('email').value;
+        var telefono = document.getElementById('telefono').value;
+        var contrasena = document.getElementById('contrasena').value;
+        var repetirContrasena = document.getElementById('repetirContrasena').value;
+
+        // Variable para verificar si el formulario es válido
+        var formValido = true;
+
+        // Validar el email
+        if (!email.includes('@')) {
+            alert('Please enter a valid email address.');
+            formValido = false;
+        }
+
+        // Validar el teléfono
+        if (telefono.length !== 9 || isNaN(parseInt(telefono))) {
+            alert('The telephone number must be exactly 9 digits long and contain only numbers.');
+            formValido = false;
+        }
+
+        // Validar la contraseña
+        if (contrasena !== repetirContrasena) {
+            alert('Passwords do not match.');
+            formValido = false;
+        } else if (contrasena.length < 9) {
+            alert('The password must be at least 9 characters long.');
+            formValido = false;
+        }
+
+        // Si el formulario es válido, permite enviarlo
+        return formValido;
+    }
+});
+
