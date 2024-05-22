@@ -7,9 +7,9 @@ import Model.Dao.IDao;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class ProductosDao implements IDao<Productos,Integer> {
+public class ProductosDao implements IDao<Productos, Integer> {
 
-    private final String SQL_FIND_ALL = "SELECT * FROM PRODUCTOS";
+    private final String SQL_FIND_ALL = "SELECT * FROM Productos";
 
     @Override
     public int add(Productos productos) {
@@ -48,8 +48,6 @@ public class ProductosDao implements IDao<Productos,Integer> {
                 producto.setIdCategoria(rs.getInt("ID_Categoria"));
 
                 productos.add(producto);
-
-                return productos;
             }
         } catch (Exception exception) {
             productos.clear();
@@ -60,4 +58,3 @@ public class ProductosDao implements IDao<Productos,Integer> {
         return productos;
     }
 }
-
