@@ -420,238 +420,41 @@ body {
   
   .cuerpo-web {
     margin-top: 95px;
-    padding-bottom: 40px;
+  
   
   
   }
   
   
   
-  
+  .botoness {
+    margin: 40px;
+  }
 
+  .buttones-admin {
+      display: flex;
+      justify-content: center;
+  }
 
-
-  .container {
-    max-width: 600px;
-    margin: auto;
-}
-.heading {
-    font-size: 2em;
-    color: #000000;
-    font-weight: bold;
-}
-.subheading {
-    font-size: 1.5em;
-    color: #000000;
-    font-weight: bold;
-}
-.benefits-list {
-    list-style-type: none;
-    padding: 0;
-}
-.benefits-list li {
-    margin: 10px 0;
-    font-size: 1.1em;
-}
-.cta {
-    display: block;
-    margin: 20px 0;
-    padding: 10px 20px;
-    background-color: #ff4500;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-
-
-
-
-
-
-
-
-
-
-.container {
-  max-width: 600px;
-  
-}
-.heading {
-  font-size: 2em;
-  color: #000000;
-}
-.subheading {
-  font-size: 1.5em;
-  color: #000000;
-}
-.benefits-list {
-  list-style-type: none;
-  padding: 0;
-}
-.benefits-list li {
-  margin: 10px 0;
-  font-size: 1.1em;
-}
-.cta-section {
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 300px;
-  margin-right: 300px;
-  font-family: "Seymour One", sans-serif;
-
-}
-.cta {
-  font-family: "Seymour One", sans-serif;
-  background-color: #ff3b55;
-  color: #ffffff;
-  border: none;
-  padding: 15px 20px;
-  font-size: 16px;
-  border-radius: 25px 0% 25px 0%;
-  transition: all 0.3s ease;
-  font-weight: bold;
-
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.cta:hover {
-
-  font-family: "Seymour One", sans-serif;
-  background-color: #ff8795;
-
-  color: #000000;
-  font-weight: bold;
-
-  
-}
-
-
-
-
-
-
-
-
-
-  .oferta-trabajo-bloques {
+.boton-riesgos {
+    margin: 40px;
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 26%, rgba(244, 244, 244, 1) 54%, rgba(241, 241, 241, 1) 71%, rgba(251, 251, 251, 1) 100%);
-    color: #000000;
+    justify-content: center;
+    align-items: center;
 }
-
-
-
-.oferta-trabajo-bloques p{
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 10px;
-}
-
-.oferta-trabajo-bloques img {
-    max-width: 100%;
-    height: auto;
-}
-
-.oferta-trabajo-titulo-principal {
-    text-align: center;
-    font-size: 40px;
-    background-image: url(../IMG/img-fondo-carrito.jpg);
-
-    color: black;
-    font-weight: bold;
-    margin: 0;
-    padding: 80px;
-    font-family: 'Seymour One'; 
-}
-
-.oferta-trabajo-titulos {
-    text-align: center;
-    color: #000000;
-    font-weight: bold;
-    font-size: 34px;
-    margin: 0;
-    padding: 20px;
-    padding-top: 35px;
-}
-
-.oferta-trabajo-contenido {
-    padding: 60px;
-    font-family: "Lexend", sans-serif;
-}
-
-.oferta-trabajo-enunciados {
-    text-align: center;
-    border-radius: 9px;
-    background-color: rgba(235, 231, 231, 0.1);
-    font-size: 19px;
-    line-height: 2.5;
-    
-}
-
-.footer {
-    background-color: rgb(214, 47, 47);
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: relative;
-}
-
-.nombre-footer {
-    text-align: center;
-    flex-grow: 1;
-    font-family: 'Jersey 25';
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-    padding: 20px;
-}
-
-.oferta-trabajo-bloques {
-
-    border: 1px solid rgb(255, 59, 85);
-}
-
-
-
-
-@media (min-width: 769px) {
-    .oferta-trabajo-bloques {
-        flex-direction: row;
-    }
-
-    .oferta-trabajo-bloques img {
-     
-        width: 50%;
-    }
-
-    .oferta-trabajo-contenido {
-        flex: 1;
-    }
-}
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
+  
 .img-delivery {
     width: 300px;
     margin-top: 40px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-bottom: 40px;
     transition: transform 0.3s ease, filter 0.3s ease;
   
     /* Transición suave */
@@ -672,51 +475,113 @@ body {
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
   
   }
+  
+  
+  
+  
+  
+  
+  
+.custom-boton-A {
+    font-family: "Seymour One", sans-serif;
+    background-color: #ffd5d5;
+    color: #ff3b55;
+    padding: 20px 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 14px;
 
+
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  
+  
+  }
+  
+  
+  
+  
+  .custom-boton-A:hover {
+    color: #ffffff;
+    background-color: #ea344c;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  
+    padding: 10px 14px;
+    font-size: 18px;
+    border-radius: 0px 25% 0px 25%;
+    word-spacing: 3px;
+  }
+  
+  
+  
+  
+  
+  
+  .custom-boton-R {
+    font-family: "Seymour One", sans-serif;
+    color: #ffffff;
+    background-color: #ea344c;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  
+    padding: 10px 14px;
+    font-size: 18px;
+    border-radius: 0px 25% 0px 25%;
+    word-spacing: 3px;
+
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+  }
   
   
 
+  .custom-boton-R:hover {
+
+    background-color: #ffd5d5;
+    color: #ff3b55;
+    padding: 20px 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 14px;
 
 
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 
 
-
-
-
-
-
-
-
-
-
-
-  /*VENTANA EMERGENTE PARA PEDIDOS*/
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  }
   
   
   
