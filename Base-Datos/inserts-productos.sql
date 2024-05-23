@@ -89,7 +89,7 @@ crispy American bacon, and smoked cheese.', 20.90, '/IMG/', 3);
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (17, 'PECULIAR BURGER', 'Our foodie burger: 200-gram Morucha and Ox beef, served on our homemade
  brioche bun with a nest of shoestring potatoes, cheddar cheese,
-  crispy bacon, cream, and Lotus biscuit crumble.', 20.90, '/IMG/', 3);
+  crispy bacon, cream, and Lotus biscuit crumble.', 16.10, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (18, 'PECARAMEL BURGER', 'Our foodie burger: 200-gram Morucha and Ox beef, served on our
