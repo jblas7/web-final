@@ -79,12 +79,12 @@ VALUES (14, 'PECDEROSA BURGER', 'Our homemade brioche bun accompanied by a Moruc
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (15, 'LITTLE PECS BURGER', 'Our homemade brioche bun paired with two Morucha and Ox beef patties totaling 220g, 
 caramelized onions, bacon, pickles, cheddar cheese, PECranch sauce, and right in front of you,
- we pile on heaps of mac & cheese. An absolute madness!', 16.00, '/IMG/', 3);
+ we pile on heaps of mac & cheese. An absolute madness!', 16.50, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (16, 'BIG PECS BURGER', 'The crown jewel, our new Pretzel bun, 200-gram Morucha and Ox beef, 
 caramelized onions, Emmy sauce with a spicy kick, 
-crispy American bacon, and smoked cheese.', 16.50, '/IMG/', 3);
+crispy American bacon, and smoked cheese.', 20.90, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (17, 'PECULIAR BURGER', 'Our foodie burger: 200-gram Morucha and Ox beef, served on our homemade
