@@ -1,0 +1,49 @@
+/*VENTANA EMERGENTE PARA IMAGENES DEL CARRUSEL*/
+/* Estilo para la ventana emergente */
+#ventanaEmergente {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border: 2px solid black;
+    z-index: 1000; /* Asegura que la ventana esté por encima del contenido */
+    display: none; /* Oculta la ventana emergente por defecto */
+  }
+  
+  /* Estilo para la ventana activa */
+  #ventanaEmergente.ventana-activa {
+    display: block; /* Muestra la ventana emergente cuando está activa */
+  }
+  
+  
+  .contenido-ventana {
+    text-align: center;
+  }
+  
+  .contenido-ventana h2 {
+    margin-bottom: 10px;
+  }
+  
+  .contenido-ventana p {
+    margin-bottom: 20px;
+  }
+  
+  .contenido-ventana button {
+    background-color: #ff3b55;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Seymour One", sans-serif;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contenido-ventana button:hover {
+    color: #ff3b55;
+    background-color: #ffffff;
+    
+  }
