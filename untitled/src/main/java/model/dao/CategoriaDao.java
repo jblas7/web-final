@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class CategoriaDao implements IDao<Categoria,Integer> {
 
-    private final String SQL_FIND_ALL = "SELECT * FROM CATEGORIA WHERE 1=1";
+    private final String SQL_FIND_ALL = "SELECT * FROM CATEGORIA";
 
     @Override
     public int add(Categoria categoria) {throw new UnsupportedOperationException("Not supported yet.");
