@@ -10,11 +10,16 @@ INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(3, 'MEDALLION');
 
 INSERT INTO Categoria (ID_Categoria, Nombre)
+VALUES(3, 'SAUCES');
+
+INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(4, 'SANDWITCHES');
 
 INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(5, 'DESSERTS');
 
+INSERT INTO Categoria (ID_Categoria, Nombre)
+VALUES(5, 'DRINKS');
 
 	/* INSERTS PARA PRODUCTOS */
 
@@ -32,72 +37,59 @@ VALUES (3, 'PECRANCHO POTATOES', 'Indulge in our delectable petal potatoes, perf
                             mac and cheese, succulent fried chicken, and a drizzle of tangy barbecue sauce for an
                             unforgettable culinary experience.', 11.90, '/IMG/', 1);
 
-INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (4, 'BACON CHEESE FRIES', 'Petal potatoes adorned with crispy bacon, our signature mac and cheese, and
-                            a drizzle of tangy ranch sauce.', 9.90, '/IMG/', 1);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (5, 'TEX-MEX CHICKEN SALAD', 'Romaine lettuce topped with crunchy, mildly spicy breaded chicken, fresh
-                            pico de gallo, creamy guacamole, and crispy tortilla strips, drizzled with our zesty basil
-                            mayo dressing.', 11.90, '/IMG/', 1);
-
-INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (6, 'TABLESIDE PECAMOLE', 'Petal potatoes, delightfully crispy, adorned with savory bacon,
-                            generously smothered in our velvety mac and cheese, and topped with a dollop of zesty ranch
-                            sauce, creating a harmonious blend of flavors and textures that will tantalize your taste
-                            buds.', 14.50, '/IMG/', 1);
+VALUES (6, 'TABLESIDE PECAMOLE', 'Freshly made tortilla chips, and a molcajete brought to your table for you to enjoy a 
+                            dream-worthy guacamole with avocado, pico de gallo, 
+                            chili, and lime, all customized to your taste.', 14.50, '/IMG/', 1);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (7, 'PECTINENTE BURGER', 'Our homemade brioche bun with 2 smash burgers, Oxaca, Monterrey, and
-                            mozzarella cheese, crispy American bacon, pickles, tomato jam, and PECrancho sauce.', 15.00, '/IMG/', 2);
+                            mozzarella cheese, crispy American bacon, pickles, tomato jam, and PECrancho sauce.', 14.60, '/IMG/', 2);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (8, 'THE PECADORA', 'House-made brioche bun, double beef patty and cheddar cheese, shredded
                             lettuce, all accompanied by the worlds most famous burger sauce containing pickles and
-                            onions.', 15.00, '/IMG/', 2);
+                            onions.', 14.80, '/IMG/', 2);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (9, 'MC AND PECS BURGER', 'Our fabolus brioche bun with 2 smash burgers, pickles, and mac and cheese
                             oozing from all sides. An irresistible combination!', 13.90, '/IMG/', 2);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (10, 'THE PECLICIOSA', 'Brioche bun accompanied by 2 thin burgers with delicious cheddar cheese,
+VALUES (10, 'PECLICIOSA BURGER', 'Brioche bun accompanied by 2 thin burgers with delicious cheddar cheese,
                             pickles, and bacon—simple yet doubly satisfying.', 14.50, '/IMG/', 2);
 
-INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (11, 'PECDEROSA BURGER', 'Morucha and Ox beef, cheddar cheese, crispy American bacon, and
-                            pickles, all nestled in our homemade brioche bun. A timeless classic that never goes out
-                            of style.', 12.50, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (12, 'THE PECEÑITA', 'Homemade brioche bun with Morucha and Ox beef, Raclette cheese
+VALUES (12, 'PECEÑITA BURGER', 'Homemade brioche bun with Morucha and Ox beef, Raclette cheese
                             breaded in panko, pickles, crispy bacon, and slightly spicy El Rancho sauce.', 15.90, '/IMG/', 3);
 
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (13, 'THE PECSCELENTE XXL', 'Brioche bun with a base of smoked barbecue, pickles, Morucha and Ox
-                            beef, cheddar cheese, slow-cooked Pulled Pork, and tempura onion.', 17.50, '/IMG/', 3);
+VALUES (13, 'PECSCELENTE XXL', 'Brioche bun with a base of smoked barbecue, pickles, Morucha and Ox
+                            beef, cheddar cheese, slow-cooked Pulled Pork, and tempura onion.', 18.50, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (14, 'PECAMINOSA BURGER', 'An excellent slow-cooked roasted pork Pulled Pork, pickles, and
-                            bacon, all enveloped in homemade BBQ sauce and crowned with our homemade brioche bun.', 12.90, '/IMG/', 3);
+VALUES (14, 'PECDEROSA BURGER', 'Our homemade brioche bun accompanied by a Morucha and Ox beef burger, caramelized onions, bacon, cheddar cheese,
+ pickles, PECranch sauce, and right before your eyes, we heap on loads of bacon ash-infused mac 
+ & cheese. Are you going to miss out on this?', 15.95, '/IMG/', 3);
 
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (15, 'LITTLE PECS', 'Our homemade brioche bun accompanied by a Morucha and Ox beef burger,
-                            caramelized onions, bacon, cheddar cheese, pickles, PECranch sauce, and right before
-                            your eyes, we heap on loads of bacon ash-infused mac and cheese. Are you going to miss out
-                            on this?"', 16.00, '/IMG/', 3);
+VALUES (15, 'LITTLE PECS BURGER', 'Our homemade brioche bun paired with two Morucha and Ox beef patties totaling 220g, 
+caramelized onions, bacon, pickles, cheddar cheese, PECranch sauce, and right in front of you,
+ we pile on heaps of mac & cheese. An absolute madness!', 16.00, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (16, 'BIG PECS', 'Our homemade brioche bun paired with two Morucha and Ox beef patties
-                            totaling 220g, caramelized onions, bacon, pickles, cheddar cheese, PECranch sauce, and
-                            right in front of you, we pile on heaps of mac and cheese. An absolute madness!', 21.00, '/IMG/', 3);
+VALUES (16, 'BIG PECS BURGER', 'The crown jewel, our new Pretzel bun, 200-gram Morucha and Ox beef, 
+caramelized onions, Emmy sauce with a spicy kick, 
+crispy American bacon, and smoked cheese.', 16.50, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (17, 'THE PECULIAR', 'The crown jewel, our new Pretzel bun, 200-gram Morucha and Ox beef,
-                            caramelized onions, Emmy sauce with a spicy kick, crispy American bacon, and smoked
-                            cheese.', 16.50, '/IMG/', 3);
+VALUES (17, 'PECULIAR BURGER', 'Our foodie burger: 200-gram Morucha and Ox beef, served on our homemade
+ brioche bun with a nest of shoestring potatoes, cheddar cheese,
+  crispy bacon, cream, and Lotus biscuit crumble.', 20.90, '/IMG/', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (18, 'PECARAMEL BURGER', 'Our foodie burger: 200-gram Morucha and Ox beef, served on our
