@@ -1,4 +1,4 @@
-package Model.Entities;
+package Model.entities;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

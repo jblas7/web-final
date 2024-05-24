@@ -3,6 +3,7 @@ package Controller.Action;
 import Model.Dao.ProductosDao;
 import Controller.Action.IAction;
 import Model.MotorSQL;
+import Model.entities.Productos;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -140,7 +141,7 @@ public class ProductosAction implements IAction {
             return "{ \"error\": \"Faltan datos obligatorios\" }";
         }
 
-        Model.Entities.Productos producto = new Model.Entities.Productos();
+        Productos producto = new Model.entities.Productos();
         try {
             producto.setIdProducto(Integer.parseInt(id));
         } catch (NumberFormatException e) {

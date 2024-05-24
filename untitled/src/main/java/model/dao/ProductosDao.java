@@ -1,7 +1,7 @@
 package Model.Dao;
 
 import Model.MotorSQL;
-import Model.Entities.Productos;
+import Model.entities.Productos;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
