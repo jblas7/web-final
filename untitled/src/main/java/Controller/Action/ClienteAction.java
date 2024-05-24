@@ -7,18 +7,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
+
+import Model.Dao.ClienteDao;
+import Model.Entities.Cliente;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+
 public class ClienteAction implements IAction {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, String action) {
         String resultado = "";
 
-        switch (action){
+        switch (action) {
             case "find_all":
                 resultado = findAll();
                 break;
-            case "add":     // ejemplo http://localhost:8080/PecBurger/Controller?action=cliente.add&id=1&nombre=Juan&apellido=Perez&telefono=123456789&email=juan.perez@example.com&contrasena=1234
-                resultado = add(request);
+            case "add": // ejemplo http://localhost:8080/PecBurger/Controller?action=cliente.add&id=1&nombre=Juan&apellido=Perez&telefono=123456789&email=juan.perez@example.com&contrasena=1234                resultado = add(request);
+                break;
+            case "login":
+                resultado = login(request);
                 break;
             default:
                 resultado = "ERROR. Invalid action";
@@ -27,7 +37,7 @@ public class ClienteAction implements IAction {
         return resultado;
     }
 
-    private String findAll(){
+    private String findAll() {
         ClienteDao clienteDao = new ClienteDao();
         ArrayList<Cliente> clientes = clienteDao.findAll(null);
         return Cliente.toArrayJson(clientes);
@@ -69,6 +79,24 @@ public class ClienteAction implements IAction {
             return "{ \"message\": \"Cliente registrado exitosamente\" }";
         } else {
             return "{ \"error\": \"No se pudo registrar el cliente\" }";
+        }
+    }
+
+    private String login(HttpServletRequest request) {
+        String email = request.getParameter("email");
+        String contrasena = request.getParameter("contrasena");
+
+        if (email == null || email.isEmpty() || contrasena == null || contrasena.isEmpty()) {
+            return "{ \"error\": \"Email y contraseña son obligatorios\" }";
+        }
+
+        ClienteDao clienteDao = new ClienteDao();
+        Cliente cliente = clienteDao.login(email, contrasena);
+
+        if (cliente != null) {
+            return "{ \"message\": \"Login exitoso\", \"cliente\": " + cliente.toJson() + " }";
+        } else {
+            return "{ \"error\": \"Email o contraseña incorrectos\" }";
         }
     }
 }

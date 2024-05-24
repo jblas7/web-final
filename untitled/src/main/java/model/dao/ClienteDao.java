@@ -12,6 +12,7 @@ public class ClienteDao implements IDao<Cliente, Integer> {
 
     private final String SQL_FIND_ALL = "SELECT * FROM Cliente";
     private final String SQL_INSERT = "INSERT INTO Cliente (ID_Cliente, Nombre, Apellido, Telefono, Email, Contrasena) VALUES (?, ?, ?, ?, ?, ?)";
+    private final String SQL_LOGIN = "SELECT * FROM Cliente WHERE Email = ? AND Contrasena = ?";
 
     @Override
     public int add(Cliente cliente) {
@@ -48,7 +49,7 @@ public class ClienteDao implements IDao<Cliente, Integer> {
     }
 
     @Override
-    public ArrayList<Cliente> findAll(Cliente objeto){
+    public ArrayList<Cliente> findAll(Cliente objeto) {
         ArrayList<Cliente> clientes = new ArrayList<>();
         MotorSQL motor = new MotorSQL();
         try {
@@ -65,12 +66,39 @@ public class ClienteDao implements IDao<Cliente, Integer> {
 
                 clientes.add(cliente);
             }
-        } catch (Exception exception) {
+        } catch (Exception exception){
             clientes.clear();
-        } finally {
+        } finally{
             motor.disconnect();
         }
 
         return clientes;
+    }
+
+    public Cliente login(String email, String contrasena){
+        MotorSQL motor = new MotorSQL();
+        Cliente cliente = null;
+        try {
+            motor.connect();
+            PreparedStatement ps = motor.getPreparedStatement(SQL_LOGIN);
+            ps.setString(1, email);
+            ps.setString(2, contrasena);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setIdCliente(rs.getInt("ID_Cliente"));
+                cliente.setNombre(rs.getString("Nombre"));
+                cliente.setApellido(rs.getString("Apellido"));
+                cliente.setTelefono(rs.getString("Telefono"));
+                cliente.setEmail(rs.getString("Email"));
+                cliente.setContrasena(rs.getString("Contrasena"));
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            motor.disconnect();
+        }
+        return cliente;
     }
 }

@@ -20,12 +20,11 @@ public class Cliente {
 
     private String contrasena;
 
-
     //Crearemos el constructor con todos los campos de los atributos anteriores
-    public Cliente(Integer idCliente, String nombre,String apellido, String telefono, String email, String contrasena) {
+    public Cliente(Integer idCliente, String nombre, String apellido, String telefono, String email, String contrasena) {
         this.idCliente = idCliente;
         this.nombre = nombre;
-        this.apellido =apellido;
+        this.apellido = apellido;
         this.telefono = telefono;
         this.email = email;
         this.contrasena = contrasena;
@@ -35,46 +34,56 @@ public class Cliente {
     public Cliente() {
     }
 
-
     //Crear los Getter y setter de los atributos de la clase ClienteBean.
     public Integer getIdCliente() {
-        return idCliente;}
+        return idCliente;
+    }
 
     public void setIdCliente(Integer idCliente) {
-            this.idCliente = idCliente;}
+        this.idCliente = idCliente;
+    }
 
     public String getNombre() {
-            return nombre;}
+        return nombre;
+    }
 
     public void setNombre(String nombre) {
-            this.nombre = nombre;}
+        this.nombre = nombre;
+    }
 
     public String getApellido() {
-        return apellido;}
+        return apellido;
+    }
 
     public void setApellido(String apellido) {
-        this.apellido = apellido;}
+        this.apellido = apellido;
+    }
 
     public String getTelefono() {
-            return telefono;}
+        return telefono;
+    }
 
     public void setTelefono(String telefono) {
-            this.telefono = telefono;}
+        this.telefono = telefono;
+    }
 
     public String getEmail() {
-            return email;}
+        return email;
+    }
 
     public void setEmail(String email) {
-            this.email = email;}
+        this.email = email;
+    }
 
     public String getContrasena() {
-            return contrasena;}
+        return contrasena;
+    }
 
     public void setContrasena(String contrasena) {
-            this.contrasena = contrasena;}
+        this.contrasena = contrasena;
+    }
 
-
-    //Crear el metodo ToSting del objeto Cliente
+    //Crear el metodo ToString del objeto Cliente
     @Override
     public String toString() {
         return "Cliente{" +
@@ -87,16 +96,15 @@ public class Cliente {
                 '}';
     }
 
-    //Creamos el método Json para pasar el arrayList a Json
-    public static String toArrayJson(ArrayList<Cliente> clientes) {
-        GsonBuilder builder = new GsonBuilder();
-        builder.setPrettyPrinting();
-
-        Gson gson = builder.create();
-
-        return gson.toJson(clientes);
+    //objeto del Cliente a formato JSON
+    public String toJson() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
     }
 
+    // Lista de Clientes a JSON
+    public static String toArrayJson(ArrayList<Cliente> clientes) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(clientes);
+    }
 }
-
-
