@@ -1,19 +1,19 @@
 package Model.Dao;
 
 import Model.MotorSQL;
-import Model.entities.Productos;
+import Model.Entities.Producto;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-public class ProductosDao implements IDao<Productos, Integer> {
+public class ProductosDao implements IDao<Producto, Integer> {
 
     private final String SQL_FIND_ALL = "SELECT * FROM Productos";
     private final String SQL_DELETE = "DELETE FROM Productos WHERE ID_Producto = ?";
 
     @Override
-    public int add(Productos producto) {
+    public int add(Producto producto) {
         MotorSQL motor = new MotorSQL();
         int iFilasAnadidas = 0;
         try {
@@ -58,7 +58,7 @@ public class ProductosDao implements IDao<Productos, Integer> {
     }
 
     @Override
-    public int update(Productos producto) {
+    public int update(Producto producto) {
         MotorSQL motor = new MotorSQL();
         int iFilasActualizadas = 0;
         try {
@@ -111,21 +111,17 @@ public class ProductosDao implements IDao<Productos, Integer> {
     }
 
     @Override
-    public ArrayList<Productos> findAll(Productos objeto) {
-        ArrayList<Productos> productos = new ArrayList<>();
+    public ArrayList<Producto> findAll(Producto objeto) {
+        ArrayList<Producto> productos = new ArrayList<>();
         MotorSQL motor = new MotorSQL();
         try {
             motor.connect();
             ResultSet rs = motor.executeQuery(SQL_FIND_ALL);
             while (rs.next()) {
-                Productos producto = new Productos();
-                producto.setIdProducto(rs.getInt("ID_Producto"));
-                producto.setNombre(rs.getString("Nombre"));
-                producto.setDescripcion(rs.getString("Descripcion"));
-                producto.setPrecio(rs.getDouble("Precio"));
-                producto.setRutaImagen(rs.getString("Ruta_Imagen"));
-                producto.setIdCategoria(rs.getInt("ID_Categoria"));
-                productos.add(producto);
+                Producto product = new Producto(rs.getInt("ID_Producto"), rs.getString("Nombre"),
+                        rs.getString("Descripcion"), rs.getDouble("Precio"), rs.getString("Ruta_Imagen"),
+                        rs.getInt("ID_Categoria"));
+                productos.add(product);
             }
         } catch (Exception exception) {
             productos.clear();

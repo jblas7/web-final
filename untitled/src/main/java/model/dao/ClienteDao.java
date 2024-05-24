@@ -1,9 +1,6 @@
 package Model.Dao;
 
 import Model.Entities.Cliente;
-import Model.MotorSQL;
-import Model.Entities.Productos;
-import Model.Dao.IDao;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;

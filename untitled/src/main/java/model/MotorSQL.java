@@ -11,6 +11,7 @@ public class MotorSQL {
     private Connection conn = null;
     private Statement st = null;
     private ResultSet rs = null;
+
     private static final String URL  = "jdbc:oracle:thin:@database-1.cl4so6ecolo7.us-east-1.rds.amazonaws.com:1521:orcl";
     private static final String USER  = "admin";
     private static final String PASSWORD  = "123456789";

@@ -1,14 +1,10 @@
 package Controller.Action;
 
 import Model.Dao.ProductosDao;
-import Controller.Action.IAction;
-import Model.MotorSQL;
-import Model.entities.Productos;
+import Model.Entities.Producto;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProductosAction implements IAction {
@@ -39,8 +35,8 @@ public class ProductosAction implements IAction {
 
     private String findAll() {
         ProductosDao productosDao = new ProductosDao();
-        ArrayList<Model.Entities.Productos> producto = productosDao.findAll(null);
-        return Model.Entities.Productos.toArrayJson(producto);
+        ArrayList<Producto> producto = productosDao.findAll(null);
+        return Producto.toArrayJson(producto);
     }
 
     private String delete(HttpServletRequest request) {
@@ -80,7 +76,7 @@ public class ProductosAction implements IAction {
             return "{ \"error\": \"ID de producto inválido\" }";
         }
 
-        Model.Entities.Productos producto = new Model.Entities.Productos();
+        Producto producto = new Producto();
         producto.setIdProducto(productoId);
 
         String nombre = request.getParameter("nombre");
@@ -141,7 +137,7 @@ public class ProductosAction implements IAction {
             return "{ \"error\": \"Faltan datos obligatorios\" }";
         }
 
-        Productos producto = new Model.entities.Productos();
+        Producto producto = new Producto();
         try {
             producto.setIdProducto(Integer.parseInt(id));
         } catch (NumberFormatException e) {

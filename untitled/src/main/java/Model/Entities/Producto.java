@@ -1,11 +1,11 @@
-package Model.entities;
+package Model.Entities;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
-public class Productos {
+public class Producto {
 
     //Creamos los atributos del Objeto cliente, que hace referencia a las columnas de la Tabla PRODUCTOS.
     private Integer idProducto;
@@ -22,7 +22,7 @@ public class Productos {
 
 
     //Crearemos el constructor con todos los campos de los atributos anteriores
-    public Productos(Integer idProducto, String nombre, String descripcion, Double precio, String rutaImagen, Integer idCategoria) {
+    public Producto(Integer idProducto, String nombre, String descripcion, Double precio, String rutaImagen, Integer idCategoria) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -32,7 +32,7 @@ public class Productos {
     }
 
     //Crearemos el constructor vacio de los atributos anteriores
-    public Productos() {
+    public Producto() {
     }
 
 
@@ -102,7 +102,7 @@ public class Productos {
     }
 
     //Creamos el método Json para pasar el arrayList a Json
-    public static String toArrayJson(ArrayList<Productos> Productos) {
+    public static String toArrayJson(ArrayList<Producto> Productos) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
 
