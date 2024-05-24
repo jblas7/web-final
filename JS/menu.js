@@ -1,3 +1,57 @@
+window.addEventListener('DOMContentLoaded', () => {
+    const fetchProductos = async () => {
+        try {
+            const response = await fetch('http://localhost:8080/PecBurger/Controller?action=productos.find_all');
+            if (!response.ok) {
+                throw new Error(`Error HTTP! estado: ${response.status}`);
+            }
+            const productos = await response.json();
+            productos.forEach(producto => createProductoItem(producto));
+        } catch (error) {
+            console.error('Error al obtener productos:', error);
+        }
+    }
+
+    const createProductoItem = (producto) => {
+        const containerId = getContainerId(producto.idCategoria);
+        const container = document.getElementById(containerId);
+        if (container) {
+            const item = document.createElement('div');
+            item.classList.add('item');
+            item.onclick = function () { toggleInfo(this); };
+
+            item.innerHTML = `
+                <img src="${producto.rutaImagen}" alt="${producto.nombre}">
+                <div class="details hidden">
+                    <h3>${producto.nombre}</h3>
+                    <p class="price">${producto.precio}€</p>
+                    <p class="ingredients">${producto.descripcion}</p>
+                    <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                </div>`;
+
+            container.appendChild(item);
+        }
+    }
+
+    const getContainerId = (idCategoria) => {
+        switch (idCategoria) {
+            case 1:
+                return 'tx-en';
+            case 2:
+                return 'tx-smash';
+            case 3:
+                return 'tx-medall';
+            case 4:
+                return 'tx-sand';
+            case 5:
+                return 'tx-postr';
+            default:
+                return '';
+        }
+    }
+
+    fetchProductos();
+});
 
   
   
