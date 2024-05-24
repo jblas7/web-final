@@ -14,11 +14,15 @@ public class ProductosAction implements IAction {
         String resultado = "";
 
         switch (action) {
-            case "find_all":
+            case "find_all":                        // /PecBurger/Controller?action=productos.find_all
                 resultado = findAll();
                 break;
-            case "delete":
+            case "delete":                         // /PecBurger/Controller?action=productos.delete&id=
+
                 resultado = delete(request);
+                break;
+            case "update":                         //http://localhost:8080/PecBurger/Controller?action=productos.update&id=7&nombre=NuevaDescripcion
+                resultado = update(request);
                 break;
             default:
                 resultado = "ERROR. Invalid action";
@@ -56,4 +60,62 @@ public class ProductosAction implements IAction {
         }
     }
 
+    private String update(HttpServletRequest request) {
+        String ID_Producto = request.getParameter("id");
+        if (ID_Producto == null || ID_Producto.isEmpty()) {
+            return "{ \"error\": \"No se proporcionó el ID del producto\" }";
+        }
+
+        int productoId;
+        try {
+            productoId = Integer.parseInt(ID_Producto);
+        } catch (NumberFormatException e) {
+            return "{ \"error\": \"ID de producto inválido\" }";
+        }
+
+        Model.Entities.Productos producto = new Model.Entities.Productos();
+        producto.setIdProducto(productoId);
+
+        String nombre = request.getParameter("nombre");
+        if (nombre != null && !nombre.isEmpty()) {
+            producto.setNombre(nombre);
+        }
+
+        String descripcion = request.getParameter("descripcion");
+        if (descripcion != null && !descripcion.isEmpty()) {
+            producto.setDescripcion(descripcion);
+        }
+
+        String precio = request.getParameter("precio");
+        if (precio != null && !precio.isEmpty()) {
+            try {
+                producto.setPrecio(Double.parseDouble(precio));
+            } catch (NumberFormatException e) {
+                return "{ \"error\": \"Precio de producto inválido\" }";
+            }
+        }
+
+        String rutaImagen = request.getParameter("rutaImagen");
+        if (rutaImagen != null && !rutaImagen.isEmpty()) {
+            producto.setRutaImagen(rutaImagen);
+        }
+
+        String idCategoria = request.getParameter("idCategoria");
+        if (idCategoria != null && !idCategoria.isEmpty()) {
+            try {
+                producto.setIdCategoria(Integer.parseInt(idCategoria));
+            } catch (NumberFormatException e) {
+                return "{ \"error\": \"ID de categoría inválido\" }";
+            }
+        }
+
+        ProductosDao productosDao = new ProductosDao();
+        int updatedRows = productosDao.update(producto);
+
+        if (updatedRows > 0) {
+            return "{ \"message\": \"Producto actualizado exitosamente\" }";
+        } else {
+            return "{ \"error\": \"No se pudo actualizar el producto\" }";
+        }
+    }
 }

@@ -3,15 +3,16 @@ package Model.Dao;
 import Model.MotorSQL;
 import Model.Entities.Productos;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProductosDao implements IDao<Productos, Integer> {
 
     private final String SQL_FIND_ALL = "SELECT * FROM Productos";
-    // /PecBurger/Controller?action=productos.find_all
     private final String SQL_DELETE = "DELETE FROM Productos WHERE ID_Producto = ?";
-    // /PecBurger/Controller?action=productos.delete&id=
+
     @Override
     public int add(Productos productos) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -36,10 +37,55 @@ public class ProductosDao implements IDao<Productos, Integer> {
         return iNumeroEliminaciones;
     }
 
+
+
     @Override
-    public int update(Productos productos) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int update(Productos producto) {
+        MotorSQL motor = new MotorSQL();
+        int iFilasAfectadas = 0;
+        try {
+            motor.connect();
+            StringBuilder sql = new StringBuilder("UPDATE Productos SET ");
+
+            ArrayList<Object> params = new ArrayList<>();
+            if (producto.getNombre() != null) {
+                sql.append("Nombre = ?, ");
+                params.add(producto.getNombre());
+            }
+            if (producto.getDescripcion() != null) {
+                sql.append("Descripcion = ?, ");
+                params.add(producto.getDescripcion());
+            }
+            if (producto.getPrecio() != null) {
+                sql.append("Precio = ?, ");
+                params.add(producto.getPrecio());
+            }
+            if (producto.getRutaImagen() != null) {
+                sql.append("Ruta_Imagen = ?, ");
+                params.add(producto.getRutaImagen());
+            }
+            if (producto.getIdCategoria() != null) {
+                sql.append("ID_Categoria = ?, ");
+                params.add(producto.getIdCategoria());
+            }
+
+            sql.append(" WHERE ID_Producto = ?");
+            params.add(producto.getIdProducto());
+
+            PreparedStatement ps = motor.getPreparedStatement(sql.toString());
+            for (int i = 0; i < params.size(); i++) {
+                ps.setObject(i + 1, params.get(i));
+            }
+
+            iFilasAfectadas = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            motor.disconnect();
+        }
+        return iFilasAfectadas;
     }
+
 
     @Override
     public ArrayList<Productos> findAll(Productos objeto) {

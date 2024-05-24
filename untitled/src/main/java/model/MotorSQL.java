@@ -15,6 +15,10 @@ public class MotorSQL {
     private static final String USER  = "admin";
     private static final String PASSWORD  = "123456789";
 
+    public PreparedStatement getPreparedStatement(String sql) throws SQLException {
+        return conn.prepareStatement(sql);
+    }
+
     public void connect() {
         try {
             Class.forName("oracle.jdbc.OracleDriver").newInstance();
@@ -27,6 +31,11 @@ public class MotorSQL {
             System.out.println(ex.getMessage());
         }
     }
+
+
+
+
+
 
     public ResultSet executeQuery(String sql) {
         try {
