@@ -5,11 +5,11 @@ CREATE TABLE Categoria(
 
 CREATE TABLE Cliente(
     ID_Cliente INTEGER PRIMARY KEY,
-    Nombre VARCHAR2(60) NOT NULL,
-    Apellido VARCHAR2(60) NOT NULL,
-    Telefono VARCHAR2(15) NOT NULL,
-    Email VARCHAR2(60) NOT NULL,
-    Contrasena VARCHAR2(50) NOT NULL
+    Nombre VARCHAR2(60),
+    Apellido VARCHAR2(60),
+    Telefono VARCHAR2(15),
+    Email VARCHAR2(60),
+    Contrasena VARCHAR2(50)
 );
 
 CREATE TABLE Trabajador(
@@ -37,7 +37,7 @@ CREATE TABLE Productos(
 
 CREATE TABLE Pedidos(
     ID_Pedido INTEGER PRIMARY KEY,
-    Fecha DATE NOT NULL,
+    Hora VARCHAR2(10) NOT NULL,
     Estado VARCHAR2(20) NOT NULL,
     Direccion VARCHAR2(50) NOT NULL,
     ID_Cliente INTEGER NOT NULL,
