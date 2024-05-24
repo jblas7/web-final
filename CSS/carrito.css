@@ -1798,14 +1798,48 @@ footer p {
 
 
 
+.contenedor .contenedor-items {
+
+  justify-content: center;
 
 
 
 
+}
+
+
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.contenedor.contenedor-items .item{
+
+
+}
+#tx-en,
+#tx-smash,
+#tx-medall,
+#tx-sand,
+#tx-sals,
+#tx-postr,
+#tx-beb{
+
+
+  font-size: 40px;
+  margin: 15px;
+}
+.cont-tit h2{
+
+font-size: 40px;
+margin: 15px;
 
 
 
 
+}
   .cuerpo-web {
     margin-top: 5px;
 

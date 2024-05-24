@@ -586,6 +586,113 @@ body {
   
   
   
+
+
+
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 100px;
+
+}
+
+.cont-tit {
+    margin-bottom: 20px;
+    font-family: 'Seymour One';
+}
+
+.cont-tit h2 {
+    font-size: 24px;
+    color: #000000;
+    text-align: left;
+}
+
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.item {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo-item {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000000;
+    font-family: 'Lexend';
+
+}
+
+.img-item {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.precio-item {
+    display: block;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-family: 'Seymour One';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   /*MENU HAMBURGUESA DESPLEGABLE GRANDE*/
   
@@ -1064,7 +1171,12 @@ body {
   
   
   
-  
+    .buttones-admin {
+   
+      flex-wrap: wrap;
+      gap: 30px;
+
+  }
   
   
   

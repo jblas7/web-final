@@ -143,6 +143,7 @@
     
 
 
+
     function validarFormulario() {
       var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
       if (!tipoPedido) {
@@ -206,6 +207,12 @@
 
       return true;
   }
+
+
+
+
+
+
 
   function mostrarOpciones() {
       var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
@@ -386,6 +393,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+  
 
   /*GUARDAR INFO*/
 

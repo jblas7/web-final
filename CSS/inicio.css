@@ -992,6 +992,7 @@ input[type="checkbox"],
 
 .acceptss {
 font-size: 12px;
+display: flex;
 
 }
 
