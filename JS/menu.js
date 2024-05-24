@@ -1,3 +1,5 @@
+/*FETCH MENÚ FIND ALL*/
+
 window.addEventListener('DOMContentLoaded', () => {
     const fetchProductos = async () => {
         try {
