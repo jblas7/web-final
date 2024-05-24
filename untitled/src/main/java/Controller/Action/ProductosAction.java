@@ -2,9 +2,12 @@ package Controller.Action;
 
 import Model.Dao.ProductosDao;
 import Controller.Action.IAction;
+import Model.MotorSQL;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProductosAction implements IAction {
@@ -59,6 +62,7 @@ public class ProductosAction implements IAction {
             return "{ \"error\": \"No se pudo eliminar el producto\" }";
         }
     }
+
 
     private String update(HttpServletRequest request) {
         String ID_Producto = request.getParameter("id");
@@ -118,4 +122,6 @@ public class ProductosAction implements IAction {
             return "{ \"error\": \"No se pudo actualizar el producto\" }";
         }
     }
+
+
 }

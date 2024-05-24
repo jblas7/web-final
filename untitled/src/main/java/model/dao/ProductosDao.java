@@ -42,12 +42,12 @@ public class ProductosDao implements IDao<Productos, Integer> {
     @Override
     public int update(Productos producto) {
         MotorSQL motor = new MotorSQL();
-        int iFilasAfectadas = 0;
+        int iFilasActualizadas = 0;
         try {
             motor.connect();
             StringBuilder sql = new StringBuilder("UPDATE Productos SET ");
-
             ArrayList<Object> params = new ArrayList<>();
+
             if (producto.getNombre() != null) {
                 sql.append("Nombre = ?, ");
                 params.add(producto.getNombre());
@@ -69,22 +69,30 @@ public class ProductosDao implements IDao<Productos, Integer> {
                 params.add(producto.getIdCategoria());
             }
 
-            sql.append(" WHERE ID_Producto = ?");
-            params.add(producto.getIdProducto());
+            if (params.size() > 0) {
+                sql.setLength(sql.length() - 2);
+                sql.append(" WHERE ID_Producto = ?");
+                params.add(producto.getIdProducto());
 
-            PreparedStatement ps = motor.getPreparedStatement(sql.toString());
-            for (int i = 0; i < params.size(); i++) {
-                ps.setObject(i + 1, params.get(i));
+                // Preparar y ejecutar la consulta
+                PreparedStatement ps = motor.getPreparedStatement(sql.toString());
+                for (int i = 0; i < params.size(); i++) {
+                    ps.setObject(i + 1, params.get(i));
+                }
+
+                iFilasActualizadas = ps.executeUpdate();
+                ps.close();
+            } else {
+                return 0;
             }
-
-            iFilasAfectadas = ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             motor.disconnect();
         }
-        return iFilasAfectadas;
+        return iFilasActualizadas;
     }
+
 
 
     @Override
