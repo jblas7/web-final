@@ -17,15 +17,17 @@ public class ProductosAction implements IAction {
         String resultado = "";
 
         switch (action) {
-            case "find_all":                        // /PecBurger/Controller?action=productos.find_all
-                resultado = findAll();
+            case "find_all":
+                resultado = findAll();  // EJEMPLO http://localhost:8080/PecBurger/Controller?action=productos.find_all
                 break;
-            case "delete":                         // /PecBurger/Controller?action=productos.delete&id=
-
-                resultado = delete(request);
+            case "delete":
+                resultado = delete(request);    // EJEMPLO http://localhost:8080/PecBurger/Controller?action=productos.delete&id=47
                 break;
-            case "update":                         //http://localhost:8080/PecBurger/Controller?action=productos.update&id=7&nombre=NuevaDescripcion
-                resultado = update(request);
+            case "update":
+                resultado = update(request);   // EJEMPLO http://localhost:8080//PecBurger/Controller?action=productos.update&id=2&nombre=juan
+                break;
+            case "add":
+                resultado = add(request);       // EJEMPLO http://localhost:8080/PecBurger/Controller?action=productos.add&id=60&nombre=juan&precio=1.00&rutaImagen=1&idCategoria=2
                 break;
             default:
                 resultado = "ERROR. Invalid action";
@@ -120,6 +122,51 @@ public class ProductosAction implements IAction {
             return "{ \"message\": \"Producto actualizado exitosamente\" }";
         } else {
             return "{ \"error\": \"No se pudo actualizar el producto\" }";
+        }
+    }
+    private String add(HttpServletRequest request) {
+        String id = request.getParameter("id");
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");
+        String precio = request.getParameter("precio");
+        String rutaImagen = request.getParameter("rutaImagen");
+        String idCategoria = request.getParameter("idCategoria");
+
+        if (id == null || id.isEmpty() ||
+                nombre == null || nombre.isEmpty() ||
+                precio == null || precio.isEmpty() ||
+                rutaImagen == null || rutaImagen.isEmpty() ||
+                idCategoria == null || idCategoria.isEmpty()) {
+            return "{ \"error\": \"Faltan datos obligatorios\" }";
+        }
+
+        Model.Entities.Productos producto = new Model.Entities.Productos();
+        try {
+            producto.setIdProducto(Integer.parseInt(id));
+        } catch (NumberFormatException e) {
+            return "{ \"error\": \"ID de producto inválido\" }";
+        }
+        producto.setNombre(nombre);
+        producto.setDescripcion(descripcion);
+        try {
+            producto.setPrecio(Double.parseDouble(precio));
+        } catch (NumberFormatException e) {
+            return "{ \"error\": \"Precio inválido\" }";
+        }
+        producto.setRutaImagen(rutaImagen);
+        try {
+            producto.setIdCategoria(Integer.parseInt(idCategoria));
+        } catch (NumberFormatException e) {
+            return "{ \"error\": \"ID de categoría inválido\" }";
+        }
+
+        ProductosDao productosDao = new ProductosDao();
+        int iFilasAnadidas = productosDao.add(producto);
+
+        if (iFilasAnadidas > 0) {
+            return "{ \"message\": \"Producto añadido exitosamente\" }";
+        } else {
+            return "{ \"error\": \"No se pudo añadir el producto\" }";
         }
     }
 

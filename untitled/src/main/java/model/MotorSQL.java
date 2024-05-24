@@ -65,7 +65,6 @@ public class MotorSQL {
                 try {
                     ps.close();
                 } catch (SQLException sqlEx) {
-                    // ignore
                 }
             }
         }
@@ -77,7 +76,6 @@ public class MotorSQL {
             try {
                 rs.close();
             } catch (SQLException sqlEx) {
-                // ignore
             }
             rs = null;
         }
