@@ -42,7 +42,7 @@ public class PedidosDao implements IDao<Pedidos,Integer> {
             while (rs.next()) {
                 Pedidos pedidos = new Pedidos();
                 pedidos.setIdPedidos(rs.getInt("ID_Pedido"));
-                pedidos.setFecha(rs.getDate("Fecha"));
+                pedidos.setHora(rs.getString("Hora"));
                 pedidos.setEstado(rs.getString("Estado"));
                 pedidos.setDireccion(rs.getString("Direccion"));
                 pedidos.setIdCliente(rs.getInt("ID_Cliente"));

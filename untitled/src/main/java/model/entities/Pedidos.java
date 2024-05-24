@@ -12,7 +12,7 @@ public class Pedidos {
     //Creamos los atributos del objeto pedidos, que hace referencia a las columnas de la Tabla PEDIDOS.
     private Integer idPedidos;
 
-    private Date fecha;
+    private String hora;
 
     //Elegir entre las tres siguientes opciones
     private String estado; /*3Estados */
@@ -30,7 +30,7 @@ public class Pedidos {
     //Crearemos el constructor con todos los campos de los atributos anteriores
     public Pedidos(Integer id_pedidos, Date fecha, String estado, String direccion, Integer idCliente, Integer idTrabajador) {
         this.idPedidos = id_pedidos;
-        this.fecha = fecha;
+        this.hora = hora;
         this.estado = estado;
         this.direccion = direccion;
         this.idCliente = idCliente;
@@ -51,12 +51,12 @@ public class Pedidos {
         this.idPedidos = idPedidos;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public String getFecha() {
+        return hora;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setHora(String fecha) {
+        this.hora = fecha;
     }
 
     public String getEstado() {
@@ -94,7 +94,7 @@ public class Pedidos {
     //Crearemos en método to String del objeto Pedidos
     @Override
     public String toString() {
-        return "Pedidos{" + "idPedidos=" + idPedidos + ", fecha=" + fecha + ", estado='" + estado + '\'' + ", direccion='" + direccion + '\'' + ", idCliente=" + idCliente + ", idTrabajador=" + idTrabajador + '}';
+        return "Pedidos{" + "idPedidos=" + idPedidos + ", hora=" + hora + ", estado='" + estado + '\'' + ", direccion='" + direccion + '\'' + ", idCliente=" + idCliente + ", idTrabajador=" + idTrabajador + '}';
     }
 
     //Creamos el método Json para pasar el arrayList a Json
