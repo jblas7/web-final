@@ -8,6 +8,9 @@ import java.util.Date;
 
 
 public class Pedidos {
+    public Pedidos(int idPedidos, String hora, String enProceso, String direccion, int idCliente, int idTrabajador) {
+    }
+
     public enum eEstadoPedido {Pendiente, EnProceso, Finalizado};
     //Creamos los atributos del objeto pedidos, que hace referencia a las columnas de la Tabla PEDIDOS.
     private Integer idPedidos;
@@ -51,7 +54,7 @@ public class Pedidos {
         this.idPedidos = idPedidos;
     }
 
-    public String getFecha() {
+    public String getHora() {
         return hora;
     }
 

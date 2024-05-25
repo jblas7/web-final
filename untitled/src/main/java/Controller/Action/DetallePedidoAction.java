@@ -1,13 +1,15 @@
 package Controller.Action;
 
-import Model.Entities.DetallePedido;
-import Model.Dao.DetallePedidoDao;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-public class DetallePedidoAction implements IAction {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import Model.Dao.DetallePedidoDao;
+import Model.Entities.DetallePedido;
+
+public class DetallePedidoAction implements IAction {
+    
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, String action) {
         String resultado = "";
@@ -22,6 +24,7 @@ public class DetallePedidoAction implements IAction {
 
         return resultado;
     }
+    
 
     private String findAll (){
         DetallePedidoDao categoriaDao = new DetallePedidoDao();

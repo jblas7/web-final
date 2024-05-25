@@ -1,62 +1,41 @@
 package Model.Dao;
 
-
+import Model.Entities.Pedido;
 import Model.Entities.Pedidos;
 import Model.MotorSQL;
-import Model.Dao.IDao;
 
-import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-public class PedidosDao implements IDao<Pedidos,Integer> {
+public class PedidosDao {
 
-    private final String SQL_FIND_ALL = "SELECT * FROM CATEGORIA WHERE 1=1";
-    //Preguntar a Antón
-    @Override
-    public int add(Pedidos pedidos) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    private final String SQL_ADD = "INSERT INTO Pedidos (ID_Pedido, Hora, Estado, Direccion, ID_Cliente, ID_Trabajador) VALUES (?, ?, ?, ?, ?, ?)";
 
-    @Override
-    public int delete(Integer e) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public int update(Pedidos pedidos) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public ArrayList<Pedidos> findAll(Pedidos objeto) {
-        ArrayList<Pedidos> pedido = new ArrayList<>();
+    public int add(Pedidos pedido) {
         MotorSQL motor = new MotorSQL();
+        int iFilasAnadidas = 0;
         try {
-            //Esto es para conectarnos a la bbdd
             motor.connect();
+            PreparedStatement ps = motor.getPreparedStatement(SQL_ADD);
+            ps.setInt(1, pedido.getIdPedidos());
+            ps.setString(2, pedido.getHora());
+            ps.setString(3, pedido.getEstado());
+            ps.setString(4, pedido.getDireccion());
+            ps.setInt(5, pedido.getIdCliente());
+            ps.setInt(6, pedido.getIdTrabajador());
 
-            //EJECUTAR LA SENTENCIA/CONSULTA/QUERY
-            ResultSet rs = motor.executeQuery(SQL_FIND_ALL);
-
-            //Mientras haya resultados se ejecuta el while
-            while (rs.next()) {
-                Pedidos pedidos = new Pedidos();
-                pedidos.setIdPedidos(rs.getInt("ID_Pedido"));
-                pedidos.setHora(rs.getString("Hora"));
-                pedidos.setEstado(rs.getString("Estado"));
-                pedidos.setDireccion(rs.getString("Direccion"));
-                pedidos.setIdCliente(rs.getInt("ID_Cliente"));
-                pedidos.setIdTrabajador(rs.getInt("ID_Trabajador"));
-                pedido.add(pedidos);
-            }
-        }
-        catch (Exception exception) {
-            pedido.clear();
-        }
-        finally {
+            iFilasAnadidas = ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
             motor.disconnect();
         }
+        return iFilasAnadidas;
+    }
 
-        return pedido;
+    // add para los pedidos q se lleven a casa
+    public int entregacasa(Pedidos pedido) {
+        return add(pedido);
     }
 }
