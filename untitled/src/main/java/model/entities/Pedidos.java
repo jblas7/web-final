@@ -1,38 +1,22 @@
-package Model.Entities;
+package model.entities;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
-import java.util.Date;
-
 
 public class Pedidos {
-    public Pedidos(int idPedidos, String hora, String enProceso, String direccion, int idCliente, int idTrabajador) {
-    }
-
-    public enum eEstadoPedido {Pendiente, EnProceso, Finalizado};
-    //Creamos los atributos del objeto pedidos, que hace referencia a las columnas de la Tabla PEDIDOS.
     private Integer idPedidos;
-
+    private String nombre;
     private String hora;
-
-    //Elegir entre las tres siguientes opciones
-    private String estado; /*3Estados */
-    /*
-    private eEstadoPedido estado; /*3Estados */
-    /*¿¿?? private Enum  state; /* 1- Pendiente, 2- En proceso, 3- Finalizado ¿??*/
-
+    private String estado;
     private String direccion;
+    private Integer idCliente;
+    private Integer idTrabajador;
 
-    private Integer idCliente; /*FK de la tabla de Cliente */
-
-    private Integer idTrabajador; /* FK de la tabla de Trabajador */
-
-
-    //Crearemos el constructor con todos los campos de los atributos anteriores
-    public Pedidos(Integer id_pedidos, Date fecha, String estado, String direccion, Integer idCliente, Integer idTrabajador) {
-        this.idPedidos = id_pedidos;
+    // Constructor para entrega a domicilio
+    public Pedidos(Integer idPedidos, String hora, String estado, String direccion, Integer idCliente, Integer idTrabajador) {
+        this.idPedidos = idPedidos;
         this.hora = hora;
         this.estado = estado;
         this.direccion = direccion;
@@ -40,12 +24,15 @@ public class Pedidos {
         this.idTrabajador = idTrabajador;
     }
 
-    //Crearemos el constructor vacio de los atributos anteriores
-    public Pedidos() {
+    // Constructor para recogida local
+    public Pedidos(Integer idPedidos, String hora, String estado, String nombre) {
+        this.idPedidos = idPedidos;
+        this.hora = hora;
+        this.estado = estado;
+        this.nombre = nombre;
     }
 
-
-    //Crear los Getter y setter de los atributos de la clase PedidosBean.
+    // Getters y Setters
     public Integer getIdPedidos() {
         return idPedidos;
     }
@@ -54,12 +41,20 @@ public class Pedidos {
         this.idPedidos = idPedidos;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getHora() {
         return hora;
     }
 
-    public void setHora(String fecha) {
-        this.hora = fecha;
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public String getEstado() {
@@ -94,27 +89,26 @@ public class Pedidos {
         this.idTrabajador = idTrabajador;
     }
 
-    //Crearemos en método to String del objeto Pedidos
     @Override
     public String toString() {
-        return "Pedidos{" + "idPedidos=" + idPedidos + ", hora=" + hora + ", estado='" + estado + '\'' + ", direccion='" + direccion + '\'' + ", idCliente=" + idCliente + ", idTrabajador=" + idTrabajador + '}';
+        return "Pedidos{" +
+                "idPedidos=" + idPedidos +
+                ", nombre='" + nombre + '\'' +
+                ", hora='" + hora + '\'' +
+                ", estado='" + estado + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", idCliente=" + idCliente +
+                ", idTrabajador=" + idTrabajador +
+                '}';
     }
 
-    //Creamos el método Json para pasar el arrayList a Json
-    public static String toArrayJson(ArrayList<Pedidos> Pedidos) {
+    // Metodo para convertir ArrayList de Pedidos a JSON
+    public static String toArrayJson(ArrayList<Pedidos> pedidos) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
 
         Gson gson = builder.create();
 
-        return gson.toJson(Pedidos);
+        return gson.toJson(pedidos);
     }
-
-
-
-
-
-
-
-
 }

@@ -1,7 +1,6 @@
 package Model.Dao;
 
-import Model.Entities.Pedido;
-import Model.Entities.Pedidos;
+import model.entities.Pedidos;
 import Model.MotorSQL;
 
 import java.sql.PreparedStatement;
@@ -9,14 +8,15 @@ import java.sql.SQLException;
 
 public class PedidosDao {
 
-    private final String SQL_ADD = "INSERT INTO Pedidos (ID_Pedido, Hora, Estado, Direccion, ID_Cliente, ID_Trabajador) VALUES (?, ?, ?, ?, ?, ?)";
+    private final String SQL_ADD_ENTREGA_CASA = "INSERT INTO Pedidos (ID_Pedido, Hora, Estado, Direccion, ID_Cliente, ID_Trabajador) VALUES (?, ?, ?, ?, ?, ?)";
+    private final String SQL_ADD_RECOGIDA_LOCAL = "INSERT INTO Pedidos (ID_Pedido, Hora, Estado, Nombre) VALUES (?, ?, ?, ?)";
 
     public int add(Pedidos pedido) {
         MotorSQL motor = new MotorSQL();
         int iFilasAnadidas = 0;
         try {
             motor.connect();
-            PreparedStatement ps = motor.getPreparedStatement(SQL_ADD);
+            PreparedStatement ps = motor.getPreparedStatement(SQL_ADD_ENTREGA_CASA);
             ps.setInt(1, pedido.getIdPedidos());
             ps.setString(2, pedido.getHora());
             ps.setString(3, pedido.getEstado());
@@ -34,8 +34,24 @@ public class PedidosDao {
         return iFilasAnadidas;
     }
 
-    // add para los pedidos q se lleven a casa
-    public int entregacasa(Pedidos pedido) {
-        return add(pedido);
+    public int addRecogidaLocal(Pedidos pedido) {
+        MotorSQL motor = new MotorSQL();
+        int iFilasAnadidas = 0;
+        try {
+            motor.connect();
+            PreparedStatement ps = motor.getPreparedStatement(SQL_ADD_RECOGIDA_LOCAL);
+            ps.setInt(1, pedido.getIdPedidos());
+            ps.setString(2, pedido.getHora());
+            ps.setString(3, pedido.getEstado());
+            ps.setString(4, pedido.getNombre());
+
+            iFilasAnadidas = ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            motor.disconnect();
+        }
+        return iFilasAnadidas;
     }
 }
