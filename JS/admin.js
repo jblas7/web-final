@@ -37,7 +37,6 @@
 
 
 
-// Definir los usuarios autorizados
 const authorizedUsers = [
   { email: "juan@gmail.com", password: "123456789" },
   { email: "maria@gmail.com", password: "123456789" },
@@ -45,9 +44,8 @@ const authorizedUsers = [
   { email: "carlosruiz456@gmail.com", password: "123456789" }
 ];
 
-// Función para validar el login
 function validateLogin(event) {
-  event.preventDefault(); // Previene el comportamiento predeterminado del formulario
+  event.preventDefault(); 
 
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;

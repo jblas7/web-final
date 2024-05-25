@@ -673,12 +673,15 @@ font-family: 'Seymour One';
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../IMG/img-fondo-login-privado.jpeg);
+    background-image: url(../IMG/img-fondo-login-privado-admin.jpeg);
     background-size: cover; /* Ajustar la imagen para cubrir completamente el fondo */
     background-position: center; /* Centrar la imagen */
     display: flex;
     justify-content: center;
     align-items: center;
+    align-items: center;
+    text-align: center;
+
 
 }
 
@@ -688,6 +691,7 @@ font-family: 'Seymour One';
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: 'Lexend';
 }
 
 #login-form input {
