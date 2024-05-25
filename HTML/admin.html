@@ -31,6 +31,16 @@
 </head>
 
 <body>
+    <div id="login-form">
+        <form onsubmit="validateLogin(event)">
+            <h2>Login</h2>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    
     <header class="header">
 
 
@@ -93,6 +103,8 @@
 
 
     <div class="cuerpo-web">
+
+
 
         <div class="div-img-arr">
             <img class="img-delivery" src="../IMG/LETRAS_PEC_PRIVATE.png" alt="">
