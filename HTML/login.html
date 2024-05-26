@@ -94,7 +94,7 @@
     <div class="cuerpo-web">
 
 
-        <div class="fondo-formulario-login"   style="background-image: url('../IMG/fondo-formulario.jpg');
+        <div class="fondo-formulario-login"   style="background-image: url('../IMG/img-foto-grande-2.jpg');
         background-size: cover;">
 
             <div class="formulario-login">
@@ -107,18 +107,22 @@
                     <div class="formulario-inputs">
                         <div class="casilla-info-login">
                             <label class="enunciado-casilla-info-login" for="email">Email:</label>
-                            <input type="email" id="email" required placeholder="example@email.com">
+                            <input type="email" id="email" class="casilla-input-login" required placeholder="example@email.com">
+                            <div id="emailError" class="error-message"></div>
                         </div>
                         <div class="casilla-info-login">
                             <label class="enunciado-casilla-info-login" for="contrasena">Password:</label>
-                            <input type="password" id="contrasena" required placeholder="Enter your password">
+                            <input type="password" id="contrasena" class="casilla-input-login" required placeholder="Enter your password">
+                            <div id="passwordError" class="error-message"></div>
                         </div>
                     </div>
-                    <button class="iniciar-sesion-boton">LOG IN</button>       
+                    <button type="submit" class="iniciar-sesion-boton">LOG IN</button>
                     <div class="registrarse-enlace">
-                        Dont have an account? <a class="enlace-crear-cuenta-login" href="../HTML/signup.html">SIGN UP</a>
+                        Don't have an account? <a class="enlace-crear-cuenta-login" href="../HTML/signup.html">SIGN UP</a>
                     </div>
                 </form>
+                
+                
             </div>   
         </div>
 

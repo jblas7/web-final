@@ -108,38 +108,7 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
   
   
   
-  /*CARRUSEL DESLIZABLEEE*/
-  const carousel = document.getElementById('carrusel222');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-  
-  carousel.addEventListener('mousedown', (e) => {
-      isDown = true;
-      carousel.classList.add('active');
-      startX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-  });
-  
-  carousel.addEventListener('mouseleave', () => {
-      isDown = false;
-      carousel.classList.remove('active');
-  });
-  
-  carousel.addEventListener('mouseup', () => {
-      isDown = false;
-      carousel.classList.remove('active');
-  });
-  
-  carousel.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 1; // Puedes ajustar el multiplicador para cambiar la sensibilidad
-      carousel.scrollLeft = scrollLeft - walk;
-  });
-  
-  
+
   
   
   
@@ -187,3 +156,40 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
     }
 });
 
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var scrollTopButton = document.getElementById('scrollTopButton');
+  
+    // Mostrar o ocultar el botón basado en el desplazamiento de la página
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 200) { // Cambia 200 por la cantidad de píxeles de desplazamiento que desees antes de mostrar el botón
+        scrollTopButton.classList.add('show');
+      } else {
+        scrollTopButton.classList.remove('show');
+      }
+    });
+  
+    // Animar el desplazamiento hacia arriba al hacer clic en el botón
+    scrollTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Para un desplazamiento suave
+      });
+    });
+  });
+
+  
+
+  
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  

@@ -326,7 +326,7 @@ body {
 
 
   .img-delivery {
-    width: 300px;
+    width: 210px;
   
     margin-left: 50px;
     margin-right: 50px;
@@ -366,10 +366,10 @@ body {
   
   
   .fondo-formulario-signup {
-    background-image: url(imagenes/fondos/fondo-formulario.jpg);
-    background-color: #f0232349;
+    background-image: url("../IMG/img-foto-grande-3.jpg");
+
     width: 100%;
-    min-height: 100vh;
+    min-height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -380,10 +380,11 @@ body {
 
 .formulario-registro-signup {
     background-color: rgba(54, 53, 53, 0.95);
-    padding: 5%;
+    padding: 2%;
     border-radius: 15px;
     width: 50%;
-    margin: 100px;
+    height: 40%;
+    margin: 40px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -405,7 +406,7 @@ body {
 }
 
 .casilla-info-registro-signup {
-    display: flex;
+   
     flex-direction: column;
     margin-bottom: 15px;
     justify-content: center;
@@ -416,8 +417,8 @@ body {
     display: flex;
     font-family: 'Lexend';
     color: #ffffff;
-    font-size: 40px;
-    margin-top: 40px;
+    font-size: 30px;
+    margin-top: 10px;
     font-weight: bold;
     padding-bottom: 15px;
    
@@ -429,7 +430,7 @@ body {
     border-radius: 5px;
     background-color: #f0f0f0;
     margin-bottom: 10px;
-    width: 65%;
+    width: 100%;
 
 }
 
@@ -541,6 +542,51 @@ body {
 
 
 
+.scroll-top-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+
+  text-decoration: none;
+  color: #ffffff;
+  display: none;
+  /* Ocultar el botón por defecto */
+  transition: all 0.3s ease;
+
+  background-color: #ff3b55;
+
+
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 20px 30px;
+  font-size: 18px;
+  border-radius: 0px 25% 0px 25%;
+}
+
+.scroll-top-button:hover {
+
+
+
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px 30px;
+  /* Ajusta el tamaño del botón según sea necesario */
+  border-radius: 50%;
+  /* Hace que el botón sea redondo */
+  text-decoration: none;
+
+}
+
+.scroll-top-button.show {
+  display: block;
+  /* Mostrar el botón cuando sea necesario */
+
+}
 
 
 

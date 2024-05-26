@@ -42,6 +42,7 @@ const authorizedUsers = [
   { email: "maria@gmail.com", password: "123456789" },
   { email: "manuelfernandez789@gmail.com", password: "123456789" },
   { email: "carlosruiz456@gmail.com", password: "123456789" },
+  
   { email: "luismartinez789@gmail.com", password: "123456789" },
   { email: "anaperez123@gmail.com", password: "123456789" },
   { email: "pedrosanchez456@gmail.com", password: "123456789" },

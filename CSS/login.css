@@ -7,7 +7,7 @@ body {
 }
 
 .fondo-formulario-login {
-  background-image: url(../IMG/fondos/fondo-formulario.jpg);
+  background-image: url("../IMG/img-foto-grande-2.jpg");
 
   width: 100%;
   height: 120vh;
@@ -40,9 +40,9 @@ body {
 
 .enunciado-casilla-info-login {
   display: flex;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Lexend';
   color: #ffffff;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   padding-bottom: 15px;
   margin-left: 15%;
@@ -63,14 +63,14 @@ body {
 
 .iniciar-sesion-boton {
   display: block;
-  margin: 10px auto;
+  margin: 0px;
   border: none;
   cursor: pointer;
   font-family: "Seymour One", sans-serif;
   background-color: #ffd5d5;
   color: #ff3b55;
   padding: 10px 16px;
-  font-size: 26px;
+  font-size: 22px;
   border-radius: 25px;
   font-weight: bold;
   text-decoration: none;
@@ -115,7 +115,7 @@ body {
   color: #ffffff;
   border-radius: 5px;
   padding: 15px 20px;
-  font-size: 26px;
+
   transition: background-color 0.3s ease;
   font-weight: bold;
   text-decoration: none;
@@ -253,8 +253,8 @@ nav.principal a:hover {
 
 
 .img-delivery {
-  width: 300px;
- 
+  width: 155px;
+  margin-top: 7px;
   margin-left: 50px;
   margin-right: 50px;
 
@@ -482,28 +482,26 @@ nav.principal a:hover {
 
 
 .fondo-formulario-login {
-  background-image: url('../IMG/fondo-formulario.jpg');
-
+  background-image: url("../IMG/img-foto-grande-2.jpg");
   background-size: cover;
-  /* Ajusta la imagen para cubrir completamente el contenedor */
   background-position: center;
-  /* Centra la imagen en el contenedor */
   background-repeat: no-repeat;
-  /* Evita que la imagen se repita */
-
   width: 100%;
-  height: 120vh;
+  height: 100vh; /* O ajusta según tus necesidades */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+
 .formulario-login {
   background-color: rgba(54, 53, 53, 0.95);
-  padding: 5%;
+  padding: 10px;
   border-radius: 15px;
   width: 35%;
+  height: 82%;
   font-family: 'Lexend';
+
 }
 
 .titulo-login {
@@ -527,16 +525,7 @@ nav.principal a:hover {
   margin-bottom: 15px;
 }
 
-.enunciado-casilla-info-login {
-  display: flex;
-  font-family: 'Lexend';
-  color: #ffffff;
-  font-size: 40px;
-  font-weight: bold;
-  padding-bottom: 15px;
-  margin-left: 15%;
 
-}
 
 .casilla-info-login input {
   padding: 8px;
@@ -550,10 +539,10 @@ nav.principal a:hover {
 
 
 .registrarse-enlace {
-  margin-top: 5%;
+  margin-top: 28px;
   color: #ffffff;
 
-  font-size: 26px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -580,7 +569,7 @@ nav.principal a:hover {
   background: #ff3b55;
   color: #fff;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px;
   align-items: center;
   cursor: pointer;
   transition: .3s;
@@ -1038,11 +1027,7 @@ footer p {
 
 }
 
-@media (max-width: 1024px) {
-  .formulario-login {
-    width: 60%;
-  }
-}
+
 
 @media (max-width: 768px) {
   .fondo-formulario-login {
@@ -1117,11 +1102,7 @@ footer p {
   }
 }
 
-@media (max-width: 1024px) {
-  .formulario-login {
-    width: 60%;
-  }
-}
+
 
 @media (max-width: 768px) {
   .fondo-formulario-login {

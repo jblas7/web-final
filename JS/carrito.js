@@ -297,7 +297,7 @@ function toggleInfo() {
 document.addEventListener('DOMContentLoaded', function() {
     const formularioDatos = JSON.parse(localStorage.getItem('formularioDatos'));
     if (formularioDatos) {
-        const { tipoPedido, nombre, calle, portal, piso, letra, telefonoEntrega, modoEntrega, horaEntrega, nombreRecoger, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
+        const { tipoPedido, nombre, calle,  portal, piso, letra, telefonoEntrega, modoEntrega, horaEntrega, nombreRecoger, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
         let infoHTML = ``;
 
         if (tipoPedido === 'entregaDomicilio') {
