@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 return 'tx-medall';
             case 4:
                 return 'tx-sand';
-            case 5:
+            case 6:
                 return 'tx-postr';
             default:
                 return '';
