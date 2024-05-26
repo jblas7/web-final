@@ -1,3 +1,43 @@
+document.addEventListener("DOMContentLoaded", function() {
+    var scrollTopButton = document.getElementById('scrollTopButton');
+  
+    // Mostrar o ocultar el botón basado en el desplazamiento de la página
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 200) { // Cambia 200 por la cantidad de píxeles de desplazamiento que desees antes de mostrar el botón
+        scrollTopButton.classList.add('show');
+      } else {
+        scrollTopButton.classList.remove('show');
+      }
+    });
+  
+    // Animar el desplazamiento hacia arriba al hacer clic en el botón
+    scrollTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Para un desplazamiento suave
+      });
+    });
+  });
+
+  
+
+  
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
 /*CARRUSEL AUTOMÁTICO (CONTROL)*/
 var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
     interval: 6000 // tiempo para pasar de una imagen a otra
@@ -162,34 +202,3 @@ var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    var scrollTopButton = document.getElementById('scrollTopButton');
-  
-    // Mostrar o ocultar el botón basado en el desplazamiento de la página
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 200) { // Cambia 200 por la cantidad de píxeles de desplazamiento que desees antes de mostrar el botón
-        scrollTopButton.classList.add('show');
-      } else {
-        scrollTopButton.classList.remove('show');
-      }
-    });
-  
-    // Animar el desplazamiento hacia arriba al hacer clic en el botón
-    scrollTopButton.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Para un desplazamiento suave
-      });
-    });
-  });
-
-  
-
-  
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-  

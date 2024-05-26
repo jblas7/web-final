@@ -367,7 +367,12 @@ body {
   
   .fondo-formulario-signup {
     background-image: url("../IMG/img-foto-grande-3.jpg");
-
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     min-height: 10vh;
     display: flex;
@@ -382,7 +387,7 @@ body {
     background-color: rgba(54, 53, 53, 0.95);
     padding: 2%;
     border-radius: 15px;
-    width: 50%;
+    width: 40%;
     height: 40%;
     margin: 40px;
     display: flex;
@@ -866,7 +871,9 @@ body {
   
   
   
-  
+  .formulario-registro-signup {
+    width: 100%;
+  }
   
   
   
