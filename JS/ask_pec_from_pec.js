@@ -143,71 +143,82 @@
     
 
 
-
     function validarFormulario() {
-      var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
-      if (!tipoPedido) {
-          alert("Please select the type of order.");
-          return false;
-      }
+        var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+        if (!tipoPedido) {
+            alert("Please select the type of order.");
+            return false;
+        }
+    
+        var nombre;
+        var telefono;
+    
+        if (tipoPedido.value === "entregaDomicilio") {
+            nombre = document.getElementById("nombre").value.trim();
+            var telefonoEntrega = document.getElementById("telefonoEntrega").value.trim();
+            var calle = document.getElementById("calle").value.trim();
+            var portal = document.getElementById("portal").value.trim();
+            var piso = document.getElementById("piso").value.trim();
+            var letra = document.getElementById("letra").value.trim();
+    
+            if (nombre === "") {
+                alert("Please enter your name.");
+                document.getElementById("nombre").focus();
+                return false;
+            }
+    
+            if (telefonoEntrega === "" || !/^[0-9]{9}$/.test(telefonoEntrega)) {
+                alert("Please enter a valid phone number for delivery.");
+                document.getElementById("telefonoEntrega").focus();
+                return false;
+            }
+    
+            if (calle === "" || portal === "" || piso === "" || letra === "") {
+                alert("Please complete all fields for the delivery address.");
+                return false;
+            }
+    
+            var modoEntrega = document.getElementById("modoEntrega").value;
+            if (modoEntrega === "Schedule Shipment") {
+                var horaEntrega = document.getElementById("horaEntrega").value.trim();
+                if (horaEntrega === "") {
+                    alert("Please enter the delivery time.");
+                    document.getElementById("horaEntrega").focus();
+                    return false;
+                }
+            }
 
-      if (tipoPedido.value === "entregaDomicilio") {
-          var calle = document.getElementById("calle").value.trim();
-          var portal = document.getElementById("portal").value.trim();
-          var piso = document.getElementById("piso").value.trim();
-          var letra = document.getElementById("letra").value.trim();
-          var telefonoEntrega = document.getElementById("telefonoEntrega").value.trim();
-
-          if (calle === "" || portal === "" || piso === "" || letra === "") {
-              alert("Please complete all fields for the delivery address.");
-              return false;
-          }
-
-          if (telefonoEntrega === "" || !/^[0-9]{9}$/.test(telefonoEntrega)) {
-              alert("Please enter a valid phone number for delivery.");
-              document.getElementById("telefonoEntrega").focus();
-              return false;
-          }
-
-          var modoEntrega = document.getElementById("modoEntrega").value;
-          if (modoEntrega === "Schedule Shipment") {
-              var horaEntrega = document.getElementById("horaEntrega").value.trim();
-              if (horaEntrega === "") {
-                  alert("Please enter the delivery time.");
-                  document.getElementById("horaEntrega").focus();
-                  return false;
-              }
-          }
-      } else if (tipoPedido.value === "recogerLocal") {
-          var nombre = document.getElementById("nombre").value.trim();
-          var telefono = document.getElementById("telefono").value.trim();
-
-          if (nombre === "") {
-              alert("Please enter your name.");
-              document.getElementById("nombre").focus();
-              return false;
-          }
-
-          if (telefono === "" || !/^[0-9]{9}$/.test(telefono)) {
-              alert("Please enter a valid phone number for pickup.");
-              document.getElementById("telefono").focus();
-              return false;
-          }
-
-          var modoRecoger = document.getElementById("modoRecoger").value;
-          if (modoRecoger === "Schedule Pickup") {
-              var horaRecoger = document.getElementById("horaRecoger").value.trim();
-              if (horaRecoger === "") {
-                  alert("Please enter the pick-up time.");
-                  document.getElementById("horaRecoger").focus();
-                  return false;
-              }
-          }
-      }
-
-      return true;
-  }
-
+     
+        } else if (tipoPedido.value === "recogerLocal") {
+            nombreRecoger = document.getElementById("nombreRecoger").value.trim(); 
+            telefono = document.getElementById("telefono").value.trim();
+    
+            if (nombreRecoger === "") {
+                alert("Please enter your first name for pick-up.");
+                document.getElementById("nombreRecoger").focus(); 
+                return false;
+            }
+    
+            if (telefono === "" || !/^[0-9]{9}$/.test(telefono)) {
+                alert("Please enter a valid phone number for pick-up.");
+                document.getElementById("telefono").focus();
+                return false;
+            }
+    
+            var modoRecoger = document.getElementById("modoRecoger").value;
+            if (modoRecoger === "Schedule Pickup") {
+                var horaRecoger = document.getElementById("horaRecoger").value.trim();
+                if (horaRecoger === "") {
+                    alert("Please enter the pick-up time.");
+                    document.getElementById("horaRecoger").focus();
+                    return false;
+                }
+            }
+        }
+    
+        return true;
+    }
+    
 
 
 
@@ -249,6 +260,7 @@
     }
 
     var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
+    var nombre = document.getElementById("nombre").value.trim();
     var calle = document.getElementById("calle").value.trim();
     var portal = document.getElementById("portal").value.trim();
     var piso = document.getElementById("piso").value.trim();
@@ -256,7 +268,7 @@
     var telefonoEntrega = document.getElementById("telefonoEntrega").value.trim();
     var modoEntrega = document.getElementById("modoEntrega").value;
     var horaEntrega = document.getElementById("horaEntrega").value.trim();
-    var nombre = document.getElementById("nombre").value.trim();
+    var nombre = document.getElementById("nombreRecoger").value.trim();
     var telefono = document.getElementById("telefono").value.trim();
     var Shop = document.getElementById("Shop").value.trim();
     var modoRecoger = document.getElementById("modoRecoger").value;
@@ -264,6 +276,7 @@
 
     var formularioDatos = {
         tipoPedido,
+        nombre,
         calle,
         portal,
         piso,
@@ -271,7 +284,7 @@
         telefonoEntrega,
         modoEntrega,
         horaEntrega,
-        nombre,
+        nombreRecoger,
         telefono,
         Shop,
         modoRecoger,

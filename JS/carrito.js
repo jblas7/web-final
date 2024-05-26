@@ -291,24 +291,28 @@ function toggleInfo() {
 
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const formularioDatos = JSON.parse(localStorage.getItem('formularioDatos'));
     if (formularioDatos) {
-        const { tipoPedido, calle, portal, piso, letra, telefonoEntrega, modoEntrega, horaEntrega, nombre, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
+        const { tipoPedido, nombre, calle, portal, piso, letra, telefonoEntrega, modoEntrega, horaEntrega, nombreRecoger, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
         let infoHTML = ``;
 
         if (tipoPedido === 'entregaDomicilio') {
             infoHTML += `
                 <h3>Home Delivery</h3>
-                <p>Address: ${calle}, ${portal}, ${piso} ${letra}</p>
+                <p>Name: ${nombre}</p>
                 <p>Phone: ${telefonoEntrega}</p>
+                <p>Address: ${calle}, ${portal}, ${piso} ${letra}</p>
                 <p>Mode of Delivery: ${modoEntrega}</p>
                 ${modoEntrega === 'Schedule Shipment' ? `<p>Delivery Time: ${horaEntrega}</p>` : ''}
             `;
         } else if (tipoPedido === 'recogerLocal') {
             infoHTML += `
                 <h3>Local Pick Up</h3>
-                <p>Name: ${nombre}</p>
+                <p>Name: ${nombreRecoger}</p>
                 <p>Phone: ${telefono}</p>
                 <p>Shop: ${Shop}</p>
                 <p>Pickup Mode: ${modoRecoger}</p>
