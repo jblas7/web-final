@@ -43,6 +43,8 @@ VALUES (4, 'TABLESIDE PECAMOLE', 'Freshly made tortilla chips, and a molcajete b
                             chili, and lime, all customized to your taste.', 14.50, 'https://i.pinimg.com/originals/fb/dd/a7/fbdda7d1b77cdc0035a87d1f81475547.jpg', 1);
                         
 
+
+
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (5, 'PECTINENTE BURGER', 'Our homemade brioche bun with 2 smash burgers, Oxaca, Monterrey, and
                             mozzarella cheese, crispy American bacon, pickles, tomato jam, and PECrancho sauce.', 14.60, 'https://i.pinimg.com/originals/bf/42/8e/bf428ed451d99079c8359414c4630813.jpg', 2);
