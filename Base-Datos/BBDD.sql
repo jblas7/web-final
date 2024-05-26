@@ -35,17 +35,26 @@ CREATE TABLE Productos(
     FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
 );
 
+
 CREATE TABLE Pedidos(
     ID_Pedido INTEGER PRIMARY KEY,
     Nombre VARCHAR2(80) NOT NULL,
     Hora VARCHAR2(10) NOT NULL,
     Estado VARCHAR2(20) NOT NULL,
     Direccion VARCHAR2(50) NOT NULL,
-    ID_Cliente INTEGER NOT NULL,
+    ID_Cliente INTEGER,
     ID_Trabajador INTEGER NOT NULL,
+    Cliente_Nombre VARCHAR2(80),
+    Cliente_Telefono VARCHAR2(20),
+    Cliente_Email VARCHAR2(50),
     FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
-    FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador)
+    FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador),
+    CONSTRAINT CHK_Cliente CHECK (
+        (ID_Cliente IS NOT NULL) OR
+        (Cliente_Nombre IS NOT NULL AND Cliente_Telefono IS NOT NULL AND Cliente_Email IS NOT NULL)
+    )
 );
+
 
 CREATE TABLE Detalle_Pedido(
     ID_Detalle INTEGER PRIMARY KEY,
