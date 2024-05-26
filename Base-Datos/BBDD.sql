@@ -36,24 +36,27 @@ CREATE TABLE Productos(
 );
 
 
-CREATE TABLE Pedidos(
+CREATE TABLE Pedidos (
     ID_Pedido INTEGER PRIMARY KEY,
-    Nombre VARCHAR2(80) NOT NULL,
-    Hora VARCHAR2(10) NOT NULL,
-    Estado VARCHAR2(20) NOT NULL,
-    Direccion VARCHAR2(50) NOT NULL,
-    ID_Cliente INTEGER,
+    Tipo_Pedido VARCHAR2(20) NOT NULL, 
+    Nombre VARCHAR2(80) NOT NULL, 
+    Telefono VARCHAR2(10) NOT NULL, 
+    Calle VARCHAR2(100), 
+    Portal VARCHAR2(20),
+    Piso VARCHAR2(10), 
+    Letra VARCHAR2(10),
+    Modo_Entrega VARCHAR2(20),
+    Hora_Entrega VARCHAR2(10), 
+    Shop VARCHAR2(50), 
+    Modo_Recoger VARCHAR2(20),
+    Hora_Recoger VARCHAR2(10), 
+    Estado VARCHAR2(20) NOT NULL, 
+    ID_Cliente INTEGER, 
     ID_Trabajador INTEGER NOT NULL,
-    Cliente_Nombre VARCHAR2(80),
-    Cliente_Telefono VARCHAR2(20),
-    Cliente_Email VARCHAR2(50),
     FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
-    FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador),
-    CONSTRAINT CHK_Cliente CHECK (
-        (ID_Cliente IS NOT NULL) OR
-        (Cliente_Nombre IS NOT NULL AND Cliente_Telefono IS NOT NULL AND Cliente_Email IS NOT NULL)
-    )
+    FOREIGN KEY (ID_Trabajador) REFERENCES Trabajador(ID_Trabajador)
 );
+
 
 
 CREATE TABLE Detalle_Pedido(
