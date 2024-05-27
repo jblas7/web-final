@@ -43,7 +43,7 @@ CREATE TABLE Productos(
 CREATE TABLE Pedidos (
     ID_Pedido INTEGER PRIMARY KEY,
     Tipo_Pedido VARCHAR2(20) NOT NULL, 
-    Modo_Entrega VARCHAR2(20),
+    Modo_Entrega VARCHAR2(20),/*MIRAR A VER*/
     Hora_Entrega VARCHAR2(10), 
     Shop VARCHAR2(50), 
     Modo_Recoger VARCHAR2(20),
