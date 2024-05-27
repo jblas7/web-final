@@ -1,129 +1,86 @@
-/*FETCH CARRITO FIND ALL*/
+// Variable para verificar si el código ya se ejecutó
+let codigoEjecutado = false;
+
 window.addEventListener('DOMContentLoaded', () => {
-    const fetchProductos = async () => {
-        try {
-            const response = await fetch('http://localhost:8080/PecBurger/Controller?action=productos.find_all');
-            if (!response.ok) {
-                throw new Error(`Error HTTP! estado: ${response.status}`);
+    // Verificar si el código ya se ejecutó
+    if (!codigoEjecutado) {
+        codigoEjecutado = true; // Marcar como ejecutado
+
+        const fetchProductos = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/PecBurger/Controller?action=productos.find_all');
+                if (!response.ok) {
+                    throw new Error(`Error HTTP! estado: ${response.status}`);
+                }
+                const productos = await response.json();
+                productos.forEach(producto => createProductoItem(producto));
+            } catch (error) {
+                console.error('Error al obtener productos:', error);
             }
-            const productos = await response.json();
-            productos.forEach(producto => createProductoItem(producto));
-        } catch (error) {
-            console.error('Error al obtener productos:', error);
         }
-    };
 
-    const createProductoItem = (producto) => {
-        const containerId = getContainerId(producto.idCategoria);
-        const container = document.getElementById(containerId);
-        if (container) {
-            const item = document.createElement('div');
-            item.classList.add('item');
-
-            item.innerHTML = `
-                <span class="titulo-item">${producto.nombre}</span>
-                <img src="${producto.rutaImagen}" alt="${producto.nombre}" class="img-item">
-                <span class="precio-item">${producto.precio}€</span>
-                <button class="boton-item" onclick="addToCart('${producto.id}', '${producto.nombre}', ${producto.precio})">ADD TO CART</button>
-            `;
-
-            container.appendChild(item);
+        const createProductoItem = (producto) => {
+            const containerId = getContainerId(producto.idCategoria);
+            const container = document.getElementById(containerId);
+            if (container) {
+                const item = document.createElement('div');
+                item.classList.add('item');
+    
+                item.innerHTML = `
+                    <span class="titulo-item">${producto.nombre}</span>
+                    <img src="${producto.rutaImagen}" alt="" class="img-item">
+                    <span class="precio-item">${producto.precio}€</span>
+                    <button class="boton-item">ADD TO CART</button>
+                `;
+    
+                // Agregar evento de clic al botón "ADD TO CART"
+                const addToCartButton = item.querySelector('.boton-item');
+                addToCartButton.addEventListener('click', () => {
+                    console.log('Botón "ADD TO CART" clickeado');
+                    // Lógica para mostrar el carrito
+                    mostrarCarrito();
+                });
+    
+                container.appendChild(item);
+            }
         }
-    };
-
-    const getContainerId = (idCategoria) => {
-        switch (idCategoria) {
-            case 1:
-                return 'tx-en';
-            case 2:
-                return 'tx-smash';
-            case 3:
-                return 'tx-medall';
-            case 4:
-                return 'tx-sand';
-            case 5:
-                return 'tx-sals';
-            case 6:
-                return 'tx-postr';
-            case 7:
-                return 'tx-beb';
-            default:
-                return '';
+    
+        // Función para mostrar el carrito
+        const mostrarCarrito = () => {
+            console.log('Mostrar carrito');
+            const carrito = document.getElementById('carrito');
+            carrito.style.display = 'block'; // Mostrar el carrito
+        };
+    
+        // Resto de tu código...
+    });
+    
+        const getContainerId = (idCategoria) => {
+            switch (idCategoria) {
+                case 1:
+                    return 'tx-en';
+                case 2:
+                    return 'tx-smash';
+                case 3:
+                    return 'tx-medall';
+                case 4:
+                    return 'tx-sand';
+                case 5:
+                    return 'tx-sals';
+                case 6:
+                    return 'tx-postr'; // Cambiado de 'tx-beb'
+                case 7:
+                    return 'tx-beb'; // Agregado para las bebidas
+                default:
+                    return '';
+            }
         }
-    };
 
-    const addToCart = (id, nombre, precio) => {
-        // Aquí puedes implementar la lógica para agregar el producto al carrito
-        console.log(`Producto agregado al carrito: ${nombre} (${precio}€)`);
-    };
-
-    fetchProductos();
+        fetchProductos();
+    }
 });
 
 
-
-
-
-
-
-
-
-
-
-window.addEventListener('DOMContentLoaded', () => {
-    const fetchProductos = async () => {
-        try {
-            const response = await fetch('http://localhost:8080/PecBurger/Controller?action=productos.find_all');
-            if (!response.ok) {
-                throw new Error(`Error HTTP! estado: ${response.status}`);
-            }
-            const productos = await response.json();
-            productos.forEach(producto => createProductoItem(producto));
-        } catch (error) {
-            console.error('Error al obtener productos:', error);
-        }
-    }
-
-    const createProductoItem = (producto) => {
-        const containerId = getContainerId(producto.idCategoria);
-        const container = document.getElementById(containerId);
-        if (container) {
-            const item = document.createElement('div');
-            item.classList.add('item');
-            item.onclick = function () { toggleInfo(this); };
-
-            item.innerHTML = `
-                <img src="${producto.rutaImagen}" alt="${producto.nombre}">
-                <div class="details hidden">
-                    <h3>${producto.nombre}</h3>
-                    <p class="price">${producto.precio}€</p>
-                    <p class="ingredients">${producto.descripcion}</p>
-                    <a class="custom-boton3" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
-                </div>`;
-
-            container.appendChild(item);
-        }
-    }
-
-    const getContainerId = (idCategoria) => {
-        switch (idCategoria) {
-            case 1:
-                return 'tx-en';
-            case 2:
-                return 'tx-smash';
-            case 3:
-                return 'tx-medall';
-            case 4:
-                return 'tx-sand';
-            case 6:
-                return 'tx-postr';
-            default:
-                return '';
-        }
-    }
-
-    fetchProductos();
-});
 
 
 
