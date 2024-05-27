@@ -25,36 +25,18 @@ window.addEventListener('DOMContentLoaded', () => {
             if (container) {
                 const item = document.createElement('div');
                 item.classList.add('item');
-    
+
                 item.innerHTML = `
                     <span class="titulo-item">${producto.nombre}</span>
                     <img src="${producto.rutaImagen}" alt="" class="img-item">
                     <span class="precio-item">${producto.precio}€</span>
                     <button class="boton-item">ADD TO CART</button>
                 `;
-    
-                // Agregar evento de clic al botón "ADD TO CART"
-                const addToCartButton = item.querySelector('.boton-item');
-                addToCartButton.addEventListener('click', () => {
-                    console.log('Botón "ADD TO CART" clickeado');
-                    // Lógica para mostrar el carrito
-                    mostrarCarrito();
-                });
-    
+
                 container.appendChild(item);
             }
         }
-    
-        // Función para mostrar el carrito
-        const mostrarCarrito = () => {
-            console.log('Mostrar carrito');
-            const carrito = document.getElementById('carrito');
-            carrito.style.display = 'block'; // Mostrar el carrito
-        };
-    
-        // Resto de tu código...
-    });
-    
+
         const getContainerId = (idCategoria) => {
             switch (idCategoria) {
                 case 1:
