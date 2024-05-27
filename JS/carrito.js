@@ -358,18 +358,12 @@ function actualizarTotalCarrito() {
 
 
 
-function toggleInfo() {
-    var section = document.getElementById("infoSection");
-    var button = document.getElementById("toggleButton");
-
-    if (section.style.display === "none") {
-        section.style.display = "block";
-        button.textContent = "SEE LESS";
-    } else {
-        section.style.display = "none";
-        button.textContent = "SEE MORE";
-    }
-}
+function realizarPedido() {
+    // Mostrar el mensaje
+    alert("Se ha realizado tu pedido, disfruta!");
+    // Recargar la página
+    window.location.reload();
+  }
 
 
 
@@ -589,45 +583,32 @@ function validarFormulario() {
 window.onload = function() {
     mostrarOpciones();
 };
+document.getElementById("formularioPedido").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevenir el envío automático del formulario
 
-document.getElementById("formularioPedido").addEventListener("submit", guardarFormulario);
-document.querySelectorAll('input[name="tipoPedido"]').forEach(el => el.addEventListener("change", mostrarOpciones));
-document.getElementById("modoEntrega").addEventListener("change", mostrarHoraEntrega);
-document.getElementById("modoRecoger").addEventListener("change", mostrarHoraRecoger);
+    // Verificar si los campos están completos
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+    var nombre = document.getElementById("nombre").value.trim();
+    var telefonoEntrega = document.getElementById("telefonoEntrega").value.trim();
+    var calle = document.getElementById("calle").value.trim();
+    var portal = document.getElementById("portal").value.trim();
+    var piso = document.getElementById("piso").value.trim();
+    var letra = document.getElementById("letra").value.trim();
+    var horaEntrega = document.getElementById("horaEntrega").value.trim();
+    var nombreRecoger = document.getElementById("nombreRecoger").value.trim();
+    var telefono = document.getElementById("telefono").value.trim();
+    var horaRecoger = document.getElementById("horaRecoger").value.trim();
 
-function mostrarVentana() {
-    var ventanaEmergente = document.getElementById("ventanaEmergente");
-    ventanaEmergente.style.display = "block";
-    document.body.style.overflow = "hidden"; // Bloquear el scroll
-}
+    if (!tipoPedido || 
+        (tipoPedido.value === "entregaDomicilio" && (nombre === "" || telefonoEntrega === "" || calle === "" || portal === "" || piso === "" || letra === "" || horaEntrega === "")) || 
+        (tipoPedido.value === "recogerLocal" && (nombreRecoger === "" || telefono === "" || horaRecoger === ""))) {
+        alert("Por favor, complete todos los campos antes de enviar el formulario.");
+        return;
+    }
 
-function cerrarVentana() {
-    var ventanaEmergente = document.getElementById("ventanaEmergente");
-    ventanaEmergente.style.display = "none";
-    document.body.style.overflow = "auto"; // Habilitar el scroll nuevamente
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    var scrollTopButton = document.getElementById('scrollTopButton');
-
-    // Mostrar o ocultar el botón basado en el desplazamiento de la página
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 200) { // Cambia 200 por la cantidad de píxeles de desplazamiento que desees antes de mostrar el botón
-            scrollTopButton.classList.add('show');
-        } else {
-            scrollTopButton.classList.remove('show');
-        }
-    });
-
-    // Animar el desplazamiento hacia arriba al hacer clic en el botón
-    scrollTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // Para un desplazamiento suave
-        });
-    });
+    // Si todos los campos están completos, se envía el formulario
+    // Si la acción del formulario está configurada, la página se recargará a "carrito.html" automáticamente
 });
-    
 
 
     /*APERTURA PARA INFORMACION*/  
@@ -684,3 +665,17 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = '../HTML/inicio.html';
   }
 
+
+
+
+  /**
+   * let obj {
+   *    user:
+   *    pedi
+   * }
+   * fetch (url, {
+   *    headers:{}
+   *    body: stringify(object)
+   * }) 
+   * 
+   */
