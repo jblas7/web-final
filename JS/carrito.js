@@ -1,10 +1,12 @@
+/*FETCH CARRITO*/
+
 // Variable para verificar si el código ya se ejecutó
 let codigoEjecutado = false;
 
 window.addEventListener('DOMContentLoaded', () => {
     // Verificar si el código ya se ejecutó
     if (!codigoEjecutado) {
-        codigoEjecutado = true; // Marcar como ejecutado
+        codigoEjecutado = true; 
 
         const fetchProductos = async () => {
             try {
@@ -51,9 +53,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 case 5:
                     return 'tx-sals';
                 case 6:
-                    return 'tx-postr'; // Cambiado de 'tx-beb'
+                    return 'tx-postr'; 
                 case 7:
-                    return 'tx-beb'; // Agregado para las bebidas
+                    return 'tx-beb'; 
                 default:
                     return '';
             }
