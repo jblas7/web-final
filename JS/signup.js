@@ -1,25 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var scrollTopButton = document.getElementById('scrollTopButton');
-  
-    // Mostrar o ocultar el botón basado en el desplazamiento de la página
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 200) { // Cambia 200 por la cantidad de píxeles de desplazamiento que desees antes de mostrar el botón
-        scrollTopButton.classList.add('show');
-      } else {
-        scrollTopButton.classList.remove('show');
-      }
-    });
-  
-    // Animar el desplazamiento hacia arriba al hacer clic en el botón
-    scrollTopButton.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Para un desplazamiento suave
-      });
-    });
-  });
+  const username = "nombre_del_usuario";
+  const email = "correo_electronico";
+  const password = "contrasena";
+  const phoneNumber = "numero_de_telefono";
 
-  
+  const url = `http://localhost:8080/PecBurger/?Controller?action=CLIENTE.ADD&nombre=${username}&email=${email}&contrasena=${password}&telefono=${phoneNumber}`;
+
+  const requestOptions = {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  };
+
+  // Realizar la solicitud fetch después de que el DOM esté completamente cargado
+  fetch(url, requestOptions)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Hubo un problema con la solicitud.');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log('Respuesta del servidor:', data);
+          // Aquí puedes manejar la respuesta del servidor según tus necesidades
+      })
+      .catch(error => {
+          console.error('Error en la solicitud:', error);
+          // Aquí puedes manejar el error si la solicitud falla
+      });
+});
+
 
   
 function scrollToSection(sectionId) {
@@ -38,25 +49,6 @@ function scrollToSection(sectionId) {
 
 
 
-/*CARRUSEL AUTOMÁTICO (CONTROL)*/
-var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
-    interval: 6000 // tiempo para pasar de una imagen a otra
-  });
-  
-  // Reinicia el intervalo del carrusel después de que el usuario realice alguna acción
-  document.addEventListener("DOMContentLoaded", function () {
-    var carouselEl = document.getElementById('miCarrusel');
-    carouselEl.addEventListener('mouseover', function () {
-        myCarousel.pause();
-    });
-    carouselEl.addEventListener('mouseleave', function () {
-        myCarousel.cycle();
-    });
-    window.addEventListener('scroll', function () {
-        myCarousel.cycle();
-    });
-  });
-  
   
   
   /*BOTON DESPLEGABLE RESPONSIVE*/
