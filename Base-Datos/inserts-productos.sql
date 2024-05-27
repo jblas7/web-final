@@ -29,7 +29,7 @@ VALUES (1, 'CHICKEN LOLIPOPS', 'Uncover delight with each bite of our 8 Chicken 
                             indulgence in every mouthful.', 11.95, 'https://i.pinimg.com/originals/fb/05/9d/fb059d302bc74801380cffb71c4ddb92.jpg', 1);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (2, 'PECEÑOS', 'Enjoy our crispy cheese fingers—melted cheese wrapped in golden wheat
+VALUES (2, 'SPECIAL PECEÑOS', 'Enjoy our crispy cheese fingers—melted cheese wrapped in golden wheat
                             flour dough, fried to perfection.', 8.90, 'https://i.pinimg.com/originals/e8/23/58/e82358080f5e6b95e302509100927524.jpg', 1);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
@@ -50,7 +50,7 @@ VALUES (5, 'PECTINENTE BURGER', 'Our homemade brioche bun with 2 smash burgers, 
                             mozzarella cheese, crispy American bacon, pickles, tomato jam, and PECrancho sauce.', 14.60, 'https://i.pinimg.com/originals/bf/42/8e/bf428ed451d99079c8359414c4630813.jpg', 2);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (6, 'THE PECADORA', 'House-made brioche bun, double beef patty and cheddar cheese, shredded
+VALUES (6, 'PECADORA  BURGER', 'House-made brioche bun, double beef patty and cheddar cheese, shredded
                             lettuce, all accompanied by the worlds most famous burger sauce containing pickles and
                             onions.', 14.80, 'https://i.pinimg.com/originals/9a/12/0e/9a120ea31bd1bfe18bb5030e413ec14e.jpg', 2);
 
@@ -88,11 +88,11 @@ caramelized onions, bacon, pickles, cheddar cheese, PECranch sauce, and right in
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (13, 'BIG PECS BURGER', 'The crown jewel, our new Pretzel bun, 200-gram Morucha and Ox beef, 
 caramelized onions, Emmy sauce with a spicy kick, 
-crispy American bacon, and smoked cheese.', 20.90, 'https://i.pinimg.com/originals/b5/d4/a1/b5d4a181f27f13782ed9091635068a6c.jpg', 3);
+crispy American bacon, and smoked cheese.', 20.90, 'https://i.pinimg.com/originals/23/03/c4/2303c4a680252cae76db641b7959e1c3.jpg', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (14, 'PECULIAR BURGER', 'Our new Pretzel bun, 200 grams of Morucha beef and ox meat, caramelized onions, 
-Emmy sauce with a spicy kick, crispy American bacon, and smoked cheese.', 16.10, 'https://i.pinimg.com/originals/23/03/c4/2303c4a680252cae76db641b7959e1c3.jpg', 3);
+Emmy sauce with a spicy kick, crispy American bacon, and smoked cheese.', 16.10, 'https://i.pinimg.com/originals/3c/f6/f9/3cf6f9571e48d33d6043f8b708ac64e1.jpg', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (15, 'PECARAMEL BURGER', 'Our foodie burger: 200-gram Morucha and Ox beef, served on our
@@ -100,7 +100,7 @@ VALUES (15, 'PECARAMEL BURGER', 'Our foodie burger: 200-gram Morucha and Ox beef
                             cream, and Lotus biscuit crumble.', 16.90, 'https://i.pinimg.com/originals/d3/62/77/d3627799cc4a1918790aa5d21b604fb9.jpg', 3);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (16, 'THE PECHUGERA', 'Our ultimate vegan burger comes with our homemade brioche bun, Beyond
+VALUES (16, 'PECHUGERA BURGER', 'Our ultimate vegan burger comes with our homemade brioche bun, Beyond
                             Meat patty, lettuce, tomato, pico de gallo, pickles, and barbecue sauce (add cheddar
                             cheese if desired).', 13.90, 'https://i.pinimg.com/originals/b5/e9/58/b5e95826031156989842d70b7fb6bbef.jpg', 3);
 
@@ -113,7 +113,7 @@ VALUES (17, 'FELIPEC SANDWICH', 'Feel presidential with our grilled high-quality
                             topped with a smooth sauce and served on artisan brioche bread.', 15.50, 'https://i.pinimg.com/originals/fa/d2/01/fad20159653fb800168244252274938b.jpg', 4);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (18, 'THE CHEESERO', 'The "Cheese Craze": Brioche bun with gooey melted cheddar,
+VALUES (18, 'THE CHEESERO SANDWICH', 'The "Cheese Craze": Brioche bun with gooey melted cheddar,
                             Monterrey Jack, and Manchego cheeses, topped with pickles and chipotle mayo.', 9.90, 'https://i.pinimg.com/originals/28/8e/0c/288e0c49531ccc473df05b4ae7c6c4a2.jpg', 4);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
@@ -145,13 +145,13 @@ INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID
 VALUES (25, 'LOTUS CHEESPEC', 'The Deliciously creamy cheesecake with Lotus cream and a Lotus biscuit base.', 7.50, 'https://i.pinimg.com/originals/4c/59/ee/4c59ee4b733019a293ea9f04384fdc5f.jpg', 6);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (26, 'HAPPY HIPO CHEESPEC', 'The Deliciously creamy cheesecake infused with Kinder cream and a touch of hippopotamus. What could possibly go wrong with this delightful mix?', 8.45, 'https://i.pinimg.com/originals/60/1b/f6/601bf61d4bbac31957fdb761c50cd420.jpg', 6);
+VALUES (26, 'HIPO CHEESPEC', 'The Deliciously creamy cheesecake infused with Kinder cream and a touch of hippopotamus. What could possibly go wrong with this delightful mix?', 8.45, 'https://i.pinimg.com/originals/60/1b/f6/601bf61d4bbac31957fdb761c50cd420.jpg', 6);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (27, 'TRADITIONAL CHEESPEC', 'The queen of the house, the classic cheesecake, creamy, sweet, with that cheesy flavor, simply spectacular.', 7.45, 'https://i.pinimg.com/originals/bc/ec/50/bcec500ad05aa3fb6c59a53991f8cb0c.jpg', 6);
+VALUES (27, 'TRADI CHEESPEC', 'The queen of the house, the classic cheesecake, creamy, sweet, with that cheesy flavor, simply spectacular.', 7.45, 'https://i.pinimg.com/originals/bc/ec/50/bcec500ad05aa3fb6c59a53991f8cb0c.jpg', 6);
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
-VALUES (28, 'CHOCO BROWNIE', 'Another great option, a chocolate brownie with nuts, accompanied by an almond nougat ice cream, moist, creamy ... delicious.', 6.45, 'https://i.pinimg.com/originals/c1/9c/91/c19c91289bc4d78cf2637966c1049c3e.jpg', 6);
+VALUES (28, 'CHOCO BROWPEC', 'Another great option, a chocolate brownie with nuts, accompanied by an almond nougat ice cream, moist, creamy ... delicious.', 6.45, 'https://i.pinimg.com/originals/c1/9c/91/c19c91289bc4d78cf2637966c1049c3e.jpg', 6);
 
 
 
