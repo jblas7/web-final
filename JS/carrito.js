@@ -460,3 +460,227 @@ document.addEventListener('DOMContentLoaded', function() {
   */
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  function mostrarOpciones() {
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
+    if (tipoPedido === "entregaDomicilio") {
+        document.getElementById('opcionesEntrega').style.display = 'block';
+        document.getElementById('opcionesRecoger').style.display = 'none';
+    } else if (tipoPedido === "recogerLocal") {
+        document.getElementById('opcionesEntrega').style.display = 'none';
+        document.getElementById('opcionesRecoger').style.display = 'block';
+    }
+}
+
+function mostrarHoraEntrega() {
+    var modoEntrega = document.getElementById('modoEntrega').value;
+    if (modoEntrega === "Schedule Shipment") {
+        document.getElementById('horaEntregaDiv').style.display = 'block';
+    } else {
+        document.getElementById('horaEntregaDiv').style.display = 'none';
+    }
+}
+
+function mostrarHoraRecoger() {
+    var modoRecoger = document.getElementById('modoRecoger').value;
+    if (modoRecoger === "Schedule Pickup") {
+        document.getElementById('horaRecogerDiv').style.display = 'block';
+    } else {
+        document.getElementById('horaRecogerDiv').style.display = 'none';
+    }
+}
+
+function guardarFormulario(event) {
+    event.preventDefault();
+    if (validarFormulario()) {
+        document.getElementById("formularioPedido").style.display = "none";
+        alert("Form submitted successfully!");
+    }
+}
+
+function validarFormulario() {
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+    if (!tipoPedido) {
+        alert("Please select the type of order.");
+        return false;
+    }
+
+    if (tipoPedido.value === "entregaDomicilio") {
+        var calle = document.getElementById("calle").value.trim();
+        var portal = document.getElementById("portal").value.trim();
+        var piso = document.getElementById("piso").value.trim();
+        var letra = document.getElementById("letra").value.trim();
+        var modoEntrega = document.getElementById("modoEntrega").value;
+
+        if (calle === "" || portal === "" || piso === "" || letra === "") {
+            alert("Please complete all fields for the delivery address.");
+            return false;
+        }
+
+        if (modoEntrega === "") {
+            alert("Please select a delivery mode.");
+            return false;
+        }
+
+        if (modoEntrega === "Schedule Shipment") {
+            var horaEntrega = document.getElementById("horaEntrega").value.trim();
+            if (horaEntrega === "") {
+                alert("Please enter the delivery time.");
+                document.getElementById("horaEntrega").focus();
+                return false;
+            }
+        }
+    } else if (tipoPedido.value === "recogerLocal") {
+        var modoRecoger = document.getElementById("modoRecoger").value;
+
+        if (modoRecoger === "") {
+            alert("Please select a pickup mode.");
+            return false;
+        }
+
+        if (modoRecoger === "Schedule Pickup") {
+            var horaRecoger = document.getElementById("horaRecoger").value.trim();
+            if (horaRecoger === "") {
+                alert("Please enter the pick-up time.");
+                document.getElementById("horaRecoger").focus();
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+window.onload = function() {
+    mostrarOpciones();
+};
+
+document.getElementById("formularioPedido").addEventListener("submit", guardarFormulario);
+document.querySelectorAll('input[name="tipoPedido"]').forEach(el => el.addEventListener("change", mostrarOpciones));
+document.getElementById("modoEntrega").addEventListener("change", mostrarHoraEntrega);
+document.getElementById("modoRecoger").addEventListener("change", mostrarHoraRecoger);
+
+function mostrarVentana() {
+    var ventanaEmergente = document.getElementById("ventanaEmergente");
+    ventanaEmergente.style.display = "block";
+    document.body.style.overflow = "hidden"; // Bloquear el scroll
+}
+
+function cerrarVentana() {
+    var ventanaEmergente = document.getElementById("ventanaEmergente");
+    ventanaEmergente.style.display = "none";
+    document.body.style.overflow = "auto"; // Habilitar el scroll nuevamente
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var scrollTopButton = document.getElementById('scrollTopButton');
+
+    // Mostrar o ocultar el botón basado en el desplazamiento de la página
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 200) { // Cambia 200 por la cantidad de píxeles de desplazamiento que desees antes de mostrar el botón
+            scrollTopButton.classList.add('show');
+        } else {
+            scrollTopButton.classList.remove('show');
+        }
+    });
+
+    // Animar el desplazamiento hacia arriba al hacer clic en el botón
+    scrollTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Para un desplazamiento suave
+        });
+    });
+});
+    
+
+
+    /*APERTURA PARA INFORMACION*/  
+    function toggleInfo(item) {
+      var details = item.querySelector('.details');
+      var allItems = document.querySelectorAll('.item');
+
+      // Si el elemento actual ya está abierto, lo cerramos y salimos de la función
+      if (item.classList.contains('clicked')) {
+          details.classList.add('hidden');
+          item.classList.remove('clicked');
+          item.querySelector('img').style.transform = 'scale(1)';
+          return;
+      }
+
+      // Oculta todas las secciones de detalles y elimina la clase 'clicked' de todos los elementos
+      allItems.forEach(function (otherItem) {
+          if (otherItem !== item && otherItem.classList.contains('clicked')) {
+              otherItem.querySelector('.details').classList.add('hidden');
+              otherItem.classList.remove('clicked');
+              otherItem.querySelector('img').style.transform = 'scale(1)';
+          }
+      });
+
+      // Muestra los detalles del elemento clicado
+      details.classList.remove('hidden');
+      item.classList.add('clicked');
+      // Ajusta el tamaño de la imagen del elemento clicado
+      var clickedImage = item.querySelector('img');
+      clickedImage.style.transform = 'scale(1.1)';
+  }
+
+
+
+
+
+
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+
+
+
+
+  
+
+
+  function pagarClicked() {
+      // Redirige a la página de pago
+      window.location.href = '../HTML/inicio.html';
+  }
+

@@ -566,6 +566,7 @@ nav.principal a:hover {
   color: #fff;
   text-align: center;
   padding: 30px 0;
+  font-size: 2.5rem;
   font-family: "Seymour One", sans-serif;
 }
 
@@ -775,6 +776,289 @@ nav.principal a:hover {
 
 
 
+.custom-boton4 {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  border: none;
+  padding: 16px 18px;
+  font-size: 12px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+ 
+  font-weight: bold;
+  word-spacing: 2px;
+  text-decoration: none;
+  width: 230px;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.custom-boton4:hover {
+ 
+
+  background-color: #db2039;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 18px;
+  border-radius: 25px 0% 25px 0%;
+
+}
+
+
+.cont-custom-boton4 {
+  align-items: center;
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+
+
+
+
+
+.eDom, .rLoc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espacio entre los elementos */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.medio {
+
+  margin: 40px;
+}
+
+
+/* Estilo para la ventana emergente */
+.ventana-emergente {
+  display: none;
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%);
+
+
+  background-color: #ff3b55bd;
+  z-index: 9999; /* Colocar en la parte superior */
+  padding: 20px;
+  box-sizing: border-box; /* Incluye padding en el tamaño total */
+}
+
+
+
+/* Oculta la barra de desplazamiento pero permite el desplazamiento */
+.form-arr::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilo para el botón de cerrar */
+.cerrar {
+  position: absolute;
+  top: 15px;
+  right: 27px;
+  cursor: pointer;
+  font-size: 30px; /* Tamaño más grande para el botón de cerrar */
+}
+
+/* Estilo para el contenido de la ventana emergente */
+.contenido-ventana {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-height: 90vh; /* Limita la altura máxima de la ventana emergente */
+  overflow: hidden; /* Evita que el contenido desborde la ventana */
+}
+
+.h2-form {
+  font-family: 'Seymour One';
+  font-size: 36px; /* Tamaño de fuente más grande */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.tit-tipo-ped {
+  font-weight: bold;
+  font-size: 24px; /* Tamaño de fuente más grande */
+}
+
+.form-pt-arr {
+  width: 100%;
+  /* Asegura que el contenedor ocupe todo el ancho disponible */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+.parte-dcha-arr {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.img-letras {
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+}
+
+form {
+  width: 100%; /* Asegura que el formulario ocupe el ancho disponible */
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: 'Lexend';
+  font-size: 20px; /* Tamaño de fuente más grande */
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 30px; /* Padding más grande */
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+fieldset {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 24px; /* Tamaño de fuente más grande */
+}
+
+.input-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="time"],
+input[type="submit"] {
+  width: 100%;
+  padding: 12px; /* Padding más grande */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 17px; /* Tamaño de fuente más grande */
+}
+
+input[type="submit"] {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ff3b55;
+  color: #ffffff;
+  border: none;
+  padding: 14px 40px; /* Padding más grande */
+  font-size: 18px; /* Tamaño de fuente más grande */
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="submit"]:hover {
+  font-family: "Seymour One", sans-serif;
+  color: #ff3b55;
+  background-color: #ffd5d5;
+  font-weight: bold;
+}
+
+#modoEntrega {
+
+  border: 2px solid #ccc ; /* Añadir borde */
+  box-sizing: border-box;
+  border-radius: 10px;
+
+
+}
+
+#Shop {
+  border: 2px solid #ccc; /* Añadir borde */
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+#modoRecoger {
+  border: 2px solid #ccc; /* Añadir borde */
+  box-sizing: border-box;
+  border-radius: 10px;
+  
+}
+
+.hidden {
+  display: none;
+}
+
+.opciones {
+  display: none;
+}
+
+.custom-boton3-2 {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  border: none;
+  padding: 14px 16px; /* Padding más grande */
+  font-size: 16px; /* Tamaño de fuente más grande */
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  width: 230px;
+  margin-bottom: 40px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-boton3-2:hover {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffeff1;
+  color: #000000;
+  font-weight: bold;
+}
+
+.cont-custom-boton3-2 {
+  align-items: center;
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -796,16 +1080,11 @@ nav.principal a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  /* Ocupa todo el ancho de la pantalla */
   height: 100%;
-  /* Ocupa toda la altura de la pantalla */
   background-color: rgba(0, 0, 0, 0.5);
-  /* Fondo semi-transparente */
   z-index: 9999;
-  /* Colocar en la parte superior */
   padding: 20px;
   box-sizing: border-box;
-  /* Incluye padding en el tamaño total */
 }
 
 /* Estilo para el contenido de la ventana emergente */
@@ -815,10 +1094,11 @@ nav.principal a:hover {
   border-radius: 10px;
   position: absolute;
   top: 50%;
-  /* Centra verticalmente */
   left: 50%;
-  /* Centra horizontalmente */
   transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
 }
 
 /* Estilo para el botón de cerrar */
@@ -829,100 +1109,67 @@ nav.principal a:hover {
   cursor: pointer;
 }
 
-
-
-
-
 .h2-form {
   font-family: 'Seymour One';
   font-size: 26px;
-
   margin-bottom: 30px;
-
 }
-
-
-
 
 .tit-tipo-ped {
   font-weight: bold;
 }
 
-
-
-
 .form-pt-arr {
   width: 100%;
-  /* Asegura que el contenedor ocupe todo el ancho disponible */
-
-
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-
-
 }
-
 
 .parte-dcha-arr {
-
-
-
   display: flex !important;
   justify-content: center !important;
-
 }
-
-
 
 .img-letras {
   margin-top: 40px;
   justify-content: center;
   align-items: center;
   width: 270px;
-
 }
-
-
 
 .form-arr {
   display: flex !important;
-  justify-content: center !important;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .btn-pagar {
   display: block;
-
   border: none;
   background: #ff3b55;
   color: #fff;
   border-radius: 5px;
   font-size: 18px;
   padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 20px;
   cursor: pointer;
   transition: .3s;
   font-family: 'Seymour One';
 }
 
 .btn-pagar:hover {
-  scale: 1.05;
+  transform: scale(1.05);
   color: #ff3b55;
   background-color: #ffd5d5;
-
 }
 
 form {
   max-width: 600px;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  flex-direction: column;
+  width: 100%;
   display: flex;
-
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
   font-family: 'Lexend';
   font-size: 20px;
   border: 2px solid #ccc;
@@ -932,30 +1179,26 @@ form {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
 }
 
-
-
-
 fieldset {
   margin-bottom: 20px;
+  width: 100%;
 }
-
-
-
 
 legend {
   font-weight: bold;
 }
 
-
-
-
 .input-group {
   margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-
-
-
+.input-group label {
+  flex: 1;
+  text-align: center;
+}
 
 input[type="text"],
 input[type="tel"],
@@ -978,19 +1221,15 @@ input[type="submit"] {
   border-radius: 25px;
   transition: background-color 0.3s ease;
   font-weight: bold;
-  text-decoration: none;
   display: flex;
-  text-align: center;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
-
 input[type="submit"]:hover {
-  font-family: "Seymour One", sans-serif;
   color: #ff3b55;
   background-color: #ffd5d5;
-  font-weight: bold;
 }
 
 .hidden {

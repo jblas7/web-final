@@ -268,7 +268,7 @@ nav.principal a:hover {
   padding: 16px 18px;
   font-size: 12px;
   border-radius: 25px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
  
   font-weight: bold;
   word-spacing: 2px;
@@ -283,9 +283,13 @@ nav.principal a:hover {
 
 .custom-boton3:hover {
  
-  background-color: #ff3b55;
-  color: #fff;
 
+  background-color: #db2039;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 18px;
+  border-radius: 25px 0% 25px 0%;
 
 }
 
@@ -296,6 +300,62 @@ nav.principal a:hover {
   margin-top: 50px;
   justify-content: center;
 }
+
+
+
+
+
+
+
+.custom-boton4 {
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  border: none;
+  padding: 16px 18px;
+  font-size: 12px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+ 
+  font-weight: bold;
+  word-spacing: 2px;
+  text-decoration: none;
+  width: 230px;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.custom-boton4:hover {
+ 
+
+  background-color: #db2039;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 18px;
+  border-radius: 25px 0% 25px 0%;
+
+}
+
+
+.cont-custom-boton4 {
+  align-items: center;
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
 
 
 /*VENTANA EMERGENTE Y FORMULARIO*/

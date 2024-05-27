@@ -87,8 +87,7 @@
 
 
                             <div class="medio"></div>
-                            <a class="custom-boton" href="#"><img class="img-login" src="../IMG/img-usuario2.png"
-                                    alt="">LOGIN</a>
+                           
                             <a href="../HTML/menu.html">
                                 <li class="li-menuuuu1">MENU</li>
                             </a>
@@ -109,11 +108,7 @@
             </div>
             <div class="parte-guay-dcha">
 
-                <div class="medio">
-                    <a class="custom-boton2" href="../HTML/login.html"> <img class="img-login"
-                            src="../IMG/img-usuario2.png" alt="">LOGIN</a>
-                </div>
-
+       
             </div>
         </div>
 
@@ -127,8 +122,85 @@
                 <div class="form-arr">
                     <form id="formularioPedido" onsubmit="return validarFormulario()">
                         <h2 class="h2-form">CONFIRM ORDER</h2>
-                        <label class="tit-tipo-ped" for="tipoPedido">ONCE CONFIRMED, YOU CAN'T CANCEL</label><br>
+                        <div class="cont-custom-boton4">
+                            <!--<a class="custom-boton3" href="../HTML/login.html"><img class="img-login" src="../IMG/img-usuario2.png"
+                                alt="">LOGIN</a>-->
+                            
+            
+                            
+                            
+                        </div>
+
+
+
+
+
+                        
+                        <label class="tit-tipo-ped" for="tipoPedido">REGISTER WITH YOUR ACCOUNT</label><br>
                         <form action="../HTML/make_order.html" method="post">
+
+                            <div class="medio">
+                                <a class="custom-boton2" href="../HTML/login.html"> <img class="img-login" src="../IMG/img-usuario2.png"
+                                        alt="">LOGIN</a>
+      
+                            </div>
+
+                            <div class="form-arr">
+                                <form id="formularioPedido" onsubmit="guardarFormulario(event)">
+                                    <h2 class="h2-form">LET'S ORDER</h2>
+                                    <label class="tit-tipo-ped" for="tipoPedido">Order Type:</label><br>
+                                    <p class="eDom">Home Delivery</p>
+                                    <input type="radio" id="entregaDomicilio" name="tipoPedido" value="entregaDomicilio" onclick="mostrarOpciones()"> <br>
+                                    <p class="rLoc">Local Pick Up</p>
+                                    <input type="radio" id="recogerLocal" name="tipoPedido" value="recogerLocal" onclick="mostrarOpciones()"> <br><br>
+                            
+                                    <div id="opcionesEntrega" class="opciones">
+                                        <label>Delivery Address:</label><br>
+                                        <input type="text" id="calle" name="calle" placeholder="Street"><br><br>
+                                        <input type="text" id="portal" name="portal" placeholder="Hall" style="width: 80px;">
+                                        <input type="text" id="piso" name="piso" placeholder="Floor" style="width: 70px;">
+                                        <input type="text" id="letra" name="letra" placeholder="Letter" style="width: 75px;"><br><br>
+                                        <label for="modoEntrega">Delivery Mode:</label><br>
+                                        <select id="modoEntrega" name="modoEntrega" onchange="mostrarHoraEntrega()">
+                                            <option value="">Select Delivery Mode</option>
+                                            <option value="Order Now">Order Now</option>
+                                            <option value="Schedule Shipment">Schedule Shipment</option>
+                                        </select><br><br>
+                                        <div id="horaEntregaDiv" style="display: none;">
+                                            <label for="horaEntrega">Delivery Time:</label><br>
+                                            <input type="time" id="horaEntrega" name="horaEntrega"><br><br>
+                                        </div>
+                                    </div>
+                            
+                                    <div id="opcionesRecoger" class="opciones" style="display: none;">
+                                        <label for="Shop">Pick up at:</label><br>
+                                        <select id="Shop" name="Shop">
+                                            <option value="">Select Pickup Shop</option>
+                                            <option value="Pec Madrid">Pec Madrid</option>
+                                            <option value="Pec Zaragoza">Pec Zaragoza</option>
+                                        </select><br><br>
+                                        <label for="modoRecoger">Pickup Mode:</label><br>
+                                        <select id="modoRecoger" name="modoRecoger" onchange="mostrarHoraRecoger()">
+                                            <option value="">Select Pickup Mode</option>
+                                            <option value="Order Now">Order Now</option>
+                                            <option value="Schedule Pickup">Schedule Pickup</option>
+                                        </select><br><br>
+                                        <div id="horaRecogerDiv" style="display: none;">
+                                            <label for="horaRecoger">Pick-up Time:</label><br>
+                                            <input type="time" id="horaRecoger" name="horaRecoger"><br><br>
+                                        </div>
+                                    </div>
+                            
+                                    <input type="submit" id="enviarBtn" value="SAVE">
+                                </form>
+                            </div>
+
+
+
+
+
+
+                            
                             <!-- Aquí van los campos del formulario -->
                             <button class="btn-pagar">PAY NOW <i class="fa-solid fa-bag-shopping"></i> </button>
 
