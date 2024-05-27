@@ -9,7 +9,11 @@ CREATE TABLE Cliente(
     Apellido VARCHAR2(60),
     Telefono VARCHAR2(15),
     Email VARCHAR2(60),
-    Contrasena VARCHAR2(50)
+    Contrasena VARCHAR2(50),
+    Calle VARCHAR2(100), 
+    Portal VARCHAR2(20),
+    Piso VARCHAR2(10), 
+    Letra VARCHAR2(10)
 );
 
 CREATE TABLE Trabajador(
@@ -39,12 +43,6 @@ CREATE TABLE Productos(
 CREATE TABLE Pedidos (
     ID_Pedido INTEGER PRIMARY KEY,
     Tipo_Pedido VARCHAR2(20) NOT NULL, 
-    Nombre VARCHAR2(80) NOT NULL, 
-    Telefono VARCHAR2(10) NOT NULL, 
-    Calle VARCHAR2(100), 
-    Portal VARCHAR2(20),
-    Piso VARCHAR2(10), 
-    Letra VARCHAR2(10),
     Modo_Entrega VARCHAR2(20),
     Hora_Entrega VARCHAR2(10), 
     Shop VARCHAR2(50), 
