@@ -1,3 +1,4 @@
+/*
 package Controller.Action;
 
 import Model.Dao.PedidosDao;
@@ -90,7 +91,7 @@ public class PedidosAction implements IAction {
         }
 
         PedidosDao pedidosDao = new PedidosDao();
-        int iFilasAnadidas = pedidosDao.addRecogidaLocal(pedido);
+        /*int iFilasAnadidas = pedidosDao.addRecogidaLocal(pedido);
 
         if (iFilasAnadidas > 0) {
             return "{ \"message\": \"Pedido añadido exitosamente\" }";
@@ -99,3 +100,5 @@ public class PedidosAction implements IAction {
         }
     }
 }
+
+ */

@@ -1,4 +1,4 @@
-package Model.Dao;
+/*package Model.Dao;
 
 import Model.Entities.Categoria;
 import model.entities.Pedidos;
@@ -90,7 +90,7 @@ public class PedidosDao implements IDao<Pedidos,Integer> {
             motor.disconnect();
         }
         return iFilasAnadidas;
-    }*/
+    }
 
 
-}
+}*/

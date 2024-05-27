@@ -54,9 +54,9 @@ public class Controller extends HttpServlet {
                     case "detallePedidos":
                         out.print(new DetallePedidoAction().execute(request, response, arrayAction[1]));
                         break;
-                    case "pedidos":
+               /*     case "pedidos":
                         out.print(new PedidosAction().execute(request, response, arrayAction[1]));
-                        break;
+                        break;         */
                     default:
                         throw new ServletException("Acción " + arrayAction[0] + " no válida");
                 }
