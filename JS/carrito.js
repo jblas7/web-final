@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 const productos = await response.json();
                 productos.forEach(producto => createProductoItem(producto));
+                ready()
             } catch (error) {
                 console.error('Error al obtener productos:', error);
             }
@@ -29,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 item.innerHTML = `
                     <span class="titulo-item">${producto.nombre}</span>
                     <img src="${producto.rutaImagen}" alt="" class="img-item">
-                    <span class="precio-item">${producto.precio}€</span>
+                    <span class="precio-item">${producto.precio}</span>
                     <button class="boton-item">ADD TO CART</button>
                 `;
 
@@ -58,7 +59,8 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        fetchProductos();
+        fetchProductos()
+    
     }
 });
 
@@ -146,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   
+
 
 
   
@@ -325,33 +328,31 @@ function ocultarCarrito() {
         items.style.width = '100%';
     }
 }
-//Actualizamos el total de Carrito
 function actualizarTotalCarrito() {
-    //seleccionamos el contenedor carrito
+    // Seleccionamos el contenedor del carrito
     var carritoContenedor = document.getElementsByClassName('carrito')[0];
     var carritoItems = carritoContenedor.getElementsByClassName('carrito-item');
     var total = 0;
-    //recorremos cada elemento del carrito para actualizar el total
+
+    // Recorremos cada elemento del carrito para calcular el total
     for (var i = 0; i < carritoItems.length; i++) {
         var item = carritoItems[i];
         var precioElemento = item.getElementsByClassName('carrito-item-precio')[0];
-        //quitamos el símbolo peso y el punto de milesimos.
-        var precio = parseFloat(precioElemento.innerText.replace('€', '').replace('.', '').replace(',', '.'));
+
+        // Extraemos el precio del elemento y lo convertimos a un número con decimales
+        var precio = parseFloat(precioElemento.innerText.replace('€', '').replace(',', '.'));
+
         var cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
         var cantidad = cantidadItem.value;
-        total = total + (precio * cantidad);
+        total += precio * cantidad;
     }
-    total = total / 100;
 
-    // Formateamos el total con punto como separador de miles
-    var formattedTotal = total.toLocaleString("es", { useGrouping: true });
+    // Formateamos el total manualmente con dos decimales y símbolo de euro
+    var formattedTotal = total.toFixed(2) + '€';
 
-    // Reemplazamos la coma por un punto si es necesario
-    formattedTotal = formattedTotal.replace(/,/g, '.');
-
-    document.getElementsByClassName('carrito-precio-total')[0].innerText = formattedTotal + '€';
+    // Mostramos el total en el elemento correspondiente
+    document.getElementsByClassName('carrito-precio-total')[0].innerText = formattedTotal;
 }
-
 
 
 
@@ -370,28 +371,24 @@ function toggleInfo() {
 
 
 
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const formularioDatos = JSON.parse(localStorage.getItem('formularioDatos'));
     if (formularioDatos) {
-        const { tipoPedido, nombre, calle,  portal, piso, letra, telefonoEntrega, modoEntrega, horaEntrega, nombreRecoger, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
+        const { tipoPedido, calle, portal, piso, letra, telefonoEntrega, modoEntrega, horaEntrega, nombre, telefono, Shop, modoRecoger, horaRecoger } = formularioDatos;
         let infoHTML = ``;
 
         if (tipoPedido === 'entregaDomicilio') {
             infoHTML += `
                 <h3>Home Delivery</h3>
-                <p>Name: ${nombre}</p>
-                <p>Phone: ${telefonoEntrega}</p>
                 <p>Address: ${calle}, ${portal}, ${piso} ${letra}</p>
+                <p>Phone: ${telefonoEntrega}</p>
                 <p>Mode of Delivery: ${modoEntrega}</p>
                 ${modoEntrega === 'Schedule Shipment' ? `<p>Delivery Time: ${horaEntrega}</p>` : ''}
             `;
         } else if (tipoPedido === 'recogerLocal') {
             infoHTML += `
                 <h3>Local Pick Up</h3>
-                <p>Name: ${nombreRecoger}</p>
+                <p>Name: ${nombre}</p>
                 <p>Phone: ${telefono}</p>
                 <p>Shop: ${Shop}</p>
                 <p>Pickup Mode: ${modoRecoger}</p>
@@ -434,9 +431,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
  /*VENTANA EMERGENTE CONFIRMAR PEDIDO*/
 
   function mostrarVentana() {
@@ -451,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = "auto"; // Habilitar el scroll nuevamente
   }
   
-
+/*
   document.getElementById("openPopup").addEventListener("click", function() {
     document.getElementById("popup").classList.add("active");
     document.body.classList.add("popup-background");
@@ -461,7 +455,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("popup").classList.remove("active");
     document.body.classList.remove("popup-background");
   });
-  
-
+  */
 
   
