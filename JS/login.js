@@ -1,54 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const loginForm = document.getElementById("loginForm");
-  const messageContainer = document.getElementById("messageContainer");
+document.getElementById('loginForm').addEventListener('submit', async function (event) {
+  event.preventDefault(); // Previene el comportamiento por defecto del formulario
 
-  loginForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      loginUser();
-  });
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('contrasena');
+  const messageContainer = document.getElementById('messageContainer');
 
-  function loginUser() {
-      const formData = new FormData(loginForm);
-      const email = formData.get('email'); // Obtener el valor del campo de email
-      const contrasena = formData.get('contrasena'); // Obtener el valor del campo de contraseña
+  const email = emailInput.value;
+  const password = passwordInput.value;
 
-      // Construir la URL con los parámetros
-      const baseURL = 'http://localhost:8080/PecBurger/Controller?action=clientes.login';
-      const parametros = `?email=${encodeURIComponent(email)}&contrasena=${encodeURIComponent(contrasena)}`;
-      const urlCompleta = baseURL + parametros;
+  if (email && password) {
+      try {
+          const response = await fetch('http://localhost:8080/PecBurger/Controller?action=clientes.login', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              body: 'email=' + encodeURIComponent(email) + '&contrasena=' + encodeURIComponent(password)
+          });
 
-      fetch(urlCompleta, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-          }
-      })
-      .then(response => {
           if (!response.ok) {
-              throw new Error('Error en la solicitud');
+              throw new Error('Error en la solicitud.');
           }
-          return response.json();
-      })
-      .then(data => {
-          if (data.error) {
-              messageContainer.textContent = "Error al iniciar sesión: " + data.error;
-              messageContainer.style.color = "red";
+
+          const data = await response.json();
+
+          if (data.message) {
+              messageContainer.innerHTML = "<p>" + data.message + "</p>";
+              // Hacer algo con los datos recibidos si es necesario
+          } else if (data.error) {
+              messageContainer.innerHTML = "<p>" + data.error + "</p>";
           } else {
-              messageContainer.textContent = "Inicio de sesión exitoso";
-              messageContainer.style.color = "green";
+              messageContainer.innerHTML = "<p>An error occurred. Please try again.</p>";
           }
-      })
-      .catch(error => {
-          console.error('Error en la solicitud:', error.message);
-          messageContainer.textContent = "Error al iniciar sesión";
-          messageContainer.style.color = "red";
-      });
+      } catch (error) {
+          messageContainer.innerHTML = "<p>An error occurred. Please try again.</p>"; // Manejo del error
+      }
+  } else {
+      messageContainer.innerHTML = "<p>Please, complete all fields.</p>";
   }
 });
-
-
-
-
 
 
 
