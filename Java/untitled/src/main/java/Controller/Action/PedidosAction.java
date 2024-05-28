@@ -1,104 +1,114 @@
-/*
 package Controller.Action;
-
-import Model.Dao.PedidosDao;
-import model.entities.Pedidos;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import Model.Dao.PedidosDao;
+import Model.Entities.Pedidos;
 
 public class PedidosAction implements IAction {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, String action) {
-        String resultado = "";
+        String strResultado = "";
 
-        switch (action) {
-            case "entregacasa": // EJEMPLO http://localhost:8080/PecBurger/Controller?action=pedidos.entregacasa&idPedido=1&hora=12:00&direccion=CALLE34&idCliente=1&idTrabajador=2
-                resultado = entregacasa(request);
+        switch (action.toLowerCase()) {
+            case "find_all":
+                strResultado = findAll();
                 break;
-            case "recogidalocal":  // EJEMPLO http://localhost:8080/PecBurger/Controller?action=pedidos.recogidalocal&idPedido=2&hora=15:00&nombre=Juan
 
-                resultado = recogidaLocal(request);
+            case "add":
+                strResultado = add(request);
                 break;
+
+            case "update":
+                strResultado = update(request);
+                break;
+
+            case "delete":
+                strResultado = delete(request);
+                break;
+
             default:
-                resultado = "ERROR. Invalid action";
+                strResultado = "ERROR. Acción inválida";
         }
 
-        return resultado;
+        return strResultado;
     }
 
-    private String entregacasa(HttpServletRequest request) {
-        String idPedido = request.getParameter("idPedido");
-        String hora = request.getParameter("hora");
-        String direccion = request.getParameter("direccion");
-        String idCliente = request.getParameter("idCliente");
-        String idTrabajador = request.getParameter("idTrabajador");
-
-        if (idPedido == null || idPedido.isEmpty() ||
-                hora == null || hora.isEmpty() ||
-                direccion == null || direccion.isEmpty() ||
-                idCliente == null || idCliente.isEmpty() ||
-                idTrabajador == null || idTrabajador.isEmpty()) {
-            return "{ \"error\": \"Faltan datos obligatorios\" }";
-        }
-
-        Pedidos pedido;
-        try {
-            pedido = new Pedidos(
-                    Integer.parseInt(idPedido),
-                    hora,
-                    "En proceso", // Estado inicial
-                    direccion,
-                    Integer.parseInt(idCliente),
-                    Integer.parseInt(idTrabajador)
-            );
-        } catch (NumberFormatException e) {
-            return "{ \"error\": \"Datos inválidos\" }";
-        }
-
+    private String findAll() {
         PedidosDao pedidosDao = new PedidosDao();
-        int iFilasAnadidas = pedidosDao.add(pedido);
+        return Pedidos.toArrayJson(pedidosDao.findAll(null));
+    }
 
-        if (iFilasAnadidas > 0) {
-            return "{ \"message\": \"Pedido añadido exitosamente\" }";
-        } else {
-            return "{ \"error\": \"No se pudo añadir el pedido\" }";
+    private String add(HttpServletRequest request) {
+        try {
+            PedidosDao pedidosDao = new PedidosDao();
+
+            Integer idPedido = Integer.valueOf(request.getParameter("idPedido"));
+            String tipoPedido = request.getParameter("tipoPedido");
+            String modoEntrega = request.getParameter("modoEntrega");
+            String horaEntrega = request.getParameter("horaEntrega");
+            String shop = request.getParameter("shop");
+            String modoRecoger = request.getParameter("modoRecoger");
+            String horaRecoger = request.getParameter("horaRecoger");
+            String estado = request.getParameter("estado");
+            Integer idCliente = Integer.valueOf(request.getParameter("idCliente"));
+            Integer idTrabajador = Integer.valueOf(request.getParameter("idTrabajador"));
+
+            Pedidos pedido = new Pedidos(idPedido, tipoPedido, modoEntrega, horaEntrega, shop, modoRecoger, horaRecoger, estado, idCliente, idTrabajador);
+
+            int numFilas = pedidosDao.add(pedido);
+            return String.valueOf(numFilas);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
-    private String recogidaLocal(HttpServletRequest request) {
-        String idPedido = request.getParameter("idPedido");
-        String hora = request.getParameter("hora");
-        String nombre = request.getParameter("nombre");
-
-        if (idPedido == null || idPedido.isEmpty() ||
-                hora == null || hora.isEmpty() ||
-                nombre == null || nombre.isEmpty()) {
-            return "{ \"error\": \"Faltan datos obligatorios\" }";
-        }
-
-        Pedidos pedido;
+    private String update(HttpServletRequest request) {
         try {
-            pedido = new Pedidos(
-                    Integer.parseInt(idPedido),
-                    hora,
-                    "En proceso", // Estado inicial
-                    nombre
-            );
-        } catch (NumberFormatException e) {
-            return "{ \"error\": \"Datos inválidos\" }";
+            PedidosDao pedidosDao = new PedidosDao();
+
+            Integer idPedido = Integer.valueOf(request.getParameter("idPedido"));
+            String tipoPedido = request.getParameter("tipoPedido");
+            String modoEntrega = request.getParameter("modoEntrega");
+            String horaEntrega = request.getParameter("horaEntrega");
+            String shop = request.getParameter("shop");
+            String modoRecoger = request.getParameter("modoRecoger");
+            String horaRecoger = request.getParameter("horaRecoger");
+            String estado = request.getParameter("estado");
+            Integer idCliente = Integer.valueOf(request.getParameter("idCliente"));
+            Integer idTrabajador = Integer.valueOf(request.getParameter("idTrabajador"));
+
+            Pedidos pedido = new Pedidos(idPedido, tipoPedido, modoEntrega, horaEntrega, shop, modoRecoger, horaRecoger, estado, idCliente, idTrabajador);
+
+            int numFilas = pedidosDao.update(pedido);
+            return String.valueOf(numFilas);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
+    }
 
-        PedidosDao pedidosDao = new PedidosDao();
-        /*int iFilasAnadidas = pedidosDao.addRecogidaLocal(pedido);
+    private String delete(HttpServletRequest request) {
+        try {
+            Integer idPedido = Integer.valueOf(request.getParameter("idPedido"));
+            if (idPedido == null || idPedido == -1) {
+                return "{ \"error\": \"No se proporcionó el ID del pedido\" }";
+            }
 
-        if (iFilasAnadidas > 0) {
-            return "{ \"message\": \"Pedido añadido exitosamente\" }";
-        } else {
-            return "{ \"error\": \"No se pudo añadir el pedido\" }";
+            PedidosDao pedidosDao = new PedidosDao();
+            int numEliminaciones = pedidosDao.delete(idPedido);
+
+            if (numEliminaciones > 0) {
+                return "{ \"message\": \"Pedido eliminado exitosamente\" }";
+            } else {
+                return "{ \"error\": \"No se pudo eliminar el pedido\" }";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
-
- */

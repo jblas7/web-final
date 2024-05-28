@@ -1,7 +1,6 @@
-/*package Model.Dao;
+package Model.Dao;
 
-import Model.Entities.Categoria;
-import model.entities.Pedidos;
+import Model.Entities.Pedidos;
 import Model.MotorSQL;
 
 import java.sql.PreparedStatement;
@@ -9,56 +8,56 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class PedidosDao implements IDao<Pedidos,Integer> {
+public class PedidosDao implements IDao<Pedidos, Integer> {
 
-    private final String SQL_ADD_ENTREGA_CASA = "INSERT INTO Pedidos (ID_Pedido, Hora, Estado, Direccion, ID_Cliente, ID_Trabajador) VALUES (?, ?, ?, ?, ?, ?)";
-    private final String SQL_ADD_RECOGIDA_LOCAL = "INSERT INTO Pedidos (ID_Pedido, Hora, Estado, Nombre) VALUES (?, ?, ?, ?)";
-
+    private final String SQL_ADD = "INSERT INTO Pedidos (ID_Pedido, Tipo_Pedido, Modo_Entrega, Hora_Entrega, Estado, Direccion, Shop, Modo_Recoger, Hora_Recoger, ID_Cliente, ID_Trabajador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     @Override
     public ArrayList<Pedidos> findAll(Pedidos objeto) {
-        ArrayList <Pedidos> pedidos = new ArrayList<>();
+        ArrayList<Pedidos> pedidos = new ArrayList<>();
         MotorSQL motor = new MotorSQL();
         try {
-            //Esto es para conectarnos a la bbdd
             motor.connect();
+            ResultSet rs = motor.executeQuery("SELECT * FROM Pedidos");
 
-            //EJECUTAR LA SENTENCIA/CONSULTA/QUERY
-            ResultSet rs = motor.executeQuery("SELECT * FROM PEDIDOS");
-
-            //Mientras haya resultados se ejecuta el while
-            while (rs.next()){
+            while (rs.next()) {
                 Pedidos pedido = new Pedidos();
-                pedido.setIdPedidos(rs.getInt("ID_Pedido"));
-                pedido.setHora(rs.getString("hora"));
-                pedido.setEstado(rs.getString("estado"));
-                pedido.setDireccion(rs.getString("direccion"));
-                pedido.setIdCliente(rs.getInt("idCliente"));
-                pedido.setIdTrabajador(rs.getInt("idTrabajador"));
+                pedido.setIdPedido(rs.getInt("ID_Pedido"));
+                pedido.setTipoPedido(rs.getString("Tipo_Pedido"));
+                pedido.setModoEntrega(rs.getString("Modo_Entrega"));
+                pedido.setHoraEntrega(rs.getString("Hora_Entrega"));
+                pedido.setEstado(rs.getString("Estado"));
+                pedido.setShop(rs.getString("Shop"));
+                pedido.setModoRecoger(rs.getString("Modo_Recoger"));
+                pedido.setHoraRecoger(rs.getString("Hora_Recoger"));
+                pedido.setIdCliente(rs.getInt("ID_Cliente"));
+                pedido.setIdTrabajador(rs.getInt("ID_Trabajador"));
                 pedidos.add(pedido);
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             pedidos.clear();
-        }
-        finally {
+        } finally {
             motor.disconnect();
         }
         return pedidos;
     }
 
-
+    @Override
     public int add(Pedidos pedido) {
         MotorSQL motor = new MotorSQL();
         int iFilasAnadidas = 0;
         try {
             motor.connect();
-            PreparedStatement ps = motor.getPreparedStatement(SQL_ADD_ENTREGA_CASA);
-            ps.setInt(1, pedido.getIdPedidos());
-            ps.setString(2, pedido.getHora());
-            ps.setString(3, pedido.getEstado());
-            ps.setString(4, pedido.getDireccion());
-            ps.setInt(5, pedido.getIdCliente());
-            ps.setInt(6, pedido.getIdTrabajador());
+            PreparedStatement ps = motor.getPreparedStatement(SQL_ADD);
+            ps.setInt(1, pedido.getIdPedido());
+            ps.setString(2, pedido.getTipoPedido());
+            ps.setString(3, pedido.getModoEntrega());
+            ps.setString(4, pedido.getHoraEntrega());
+            ps.setString(5, pedido.getEstado());
+            ps.setString(6, pedido.getShop());
+            ps.setString(7, pedido.getModoRecoger());
+            ps.setString(8, pedido.getHoraRecoger());
+            ps.setInt(9, pedido.getIdCliente());
+            ps.setInt(10, pedido.getIdTrabajador());
 
             iFilasAnadidas = ps.executeUpdate();
             ps.close();
@@ -69,28 +68,49 @@ public class PedidosDao implements IDao<Pedidos,Integer> {
         }
         return iFilasAnadidas;
     }
-
-    //Esto lo quitaria
-    /*public int addRecogidaLocal(Pedidos pedido) {
+    @Override
+    public int update(Pedidos pedido) {
         MotorSQL motor = new MotorSQL();
-        int iFilasAnadidas = 0;
+        int iFilasActualizadas = 0;
         try {
             motor.connect();
-            PreparedStatement ps = motor.getPreparedStatement(SQL_ADD_RECOGIDA_LOCAL);
-            ps.setInt(1, pedido.getIdPedidos());
-            ps.setString(2, pedido.getHora());
-            ps.setString(3, pedido.getEstado());
-            ps.setString(4, pedido.getNombre());
+            PreparedStatement ps = motor.getPreparedStatement("UPDATE Pedidos SET Tipo_Pedido = ?, Modo_Entrega = ?, Hora_Entrega = ?, Estado = ?, Direccion = ?, Shop = ?, Modo_Recoger = ?, Hora_Recoger = ?, ID_Cliente = ?, ID_Trabajador = ? WHERE ID_Pedido = ?");
+            ps.setString(1, pedido.getTipoPedido());
+            ps.setString(2, pedido.getModoEntrega());
+            ps.setString(3, pedido.getHoraEntrega());
+            ps.setString(4, pedido.getEstado());
+            ps.setString(5, pedido.getShop());
+            ps.setString(6, pedido.getModoRecoger());
+            ps.setString(7, pedido.getHoraRecoger());
+            ps.setInt(8, pedido.getIdCliente());
+            ps.setInt(9, pedido.getIdTrabajador());
+            ps.setInt(10, pedido.getIdPedido());
 
-            iFilasAnadidas = ps.executeUpdate();
+            iFilasActualizadas = ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             motor.disconnect();
         }
-        return iFilasAnadidas;
+        return iFilasActualizadas;
     }
 
-
-}*/
+    @Override
+    public int delete(Integer id) {
+        MotorSQL motor = new MotorSQL();
+        int iNumeroEliminaciones = 0;
+        try {
+            motor.connect();
+            PreparedStatement ps = motor.getPreparedStatement("DELETE FROM Pedidos WHERE ID_Pedido = ?");
+            ps.setInt(1, id);
+            iNumeroEliminaciones = ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            motor.disconnect();
+        }
+        return iNumeroEliminaciones;
+    }
+}

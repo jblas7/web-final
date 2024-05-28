@@ -2,46 +2,38 @@ package Model.Entities;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.util.ArrayList;
-
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.util.ArrayList;
 
 public class Pedidos {
-    private Integer idPedido; // Changed from idPedidos to idPedido
-    private String tipoPedido; // New field for Tipo_Pedido
-    private String modoEntrega; // New field for Modo_Entrega
-    private String horaEntrega; // New field for Hora_Entrega
-    private String shop; // New field for Shop
-    private String modoRecoger; // New field for Modo_Recoger
-    private String horaRecoger; // New field for Hora_Recoger
+    private Integer idPedido;
+    private String tipoPedido;
+    private String modoEntrega;
+    private String horaEntrega;
+    private String shop;
+    private String modoRecoger;
+    private String horaRecoger;
     private String estado;
     private Integer idCliente;
     private Integer idTrabajador;
 
-    // Constructor for delivery orders
-    public Pedidos(Integer idPedido, String tipoPedido, String modoEntrega, String horaEntrega, String estado, String shop, Integer idCliente, Integer idTrabajador) {
+    // Constructor para pedidos
+    public Pedidos(Integer idPedido, String tipoPedido, String modoEntrega, String horaEntrega, String shop, String modoRecoger, String horaRecoger, String estado, Integer idCliente, Integer idTrabajador) {
         this.idPedido = idPedido;
         this.tipoPedido = tipoPedido;
         this.modoEntrega = modoEntrega;
         this.horaEntrega = horaEntrega;
-        this.estado = estado;
         this.shop = shop;
+        this.modoRecoger = modoRecoger;
+        this.horaRecoger = horaRecoger;
+        this.estado = estado;
         this.idCliente = idCliente;
         this.idTrabajador = idTrabajador;
     }
 
-
-
-    // Default constructor
+    // Constructor vacio
     public Pedidos() {
     }
 
-    // Getters and Setters
     public Integer getIdPedido() {
         return idPedido;
     }
@@ -138,13 +130,11 @@ public class Pedidos {
                 '}';
     }
 
-    // Method to convert ArrayList of Pedidos to JSON
+    // ArrayList de Pedidos a JSON
     public static String toArrayJson(ArrayList<Pedidos> pedidos) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
-
         Gson gson = builder.create();
-
         return gson.toJson(pedidos);
     }
 }
