@@ -48,7 +48,7 @@ CREATE TABLE Pedidos (
     Shop VARCHAR2(50), 
     Modo_Recoger VARCHAR2(20),
     Hora_Recoger VARCHAR2(10), 
-    Estado VARCHAR2(20) NOT NULL, 
+    Estado VARCHAR2(20), 
     ID_Cliente INTEGER, 
     ID_Trabajador INTEGER NOT NULL,
     FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
