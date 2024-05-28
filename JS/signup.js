@@ -2,14 +2,14 @@ document.getElementById('clienteForm').addEventListener('submit', async function
     event.preventDefault(); // Previene el comportamiento por defecto del formulario
 
     var nombre = document.getElementById('nombre').value;
-    var apellido1 = document.getElementById('apellido1').value;
+    var apellido = document.getElementById('apellido1').value;
     var email = document.getElementById('email').value;
     var telefono = document.getElementById('telefono').value;
     var contrasena = document.getElementById('contrasena').value;
     var repetirContrasena = document.getElementById('repetirContrasena').value;
     var messageContainer = document.getElementById('messageContainer');
 
-    if (!nombre || !apellido1 || !email || !telefono || !contrasena || !repetirContrasena) {
+    if (!nombre || !apellido || !email || !telefono || !contrasena || !repetirContrasena) {
         messageContainer.innerHTML = "<p>Please, complete all fields.</p>";
         return;
     }
@@ -20,7 +20,7 @@ document.getElementById('clienteForm').addEventListener('submit', async function
     }
 
     // Construcción de la URL
-    const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido1=${apellido1}&telefono=${telefono}&email=${email}&contrasena=${contrasena}`;
+    const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido=${apellido}&telefono=${telefono}&email=${email}&contrasena=${contrasena}`;
     
     // Modificamos la solicitud para que sea una solicitud GET en lugar de una solicitud POST
     fetch(url)
@@ -29,7 +29,7 @@ document.getElementById('clienteForm').addEventListener('submit', async function
             messageContainer.innerHTML = `<p>${data}</p>`;
             if (data === 'Successfully registered.') {
                 setTimeout(function() {
-                    window.location.href = '/public/index.html'; // Redirigir al usuario después de un registro exitoso
+                    window.location.href = '../HTML/login.html'; // Redirigir al usuario después de un registro exitoso
                 }, 2000);
             }
         })
