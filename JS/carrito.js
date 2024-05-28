@@ -158,81 +158,92 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   /*FETCH PEDIDOOOOOO*/
-  document.getElementById('formularioPedido').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Previene el comportamiento por defecto del formulario
-
-    // Recolectar datos del formulario
-    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
-    var calle = document.getElementById('calle').value;
-    var portal = document.getElementById('portal').value;
-    var piso = document.getElementById('piso').value;
-    var letra = document.getElementById('letra').value;
-    var modoEntrega = document.getElementById('modoEntrega').value;
-    var horaEntrega = document.getElementById('horaEntrega').value;
-    var shop = document.getElementById('Shop').value;
-    var modoRecoger = document.getElementById('modoRecoger').value;
-    var horaRecoger = document.getElementById('horaRecoger').value;
-    var estado = "preparacion"; // Esto podría ser dinámico si es necesario
-    var idCliente = 1; // Obtener dinámicamente si es necesario
-    var idTrabajador = 1; // Obtener dinámicamente si es necesario
-
-    // Validar campos obligatorios
-    if (!tipoPedido || !estado || !idCliente || !idTrabajador) {
-        alert("Faltan datos obligatorios");
-        return;
+  document.addEventListener("DOMContentLoaded", function() {
+    // Aquí va el código que se ejecutará cuando el DOM esté completamente cargado
+    
+    // Función para guardar el formulario de cliente
+    async function guardarCliente(calle, portal, piso, letra) {
+        // Construir la URL de la solicitud para guardar cliente
+        let clienteUrl = `http://localhost:8080/PecBurger/Controller?action=clientes.add&calle=${(calle)}&portal=${(portal)}&piso=${(piso)}&letra=${(letra)}`;
+        const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido=${apellido}&telefono=${telefono}&email=${email}&contrasena=${contrasena}`;
+        try {
+            // Realizar la solicitud fetch para guardar cliente
+            const clienteResponse = await fetch(clienteUrl, {
+                method: 'GET'
+            });
+            const clienteData = await clienteResponse.text();
+            console.log(clienteData);
+            return clienteData;
+        } catch (error) {
+            console.error('Fetch error:', error);
+            return null;
+        }
     }
 
-    // Construir la URL de la solicitud
-    let url = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&tipoPedido=${tipoPedido}&estado=${estado}&idCliente=${idCliente}&idTrabajador=${idTrabajador}`;
+    // Función para guardar el formulario de pedido
+    async function guardarPedido(tipoPedido, modoEntrega, horaEntrega, shop, modoRecoger, horaRecoger) {
+        // Construir la URL de la solicitud para guardar pedido
+        let pedidoUrl = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&tipo_pedido=${tipoPedido}&modo_entrega=${encodeURIComponent(modoEntrega)}&hora_entrega=${encodeURIComponent(horaEntrega)}&shop=${encodeURIComponent(shop)}&modo_recoger=${encodeURIComponent(modoRecoger)}&hora_recoger=${encodeURIComponent(horaRecoger)}`;
 
-    // Añadir los parámetros según el tipo de pedido
-    if (tipoPedido === 'entregaDomicilio') {
-        url += `&calle=${encodeURIComponent(calle)}&portal=${encodeURIComponent(portal)}&piso=${encodeURIComponent(piso)}&letra=${encodeURIComponent(letra)}&modoEntrega=${encodeURIComponent(modoEntrega)}&horaEntrega=${encodeURIComponent(horaEntrega)}`;
-    } else if (tipoPedido === 'recogerLocal') {
-        url += `&shop=${encodeURIComponent(shop)}&modoRecoger=${encodeURIComponent(modoRecoger)}&horaRecoger=${encodeURIComponent(horaRecoger)}`;
+        try {
+            // Realizar la solicitud fetch para guardar pedido
+            const pedidoResponse = await fetch(pedidoUrl, {
+                method: 'GET'
+            });
+            const pedidoData = await pedidoResponse.text();
+            console.log(pedidoData);
+            return pedidoData;
+        } catch (error) {
+            console.error('Fetch error:', error);
+            return null;
+        }
     }
 
-    // Realizar la solicitud fetch
-    try {
-        const response = await fetch(url, {
-            method: 'GET'
-        });
-        const data = await response.text();
-        console.log(data);
-        alert("Pedido guardado exitosamente");
-    } catch (error) {
-        console.error('Fetch error:', error);
-        alert("Error al guardar el pedido");
+    // Función para manejar el envío del formulario
+    async function guardarFormulario(event) {
+        event.preventDefault(); // Previene el comportamiento por defecto del formulario
+
+        // Recolectar datos del formulario de cliente
+
+        var calle = document.getElementById('calle').value;
+        var portal = document.getElementById('portal').value;
+        var piso = document.getElementById('piso').value;
+        var letra = document.getElementById('letra').value;
+
+        // Recolectar datos del formulario de pedido
+        var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
+        var modoEntrega = document.getElementById('modoEntrega').value;
+        var horaEntrega = document.getElementById('horaEntrega').value;
+        var shop = document.getElementById('Shop').value;
+        var modoRecoger = document.getElementById('modoRecoger').value;
+        var horaRecoger = document.getElementById('horaRecoger').value;
+
+        // Validar campos obligatorios para cliente
+        if (!calle || !portal || !piso || !letra) {
+            alert("Faltan datos obligatorios para el cliente");
+            return;
+        }
+
+        // Guardar cliente
+        const clienteData = await guardarCliente(calle, portal, piso, letra);
+
+        // Si el cliente se guarda correctamente, procedemos a guardar el pedido
+        if (clienteData && clienteData.includes("Cliente registrado exitosamente")) {
+            // Guardar pedido
+            const pedidoData = await guardarPedido(tipoPedido, modoEntrega, horaEntrega, shop, modoRecoger, horaRecoger);
+            if (pedidoData) {
+                alert("Pedido guardado exitosamente");
+            } else {
+                alert("Error al guardar el pedido");
+            }
+        } else {
+            alert("Error al guardar el cliente");
+        }
     }
+
+    // Asignar la función guardarFormulario al evento submit del formulario
+    document.getElementById('formularioPedido').addEventListener('submit', guardarFormulario);
 });
-
-function mostrarOpciones() {
-    // Mostrar u ocultar opciones dependiendo del tipo de pedido
-    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
-    if (tipoPedido === "entregaDomicilio") {
-        document.getElementById('opcionesEntrega').style.display = 'block';
-        document.getElementById('opcionesRecoger').style.display = 'none';
-    } else if (tipoPedido === "recogerLocal") {
-        document.getElementById('opcionesEntrega').style.display = 'none';
-        document.getElementById('opcionesRecoger').style.display = 'block';
-    }
-}
-
-function mostrarHoraEntrega() {
-    var modoEntrega = document.getElementById('modoEntrega').value;
-    document.getElementById('horaEntregaDiv').style.display = modoEntrega === "Schedule Shipment" ? 'block' : 'none';
-}
-
-function mostrarHoraRecoger() {
-    var modoRecoger = document.getElementById('modoRecoger').value;
-    document.getElementById('horaRecogerDiv').style.display = modoRecoger === "Schedule Pickup" ? 'block' : 'none';
-}
-
-  
-
-
-
-
 
 
 
@@ -616,8 +627,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
   function mostrarOpciones() {
     var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
     if (!tipoPedido) return;
@@ -652,14 +661,12 @@ function guardarFormulario(event) {
     event.preventDefault();
     if (validarFormulario()) {
         document.getElementById("formularioPedido").style.display = "none";
-        alert("Formulario enviado exitosamente.");
     }
 }
 
 function validarFormulario() {
     var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
     if (!tipoPedido) {
-        alert("Por favor, selecciona el tipo de pedido.");
         return false;
     }
 
@@ -675,33 +682,27 @@ function validarFormulario() {
 
     if (tipoPedido.value === "entregaDomicilio") {
         if (calle === "" || portal === "" || piso === "" || letra === "") {
-            alert("Por favor, completa todos los campos para la dirección de entrega.");
             return false;
         }
 
         if (modoEntrega === "") {
-            alert("Por favor, selecciona un modo de entrega.");
             return false;
         }
 
         if (modoEntrega === "Schedule Shipment" && horaEntrega === "") {
-            alert("Por favor, ingresa la hora de entrega.");
             document.getElementById("horaEntrega").focus();
             return false;
         }
     } else if (tipoPedido.value === "recogerLocal") {
         if (nombreRecoger === "" || telefono === "") {
-            alert("Por favor, completa todos los campos para la recogida en local.");
             return false;
         }
 
         if (modoRecoger === "") {
-            alert("Por favor, selecciona un modo de recogida.");
             return false;
         }
 
         if (modoRecoger === "Schedule Pickup" && horaRecoger === "") {
-            alert("Por favor, ingresa la hora de recogida.");
             document.getElementById("horaRecoger").focus();
             return false;
         }
