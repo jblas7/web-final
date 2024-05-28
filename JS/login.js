@@ -1,23 +1,54 @@
-/*CARRUSEL AUTOMÁTICO (CONTROL)*/
-var myCarousel = new bootstrap.Carousel(document.getElementById('miCarrusel'), {
-    interval: 6000 // tiempo para pasar de una imagen a otra
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Previene el comportamiento por defecto del formulario
+
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('contrasena').value;
+      var messageContainer = document.getElementById('messageContainer');
+
+      fetch('http://localhost:8080/PecBurger/Controller?action=clientes.login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              email: email,
+              password: password
+          })
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Error en la solicitud. Código de estado: ' + response.status);
+          }
+          return response.json();
+      })
+      .then(data => {
+          if (data.status === 'success') {
+              messageContainer.innerHTML = "<p>Inicio de sesión exitoso. Redirigiendo...</p>";
+              setTimeout(function () {
+                  window.location.href = '/public/index.html'; // Redirige a la página principal después de 2 segundos
+              }, 2000);
+          } else {
+              messageContainer.innerHTML = "<p>" + data.message + "</p>";
+          }
+      })
+      .catch(error => {
+          messageContainer.innerHTML = "<p>Ha ocurrido un error. Por favor, inténtalo de nuevo.</p>"; // Manejo del error
+      });
   });
-  
-  // Reinicia el intervalo del carrusel después de que el usuario realice alguna acción
-  document.addEventListener("DOMContentLoaded", function () {
-    var carouselEl = document.getElementById('miCarrusel');
-    carouselEl.addEventListener('mouseover', function () {
-        myCarousel.pause();
-    });
-    carouselEl.addEventListener('mouseleave', function () {
-        myCarousel.cycle();
-    });
-    window.addEventListener('scroll', function () {
-        myCarousel.cycle();
-    });
-  });
-  
-  
+});
+
+
+
+
+
+
+
+
+
+
+
+
   
   /*BOTON DESPLEGABLE RESPONSIVE*/
   document.addEventListener("DOMContentLoaded", function () {

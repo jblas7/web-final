@@ -1,33 +1,45 @@
-document.getElementById('clienteForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const formData = new FormData(this);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+const registroForm = document.getElementById('clienteForm');
+const submitButtonRegistro = registroForm.querySelector('.crear-cuenta-boton');
 
-    fetch('http://localhost:8080/PECBURGER/?Controller?action=clientes.add', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
+const handleSubmit = async (event) => {
+    event.preventDefault(); 
+    submitButtonRegistro.disabled = true; 
+
+    try {
+        const formDataRegistro = new FormData(registroForm);
+        const response = await fetch('http://localhost:8080/PecBurger/Controller?action=clientes.add', {
+            method: 'POST',
+            body: formDataRegistro,
+            mode: 'cors'
+        });
+
+        if (!response.ok) {
+            throw new Error('Error en la solicitud al servidor');
+        }
+
+        const data = await response.json();
+        if (data.error) {
+            throw new Error(data.error);
+        }
+
         console.log('Success:', data);
-        // Handle success, e.g., show a message or redirect
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle error, e.g., show an error message
-    });
-});
+        registroForm.reset();
+    } catch (error) {
+        console.error('Error:', error.message);
+    } finally {
+        submitButtonRegistro.disabled = false;
+    }
+};
+
+registroForm.addEventListener('submit', handleSubmit);
 
 
 
-  
+
+
+
+
+
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -115,3 +127,31 @@ function scrollToSection(sectionId) {
 
 
 
+
+
+
+
+
+
+
+
+
+  /*BOTON DESPLEGABLE RESPONSIVE*/
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownButton = document.getElementById("dropdownButton");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const closeBtn = document.getElementById("closeBtn");
+  
+    dropdownButton.addEventListener("click", function () {
+      if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
+        dropdownMenu.style.display = "block";
+      } else {
+        dropdownMenu.style.display = "none";
+      }
+    });
+  
+    closeBtn.addEventListener("click", function () {
+      dropdownMenu.style.display = "none";
+    });
+  });
+  
