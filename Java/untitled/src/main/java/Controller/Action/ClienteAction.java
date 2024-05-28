@@ -1,4 +1,3 @@
-// ClienteAction.java
 package Controller.Action;
 
 import Model.Dao.ClienteDao;
@@ -49,6 +48,10 @@ public class ClienteAction implements IAction {
         String telefono = request.getParameter("telefono");
         String email = request.getParameter("email");
         String contrasena = request.getParameter("contrasena");
+        String calle = request.getParameter("calle");
+        String portal = request.getParameter("portal");
+        String piso = request.getParameter("piso");
+        String letra = request.getParameter("letra");
 
         if (nombre == null || nombre.isEmpty() ||
                 apellido == null || apellido.isEmpty() ||
@@ -64,6 +67,10 @@ public class ClienteAction implements IAction {
         cliente.setTelefono(telefono);
         cliente.setEmail(email);
         cliente.setContrasena(contrasena);
+        cliente.setCalle(calle);
+        cliente.setPortal(portal);
+        cliente.setPiso(piso);
+        cliente.setLetra(letra);
 
         ClienteDao clienteDao = new ClienteDao();
         int iFilasAnadidas = clienteDao.add(cliente);
@@ -84,6 +91,10 @@ public class ClienteAction implements IAction {
         String telefono = request.getParameter("telefono");
         String email = request.getParameter("email");
         String contrasena = request.getParameter("contrasena");
+        String calle = request.getParameter("calle");
+        String portal = request.getParameter("portal");
+        String piso = request.getParameter("piso");
+        String letra = request.getParameter("letra");
 
         if (id == null || id <= 0 || nombre == null || nombre.isEmpty() ||
                 apellido == null || apellido.isEmpty() ||
@@ -100,6 +111,10 @@ public class ClienteAction implements IAction {
         cliente.setTelefono(telefono);
         cliente.setEmail(email);
         cliente.setContrasena(contrasena);
+        cliente.setCalle(calle);
+        cliente.setPortal(portal);
+        cliente.setPiso(piso);
+        cliente.setLetra(letra);
 
         int iFilasModificadas = clienteDao.update(cliente);
 

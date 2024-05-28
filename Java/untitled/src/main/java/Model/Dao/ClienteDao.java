@@ -10,14 +10,15 @@ import java.util.ArrayList;
 
 public class ClienteDao implements IDao<Cliente, Integer> {
 
+    private final String SQL_ADD = "INSERT INTO Cliente (ID_Cliente, Nombre, Apellido, Telefono, Email, Contrasena, Calle, Portal, Piso, Letra) VALUES (CLIENTE_SEQ1.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
     @Override
     public ArrayList<Cliente> findAll(Cliente objeto) {
         ArrayList<Cliente> clientes = new ArrayList<>();
         MotorSQL motor = new MotorSQL();
         try {
             motor.connect();
-            String sql = "SELECT * FROM Cliente";
-            ResultSet rs = motor.executeQuery(sql);
+            ResultSet rs = motor.executeQuery("SELECT * FROM Cliente");
             while (rs.next()) {
                 Cliente cliente = new Cliente();
                 cliente.setIdCliente(rs.getInt("ID_Cliente"));
@@ -26,15 +27,17 @@ public class ClienteDao implements IDao<Cliente, Integer> {
                 cliente.setTelefono(rs.getString("Telefono"));
                 cliente.setEmail(rs.getString("Email"));
                 cliente.setContrasena(rs.getString("Contrasena"));
-
+                cliente.setCalle(rs.getString("Calle"));
+                cliente.setPortal(rs.getString("Portal"));
+                cliente.setPiso(rs.getString("Piso"));
+                cliente.setLetra(rs.getString("Letra"));
                 clientes.add(cliente);
             }
-        } catch (Exception exception){
+        } catch (Exception exception) {
             clientes.clear();
-        } finally{
+        } finally {
             motor.disconnect();
         }
-
         return clientes;
     }
 
@@ -44,29 +47,19 @@ public class ClienteDao implements IDao<Cliente, Integer> {
         int iFilasAnadidas = 0;
         try {
             motor.connect();
+            PreparedStatement ps = motor.getPreparedStatement(SQL_ADD);
+            ps.setString(1, cliente.getNombre());
+            ps.setString(2, cliente.getApellido());
+            ps.setString(3, cliente.getTelefono());
+            ps.setString(4, cliente.getEmail());
+            ps.setString(5, cliente.getContrasena());
+            ps.setString(6, cliente.getCalle());
+            ps.setString(7, cliente.getPortal());
+            ps.setString(8, cliente.getPiso());
+            ps.setString(9, cliente.getLetra());
 
-            // Generar un ID único
-            int nextId = generateUniqueClientId();
-
-            // Verificar si se generó correctamente el ID único
-            if (nextId != -1) {
-                cliente.setIdCliente(nextId);
-
-                String sql = "INSERT INTO Cliente (ID_Cliente, Nombre, Apellido, Telefono, Email, Contrasena) VALUES (?, ?, ?, ?, ?, ?)";
-                PreparedStatement ps = motor.getPreparedStatement(sql);
-                ps.setInt(1, cliente.getIdCliente());
-                ps.setString(2, cliente.getNombre());
-                ps.setString(3, cliente.getApellido());
-                ps.setString(4, cliente.getTelefono());
-                ps.setString(5, cliente.getEmail());
-                ps.setString(6, cliente.getContrasena());
-
-                iFilasAnadidas = ps.executeUpdate();
-                ps.close();
-            } else {
-                // No se pudo generar un ID único
-                System.err.println("No se pudo generar un ID único para el cliente.");
-            }
+            iFilasAnadidas = ps.executeUpdate();
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -75,71 +68,26 @@ public class ClienteDao implements IDao<Cliente, Integer> {
         return iFilasAnadidas;
     }
 
-    private int generateUniqueClientId() {
-        // Aquí puedes implementar la lógica para generar un ID único, por ejemplo, basado en la fecha y hora actual,
-        // o utilizando una estrategia de generación de IDs como UUID.
-        // Por ejemplo:
-        int id = -1; // Valor por defecto si la generación falla
-        try {
-            // Ejemplo de generación de ID basado en la fecha y hora actual
-            // Aquí puedes implementar tu lógica específica para generar el ID único
-            // Por ejemplo, podrías usar un contador atómico, un UUID o cualquier otra estrategia de generación de IDs.
-
-            // En este ejemplo, se genera un ID basado en la fecha y hora actual
-            long timestamp = System.currentTimeMillis();
-            id = (int) timestamp; // Puedes ajustar esta lógica según tus necesidades
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return id;
-    }
-
-
     @Override
     public int update(Cliente cliente) {
         MotorSQL motor = new MotorSQL();
         int iFilasActualizadas = 0;
         try {
             motor.connect();
-            StringBuilder sql = new StringBuilder("UPDATE Cliente SET ");
-            ArrayList<Object> params = new ArrayList<>();
+            PreparedStatement ps = motor.getPreparedStatement("UPDATE Cliente SET Nombre = ?, Apellido = ?, Telefono = ?, Email = ?, Contrasena = ?, Calle = ?, Portal = ?, Piso = ?, Letra = ? WHERE ID_Cliente = ?");
+            ps.setString(1, cliente.getNombre());
+            ps.setString(2, cliente.getApellido());
+            ps.setString(3, cliente.getTelefono());
+            ps.setString(4, cliente.getEmail());
+            ps.setString(5, cliente.getContrasena());
+            ps.setString(6, cliente.getCalle());
+            ps.setString(7, cliente.getPortal());
+            ps.setString(8, cliente.getPiso());
+            ps.setString(9, cliente.getLetra());
+            ps.setInt(10, cliente.getIdCliente());
 
-            if (cliente.getNombre() != null) {
-                sql.append("Nombre = ?, ");
-                params.add(cliente.getNombre());
-            }
-            if (cliente.getApellido() != null) {
-                sql.append("Apellido = ?, ");
-                params.add(cliente.getApellido());
-            }
-            if (cliente.getTelefono() != null) {
-                sql.append("Telefono = ?, ");
-                params.add(cliente.getTelefono());
-            }
-            if (cliente.getEmail() != null) {
-                sql.append("Email = ?, ");
-                params.add(cliente.getEmail());
-            }
-            if (cliente.getContrasena() != null) {
-                sql.append("Contrasena = ?, ");
-                params.add(cliente.getContrasena());
-            }
-
-            if (params.size() > 0) {
-                sql.setLength(sql.length() - 2);
-                sql.append(" WHERE ID_Cliente = ?");
-                params.add(cliente.getIdCliente());
-
-                PreparedStatement ps = motor.getPreparedStatement(sql.toString());
-                for (int i = 0; i < params.size(); i++) {
-                    ps.setObject(i + 1, params.get(i));
-                }
-
-                iFilasActualizadas = ps.executeUpdate();
-                ps.close();
-            } else {
-                return 0;
-            }
+            iFilasActualizadas = ps.executeUpdate();
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -154,15 +102,12 @@ public class ClienteDao implements IDao<Cliente, Integer> {
         int iFilasBorradas = 0;
         try {
             motor.connect();
-            String sql = "DELETE from CLIENTE where ID_CLIENTE = ?";
-            PreparedStatement ps = motor.getPreparedStatement(sql);
+            PreparedStatement ps = motor.getPreparedStatement("DELETE FROM Cliente WHERE ID_Cliente = ?");
             ps.setInt(1, idCliente);
-
             iFilasBorradas = ps.executeUpdate();
             ps.close();
-
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
             motor.disconnect();
         }
@@ -187,6 +132,10 @@ public class ClienteDao implements IDao<Cliente, Integer> {
                 cliente.setTelefono(rs.getString("Telefono"));
                 cliente.setEmail(rs.getString("Email"));
                 cliente.setContrasena(rs.getString("Contrasena"));
+                cliente.setCalle(rs.getString("Calle"));
+                cliente.setPortal(rs.getString("Portal"));
+                cliente.setPiso(rs.getString("Piso"));
+                cliente.setLetra(rs.getString("Letra"));
             }
             ps.close();
         } catch (SQLException e) {

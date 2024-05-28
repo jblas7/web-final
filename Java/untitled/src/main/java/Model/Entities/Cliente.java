@@ -20,14 +20,27 @@ public class Cliente {
 
     private String contrasena;
 
+    private String calle;
+
+    private String portal;
+
+    private String piso;
+
+    private String letra;
+
     //Crearemos el constructor con todos los campos de los atributos anteriores
-    public Cliente(Integer idCliente, String nombre, String apellido, String telefono, String email, String contrasena) {
+    public Cliente(Integer idCliente, String nombre, String apellido, String telefono, String email, String contrasena,
+                   String calle, String portal, String piso, String letra) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.email = email;
         this.contrasena = contrasena;
+        this.calle = calle;
+        this.portal = portal;
+        this.piso = piso;
+        this.letra = letra;
     }
 
     //Crearemos el constructor vacio de los atributos anteriores
@@ -83,6 +96,38 @@ public class Cliente {
         this.contrasena = contrasena;
     }
 
+    public String getCalle() {
+        return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getPortal() {
+        return portal;
+    }
+
+    public void setPortal(String portal) {
+        this.portal = portal;
+    }
+
+    public String getPiso() {
+        return piso;
+    }
+
+    public void setPiso(String piso) {
+        this.piso = piso;
+    }
+
+    public String getLetra() {
+        return letra;
+    }
+
+    public void setLetra(String letra) {
+        this.letra = letra;
+    }
+
     //Crear el metodo ToString del objeto Cliente
     @Override
     public String toString() {
@@ -93,6 +138,10 @@ public class Cliente {
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
                 ", contrasena='" + contrasena + '\'' +
+                ", calle='" + calle + '\'' +
+                ", portal='" + portal + '\'' +
+                ", piso='" + piso + '\'' +
+                ", letra='" + letra + '\'' +
                 '}';
     }
 
