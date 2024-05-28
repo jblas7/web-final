@@ -10,12 +10,12 @@ document.getElementById('clienteForm').addEventListener('submit', async function
     var messageContainer = document.getElementById('messageContainer');
 
     if (!nombre || !apellido || !email || !telefono || !contrasena || !repetirContrasena) {
-        messageContainer.innerHTML = "<p>Please, complete all fields.</p>";
+        messageContainer.innerHTML = "<p class='error-message'>Please complete all fields.</p>";
         return;
     }
 
     if (contrasena !== repetirContrasena) {
-        messageContainer.innerHTML = "<p>Passwords do not match. Please try again.</p>";
+        messageContainer.innerHTML = "<p class='error-message'>Passwords do not match. Please try again.</p>";
         return;
     }
 
@@ -26,30 +26,30 @@ document.getElementById('clienteForm').addEventListener('submit', async function
     fetch(url)
         .then(response => response.text())
         .then(data => {
-            messageContainer.innerHTML = `<p>${data}</p>`;
-            if (data === 'Successfully registered.') {
+            let message = JSON.parse(data).message;
+            messageContainer.innerHTML = `<p class='success-message'>${message}</p>`;
+            if (message === 'Customer successfully registered') {
                 setTimeout(function() {
-                    window.location.href = '../HTML/login.html'; // Redirigir al usuario después de un registro exitoso
+                    window.location.href = '../HTML/login.html';
                 }, 2000);
             }
         })
         .catch(error => {
-            console.error('Error:', error);
-            messageContainer.innerHTML = "<p>An error occurred. Please try again.</p>";
+            console.error('Fetch error:', error);
+            messageContainer.innerHTML = "<p class='error-message'>An error occurred. Please try again.</p>";
         });
 });
 
   
-  
-  
-  
-  
-  
-  
-  
 
   
   
+
+
+
+
+
+
   
   
   document.addEventListener('DOMContentLoaded', function() {
