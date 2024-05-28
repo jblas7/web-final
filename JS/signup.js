@@ -1,70 +1,44 @@
-const registroForm = document.getElementById('clienteForm');
-const submitButtonRegistro = registroForm.querySelector('.crear-cuenta-boton');
+document.getElementById('clienteForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Previene el comportamiento por defecto del formulario
 
-const handleSubmit = async (event) => {
-    event.preventDefault(); 
-    submitButtonRegistro.disabled = true; 
+    var nombre = document.getElementById('nombre').value;
+    var apellido1 = document.getElementById('apellido1').value;
+    var email = document.getElementById('email').value;
+    var telefono = document.getElementById('telefono').value;
+    var contrasena = document.getElementById('contrasena').value;
+    var repetirContrasena = document.getElementById('repetirContrasena').value;
+    var messageContainer = document.getElementById('messageContainer');
 
-    try {
-        const formDataRegistro = new FormData(registroForm);
-        const response = await fetch('http://localhost:8080/PecBurger/Controller?action=clientes.add', {
-            method: 'POST',
-            body: formDataRegistro,
-            mode: 'cors'
+    if (!nombre || !apellido1 || !email || !telefono || !contrasena || !repetirContrasena) {
+        messageContainer.innerHTML = "<p>Please, complete all fields.</p>";
+        return;
+    }
+
+    if (contrasena !== repetirContrasena) {
+        messageContainer.innerHTML = "<p>Passwords do not match. Please try again.</p>";
+        return;
+    }
+
+    // Construcción de la URL
+    const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido1=${apellido1}&telefono=${telefono}&email=${email}&contrasena=${contrasena}`;
+    
+    // Modificamos la solicitud para que sea una solicitud GET en lugar de una solicitud POST
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            messageContainer.innerHTML = `<p>${data}</p>`;
+            if (data === 'Successfully registered.') {
+                setTimeout(function() {
+                    window.location.href = '/public/index.html'; // Redirigir al usuario después de un registro exitoso
+                }, 2000);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            messageContainer.innerHTML = "<p>An error occurred. Please try again.</p>";
         });
+});
 
-        if (!response.ok) {
-            throw new Error('Error en la solicitud al servidor');
-        }
-
-        const data = await response.json();
-        if (data.error) {
-            throw new Error(data.error);
-        }
-
-        console.log('Success:', data);
-        registroForm.reset();
-    } catch (error) {
-        console.error('Error:', error.message);
-    } finally {
-        submitButtonRegistro.disabled = false;
-    }
-};
-
-registroForm.addEventListener('submit', handleSubmit);
-
-
-
-
-
-
-
-
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-  
-
-
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -136,22 +110,24 @@ function scrollToSection(sectionId) {
 
 
 
-  /*BOTON DESPLEGABLE RESPONSIVE*/
-  document.addEventListener("DOMContentLoaded", function () {
+/* BOTON DESPLEGABLE RESPONSIVE */
+document.addEventListener("DOMContentLoaded", function () {
     const dropdownButton = document.getElementById("dropdownButton");
     const dropdownMenu = document.getElementById("dropdownMenu");
-    const closeBtn = document.getElementById("closeBtn");
   
-    dropdownButton.addEventListener("click", function () {
-      if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
-        dropdownMenu.style.display = "block";
-      } else {
-        dropdownMenu.style.display = "none";
-      }
-    });
-  
-    closeBtn.addEventListener("click", function () {
-      dropdownMenu.style.display = "none";
-    });
+    if (dropdownButton && dropdownMenu) {
+        dropdownButton.addEventListener("click", function () {
+            if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
+                dropdownMenu.style.display = "block";
+            } else {
+                dropdownMenu.style.display = "none";
+            }
+        });
+    } else {
+        console.error('Error: Alguno de los elementos no se encontró en el DOM');
+    }
   });
+  
+  
+  
   
