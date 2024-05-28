@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
     async function guardarCliente(calle, portal, piso, letra) {
         // Construir la URL de la solicitud para guardar cliente
         let clienteUrl = `http://localhost:8080/PecBurger/Controller?action=clientes.add&calle=${(calle)}&portal=${(portal)}&piso=${(piso)}&letra=${(letra)}`;
-        const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido=${apellido}&telefono=${telefono}&email=${email}&contrasena=${contrasena}`;
+        const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido=${apellido}&telefono=${telefono}&email=${email}&contrasena=${contrasena}calle=${(calle)}&portal=${(portal)}&piso=${(piso)}&letra=${(letra)}`;
         try {
             // Realizar la solicitud fetch para guardar cliente
             const clienteResponse = await fetch(clienteUrl, {
