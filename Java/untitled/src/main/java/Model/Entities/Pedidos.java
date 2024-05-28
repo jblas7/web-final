@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 
 public class Pedidos {
-    private Integer idPedido;
+    private String idPedido;
     private String tipoPedido;
     private String modoEntrega;
     private String horaEntrega;
@@ -17,7 +17,7 @@ public class Pedidos {
     private Integer idTrabajador;
 
     // Constructor para pedidos
-    public Pedidos(Integer idPedido, String tipoPedido, String modoEntrega, String horaEntrega, String shop, String modoRecoger, String horaRecoger, String estado, Integer idCliente, Integer idTrabajador) {
+    public Pedidos(String idPedido, String tipoPedido, String modoEntrega, String horaEntrega, String shop, String modoRecoger, String horaRecoger, String estado, Integer idCliente, Integer idTrabajador) {
         this.idPedido = idPedido;
         this.tipoPedido = tipoPedido;
         this.modoEntrega = modoEntrega;
@@ -34,11 +34,11 @@ public class Pedidos {
     public Pedidos() {
     }
 
-    public Integer getIdPedido() {
+    public String getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(Integer idPedido) {
+    public void setIdPedido(String idPedido) {
         this.idPedido = idPedido;
     }
 

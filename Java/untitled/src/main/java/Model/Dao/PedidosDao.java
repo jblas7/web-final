@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class PedidosDao implements IDao<Pedidos, Integer> {
 
-    private final String SQL_ADD = "INSERT INTO Pedidos (ID_Pedido, Tipo_Pedido, Modo_Entrega, Hora_Entrega, Shop, Modo_Recoger, Hora_Recoger, Estado, ID_Cliente, ID_Trabajador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private final String SQL_ADD = "INSERT INTO Pedidos (ID_Pedido, Tipo_Pedido, Modo_Entrega, Hora_Entrega, Shop, Modo_Recoger, Hora_Recoger, Estado, ID_Cliente, ID_Trabajador) VALUES (PEDIDOS_SEQ1.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     @Override
     public ArrayList<Pedidos> findAll(Pedidos objeto) {
@@ -22,7 +22,7 @@ public class PedidosDao implements IDao<Pedidos, Integer> {
 
             while (rs.next()) {
                 Pedidos pedido = new Pedidos();
-                pedido.setIdPedido(rs.getInt("ID_Pedido"));
+                pedido.setIdPedido(rs.getString("ID_Pedido"));
                 pedido.setTipoPedido(rs.getString("Tipo_Pedido"));
                 pedido.setModoEntrega(rs.getString("Modo_Entrega"));
                 pedido.setHoraEntrega(rs.getString("Hora_Entrega"));
@@ -48,16 +48,15 @@ public class PedidosDao implements IDao<Pedidos, Integer> {
         int iFilasAnadidas = 0;
             motor.connect();
             PreparedStatement ps = motor.getPreparedStatement(SQL_ADD);
-            ps.setInt(1, pedidoAnadir.getIdPedido());
-            ps.setString(2, pedidoAnadir.getTipoPedido());
-            ps.setString(3, pedidoAnadir.getModoEntrega());
-            ps.setString(4, pedidoAnadir.getHoraEntrega());
-            ps.setString(5, pedidoAnadir.getShop());
-            ps.setString(6, pedidoAnadir.getModoEntrega());
-            ps.setString(7, pedidoAnadir.getHoraRecoger());
-            ps.setString(8, pedidoAnadir.getEstado());
-            ps.setInt(9, pedidoAnadir.getIdCliente());
-            ps.setInt(10, pedidoAnadir.getIdTrabajador());
+            ps.setString(1, pedidoAnadir.getTipoPedido());
+            ps.setString(2, pedidoAnadir.getModoEntrega());
+            ps.setString(3, pedidoAnadir.getHoraEntrega());
+            ps.setString(4, pedidoAnadir.getShop());
+            ps.setString(5, pedidoAnadir.getModoEntrega());
+            ps.setString(6, pedidoAnadir.getHoraRecoger());
+            ps.setString(7, pedidoAnadir.getEstado());
+            ps.setInt(8, pedidoAnadir.getIdCliente());
+            ps.setInt(9, pedidoAnadir.getIdTrabajador());
 
             iFilasAnadidas = ps.executeUpdate();
         return iFilasAnadidas;
@@ -78,7 +77,7 @@ public class PedidosDao implements IDao<Pedidos, Integer> {
             ps.setString(7, pedidoActualizar.getHoraRecoger());
             ps.setInt(8, pedidoActualizar.getIdCliente());
             ps.setInt(9, pedidoActualizar.getIdTrabajador());
-            ps.setInt(10, pedidoActualizar.getIdPedido());
+            ps.setString(10, pedidoActualizar.getIdPedido());
 
             iFilasActualizadas = ps.executeUpdate();
             ps.close();
