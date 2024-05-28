@@ -1,57 +1,29 @@
-function registerClient() {
-    const clientData = {
-        nombre: document.getElementById('nombre').value,
-        apellido: document.getElementById('apellido').value,
-        telefono: document.getElementById('telefono').value,
-        email: document.getElementById('email').value,
-        contrasena: document.getElementById('contrasena').value
-    };
+document.getElementById('clienteForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
 
-    fetch('http://localhost:8080/Controller?action=add', {
+    fetch('http://localhost:8080/PECBURGER/?Controller?action=clientes.add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(clientData)
+        body: JSON.stringify(data)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.message) {
-            alert(data.message);
-        } else if (data.error) {
-            alert(data.error);
-        }
+        console.log('Success:', data);
+        // Handle success, e.g., show a message or redirect
     })
-    .catch(error => console.error('Error:', error));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle error, e.g., show an error message
+    });
+});
 
 
 
