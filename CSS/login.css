@@ -1176,3 +1176,16 @@ footer p {
     }
   }
 }
+
+
+@media (max-width: 1990px){
+  .formulario-login {
+    background-color: rgba(54, 53, 53, 0.95);
+    padding: 10px;
+    border-radius: 15px;
+    width: 35%;
+    height: 85%;
+    font-family: 'Lexend';
+}
+
+}
