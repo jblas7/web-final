@@ -149,6 +149,75 @@ document.addEventListener("DOMContentLoaded", function() {
   
 
 
+
+
+
+
+
+
+
+
+  /*FETCH PEDIDOOOOOO*/
+  document.getElementById('formularioPedido').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Previene el comportamiento por defecto del formulario
+
+    // Recolectar datos del formulario
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
+    var modoEntrega = document.getElementById('modoEntrega').value;
+    var horaEntrega = document.getElementById('horaEntrega').value;
+    var shop = document.getElementById('Shop').value;
+    var modoRecoger = document.getElementById('modoRecoger').value;
+    var horaRecoger = document.getElementById('horaRecoger').value;
+    var estado = "preparacion"; // Esto podría ser dinámico si es necesario
+    var idCliente = 1; // Obtener dinámicamente si es necesario
+    var idTrabajador = 1; // Obtener dinámicamente si es necesario
+
+    // Validar campos obligatorios
+    if (!tipoPedido || !estado || !idCliente || !idTrabajador) {
+        alert("Faltan datos obligatorios");
+        return;
+    }
+
+    // Construir la URL de la solicitud
+    const url = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&tipoPedido=${tipoPedido}&modoEntrega=${modoEntrega}&horaEntrega=${horaEntrega}&shop=${shop}&modoRecoger=${modoRecoger}&horaRecoger=${horaRecoger}&estado=${estado}&idCliente=${idCliente}&idTrabajador=${idTrabajador}`;
+
+    // Realizar la solicitud fetch
+    try {
+        const response = await fetch(url, {
+            method: 'GET'
+        });
+        const data = await response.text();
+        console.log(data);
+        alert("Pedido guardado exitosamente");
+    } catch (error) {
+        console.error('Fetch error:', error);
+        alert("Error al guardar el pedido");
+    }
+});
+
+function mostrarOpciones() {
+    // Mostrar u ocultar opciones dependiendo del tipo de pedido
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
+    if (tipoPedido === "entregaDomicilio") {
+        document.getElementById('opcionesEntrega').style.display = 'block';
+        document.getElementById('opcionesRecoger').style.display = 'none';
+    } else if (tipoPedido === "recogerLocal") {
+        document.getElementById('opcionesEntrega').style.display = 'none';
+        document.getElementById('opcionesRecoger').style.display = 'block';
+    }
+}
+
+function mostrarHoraEntrega() {
+    var modoEntrega = document.getElementById('modoEntrega').value;
+    document.getElementById('horaEntregaDiv').style.display = modoEntrega === "Schedule Shipment" ? 'block' : 'none';
+}
+
+function mostrarHoraRecoger() {
+    var modoRecoger = document.getElementById('modoRecoger').value;
+    document.getElementById('horaRecogerDiv').style.display = modoRecoger === "Schedule Pickup" ? 'block' : 'none';
+}
+
+
   
 
 
