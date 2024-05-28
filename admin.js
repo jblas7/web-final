@@ -67,21 +67,18 @@ function validateLogin(event) {
 
 // Seleccion de tabla
 
-document.querySelectorAll(".boton_seleccion").forEach(button => {
+const botones = document.querySelectorAll(".boton_seleccion")
+const tablas = document.querySelectorAll(".container")
+botones.forEach((button, index) => {
   button.addEventListener("click", () => {
-    const type = button.getAttribute("data-type");
-    const div = document.querySelector(`.container.${type}`);
-
-    if (div.style.display != "flex") {
-      div.style.display = "flex";
-    } else {
-      div.style.display = "none";
+    if (tablas[index].style.display != "flex")
+    {
+      tablas[index].style.display = "flex"
     }
+    else {tablas[index].style.display = "none"}
 
-    document.querySelectorAll(".container").forEach(container => {
-      if (!container.classList.contains(type)) {
-        container.style.display = "none";
-      }
-    });
+    tablas.forEach(tabla => {
+      if (tabla != tablas[index]) {tabla.style.display = "none"}
+    })
   });
 });
