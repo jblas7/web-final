@@ -57,7 +57,6 @@ public class PedidosAction implements IAction {
             Integer idTrabajador = Integer.valueOf(request.getParameter("idTrabajador"));
 
             if(
-                    estado == null || estado.isEmpty() ||
                     idCliente == null || idCliente == 0 ||
                     idTrabajador == null || idTrabajador == 0) {
                 return "{ \"error\": \"Faltan datos obligatorios\" }";
