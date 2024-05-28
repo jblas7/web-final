@@ -131,10 +131,10 @@ public class Pedidos {
     }
 
     // ArrayList de Pedidos a JSON
-    public static String toArrayJson(ArrayList<Pedidos> pedidos) {
+    public static String toArrayJson(ArrayList<Pedidos> pedidosArray) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
-        return gson.toJson(pedidos);
+        return gson.toJson(pedidosArray);
     }
 }

@@ -3,6 +3,7 @@ package Controller.Action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import Model.Dao.PedidosDao;
 import Model.Entities.Pedidos;
 
@@ -17,7 +18,7 @@ public class PedidosAction implements IAction {
                 strResultado = findAll();
                 break;
 
-            case "add":
+            case "add":         // http://localhost:8080/PecBurger/Controller?action=pedidos.add&idPedido=10&modoEntrega=Casa&horaEntrega=18:00&estado=preparacion&idCliente=1&idTrabajador=1
                 strResultado = add(request);
                 break;
 
@@ -56,13 +57,21 @@ public class PedidosAction implements IAction {
             Integer idCliente = Integer.valueOf(request.getParameter("idCliente"));
             Integer idTrabajador = Integer.valueOf(request.getParameter("idTrabajador"));
 
+            if (idPedido == null || idPedido == 0 ||
+                    tipoPedido == null || tipoPedido.isEmpty() ||
+                    estado == null || estado.isEmpty() ||
+                    idCliente == null || idCliente == 0 ||
+                    idTrabajador == null || idTrabajador == 0) {
+                return "{ \"error\": \"Faltan datos obligatorios\" }";
+            }
+
             Pedidos pedido = new Pedidos(idPedido, tipoPedido, modoEntrega, horaEntrega, shop, modoRecoger, horaRecoger, estado, idCliente, idTrabajador);
 
             int numFilas = pedidosDao.add(pedido);
-            return String.valueOf(numFilas);
+            return "Datos guardados de forma exitosa";
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return "Fallo en la operación de agregar pedido";
         }
     }
 

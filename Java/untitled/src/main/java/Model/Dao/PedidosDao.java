@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 public class PedidosDao implements IDao<Pedidos, Integer> {
 
-    private final String SQL_ADD = "INSERT INTO Pedidos (ID_Pedido, Tipo_Pedido, Modo_Entrega, Hora_Entrega, Estado, Direccion, Shop, Modo_Recoger, Hora_Recoger, ID_Cliente, ID_Trabajador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private final String SQL_ADD = "INSERT INTO Pedidos (ID_Pedido, Tipo_Pedido, Modo_Entrega, Hora_Entrega, Shop, Modo_Recoger, Hora_Recoger, Estado, ID_Cliente, ID_Trabajador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
     @Override
     public ArrayList<Pedidos> findAll(Pedidos objeto) {
         ArrayList<Pedidos> pedidos = new ArrayList<>();
@@ -42,49 +43,42 @@ public class PedidosDao implements IDao<Pedidos, Integer> {
     }
 
     @Override
-    public int add(Pedidos pedido) {
+    public int add(Pedidos pedidoAnadir) throws SQLException {
         MotorSQL motor = new MotorSQL();
         int iFilasAnadidas = 0;
-        try {
             motor.connect();
             PreparedStatement ps = motor.getPreparedStatement(SQL_ADD);
-            ps.setInt(1, pedido.getIdPedido());
-            ps.setString(2, pedido.getTipoPedido());
-            ps.setString(3, pedido.getModoEntrega());
-            ps.setString(4, pedido.getHoraEntrega());
-            ps.setString(5, pedido.getEstado());
-            ps.setString(6, pedido.getShop());
-            ps.setString(7, pedido.getModoRecoger());
-            ps.setString(8, pedido.getHoraRecoger());
-            ps.setInt(9, pedido.getIdCliente());
-            ps.setInt(10, pedido.getIdTrabajador());
+            ps.setInt(1, pedidoAnadir.getIdPedido());
+            ps.setString(2, pedidoAnadir.getTipoPedido());
+            ps.setString(3, pedidoAnadir.getModoEntrega());
+            ps.setString(4, pedidoAnadir.getHoraEntrega());
+            ps.setString(5, pedidoAnadir.getShop());
+            ps.setString(6, pedidoAnadir.getModoEntrega());
+            ps.setString(7, pedidoAnadir.getHoraRecoger());
+            ps.setString(8, pedidoAnadir.getEstado());
+            ps.setInt(9, pedidoAnadir.getIdCliente());
+            ps.setInt(10, pedidoAnadir.getIdTrabajador());
 
             iFilasAnadidas = ps.executeUpdate();
-            ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            motor.disconnect();
-        }
         return iFilasAnadidas;
     }
     @Override
-    public int update(Pedidos pedido) {
+    public int update(Pedidos pedidoActualizar) {
         MotorSQL motor = new MotorSQL();
         int iFilasActualizadas = 0;
         try {
             motor.connect();
             PreparedStatement ps = motor.getPreparedStatement("UPDATE Pedidos SET Tipo_Pedido = ?, Modo_Entrega = ?, Hora_Entrega = ?, Estado = ?, Direccion = ?, Shop = ?, Modo_Recoger = ?, Hora_Recoger = ?, ID_Cliente = ?, ID_Trabajador = ? WHERE ID_Pedido = ?");
-            ps.setString(1, pedido.getTipoPedido());
-            ps.setString(2, pedido.getModoEntrega());
-            ps.setString(3, pedido.getHoraEntrega());
-            ps.setString(4, pedido.getEstado());
-            ps.setString(5, pedido.getShop());
-            ps.setString(6, pedido.getModoRecoger());
-            ps.setString(7, pedido.getHoraRecoger());
-            ps.setInt(8, pedido.getIdCliente());
-            ps.setInt(9, pedido.getIdTrabajador());
-            ps.setInt(10, pedido.getIdPedido());
+            ps.setString(1, pedidoActualizar.getTipoPedido());
+            ps.setString(2, pedidoActualizar.getModoEntrega());
+            ps.setString(3, pedidoActualizar.getHoraEntrega());
+            ps.setString(4, pedidoActualizar.getEstado());
+            ps.setString(5, pedidoActualizar.getShop());
+            ps.setString(6, pedidoActualizar.getModoRecoger());
+            ps.setString(7, pedidoActualizar.getHoraRecoger());
+            ps.setInt(8, pedidoActualizar.getIdCliente());
+            ps.setInt(9, pedidoActualizar.getIdTrabajador());
+            ps.setInt(10, pedidoActualizar.getIdPedido());
 
             iFilasActualizadas = ps.executeUpdate();
             ps.close();
