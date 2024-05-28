@@ -14,10 +14,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-@WebServlet(name = "Controller", urlPatterns = {"/Controller"})
+@WebServlet(name = "Controller", urlPatterns = {"/Controller", "/mi-endpoint"})
 public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -54,9 +54,9 @@ public class Controller extends HttpServlet {
                     case "detallePedidos":
                         out.print(new DetallePedidoAction().execute(request, response, arrayAction[1]));
                         break;
-               /*     case "pedidos":
+                    /* case "pedidos":
                         out.print(new PedidosAction().execute(request, response, arrayAction[1]));
-                        break;         */
+                        break; */
                     default:
                         throw new ServletException("Acción " + arrayAction[0] + " no válida");
                 }
@@ -72,6 +72,23 @@ public class Controller extends HttpServlet {
         System.out.println(strAction);
     }
 
+    private void processJsonRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        BufferedReader reader = request.getReader();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            sb.append(line);
+        }
+
+        // Parsear JSON
+        Gson gson = new Gson();
+        Map<String, String> formData = gson.fromJson(sb.toString(), HashMap.class);
+
+        response.setContentType("application/json;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.print(gson.toJson(formData));
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -81,6 +98,10 @@ public class Controller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        if (request.getServletPath().equals("/mi-endpoint")) {
+            processJsonRequest(request, response);
+        } else {
+            processRequest(request, response);
+        }
     }
 }

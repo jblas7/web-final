@@ -38,23 +38,35 @@ public class ClienteDao implements IDao<Cliente, Integer> {
         return clientes;
     }
 
-
     @Override
     public int add(Cliente cliente) {
         MotorSQL motor = new MotorSQL();
         int iFilasAnadidas = 0;
         try {
             motor.connect();
-            String sql = "INSERT INTO Cliente (Nombre, Apellido, Telefono, Email, Contrasena) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement ps = motor.getPreparedStatement(sql);
-            ps.setString(1, cliente.getNombre());
-            ps.setString(2, cliente.getApellido());
-            ps.setString(3, cliente.getTelefono());
-            ps.setString(4, cliente.getEmail());
-            ps.setString(5, cliente.getContrasena());
 
-            iFilasAnadidas = ps.executeUpdate();
-            ps.close();
+            // Generar un ID único
+            int nextId = generateUniqueClientId();
+
+            // Verificar si se generó correctamente el ID único
+            if (nextId != -1) {
+                cliente.setIdCliente(nextId);
+
+                String sql = "INSERT INTO Cliente (ID_Cliente, Nombre, Apellido, Telefono, Email, Contrasena) VALUES (?, ?, ?, ?, ?, ?)";
+                PreparedStatement ps = motor.getPreparedStatement(sql);
+                ps.setInt(1, cliente.getIdCliente());
+                ps.setString(2, cliente.getNombre());
+                ps.setString(3, cliente.getApellido());
+                ps.setString(4, cliente.getTelefono());
+                ps.setString(5, cliente.getEmail());
+                ps.setString(6, cliente.getContrasena());
+
+                iFilasAnadidas = ps.executeUpdate();
+                ps.close();
+            } else {
+                // No se pudo generar un ID único
+                System.err.println("No se pudo generar un ID único para el cliente.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -63,6 +75,24 @@ public class ClienteDao implements IDao<Cliente, Integer> {
         return iFilasAnadidas;
     }
 
+    private int generateUniqueClientId() {
+        // Aquí puedes implementar la lógica para generar un ID único, por ejemplo, basado en la fecha y hora actual,
+        // o utilizando una estrategia de generación de IDs como UUID.
+        // Por ejemplo:
+        int id = -1; // Valor por defecto si la generación falla
+        try {
+            // Ejemplo de generación de ID basado en la fecha y hora actual
+            // Aquí puedes implementar tu lógica específica para generar el ID único
+            // Por ejemplo, podrías usar un contador atómico, un UUID o cualquier otra estrategia de generación de IDs.
+
+            // En este ejemplo, se genera un ID basado en la fecha y hora actual
+            long timestamp = System.currentTimeMillis();
+            id = (int) timestamp; // Puedes ajustar esta lógica según tus necesidades
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
 
 
     @Override
@@ -118,12 +148,11 @@ public class ClienteDao implements IDao<Cliente, Integer> {
         return iFilasActualizadas;
     }
 
-
     @Override
     public int delete(Integer idCliente) {
         MotorSQL motor = new MotorSQL();
         int iFilasBorradas = 0;
-        try{
+        try {
             motor.connect();
             String sql = "DELETE from CLIENTE where ID_CLIENTE = ?";
             PreparedStatement ps = motor.getPreparedStatement(sql);
@@ -132,17 +161,15 @@ public class ClienteDao implements IDao<Cliente, Integer> {
             iFilasBorradas = ps.executeUpdate();
             ps.close();
 
-        }catch (Exception e){
+        } catch (Exception e){
             System.out.println(e.getMessage());
-        }finally {
+        } finally {
             motor.disconnect();
         }
         return iFilasBorradas;
-
     }
 
-
-    public Cliente login(String email, String contrasena){
+    public Cliente login(String email, String contrasena) {
         MotorSQL motor = new MotorSQL();
         Cliente cliente = null;
         try {
