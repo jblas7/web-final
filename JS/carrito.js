@@ -163,6 +163,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Recolectar datos del formulario
     var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
+    var calle = document.getElementById('calle').value;
+    var portal = document.getElementById('portal').value;
+    var piso = document.getElementById('piso').value;
+    var letra = document.getElementById('letra').value;
     var modoEntrega = document.getElementById('modoEntrega').value;
     var horaEntrega = document.getElementById('horaEntrega').value;
     var shop = document.getElementById('Shop').value;
@@ -179,7 +183,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Construir la URL de la solicitud
-    const url = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&tipoPedido=${tipoPedido}&modoEntrega=${modoEntrega}&horaEntrega=${horaEntrega}&shop=${shop}&modoRecoger=${modoRecoger}&horaRecoger=${horaRecoger}&estado=${estado}&idCliente=${idCliente}&idTrabajador=${idTrabajador}`;
+    let url = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&tipoPedido=${tipoPedido}&estado=${estado}&idCliente=${idCliente}&idTrabajador=${idTrabajador}`;
+
+    // Añadir los parámetros según el tipo de pedido
+    if (tipoPedido === 'entregaDomicilio') {
+        url += `&calle=${encodeURIComponent(calle)}&portal=${encodeURIComponent(portal)}&piso=${encodeURIComponent(piso)}&letra=${encodeURIComponent(letra)}&modoEntrega=${encodeURIComponent(modoEntrega)}&horaEntrega=${encodeURIComponent(horaEntrega)}`;
+    } else if (tipoPedido === 'recogerLocal') {
+        url += `&shop=${encodeURIComponent(shop)}&modoRecoger=${encodeURIComponent(modoRecoger)}&horaRecoger=${encodeURIComponent(horaRecoger)}`;
+    }
 
     // Realizar la solicitud fetch
     try {
@@ -217,8 +228,43 @@ function mostrarHoraRecoger() {
     document.getElementById('horaRecogerDiv').style.display = modoRecoger === "Schedule Pickup" ? 'block' : 'none';
 }
 
-
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -313,7 +359,7 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc) {
     var nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
     for (var i = 0; i < nombresItemsCarrito.length; i++) {
         if (nombresItemsCarrito[i].innerText == titulo) {
-            alert("El item ya se encuentra en el carrito");
+            alert("The item is already in the cart");
             return;
         }
     }
@@ -427,9 +473,26 @@ function actualizarTotalCarrito() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function realizarPedido() {
     // Mostrar el mensaje
-    alert("Se ha realizado tu pedido, disfruta!");
+    alert("Your order has been placed, enjoy!");
     // Recargar la página
     window.location.reload();
   }
@@ -555,94 +618,92 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-  
-
   function mostrarOpciones() {
-    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
-    if (tipoPedido === "entregaDomicilio") {
-        document.getElementById('opcionesEntrega').style.display = 'block';
-        document.getElementById('opcionesRecoger').style.display = 'none';
-    } else if (tipoPedido === "recogerLocal") {
-        document.getElementById('opcionesEntrega').style.display = 'none';
-        document.getElementById('opcionesRecoger').style.display = 'block';
+    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
+    if (!tipoPedido) return;
+
+    var opcionesEntrega = document.getElementById('opcionesEntrega');
+    var opcionesRecoger = document.getElementById('opcionesRecoger');
+
+    if (tipoPedido.value === "entregaDomicilio") {
+        opcionesEntrega.style.display = 'block';
+        opcionesRecoger.style.display = 'none';
+    } else if (tipoPedido.value === "recogerLocal") {
+        opcionesEntrega.style.display = 'none';
+        opcionesRecoger.style.display = 'block';
     }
 }
 
 function mostrarHoraEntrega() {
     var modoEntrega = document.getElementById('modoEntrega').value;
-    if (modoEntrega === "Schedule Shipment") {
-        document.getElementById('horaEntregaDiv').style.display = 'block';
-    } else {
-        document.getElementById('horaEntregaDiv').style.display = 'none';
-    }
+    var horaEntregaDiv = document.getElementById('horaEntregaDiv');
+
+    horaEntregaDiv.style.display = (modoEntrega === "Schedule Shipment") ? 'block' : 'none';
 }
 
 function mostrarHoraRecoger() {
     var modoRecoger = document.getElementById('modoRecoger').value;
-    if (modoRecoger === "Schedule Pickup") {
-        document.getElementById('horaRecogerDiv').style.display = 'block';
-    } else {
-        document.getElementById('horaRecogerDiv').style.display = 'none';
-    }
+    var horaRecogerDiv = document.getElementById('horaRecogerDiv');
+
+    horaRecogerDiv.style.display = (modoRecoger === "Schedule Pickup") ? 'block' : 'none';
 }
 
 function guardarFormulario(event) {
     event.preventDefault();
     if (validarFormulario()) {
         document.getElementById("formularioPedido").style.display = "none";
-        alert("Form submitted successfully!");
+        alert("Formulario enviado exitosamente.");
     }
 }
 
 function validarFormulario() {
     var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
     if (!tipoPedido) {
-        alert("Please select the type of order.");
+        alert("Por favor, selecciona el tipo de pedido.");
         return false;
     }
 
-    if (tipoPedido.value === "entregaDomicilio") {
-        var calle = document.getElementById("calle").value.trim();
-        var portal = document.getElementById("portal").value.trim();
-        var piso = document.getElementById("piso").value.trim();
-        var letra = document.getElementById("letra").value.trim();
-        var modoEntrega = document.getElementById("modoEntrega").value;
+    var calle = document.getElementById("calle").value.trim();
+    var portal = document.getElementById("portal").value.trim();
+    var piso = document.getElementById("piso").value.trim();
+    var letra = document.getElementById("letra").value.trim();
+    var modoEntrega = document.getElementById("modoEntrega").value;
+    var horaEntrega = document.getElementById("horaEntrega").value.trim();
+    var nombreRecoger = document.getElementById("nombreRecoger").value.trim();
+    var telefono = document.getElementById("telefono").value.trim();
+    var horaRecoger = document.getElementById("horaRecoger").value.trim();
 
+    if (tipoPedido.value === "entregaDomicilio") {
         if (calle === "" || portal === "" || piso === "" || letra === "") {
-            alert("Please complete all fields for the delivery address.");
+            alert("Por favor, completa todos los campos para la dirección de entrega.");
             return false;
         }
 
         if (modoEntrega === "") {
-            alert("Please select a delivery mode.");
+            alert("Por favor, selecciona un modo de entrega.");
             return false;
         }
 
-        if (modoEntrega === "Schedule Shipment") {
-            var horaEntrega = document.getElementById("horaEntrega").value.trim();
-            if (horaEntrega === "") {
-                alert("Please enter the delivery time.");
-                document.getElementById("horaEntrega").focus();
-                return false;
-            }
+        if (modoEntrega === "Schedule Shipment" && horaEntrega === "") {
+            alert("Por favor, ingresa la hora de entrega.");
+            document.getElementById("horaEntrega").focus();
+            return false;
         }
     } else if (tipoPedido.value === "recogerLocal") {
-        var modoRecoger = document.getElementById("modoRecoger").value;
-
-        if (modoRecoger === "") {
-            alert("Please select a pickup mode.");
+        if (nombreRecoger === "" || telefono === "") {
+            alert("Por favor, completa todos los campos para la recogida en local.");
             return false;
         }
 
-        if (modoRecoger === "Schedule Pickup") {
-            var horaRecoger = document.getElementById("horaRecoger").value.trim();
-            if (horaRecoger === "") {
-                alert("Please enter the pick-up time.");
-                document.getElementById("horaRecoger").focus();
-                return false;
-            }
+        if (modoRecoger === "") {
+            alert("Por favor, selecciona un modo de recogida.");
+            return false;
+        }
+
+        if (modoRecoger === "Schedule Pickup" && horaRecoger === "") {
+            alert("Por favor, ingresa la hora de recogida.");
+            document.getElementById("horaRecoger").focus();
+            return false;
         }
     }
 
@@ -650,34 +711,28 @@ function validarFormulario() {
 }
 
 window.onload = function() {
-    mostrarOpciones();
-};
-document.getElementById("formularioPedido").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevenir el envío automático del formulario
-
-    // Verificar si los campos están completos
-    var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked');
-    var nombre = document.getElementById("nombre").value.trim();
-    var telefonoEntrega = document.getElementById("telefonoEntrega").value.trim();
-    var calle = document.getElementById("calle").value.trim();
-    var portal = document.getElementById("portal").value.trim();
-    var piso = document.getElementById("piso").value.trim();
-    var letra = document.getElementById("letra").value.trim();
-    var horaEntrega = document.getElementById("horaEntrega").value.trim();
-    var nombreRecoger = document.getElementById("nombreRecoger").value.trim();
-    var telefono = document.getElementById("telefono").value.trim();
-    var horaRecoger = document.getElementById("horaRecoger").value.trim();
-
-    if (!tipoPedido || 
-        (tipoPedido.value === "entregaDomicilio" && (nombre === "" || telefonoEntrega === "" || calle === "" || portal === "" || piso === "" || letra === "" || horaEntrega === "")) || 
-        (tipoPedido.value === "recogerLocal" && (nombreRecoger === "" || telefono === "" || horaRecoger === ""))) {
-        alert("Por favor, complete todos los campos antes de enviar el formulario.");
-        return;
+    var formularioPedido = document.getElementById("formularioPedido");
+    if (formularioPedido) {
+        mostrarOpciones();
+        formularioPedido.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevenir el envío automático del formulario
+            guardarFormulario(event);
+        });
     }
+};
 
-    // Si todos los campos están completos, se envía el formulario
-    // Si la acción del formulario está configurada, la página se recargará a "carrito.html" automáticamente
-});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /*APERTURA PARA INFORMACION*/  
