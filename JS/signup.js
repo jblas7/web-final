@@ -7,24 +7,20 @@ document.getElementById('clienteForm').addEventListener('submit', async function
     var telefono = document.getElementById('telefono').value;
     var contrasena = document.getElementById('contrasena').value;
     var repetirContrasena = document.getElementById('repetirContrasena').value;
-    var calle = document.getElementById('direccion').value; // Nuevo campo para la calle
-    var portal = document.getElementById('portal').value; // Nuevo campo para el portal
-    var piso = document.getElementById('piso').value; // Nuevo campo para el piso
-    var letra = document.getElementById('letra').value; // Nuevo campo para la letra
     var messageContainer = document.getElementById('messageContainer');
 
-    if (!nombre || !apellido || !email || !telefono || !contrasena || !repetirContrasena || !calle || !portal || !piso || !letra) {
-        alert('Please complete all fields.');
+    if (!nombre || !apellido || !email || !telefono || !contrasena || !repetirContrasena) {
+        messageContainer.innerHTML = "<p class='error-message'>Please complete all fields.</p>";
         return;
     }
 
     if (contrasena !== repetirContrasena) {
-        alert('Passwords do not match. Please try again.');
+        messageContainer.innerHTML = "<p class='error-message'>Passwords do not match. Please try again.</p>";
         return;
     }
 
-    // Construcción de la URL con los nuevos campos
-    const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido=${apellido}&telefono=${telefono}&email=${email}&contrasena=${contrasena}&calle=${calle}&portal=${portal}&piso=${piso}&letra=${letra}`;
+    // Construcción de la URL
+    const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido=${apellido}&telefono=${telefono}&email=${email}&contrasena=${contrasena}`;
     
     // Modificamos la solicitud para que sea una solicitud GET en lugar de una solicitud POST
     fetch(url)
@@ -44,6 +40,9 @@ document.getElementById('clienteForm').addEventListener('submit', async function
         });
 });
 
+  
+
+  
   
 
 

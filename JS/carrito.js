@@ -156,59 +156,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-  /*FETCH PEDIDOOOOOO*/
+/*FETCH PEDIDOOOOOOOOOO*/
   document.addEventListener("DOMContentLoaded", function() {
     // Aquí va el código que se ejecutará cuando el DOM esté completamente cargado
     
-    // Función para guardar el formulario de cliente
-    async function guardarCliente(calle, portal, piso, letra) {
-        // Construir la URL de la solicitud para guardar cliente
-        let clienteUrl = `http://localhost:8080/PecBurger/Controller?action=clientes.add&calle=${(calle)}&portal=${(portal)}&piso=${(piso)}&letra=${(letra)}`;
-        const url = `http://localhost:8080/PecBurger/Controller?action=clientes.add&nombre=${nombre}&apellido=${apellido}&telefono=${telefono}&email=${email}&contrasena=${contrasena}calle=${(calle)}&portal=${(portal)}&piso=${(piso)}&letra=${(letra)}`;
-        try {
-            // Realizar la solicitud fetch para guardar cliente
-            const clienteResponse = await fetch(clienteUrl, {
-                method: 'GET'
-            });
-            const clienteData = await clienteResponse.text();
-            console.log(clienteData);
-            return clienteData;
-        } catch (error) {
-            console.error('Fetch error:', error);
-            return null;
-        }
-    }
-
     // Función para guardar el formulario de pedido
-    async function guardarPedido(tipoPedido, modoEntrega, horaEntrega, shop, modoRecoger, horaRecoger) {
-        // Construir la URL de la solicitud para guardar pedido
-        let pedidoUrl = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&tipo_pedido=${tipoPedido}&modo_entrega=${encodeURIComponent(modoEntrega)}&hora_entrega=${encodeURIComponent(horaEntrega)}&shop=${encodeURIComponent(shop)}&modo_recoger=${encodeURIComponent(modoRecoger)}&hora_recoger=${encodeURIComponent(horaRecoger)}`;
-
-        try {
-            // Realizar la solicitud fetch para guardar pedido
-            const pedidoResponse = await fetch(pedidoUrl, {
-                method: 'GET'
-            });
-            const pedidoData = await pedidoResponse.text();
-            console.log(pedidoData);
-            return pedidoData;
-        } catch (error) {
-            console.error('Fetch error:', error);
-            return null;
-        }
-    }
-
-    // Función para manejar el envío del formulario
     async function guardarFormulario(event) {
         event.preventDefault(); // Previene el comportamiento por defecto del formulario
-
-        // Recolectar datos del formulario de cliente
-
-        var calle = document.getElementById('calle').value;
-        var portal = document.getElementById('portal').value;
-        var piso = document.getElementById('piso').value;
-        var letra = document.getElementById('letra').value;
 
         // Recolectar datos del formulario de pedido
         var tipoPedido = document.querySelector('input[name="tipoPedido"]:checked').value;
@@ -218,38 +172,56 @@ document.addEventListener("DOMContentLoaded", function() {
         var modoRecoger = document.getElementById('modoRecoger').value;
         var horaRecoger = document.getElementById('horaRecoger').value;
 
-        // Validar campos obligatorios para cliente
-        if (!calle || !portal || !piso || !letra) {
-            alert("Faltan datos obligatorios para el cliente");
+        // Validar campos obligatorios para pedido
+        if (!tipoPedido) {
+            alert("Please select Order Type");
+            return;
+        }
+        if (!modoEntrega && tipoPedido === "entregaDomicilio") {
+            alert("Please select Delivery Mode");
+            return;
+        }
+        if (!horaEntrega && modoEntrega === "Schedule Shipment") {
+            alert("Please select Delivery Time");
+            return;
+        }
+        if (!shop && tipoPedido === "recogerLocal") {
+            alert("Please select Pickup Shop");
+            return;
+        }
+        if (!modoRecoger && tipoPedido === "recogerLocal") {
+            alert("Please select Pickup Mode");
+            return;
+        }
+        if (!horaRecoger && modoRecoger === "Schedule Pickup") {
+            alert("Please select Pick-up Time");
             return;
         }
 
-        // Guardar cliente
-        const clienteData = await guardarCliente(calle, portal, piso, letra);
+        // Construir la URL de la solicitud para guardar pedido
+        let pedidoUrl = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&tipo_pedido=${tipoPedido}&modo_entrega=${(modoEntrega)}&hora_entrega=${(horaEntrega)}&shop=${(shop)}&modo_recoger=${(modoRecoger)}&hora_recoger=${(horaRecoger)}`;
 
-        // Si el cliente se guarda correctamente, procedemos a guardar el pedido
-        if (clienteData && clienteData.includes("Cliente registrado exitosamente")) {
-            // Guardar pedido
-            const pedidoData = await guardarPedido(tipoPedido, modoEntrega, horaEntrega, shop, modoRecoger, horaRecoger);
-            if (pedidoData) {
+        try {
+            // Realizar la solicitud fetch para guardar pedido
+            const pedidoResponse = await fetch(pedidoUrl, {
+                method: 'GET'
+            });
+            const pedidoData = await pedidoResponse.text();
+            console.log(pedidoData);
+            if (pedidoData.includes("Pedido guardado exitosamente")) {
                 alert("Pedido guardado exitosamente");
             } else {
                 alert("Error al guardar el pedido");
             }
-        } else {
-            alert("Error al guardar el cliente");
+        } catch (error) {
+            console.error('Fetch error:', error);
+            alert("Error al guardar el pedido");
         }
     }
 
     // Asignar la función guardarFormulario al evento submit del formulario
     document.getElementById('formularioPedido').addEventListener('submit', guardarFormulario);
 });
-
-
-
-
-
-
 
 
 
@@ -481,6 +453,36 @@ function actualizarTotalCarrito() {
     // Mostramos el total en el elemento correspondiente
     document.getElementsByClassName('carrito-precio-total')[0].innerText = formattedTotal;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
