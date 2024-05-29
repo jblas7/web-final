@@ -838,12 +838,21 @@ nav.principal a:hover {
 
 
 
+.contenido-ventana::-webkit-scrollbar {
+  display: none;
+}
 
 
 
+.shipping{
+  font-size: 18px;
+  text-align: center;
+}
+.info-envio {
+align-items: center;
 
 
-
+}
 
 .medio {
 

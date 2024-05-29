@@ -485,14 +485,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const userDataElement = document.createElement("div");
         userDataElement.classList.add("user-data");
         userDataElement.innerHTML = `
-            <p><strong>Nombre:</strong> ${lastData.nombre}</p>
-            <p><strong>Apellido:</strong> ${lastData.apellido1}</p>
+            <p class="shipping"><strong>Your shipping information here:</strong></p>
             <p><strong>Email:</strong> ${lastData.email}</p>
-            <p><strong>Teléfono:</strong> ${lastData.telefono}</p>
-            <p><strong>Dirección:</strong> ${lastData.direccion}</p>
-            <p><strong>Portal:</strong> ${lastData.portal}</p>
-            <p><strong>Piso:</strong> ${lastData.piso}</p>
-            <p><strong>Letra del Apartamento:</strong> ${lastData.letra}</p>
+            <p><strong>Phone:</strong> ${lastData.telefono}</p>
+            <p><strong>Address:</strong> ${lastData.direccion}</p>
+            <p ><strong>Hall:</strong> ${lastData.portal}</p>
+            <p><strong>Floor:</strong> ${lastData.piso}</p>
+            <p><strong>Letter:</strong> ${lastData.letra}</p>
         `;
         
         dataContainer.appendChild(userDataElement);
