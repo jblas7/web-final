@@ -1,0 +1,1094 @@
+body {
+
+
+    font-family: "Lexend", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+    background-color: #fff;
+    scroll-behavior: smooth;
+  }
+  
+  header {
+    top: 0;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 26%, rgba(244, 244, 244, 1) 54%, rgba(241, 241, 241, 1) 71%, rgba(251, 251, 251, 1) 100%);
+    position: fixed;
+    /*LEFT NO HACE FALTA*/
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 1;
+    width: 100%;
+  
+  }
+  
+  
+  
+  
+  
+  .img-logo {
+    width: 85px;
+    transition: transform 0.3s ease;
+  
+  }
+  
+  .img-logo:hover {
+    transform: scale(1.1);
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-left: 57px;
+  }
+  
+  nav ul li:first-child {
+    margin-left: 0;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .botonMenu {
+    display: none;
+  
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: #99B2B7;
+    border: 0;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Se le quita el borde azul cuando se pulsa en Chrome */
+  .botonMenu:focus {
+  
+    outline: none;
+  }
+  
+  /* Cuando es pulsado, se quita el translate que lo ocultaba */
+  .botonMenu:focus+.principal {
+  
+    transform: translateX(0rem);
+  }
+  
+  /* Se posiciona y se oculta con translate */
+  nav.principal {
+  
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 15rem;
+    background-color: #7A6A53;
+    transform: translateX(15rem);
+    transition: 1s all;
+  }
+  
+  /* Estilos sencillos para decorar los links */
+  nav.principal ul {
+  
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav.principal a {
+  
+    display: block;
+    color: #D5DED9;
+    padding: 1rem;
+    transition: .5s all;
+  }
+  
+  nav.principal a:hover {
+  
+    text-decoration: none;
+    background-color: #948C75;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .item-header {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 18px;
+    /*tamaño letra header*/
+    font-weight: bold;
+    /*letra negrita header*/
+    font-family: "Seymour One", sans-serif;
+    /*tipografía para el header*/
+    word-spacing: 10px;
+    /*espaciado entre palabras*/
+  
+  }
+  
+  .item-header:hover {
+    color: #ff3b55;
+  }
+  
+  .parte-izqda{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 95px;
+    margin-left: 65px;
+  }
+  
+  .parte-dcha {
+    display: flex;
+    align-items: center;
+    color: #000000;
+  
+    width: calc(100% - 105px);
+  
+  }
+  
+  .parte-norm-dcha {
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  
+  .parte-guay-dcha {
+    margin-right: 50px;
+    
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+  
+  }
+  
+  .custom-boton {
+    font-family: "Seymour One", sans-serif;
+    background-color: #ffd5d5;
+    color: #ff3b55;
+    border: none;
+    padding: 18px 20px;
+    font-size: 16px;
+    border-radius: 0px 25% 0px 25%;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex; /* Usa flexbox */
+    text-align: center;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+  }
+  
+  .custom-boton:hover {
+    font-family: "Seymour One", sans-serif;
+    background-color: #ffeff1;
+    color: #000000;
+    font-weight: bold;
+  
+  }
+  
+  .custom-boton2 {
+    font-family: "Seymour One", sans-serif;
+    background-color: #ff3b55;
+    color: #ffffff;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 25px 0% 25px 0%;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex; /* Usa flexbox */
+    text-align: center;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+  }
+  
+  .custom-boton2:hover {
+    font-family: "Seymour One", sans-serif;
+    background-color: #ff8795;
+  
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Estilos para el botón hamburguesa */
+  .dropbtn {
+    display: none;
+    background-color: transparent;
+    /* Hacemos el fondo transparente */
+    border: none;
+    /* Eliminamos el borde */
+    padding: 0;
+    /* Eliminamos el relleno para que las líneas queden bien alineadas */
+    cursor: pointer;
+  }
+  
+  .dropbtn .bar {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: #000000;
+    margin: 4px auto;
+    /* Espaciado entre las barras */
+  }
+  
+  /* Cambiamos el color de las barras al pasar el mouse */
+  .dropbtn:hover .bar {
+    background-color: brown;
+  }
+  
+  /* Estilos para el menú desplegable */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    /* Ocultamos el menú por defecto */
+    position: absolute;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    right: 0;
+    /* Posicionamos el menú a la derecha */
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .cuerpo-web {
+    margin-top: 95px;
+  
+  
+  
+  }
+
+
+
+
+
+
+
+
+
+  .img-delivery {
+    width: 210px;
+  
+    margin-left: 50px;
+    margin-right: 50px;
+   
+    transition: transform 0.3s ease, filter 0.3s ease;
+  
+    /* Transición suave */
+  }
+  
+  
+  .div-img-arr {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  
+    width: 100%;
+  
+  }
+  
+  .div-img-arr :hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  
+  }
+
+
+
+
+
+
+
+
+  .error-message {
+    color: #D8000C;
+    background-color: #FFBABA;
+    padding: 10px;
+    border: 1px solid #D8000C;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.success-message {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    padding: 10px;
+    border: 1px solid #4F8A10;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+
+  
+  
+  .fondo-formulario-signup {
+    background-image: url("../IMG/img-foto-grande-3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.formulario-registro-signup {
+    background-color: rgba(54, 53, 53, 0.95);
+    padding: 2%;
+    border-radius: 15px;
+    width: 40%;
+    height: 40%;
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+.titulo-registro-signup {
+    font-family: "Seymour One", sans-serif;
+    color: #ffffff;
+    border: none;
+    font-size: 40px;
+    border-radius: 25px 0% 25px 0%;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.casilla-info-registro-signup {
+   
+    flex-direction: column;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.enunciado-casilla-info-registros-signup {
+    display: flex;
+    font-family: 'Lexend';
+    color: #ffffff;
+    font-size: 30px;
+    margin-top: 10px;
+    font-weight: bold;
+    padding-bottom: 15px;
+   
+  
+}
+
+.formulario-input-registros-signup {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    width: 100%;
+
+}
+
+
+
+
+.crear-cuenta-boton {
+  display: block;
+  margin: 10px auto;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: "Seymour One", sans-serif;
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  padding: 10px 16px;
+  font-size: 26px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.crear-cuenta-boton:hover {
+
+  color: #ffffff;
+  background-color: #ea344c;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+  padding: 10px 14px;
+  font-size: 30px;
+  border-radius: 0px 25% 0px 25%;
+  word-spacing: 3px;
+}
+
+
+
+.enlace-iniciar-sesion-signup {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 3%;
+  text-align: center;
+
+  background-color: #ff3b55;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 15px 20px;
+  font-size: 26px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.enlace-iniciar-sesion-signup {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 3%;
+  text-align: center;
+  font-family: 'Seymour One'; 
+
+  text-decoration: none;
+
+
+  border: none;
+  background: #ff3b55;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 19px;
+  align-items: center;
+  cursor: pointer;
+  transition: .3s;
+
+  transition: all 0.3s ease;
+}
+
+
+
+
+.enlace-iniciar-sesion-signup:hover {
+
+  scale: 1.05;
+  color: #ff3b55;
+  background-color: #fff;
+  border: 1px solid #000;
+  font-size: 21px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+.scroll-top-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+
+  text-decoration: none;
+  color: #ffffff;
+  display: none;
+  /* Ocultar el botón por defecto */
+  transition: all 0.3s ease;
+
+  background-color: #ff3b55;
+
+
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 20px 30px;
+  font-size: 18px;
+  border-radius: 0px 25% 0px 25%;
+}
+
+.scroll-top-button:hover {
+
+
+
+  background-color: #ffd5d5;
+  color: #ff3b55;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px 30px;
+  /* Ajusta el tamaño del botón según sea necesario */
+  border-radius: 50%;
+  /* Hace que el botón sea redondo */
+  text-decoration: none;
+
+}
+
+.scroll-top-button.show {
+  display: block;
+  /* Mostrar el botón cuando sea necesario */
+
+}
+
+
+
+
+
+
+
+  
+.ya-tiene-cuenta-enlace {
+    margin-top: 10%;
+    color: #ffffff;
+    font-family: 'Lexend';
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  footer {
+    background-color: #ffffff00;
+    color: #000000;
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+    /* Coloca el footer al final de la página */
+  
+  }
+  
+  .link-chorra {
+    text-decoration: none;
+    color: #ff3b55;
+  }
+  
+  .link-chorra:hover {
+    color: #ff94a0;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 15px;
+  }
+  
+  
+  .letra-redes {
+    color: #f4eeee;
+    text-align: center;
+  
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+    /*tamaño letra header*/
+  
+    font-family: "Seymour One", sans-serif;
+    /*tipografía para el header*/
+    word-spacing: 10px;
+    /*espaciado entre palabras*/
+  
+  }
+  
+  .redes-footer {
+    align-items: center;
+    padding-top: 80px;
+    background: rgb(255, 59, 85);
+    background: linear-gradient(0deg, rgb(255, 59, 85) 0%, rgb(255, 149, 163) 70%, rgb(252, 209, 215) 85%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+  }
+  
+  .redes {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+    background: rgb(255, 59, 85);
+  
+  }
+  
+  
+  .social-img {
+    margin: 25px;
+    /* Ajusta el espacio entre cada icono */
+    justify-content: center;
+  }
+  
+  .social-img img {
+    width: 37px;
+    /* Ajusta el tamaño de los iconos */
+    height: auto;
+    justify-content: center;
+  }
+  
+  
+  
+  
+  .footer-links {
+    padding-bottom: 12px;
+    justify-content: space-around;
+    align-items: center;
+    word-spacing: 2px;
+  
+  
+    margin: 0 auto;
+    background: #ff3b55;
+  
+  }
+  
+  .contenedor-links {
+  
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+    word-spacing: 100px;
+  }
+  
+  .item-footer {
+    color: #f4eeee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-bottom: 10px;
+    font-size: 10px;
+    /*tamaño letra footer*/
+  
+    font-family: "Seymour One", sans-serif;
+    /*tipografía para el footer*/
+    word-spacing: 4px;
+    /*espaciado entre palabras*/
+  
+  
+  }
+  
+  .item-footer:hover {
+    color: #ffd5d5;
+  }
+  
+  .img-logo-footer {
+    width: 115px;
+  
+  }
+  
+  .img-fin {
+    justify-content: space-around;
+    background: rgb(255, 59, 85);
+    align-items: center;
+    padding-top: 0x;
+    align-items: center;
+    padding-bottom: 30px;
+  
+  }
+  
+  
+  .pt-abajo-footer {
+    font-family: "Lexend", sans-serif;
+    color: #f4eeee;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    word-spacing: 2px;
+    background-color: #000000;
+  }
+  
+  
+  
+  
+  
+  
+  
+  /*responsive*/
+  
+  @media (max-width:450px) {
+  
+    header {
+  
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      align-items: center;
+  
+  
+      background: rgb(255, 255, 255);
+      background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 26%, rgba(244, 244, 244, 1) 54%, rgba(241, 241, 241, 1) 71%, rgba(251, 251, 251, 1) 100%);
+      position: relative;
+      padding-left: 80px;
+      padding-right: 60px;
+      width: 100%;
+  
+    }
+  
+    .contenedor-links {
+  
+      justify-content: space-around;
+      align-items: center;
+      margin: 0 auto;
+      display: flex;
+      max-width: 700px;
+      width: 100%;
+      word-spacing: 100px;
+      display: inline-grid;
+    }
+  
+    .img-logo {
+      margin-left: -40px;
+      width: 85px;
+  
+    }
+  
+  
+    .letra-redes {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  
+  .parte-izqda{
+    margin-right: 125px;
+  }
+    .parte-dcha {
+      display: none;
+      align-items: center;
+      color: #000000;
+      padding: 10px;
+      width: calc(100% - 105px);
+      margin-right: 60px;
+  
+  
+    }
+  
+    .item-header {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 6px;
+      /*tamaño letra header*/
+      font-weight: bold;
+      /*letra negrita header*/
+      font-family: "Seymour One", sans-serif;
+      /*tipografía para el header*/
+      word-spacing: 10px;
+      /*espaciado entre palabras*/
+    }
+  
+  
+  
+  
+  .formulario-registro-signup {
+    width: 100%;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    .cuerpo-web {
+      margin-top: 5px;
+  
+  
+  
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    .item-footer {
+      color: #f4eeee;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      margin-bottom: 10px;
+      font-size: 8px;
+      /*tamaño letra footer*/
+  
+      font-family: "Seymour One", sans-serif;
+      /*tipografía para el footer*/
+      word-spacing: 4px;
+      /*espaciado entre palabras*/
+  
+  
+    }
+  
+    .botonMenu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 3rem;
+      position: static;
+      top: 1rem;
+      right: 1rem;
+      background-color: #99B2B7;
+      border: 0;
+      color: white;
+      cursor: pointer;
+    }
+  
+    /* Se le quita el borde azul cuando se pulsa en Chrome */
+    .botonMenu:focus {
+      outline: none;
+    }
+  
+    /* Cuando es pulsado, se quita el translate que lo ocultaba */
+    .botonMenu:focus+.principal {
+      transform: translateX(0rem);
+    }
+  
+    /* Se posiciona y se oculta con translate */
+    nav.principal {
+  
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 15rem;
+      background-color: #7A6A53;
+      transform: translateX(15rem);
+      transition: 1s all;
+    }
+  
+    /* Estilos sencillos para decorar los links */
+    nav.principal ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    nav.principal a {
+      display: block;
+      color: #D5DED9;
+      padding: 1rem;
+      transition: .5s all;
+    }
+  
+    nav.principal a:hover {
+      text-decoration: none;
+      background-color: #948C75;
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    /* Estilos para el botón hamburguesa */
+    .dropbtn {
+      display: contents;
+      background-color: transparent;
+      /* Hacemos el fondo transparente */
+      border: none;
+      /* Eliminamos el borde */
+      padding: 0;
+      /* Eliminamos el relleno para que las líneas queden bien alineadas */
+      cursor: pointer;
+    }
+  
+    .dropbtn .bar {
+      display: block;
+      width: 20px;
+      height: 3px;
+      background-color: #000000;
+      margin: 4px auto;
+      /* Espaciado entre las barras */
+    }
+  
+    /* Cambiamos el color de las barras al pasar el mouse */
+    .dropbtn:hover .bar {
+      background-color: rgb(255, 59, 85);
+    }
+  
+    /* Estilos para el menú desplegable */
+    .dropdown {
+  
+      position: relative;
+      display: inline-block;
+  
+    }
+  
+    .dropdown-content {
+      display: none;
+      /* Ocultamos el menú por defecto */
+      position: absolute;
+      background: rgb(110, 110, 110);
+      background: radial-gradient(circle, rgba(110, 110, 110, 1) 0%, rgba(51, 51, 51, 1) 64%, rgba(0, 0, 0, 1) 100%);
+      min-width: 230px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      right: 0;
+      /* Posicionamos el menú a la derecha */
+    }
+  
+    .dropdown-content a {
+      color: rgb(255, 255, 255);
+      padding: 16px 20px;
+      display: block;
+      font-family: "Seymour One", sans-serif;
+      font-size: 11px;
+      word-spacing: 3px;
+      margin: 10px;
+  
+    }
+  
+    .dropdown-content a:hover {
+      background-color: rgb(255, 59, 85);
+    }
+  
+    .dropdown:hover .dropdown-content {
+      display: block;
+      /* Mostramos el menú al hacer hover */
+    }
+  
+    #closeBtn {
+      display: block;
+      background-color: transparent;
+      border: none;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      padding: 8px 16px;
+      text-align: center;
+      cursor: pointer;
+    }
+  
+    #closeBtn:hover {
+      background-color: rgb(255, 59, 85);
+    }
+  
+  
+  
+  
+  }

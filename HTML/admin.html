@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEC Burger - Private Admin Area</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+    <link rel="icon" href="../IMG/favicon1.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!--LINK CARRUSEL AUTOMATICO [DEJAR PUESTO PARA EL FORMATO CORRECTO] (SOLO CAMBIA CUANDO NO SE PONE EL RATON ENCIMA)-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Seymour+One&display=swap');
+    </style>
+
+</head>
+
+<body>
+    <div id="login-form">
+        <form onsubmit="validateLogin(event)">
+            <h2>LOGIN</h2>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+
+    <header class="header">
+
+
+
+
+        <!--PARTE DEL MENÚ PARA EL RESPONSIVE-->
+        <div class="dropdown">
+            <button id="dropdownButton" class="dropbtn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div id="dropdownMenu" class="dropdown-content">
+
+                <a href="../HTML/menu.html">MENU</a>
+                <a href="../HTML/aboutus.html">THIS IS PEC</a>
+                <a href="../HTML/join_us.html">JOIN US</a>
+                <a href="../HTML/contact.html">CONTACT</a>
+
+                <div class="reservsss">
+
+                    <a href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+                </div>
+            </div>
+        </div>
+
+        <!--NAV (HEADER)-->
+        <div class="parte-izqda">
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo" src="../IMG/logo-img.png"
+                    alt="logo">
+            </a>
+
+
+        </div>
+
+
+        <div class="parte-dcha">
+
+            <div class="parte-norm-dcha">
+                <a class="item-header" href="../HTML/menu.html">MENU</a>
+
+                <a class="item-header" href="../HTML/aboutus.html">THIS IS PEC</a>
+                <a class="item-header" href="../HTML/join_us.html">JOIN US</a>
+                <a class="item-header" href="../HTML/contact.html">CONTACT</a>
+
+
+            </div>
+            <div class="parte-guay-dcha">
+
+                <div class="medio"></div>
+                <a class="custom-boton2" href="../HTML/menu.html">MAKE AN ORDER</a>
+
+
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <div class="cuerpo-web">
+
+
+
+        <div class="div-img-arr">
+            <img class="img-delivery" src="../IMG/LETRAS_PEC_PRIVATE.png" alt="">
+            <!--CONTROLADOR DE LOS BOTONES UTILES-->
+
+        </div>
+
+
+        <div class="botoness">
+            <div class="buttones-admin">
+                <a class="custom-boton-A" href="#">ADD PRODUCTS</a>
+                <a class="custom-boton-A" href="#">MODIFY PRODUCTS</a>
+                <a class="custom-boton-A" href="#">DELETE PRODUCTS</a>
+            </div>
+        
+        </div>
+
+        <div class="container">
+            <div class="cont-tit">
+                <h2 id="tx-en">STARTERS</h2>
+            </div>
+            <table class="menu-table">
+                <tr class="items">
+                    <td class="item">
+                        <span class="titulo-item">CHIKEN LOLIPOPS</span>
+
+                        <span class="precio-item">11.95</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">SPECIAL PECEÑOS</span>
+
+                        <span class="precio-item">8.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">PECRANCHO POTATOES</span>
+
+                        <span class="precio-item">11.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">TABLESIDE PECAMOLE</span>
+
+                        <span class="precio-item">14.50</span>
+                    </td>
+                </tr>
+            </table>
+    
+            <div class="cont-tit">
+                <h2 id="tx-smash">SMASH BURGERS</h2>
+            </div>
+            <table class="menu-table">
+                <tr class="items">
+                    <td class="item">
+                        <span class="titulo-item">PECTINENTE BURGER</span>
+
+                        <span class="precio-item">14.60</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">PECADORA BURGER</span>
+
+                        <span class="precio-item">14.80</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">MC & PEC'S BURGER</span>
+
+                        <span class="precio-item">13.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">PECLICIOSA BURGER</span>
+
+                        <span class="precio-item">14.50</span>
+                    </td>
+                </tr>
+            </table>
+    
+            <div class="cont-tit">
+                <h2 id="tx-medall">MEDALLION BURGERS</h2>
+            </div>
+            <table class="menu-table">
+                <tr class="items">
+                    <td class="item">
+                        <span class="titulo-item">PECEÑITA BURGER</span>
+
+                        <span class="precio-item">15.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">PECSCELENTE XXL</span>
+
+                        <span class="precio-item">18.50</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">PECDEROSA BURGER</span>
+ 
+                        <span class="precio-item">15.95</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">LITTLE PEC'S BURGER</span>
+             
+                        <span class="precio-item">16.50</span>
+                    </td>
+                </tr>
+            </table>
+    
+            <div class="cont-tit">
+                <h2 id="tx-sand">SANDWICHES</h2>
+            </div>
+            <table class="menu-table">
+                <tr class="items">
+                    <td class="item">
+                        <span class="titulo-item">THE FELIPECS SANDWICH</span>
+ 
+                        <span class="precio-item">15.50</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">THE CHEESERO SANDWICH</span>
+            
+                        <span class="precio-item">9.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">THE CREAMY BACON BUTTER</span>
+   
+                        <span class="precio-item">10.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">THE PECAMOLE BRIOCHE</span>
+
+                        <span class="precio-item">10.50</span>
+                    </td>
+                </tr>
+            </table>
+    
+            <div class="cont-tit">
+                <h2 id="tx-sals">EXTRA SAUCES</h2>
+            </div>
+            <table class="menu-table">
+                <tr class="items">
+                    <td class="item">
+                        <span class="titulo-item">BOURBON BBQ SAUCE</span>
+                
+                        <span class="precio-item">0.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">CHIPOTLE SAUCE</span>
+                 
+                        <span class="precio-item">0.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">SMOKED MAYO SAUCE</span>
+           
+                        <span class="precio-item">0.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">WASABI TOP SAUCE</span>
+                   
+                        <span class="precio-item">0.90</span>
+                    </td>
+                </tr>
+            </table>
+    
+            <div class="cont-tit">
+                <h2 id="tx-postr">DESSERTS</h2>
+            </div>
+            <table class="menu-table">
+                <tr class="items">
+                    <td class="item">
+                        <span class="titulo-item">LOTUS CHEESPEC</span>
+            
+                        <span class="precio-item">7.50</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">HIPO CHEESPEC</span>
+                
+                        <span class="precio-item">8.45</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">TRADI CHEESPEC</span>
+                
+                        <span class="precio-item">7.45</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">CHOCO BROWPEC</span>
+                 
+                        <span class="precio-item">6.45</span>
+                    </td>
+                </tr>
+            </table>
+    
+            <div class="cont-tit">
+                <h2 id="tx-beb">DRINKS</h2>
+            </div>
+            <table class="menu-table">
+                <tr class="items">
+                    <td class="item">
+                        <span class="titulo-item">COCA-COLA® ORIGINAL</span>
+
+                        <span class="precio-item">1.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">COCA‑COLA® ZERO SUGAR</span>
+                        
+                        <span class="precio-item">1.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">FANTA®</span>
+          
+                        <span class="precio-item">1.90</span>
+                    </td>
+                    <td class="item">
+                        <span class="titulo-item">SPRITE®</span>
+                     
+                        <span class="precio-item">1.90</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <footer>
+        <div class="redes-footer">
+            <a class="letra-redes">ALL OUR CRAZIES ON NETWORKS</a>
+
+
+        </div>
+        <div class="redes">
+            <a href="#" class="social-img"><img src="../IMG/instagram.png" alt="Instagram"></a>
+
+            <a href="#" class="social-img"><img src="../IMG/tik-tok.png" alt="TikTok"></a>
+
+            <a href="#" class="social-img"><img src="../IMG/facebook.png" alt="Facebook"></a>
+        </div>
+
+
+        <div class="img-fin">
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo-footer"
+                    src="../IMG/logo-bajo.png" alt="logo-bajo"></a>
+        </div>
+
+        <div class="footer-links">
+            <div class="contenedor-links">
+                <a class="item-footer" href="#">JOBS</a>
+                <a class="item-footer" href="../HTML/admin.html">PRIVATE AREA</a>
+                <a class="item-footer" href="../HTML/trabajadores.html">WORKERS AREA</a>
+                <a class="item-footer" href="../HTML/privacypolicy.html">PRIVACY POLICY</a>
+                <a class="item-footer" href="../HTML/cookies.html">COOKIES</a>
+            </div>
+
+        </div>
+        <div class="pt-abajo-footer">
+            <br>
+            <a>Innovating burgers since 2020 - <a class="link-chorra" href="../HTML/aboutus.html">PEC Burger®</a></a>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+    <!--JS DEL CARRUSEL AUTOMÁTICO-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/admin.js"></script>
+
+
+
+</body>
+
+</html>
