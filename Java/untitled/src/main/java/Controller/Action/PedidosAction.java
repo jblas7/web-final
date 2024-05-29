@@ -8,6 +8,8 @@ import Model.Entities.Pedidos;
 
 public class PedidosAction implements IAction {
 
+    private HttpServletRequest request;
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, String action) {
         String strResultado = "";
@@ -49,11 +51,11 @@ public class PedidosAction implements IAction {
             Integer idCliente = Integer.valueOf(request.getParameter("idCliente"));
             Integer idTrabajador = Integer.valueOf(request.getParameter("idTrabajador"));
 
-            if (idCliente == null || idCliente == 0 || idTrabajador == null || idTrabajador == 0) {
+            if (idCliente == 0 || idTrabajador == 0) {
                 return "{ \"error\": \"Faltan datos obligatorios\" }";
             }
 
-            Pedidos pedido = new Pedidos("0", estado, idCliente, idTrabajador);
+            Pedidos pedido = new Pedidos("1", estado, idCliente, idTrabajador);
 
             int numFilas = pedidosDao.add(pedido);
             return "Datos guardados de forma exitosa";

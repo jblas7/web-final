@@ -42,10 +42,9 @@ public class PedidosDao implements IDao<Pedidos, Integer> {
         int iFilasAnadidas = 0;
         motor.connect();
         PreparedStatement ps = motor.getPreparedStatement(SQL_ADD);
-        ps.setString(1, pedidoAnadir.getIdPedido());
-        ps.setString(2, pedidoAnadir.getEstado());
-        ps.setInt(3, pedidoAnadir.getIdCliente());
-        ps.setInt(4, pedidoAnadir.getIdTrabajador());
+        ps.setString(1, pedidoAnadir.getEstado());
+        ps.setInt(2, pedidoAnadir.getIdCliente());
+        ps.setInt(3, pedidoAnadir.getIdTrabajador());
 
         iFilasAnadidas = ps.executeUpdate();
         return iFilasAnadidas;
