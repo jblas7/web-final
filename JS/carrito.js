@@ -157,9 +157,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /*FETCH PEDIDOOOOOOOOOO*/
-  document.addEventListener("DOMContentLoaded", function() {
-    // Aquí va el código que se ejecutará cuando el DOM esté completamente cargado
-    
+document.addEventListener("DOMContentLoaded", function() {
+    // Función para generar un número aleatorio entre min (incluido) y max (excluido)
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
     // Función para guardar el formulario de pedido
     async function guardarFormulario(event) {
         event.preventDefault(); // Previene el comportamiento por defecto del formulario
@@ -199,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Construir la URL de la solicitud para guardar pedido
-        let pedidoUrl = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&tipo_pedido=${tipoPedido}&modo_entrega=${(modoEntrega)}&hora_entrega=${(horaEntrega)}&shop=${(shop)}&modo_recoger=${(modoRecoger)}&hora_recoger=${(horaRecoger)}`;
+        let pedidoUrl = `http://localhost:8080/PecBurger/Controller?action=pedidos.add&estado=pendiente&idCliente=26&idTrabajador=${getRandomInt(1, 51)}`;
 
         try {
             // Realizar la solicitud fetch para guardar pedido
@@ -222,8 +225,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Asignar la función guardarFormulario al evento submit del formulario
     document.getElementById('formularioPedido').addEventListener('submit', guardarFormulario);
 });
-
-
 
 
 

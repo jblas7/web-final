@@ -1,3 +1,72 @@
+/*FETCH CARRITO*/
+
+// Variable para verificar si el código ya se ejecutó
+let codigoEjecutado = false;
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Verificar si el código ya se ejecutó
+    if (!codigoEjecutado) {
+        codigoEjecutado = true; 
+
+        const fetchProductos = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/PecBurger/Controller?action=productos.find_all');
+                if (!response.ok) {
+                    throw new Error(`Error HTTP! estado: ${response.status}`);
+                }
+                const productos = await response.json();
+                productos.forEach(producto => createProductoItem(producto));
+                ready()
+            } catch (error) {
+                console.error('Error al obtener productos:', error);
+            }
+        }
+
+        const createProductoItem = (producto) => {
+            const containerId = getContainerId(producto.idCategoria);
+            const container = document.getElementById(containerId);
+            if (container) {
+                const item = document.createElement('div');
+                item.classList.add('item');
+
+                item.innerHTML = `
+                    <span class="titulo-item">${producto.nombre}</span>
+                  
+                    <span class="precio-item">${producto.precio}</span>
+            
+                `;
+
+                container.appendChild(item);
+            }
+        }
+
+        const getContainerId = (idCategoria) => {
+            switch (idCategoria) {
+                case 1:
+                    return 'tx-en';
+                case 2:
+                    return 'tx-smash';
+                case 3:
+                    return 'tx-medall';
+                case 4:
+                    return 'tx-sand';
+                case 5:
+                    return 'tx-sals';
+                case 6:
+                    return 'tx-postr'; 
+                case 7:
+                    return 'tx-beb'; 
+                default:
+                    return '';
+            }
+        }
+
+        fetchProductos()
+    
+    }
+});
+
+
 
   
   
@@ -35,31 +104,3 @@
 
   
 
-
-
-const authorizedUsers = [
-  { email: "juan@gmail.com", password: "123456789" },
-  { email: "maria@gmail.com", password: "123456789" },
-  { email: "manuelfernandez789@gmail.com", password: "123456789" },
-  { email: "carlosruiz456@gmail.com", password: "123456789" }
-];
-
-function validateLogin(event) {
-  event.preventDefault(); 
-
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  console.log(`Email: ${email}`);
-  console.log(`Password: ${password}`);
-
-  const user = authorizedUsers.find(user => user.email === email && user.password === password);
-
-  if (user) {
-      console.log('Login successful');
-      document.getElementById('login-form').style.display = 'none';
-  } else {
-      console.log('Invalid email or password');
-      alert('Invalid email or password.');
-  }
-}

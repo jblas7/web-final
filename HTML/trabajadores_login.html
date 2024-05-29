@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyF - PEC Burger</title>
-    <link rel="stylesheet" href="../CSS/header_y_footer.css">
+    <title>PEC Burger - Private Workers Log In</title>
+    <link rel="stylesheet" href="../CSS/trabajadores_login.css">
     <link rel="icon" href="../IMG/favicon1.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -31,6 +31,17 @@
 </head>
 
 <body>
+
+    <div id="login-form">
+        <form onsubmit="validateLogin(event)">
+            <h2>LOGIN</h2>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+
     <header class="header">
 
 
@@ -44,8 +55,8 @@
                 <span class="bar"></span>
             </button>
             <div id="dropdownMenu" class="dropdown-content">
-              
-                <a href="../HTML/make_order.html">MENU</a>
+
+                <a href="../HTML/menu.html">MENU</a>
                 <a href="../HTML/aboutus.html">THIS IS PEC</a>
                 <a href="../HTML/join_us.html">JOIN US</a>
                 <a href="../HTML/contact.html">CONTACT</a>
@@ -57,7 +68,7 @@
             </div>
         </div>
 
-<!--NAV (HEADER)-->
+        <!--NAV (HEADER)-->
         <div class="parte-izqda">
             <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo" src="../IMG/logo-img.png"
                     alt="logo">
@@ -76,11 +87,12 @@
                 <a class="item-header" href="../HTML/join_us.html">JOIN US</a>
                 <a class="item-header" href="../HTML/contact.html">CONTACT</a>
 
+
             </div>
             <div class="parte-guay-dcha">
 
                 <div class="medio"></div>
-                <a class="custom-boton2" href="../HTML/menu.html">MAKE AN ORDER</a>
+                <a class="custom-boton2" href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
 
 
             </div>
@@ -93,6 +105,21 @@
 
     <div class="cuerpo-web">
 
+        <div class="div-img-arr">
+            <img class="img-delivery" src="../IMG/LETRAS_PEC_PRIVATE.png" alt="">
+            <!--CONTROLADOR DE LOS BOTONES UTILES-->
+
+        </div>
+
+
+        <div class="botoness">
+      
+            
+            <div class="boton-riesgos">
+                <a  class="custom-boton-R" href="#">OCCUPATIONAL RISKS</a>
+            </div>
+        
+        </div>
 
 
 
@@ -104,7 +131,6 @@
 
 
 
- 
 
 
 
@@ -122,8 +148,6 @@
 
 
 
-
-       
 
 
     </div>
@@ -156,7 +180,7 @@
 
         <div class="footer-links">
             <div class="contenedor-links">
-                <a class="item-footer" href="../HTML/workwithus.html">JOBS</a>
+                <a class="item-footer" href="../HTML/aboutus.html">JOBS</a>
                 <a class="item-footer" href="../HTML/adminlogin.html">PRIVATE AREA</a>
                 <a class="item-footer" href="../HTML/trabajadores_login.html">WORKERS AREA</a>
                 <a class="item-footer" href="../HTML/privacypolicy.html">PRIVACY POLICY</a>
@@ -181,7 +205,7 @@
     <!--JS DEL CARRUSEL AUTOMÁTICO-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JS/header_y_footer.js"></script>
+    <script src="../JS/trabajadores_login.js"></script>
 
 
 
