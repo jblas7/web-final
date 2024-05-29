@@ -18,7 +18,7 @@ public class ClienteDao implements IDao<Cliente, Integer> {
         MotorSQL motor = new MotorSQL();
         try {
             motor.connect();
-            ResultSet rs = motor.executeQuery("SELECT Nombre, Apellido, Telefono, Email, Contrasena, Calle, Portal, Piso, Letra FROM Cliente");
+            ResultSet rs = motor.executeQuery("SELECT * FROM Cliente");
             while (rs.next()) {
                 Cliente cliente = new Cliente();
                 cliente.setIdCliente(rs.getInt("ID_Cliente"));

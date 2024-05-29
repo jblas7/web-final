@@ -21,7 +21,7 @@ public class CategoriaDao implements IDao<Categoria,Integer> {
             motor.connect();
 
             //EJECUTAR LA SENTENCIA/CONSULTA/QUERY
-            ResultSet rs = motor.executeQuery("SELECT Nombre FROM CATEGORIA");
+            ResultSet rs = motor.executeQuery("SELECT * FROM CATEGORIA");
 
             //Mientras haya resultados se ejecuta el while
             while (rs.next()){

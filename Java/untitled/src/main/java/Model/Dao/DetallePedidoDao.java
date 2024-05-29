@@ -20,7 +20,7 @@ public class DetallePedidoDao implements IDao<DetallePedido,Integer> {
             try {
                 //Esto es para conectarnos a la bbdd
                 motor.connect();
-                String sql = "SELECT Cantidad FROM CATEGORIA";
+                String sql = "SELECT * FROM CATEGORIA WHERE 1=1";
 
                 //EJECUTAR LA SENTENCIA/CONSULTA/QUERY
                 ResultSet rs = motor.executeQuery(sql);

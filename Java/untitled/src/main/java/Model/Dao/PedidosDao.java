@@ -18,7 +18,7 @@ public class PedidosDao implements IDao<Pedidos, Integer> {
         MotorSQL motor = new MotorSQL();
         try {
             motor.connect();
-            ResultSet rs = motor.executeQuery("SELECT Estado FROM Pedidos");
+            ResultSet rs = motor.executeQuery("SELECT * FROM Pedidos");
 
             while (rs.next()) {
                 Pedidos pedido = new Pedidos();
