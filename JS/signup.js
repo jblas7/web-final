@@ -64,7 +64,6 @@ document.getElementById('clienteForm').addEventListener('submit', async function
 
 
 
-
 document.getElementById("clienteForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Evitar que el formulario se envíe
     

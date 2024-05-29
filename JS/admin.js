@@ -31,11 +31,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 item.innerHTML = `
                     <span class="titulo-item">${producto.nombre}</span>
-                  
+         
+                    <img src="${producto.rutaImagen}" alt="" class="img-item">
                     <span class="precio-item">${producto.precio}</span>
-            
+                   
                 `;
 
+
+                //<p class="ingredients">${producto.descripcion}</p>
                 container.appendChild(item);
             }
         }
@@ -65,6 +68,141 @@ window.addEventListener('DOMContentLoaded', () => {
     
     }
 });
+
+
+
+
+
+
+/*FETCH UPDATE PRODUCTOS*/
+// Obtener el modal
+const modal = document.getElementById("productModal");
+const btn = document.getElementById("updateProductButton");
+const span = document.getElementsByClassName("close")[0];
+
+// Cuando el usuario hace clic en el botón, abre el modal
+btn.onclick = function(event) {
+    event.preventDefault();
+    modal.style.display = "block";
+    loadProducts(); // Cargar productos cuando se abre el modal
+}
+
+// Cuando el usuario hace clic en <span> (x), cierra el modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Cuando el usuario hace clic en cualquier lugar fuera del modal, lo cierra
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Función para cargar todos los productos
+async function loadProducts() {
+    const baseURL = 'http://localhost:8080/PecBurger';
+    const url = `${baseURL}/Controller?action=productos.findAll`;
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error en la petición: ${response.status}`);
+        }
+
+        const products = await response.json();
+        populateProductSelect(products);
+    } catch (error) {
+        console.error('Error al cargar productos:', error);
+    }
+}
+
+// Función para poblar el select con productos
+function populateProductSelect(products) {
+    const productSelect = document.getElementById("productSelect");
+    productSelect.innerHTML = ''; // Limpiar el select
+
+    products.forEach(product => {
+        const option = document.createElement("option");
+        option.value = product.id;
+        option.text = product.nombre;
+        productSelect.appendChild(option);
+    });
+
+    // Cargar datos del primer producto al inicio
+    if (products.length > 0) {
+        loadProductData(products[0]);
+    }
+
+    // Agregar evento para cambiar datos al seleccionar otro producto
+    productSelect.onchange = function() {
+        const selectedProduct = products.find(p => p.id == this.value);
+        loadProductData(selectedProduct);
+    }
+}
+
+// Función para cargar datos del producto seleccionado en el formulario
+function loadProductData(product) {
+    document.getElementById("productName").value = product.nombre;
+    document.getElementById("productPrice").value = product.precio;
+    document.getElementById("productImage").value = product.imagen;
+    document.getElementById("productDescription").value = product.descripcion;
+}
+
+// Función para construir la URL de actualización de productos con parámetros en la URL
+function buildProductUpdateURL(baseURL, action, id, nombre, precio, imagen, descripcion) {
+    return `${baseURL}/Controller?action=${action}&id=${id}&nombre=${nombre}&precio=${precio}&imagen=${imagen}&descripcion=${descripcion}`;
+}
+
+// Función para realizar la petición de actualización de productos
+async function updateProduct(baseURL, action, id, nombre, precio, imagen, descripcion) {
+    const url = buildProductUpdateURL(baseURL, action, id, nombre, precio, imagen, descripcion);
+    try {
+        const response = await fetch(url, {
+            method: 'POST', // O 'GET', según lo que requiera tu servidor
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded' // Puede ser opcional dependiendo de la configuración del servidor
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error en la petición: ${response.status}`);
+        }
+
+        const data = await response.json(); // Asumiendo que la respuesta es JSON
+        return data;
+    } catch (error) {
+        console.error('Error al actualizar el producto:', error);
+    }
+}
+
+// Manejar el envío del formulario
+document.getElementById("productForm").onsubmit = function(event) {
+    event.preventDefault();
+
+    const id = document.getElementById("productSelect").value;
+    const nombre = document.getElementById("productName").value;
+    const precio = document.getElementById("productPrice").value;
+    const imagen = document.getElementById("productImage").value;
+    const descripcion = document.getElementById("productDescription").value;
+
+    const baseURL = 'http://localhost:8080/PecBurger';
+    const action = 'productos.update';
+
+    updateProduct(baseURL, action, id, nombre, precio, imagen, descripcion)
+        .then(data => {
+            console.log('Producto actualizado:', data);
+            modal.style.display = "none"; // Cerrar el modal al completar la actualización
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
 
 
 
@@ -104,3 +242,31 @@ window.addEventListener('DOMContentLoaded', () => {
 
   
 
+
+
+const authorizedUsers = [
+  { email: "juan@gmail.com", password: "123456789" },
+  { email: "maria@gmail.com", password: "123456789" },
+  { email: "manuelfernandez789@gmail.com", password: "123456789" },
+  { email: "carlosruiz456@gmail.com", password: "123456789" }
+];
+
+function validateLogin(event) {
+  event.preventDefault(); 
+
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  console.log(`Email: ${email}`);
+  console.log(`Password: ${password}`);
+
+  const user = authorizedUsers.find(user => user.email === email && user.password === password);
+
+  if (user) {
+      console.log('Login successful');
+      document.getElementById('login-form').style.display = 'none';
+  } else {
+      console.log('Invalid email or password');
+      alert('Invalid email or password.');
+  }
+}
