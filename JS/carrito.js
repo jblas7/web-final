@@ -472,7 +472,32 @@ function actualizarTotalCarrito() {
 
 
 
-
+document.addEventListener("DOMContentLoaded", function() {
+    const dataContainer = document.getElementById("dataContainer");
+    
+    // Obtener la clave del último usuario registrado almacenada en localStorage
+    const lastUserKey = localStorage.getItem("lastUserKey");
+    
+    if (lastUserKey) { // Verificar si hay una clave de usuario almacenada
+        const lastData = JSON.parse(localStorage.getItem(lastUserKey));
+        
+        // Mostrar los datos del último cliente en la página
+        const userDataElement = document.createElement("div");
+        userDataElement.classList.add("user-data");
+        userDataElement.innerHTML = `
+            <p><strong>Nombre:</strong> ${lastData.nombre}</p>
+            <p><strong>Apellido:</strong> ${lastData.apellido1}</p>
+            <p><strong>Email:</strong> ${lastData.email}</p>
+            <p><strong>Teléfono:</strong> ${lastData.telefono}</p>
+            <p><strong>Dirección:</strong> ${lastData.direccion}</p>
+            <p><strong>Portal:</strong> ${lastData.portal}</p>
+            <p><strong>Piso:</strong> ${lastData.piso}</p>
+            <p><strong>Letra del Apartamento:</strong> ${lastData.letra}</p>
+        `;
+        
+        dataContainer.appendChild(userDataElement);
+    }
+});
 
 
 

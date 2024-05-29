@@ -51,6 +51,98 @@ document.getElementById('clienteForm').addEventListener('submit', async function
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById("clienteForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe
+    
+    const formData = new FormData(this);
+    const clienteData = {};
+    
+    // Recorre los datos del formulario y guárdalos en un objeto
+    formData.forEach(function(value, key) {
+        clienteData[key] = value;
+    });
+    
+    // Genera una clave única para cada conjunto de datos
+    const key = "cliente_" + Date.now(); 
+    
+    // Guarda los datos en el localStorage
+    localStorage.setItem(key, JSON.stringify(clienteData));
+    
+    // Guarda la clave del último usuario registrado en localStorage
+    localStorage.setItem("lastUserKey", key);
+    
+    // Mostrar los datos del último cliente en la página
+    const userDataElement = document.createElement("div");
+    userDataElement.classList.add("user-data");
+    userDataElement.innerHTML = `
+        <p><strong>Nombre:</strong> ${clienteData.nombre}</p>
+        <p><strong>Apellido:</strong> ${clienteData.apellido1}</p>
+        <p><strong>Email:</strong> ${clienteData.email}</p>
+        <p><strong>Teléfono:</strong> ${clienteData.telefono}</p>
+        <p><strong>Dirección:</strong> ${clienteData.direccion}</p>
+        <p><strong>Portal:</strong> ${clienteData.portal}</p>
+        <p><strong>Piso:</strong> ${clienteData.piso}</p>
+        <p><strong>Letra del Apartamento:</strong> ${clienteData.letra}</p>
+    `;
+    
+    const dataContainer = document.getElementById("dataContainer");
+    dataContainer.innerHTML = ""; // Limpiar el contenedor antes de agregar el nuevo usuario
+    dataContainer.appendChild(userDataElement);
+    
+    // Limpiar el formulario después de enviar
+    this.reset();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   document.addEventListener('DOMContentLoaded', function() {
