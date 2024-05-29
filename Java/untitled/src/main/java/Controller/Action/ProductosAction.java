@@ -40,29 +40,22 @@ public class ProductosAction implements IAction {
     }
 
     private String add(HttpServletRequest request) {
-        /*String id = request.getParameter("id");
+        String id = request.getParameter("id");
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
         String precio = request.getParameter("precio");
         String rutaImagen = request.getParameter("rutaImagen");
-        String idCategoria = request.getParameter("idCategoria");*/
+        String idCategoria = request.getParameter("idCategoria");
 
 
-        String id = "1";
-        String nombre = "cheeseBurger";
-        String descripcion = "queso a topee";
-        String precio = "12.30";
-        String rutaImagen = "la ruta de la imagen";
-        String idCategoria = "1";
 
-
-        /*if (id == null || id.isEmpty() ||
+        if (id == null || id.isEmpty() ||
                 nombre == null || nombre.isEmpty() ||
                 precio == null || precio.isEmpty() ||
                 rutaImagen == null || rutaImagen.isEmpty() ||
                 idCategoria == null || idCategoria.isEmpty()) {
             return "{ \"error\": \"Faltan datos obligatorios\" }";
-        }*/
+        }
 
         Producto producto = new Producto();
         try {
@@ -88,9 +81,9 @@ public class ProductosAction implements IAction {
         int iFilasAnadidas = productosDao.add(producto);
 
         if (iFilasAnadidas > 0) {
-            return "{ \"message\": \"Producto añadido exitosamente\" }";
+            return "{ \"message\": \"Product successfully added\" }";
         } else {
-            return "{ \"error\": \"No se pudo añadir el producto\" }";
+            return "{ \"error\": \"Product could not be added\" }";
         }
     }
 
@@ -98,14 +91,14 @@ public class ProductosAction implements IAction {
     private String update(HttpServletRequest request) {
         String ID_Producto = request.getParameter("id");
         if (ID_Producto == null || ID_Producto.isEmpty()) {
-            return "{ \"error\": \"No se proporcionó el ID del producto\" }";
+            return "{ \"error\": \"Product ID not provided\" }";
         }
 
         int productoId;
         try {
             productoId = Integer.parseInt(ID_Producto);
         } catch (NumberFormatException e) {
-            return "{ \"error\": \"ID de producto inválido\" }";
+            return "{ \"error\": \"Invalid product ID\" }";
         }
 
         Producto producto = new Producto();
@@ -140,7 +133,7 @@ public class ProductosAction implements IAction {
             try {
                 producto.setIdCategoria(Integer.parseInt(idCategoria));
             } catch (NumberFormatException e) {
-                return "{ \"error\": \"ID de categoría inválido\" }";
+                return "{ \"error\": \"Invalid category ID\" }";
             }
         }
 
@@ -148,7 +141,7 @@ public class ProductosAction implements IAction {
         int updatedRows = productosDao.update(producto);
 
         if (updatedRows > 0) {
-            return "{ \"message\": \"Producto actualizado exitosamente\" }";
+            return "{ \"message\": \"Product successfully upgraded\" }";
         } else {
             return "{ \"error\": \"No se pudo actualizar el producto\" }";
         }
@@ -157,23 +150,23 @@ public class ProductosAction implements IAction {
     private String delete(HttpServletRequest request) {
         String ID_Producto = request.getParameter("id");
         if (ID_Producto == null || ID_Producto.isEmpty()) {
-            return "{ \"error\": \"No se proporcionó el ID del producto\" }";
+            return "{ \"error\": \"Product ID not provided\" }";
         }
 
         int productoId;
         try {
             productoId = Integer.parseInt(ID_Producto);
         } catch (NumberFormatException e) {
-            return "{ \"error\": \"ID de producto inválido\" }";
+            return "{ \"error\": \"Invalid product ID\" }";
         }
 
         ProductosDao productosDao = new ProductosDao();
         int iNumeroEliminaciones = productosDao.delete(productoId);
 
         if (iNumeroEliminaciones > 0) {
-            return "{ \"message\": \"Producto eliminado exitosamente\" }";
+            return "{ \"message\": \"Product successfully removed\" }";
         } else {
-            return "{ \"error\": \"No se pudo eliminar el producto\" }";
+            return "{ \"error\": \"Product could not be removed\" }";
         }
     }
 

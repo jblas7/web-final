@@ -32,7 +32,7 @@ public class PedidosAction implements IAction {
                 break;
 
             default:
-                strResultado = "ERROR. Acción inválida";
+                strResultado = "ERROR. Invalid action";
         }
 
         return strResultado;
@@ -52,16 +52,16 @@ public class PedidosAction implements IAction {
             Integer idTrabajador = Integer.valueOf(request.getParameter("idTrabajador"));
 
             if (idCliente == 0 || idTrabajador == 0) {
-                return "{ \"error\": \"Faltan datos obligatorios\" }";
+                return "{ \"error\": \"Mandatory data missing\" }";
             }
 
             Pedidos pedido = new Pedidos("1", estado, idCliente, idTrabajador);
 
             int numFilas = pedidosDao.add(pedido);
-            return "Datos guardados de forma exitosa";
+            return "Successfully saved data";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Fallo en la operación de agregar pedido";
+            return "Failure in the add order operation";
         }
     }
 
@@ -88,16 +88,16 @@ public class PedidosAction implements IAction {
         try {
             Integer idPedido = Integer.valueOf(request.getParameter("idPedido"));
             if (idPedido == null || idPedido == -1) {
-                return "{ \"error\": \"No se proporcionó el ID del pedido\" }";
+                return "{ \"error\": \"Order ID not provided\" }";
             }
 
             PedidosDao pedidosDao = new PedidosDao();
             int numEliminaciones = pedidosDao.delete(idPedido);
 
             if (numEliminaciones > 0) {
-                return "{ \"message\": \"Pedido eliminado exitosamente\" }";
+                return "{ \"message\": \"Order successfully deleted\" }";
             } else {
-                return "{ \"error\": \"No se pudo eliminar el pedido\" }";
+                return "{ \"error\": \"Order could not be deleted\" }";
             }
         } catch (Exception e) {
             e.printStackTrace();

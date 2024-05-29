@@ -129,16 +129,16 @@ public class TrabajadorAction implements IAction {
     private String delete(HttpServletRequest request) {
         Integer idTrabajador = Integer.valueOf(request.getParameter("id"));
         if (idTrabajador == null || idTrabajador==-1) {
-            return "{ \"error\": \"No se proporcionó el ID del trabajador\" }";
+            return "{ \"error\": \"Worker ID not provided\" }";
         }
 
         TrabajadorDao trabajadorDao = new TrabajadorDao();
         int iNumeroEliminaciones = trabajadorDao.delete(idTrabajador);
 
         if (iNumeroEliminaciones > 0) {
-            return "{ \"message\": \"Producto eliminado exitosamente\" }";
+            return "{ \"message\": \"Product successfully removed\" }";
         } else {
-            return "{ \"error\": \"No se pudo eliminar el producto\" }";
+            return "{ \"error\": \"Product could not be removed\" }";
         }
     }
 

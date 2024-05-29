@@ -76,9 +76,9 @@ public class ClienteAction implements IAction {
         int iFilasAnadidas = clienteDao.add(cliente);
 
         if (iFilasAnadidas > 0) {
-            return "{ \"message\": \"Cliente registrado exitosamente\" }";
+            return "{ \"message\": \"Customer successfully registered\" }";
         } else {
-            return "{ \"error\": \"No se pudo registrar el cliente\" }";
+            return "{ \"error\": \"Customer could not be registered\" }";
         }
     }
 
@@ -119,9 +119,9 @@ public class ClienteAction implements IAction {
         int iFilasModificadas = clienteDao.update(cliente);
 
         if (iFilasModificadas > 0) {
-            return "{ \"message\": \"El cliente se ha modificado exitosamente\" }";
+            return "{ \"message\": \"The customer has been successfully modified\" }";
         } else {
-            return "{ \"error\": \"No se pudo modificar el cliente\" }";
+            return "{ \"error\": \"Client could not be modified\" }";
         }
     }
 
@@ -131,22 +131,22 @@ public class ClienteAction implements IAction {
         String idCliente = request.getParameter("id");
 
         if (idCliente == null || idCliente.isEmpty()) {
-            return "{ \"error\": \"No se proporcionó el ID del cliente\" }";
+            return "{ \"error\": \"Customer ID not provided\" }";
         }
 
         int clienteId;
         try {
             clienteId = Integer.parseInt(idCliente);
         } catch (NumberFormatException e) {
-            return "{ \"error\": \"ID del cliente inválido\" }";
+            return "{ \"error\": \"Invalid Customer ID\" }";
         }
 
         int iNumeroEliminaciones = clienteDao.delete(clienteId);
 
         if (iNumeroEliminaciones > 0) {
-            return "{ \"message\": \"Cliente eliminado exitosamente\" }";
+            return "{ \"message\": \"Customer successfully deleted\" }";
         } else {
-            return "{ \"error\": \"No se pudo eliminar el cliente\" }";
+            return "{ \"error\": \"Client could not be deleted\" }";
         }
     }
 
@@ -155,16 +155,16 @@ public class ClienteAction implements IAction {
         String contrasena = request.getParameter("contrasena");
 
         if (email == null || email.isEmpty() || contrasena == null || contrasena.isEmpty()) {
-            return "{ \"error\": \"Email y contraseña son obligatorios\" }";
+            return "{ \"error\": \"Email and password are required\" }";
         }
 
         ClienteDao clienteDao = new ClienteDao();
         Cliente cliente = clienteDao.login(email, contrasena);
 
         if (cliente != null) {
-            return "{ \"message\": \"Login exitoso\", \"cliente\": " + cliente.toJson() + " }";
+            return "{ \"message\": \"Successful login\", \"customer\": " + cliente.toJson() + " }";
         } else {
-            return "{ \"error\": \"Email o contraseña incorrectos\" }";
+            return "{ \"error\": \"Incorrect email or password\" }";
         }
     }
 }
