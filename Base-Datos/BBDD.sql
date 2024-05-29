@@ -34,7 +34,7 @@ CREATE TABLE Productos(
     Nombre VARCHAR2(80) NOT NULL,
     Descripcion VARCHAR2(400),
     Precio NUMBER(5, 2) NOT NULL,
-    Ruta_Imagen VARCHAR2(300) NOT NULL,
+    Ruta_Imagen VARCHAR2(300),
     ID_Categoria INTEGER NOT NULL,
     FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
 );
