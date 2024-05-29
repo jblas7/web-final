@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARRITO PRUEBA</title>
+
+    <link rel="stylesheet" href="../CSS/CARRITO.CSS">
+    <script src="../JS/CARRITO.JS" async></script>
+    <link rel="icon" href="../IMG/favicon1.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Seymour+One&display=swap');
+    </style>
+</head>
+
+<body>
+    <header class="header">
+
+
+
+
+        <!--PARTE DEL MENÚ PARA EL RESPONSIVE-->
+        <div class="dropdown">
+            <button id="dropdownButton" class="dropbtn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div id="dropdownMenu" class="dropdown-content">
+             
+                <a href="../HTML/menu.html">MENU</a>
+                <a href="#">THIS IS PEC</a>
+                <a href="#">ABOUT US</a>
+                <a href="../HTML/ask_pec_from_pec.html">MAKE AN ORDER</a>
+
+             
+            </div>
+        </div>
+
+
+
+
+
+
+        <!--NAV (HEADER)-->
+        <div class="parte-izqda">
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo" src="../IMG/logo-img.png"
+                    alt="logo">
+            </a>
+
+
+        </div>
+
+
+        <div class="parte-dcha">
+
+            <div class="parte-norm-dcha">
+
+
+
+                <nav role="navigation">
+                    <div id="menuToggle">
+
+                        <input type="checkbox" />
+
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <ul id="menu">
+
+
+
+
+                            <div class="medio"></div>
+                            <a class="custom-boton" href="#"><img class="img-login" src="../IMG/img-usuario2.png"
+                                    alt="">LOGIN</a>
+                            <a href="../HTML/menu.html">
+                                <li class="li-menuuuu1">MENU</li>
+                            </a>
+                            <a href="../HTML/ask_pec_from_pec.html">
+                                <li class="li-menuuuu">ORDER</li>
+                            </a>
+                            <a href="#">
+                                <li class="li-menuuuu">US</li>
+                            </a>
+                            <a href="#">
+                                <li class="li-menuuuu">CONTACT</li>
+                                
+                            </a>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="parte-guay-dcha">
+
+                <div class="medio">
+                    <a class="custom-boton2" href="../HTML/login.html"> <img class="img-login" src="../IMG/img-usuario2.png"
+                            alt="">LOGIN</a>
+                </div>
+
+            </div>
+        </div>
+        
+    </header>
+    <div class="cuerpo-web">
+
+<!--VENTANA EMERGENTE CONFIRMAR PEDIDO-->
+<div id="ventanaEmergente" class="ventana-emergente">
+    <div class="contenido-ventana">
+      <span class="cerrar" onclick="cerrarVentana()">×</span>
+      <div class="form-arr">
+          <form id="formularioPedido" onsubmit="return validarFormulario()">
+              <h2 class="h2-form">CONFIRM ORDER</h2>
+              <label class="tit-tipo-ped" for="tipoPedido">ONCE CONFIRMED, YOU CAN'T CANCEL</label><br>  
+                <form action="../HTML/make_order.html" method="post">
+                  <!-- Aquí van los campos del formulario -->
+                  <button class="btn-pagar">PAY NOW <i class="fa-solid fa-bag-shopping"></i> </button>
+               
+                    
+                </form>
+            </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="div-img-arr">
+            <img class="img-delivery" src="../IMG/LETRAS_PEC_DELIVERYYYY_NEGRAS.png" alt="">
+             <!--CONTROLADOR DE LOS BOTONES UTILES-->
+
+        </div>
+
+        <div class="botones-utiles">
+            <button class="boton-util" onclick="scrollToSection('tx-en')">STARTERS</button>
+            <button class="boton-util" onclick="scrollToSection('tx-smash')">SMASH</button>
+            <button class="boton-util" onclick="scrollToSection('tx-medall')">MEDALLION</button>
+            <button class="boton-util" onclick="scrollToSection('tx-sals')">SAUCES</button>
+            <button class="boton-util" onclick="scrollToSection('tx-sand')">SANDWICHES</button>
+            <button class="boton-util" onclick="scrollToSection('tx-postr')">DESSERTS</button>
+            <button class="boton-util" onclick="scrollToSection('tx-beb')">DRINKS</button>
+           
+        </div>
+
+
+
+
+
+
+        <!--PARTE DEL MENU PARA EL CARRITO-->
+        <section class="contenedor">
+            <!-- Contenedor de elementos -->
+            <div class="contenedor-items">
+                
+
+
+
+        <!--PARTE DE LA INFORMACION GUARDADA DEL FORMULARIO DE ENVIO -->
+        <div class="cont-info-seccion">
+            <section class="info-section" id="infoSection">
+                <!-- La información se llenará mediante JavaScript -->
+            </section>
+        </div>
+
+
+        
+                <div class="cont-tit">
+                    <h2  id="tx-en">STARTERS</h2>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <span class="titulo-item">CHIKEN LOLIPOPS</span>
+                        <img src="../IMG/img-carta-1.jpg" alt="" class="img-item">
+                        <span class="precio-item">11.95</span>
+                        <button class="boton-item" >ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">SPECIAL PECEÑOS</span>
+                        <img src="../IMG/img-carta-2.jpg" alt="" class="img-item">
+                        <span class="precio-item">8.90</span>
+                        <button class="boton-item" >ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">PECRANCHO POTATOES</span>
+                        <img src="../IMG/img-carta-3.jpg" alt="" class="img-item">
+                        <span class="precio-item">11.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">TABLESIDE PECAMOLE</span>
+                        <img src="../IMG/img-carta-4.jpg" alt="" class="img-item">
+                        <span class="precio-item">14.50</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+
+                </div>
+                <div class="cont-tit">
+                    <h2 id="tx-smash">SMASH BURGERS</h2>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <span class="titulo-item">PECTINENTE BURGER</span>
+                        <img src="../IMG/img-carta-5.jpg" alt="" class="img-item">
+                        <span class="precio-item">14.60</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">PECADORA BURGER</span>
+                        <img src="../IMG/img-carta-6.jpg" alt="" class="img-item">
+                        <span class="precio-item">14.80</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">MC & PEC'S BURGER</span>
+                        <img src="../IMG/img-carta-7.jpg" alt="" class="img-item">
+                        <span class="precio-item">13.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">PECLICIOSA BURGER</span>
+                        <img src="../IMG/img-carta-8.jpg" alt="" class="img-item">
+                        <span class="precio-item">14.50</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="cont-tit">
+                    <h2 id="tx-medall">MEDALLION BURGERS</h2>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <span class="titulo-item">PECEÑITA BURGER</span>
+                        <img src="../IMG/img-carta-9.jpg" alt="" class="img-item">
+                        <span class="precio-item">15.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">PECSCELENTE XXL</span>
+                        <img src="../IMG/img-carta-10.jpg" alt="" class="img-item">
+                        <span class="precio-item">18.50</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">PECDEROSA BURGER</span>
+                        <img src="../IMG/img-carta-11.jpg" alt="" class="img-item">
+                        <span class="precio-item">15.95</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">LITTLE PEC'S BURGER</span>
+                        <img src="../IMG/img-carta-12.jpg" alt="" class="img-item">
+                        <span class="precio-item">20.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">BIG PEC'S BURGER</span>
+                        <img src="../IMG/img-carta-13.jpg" alt="" class="img-item">
+                        <span class="precio-item">16.50</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">PECULIAR BURGER </span>
+                        <img src="../IMG/img-carta-14.jpg" alt="" class="img-item">
+                        <span class="precio-item">16.10</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">PECARAMEL BURGER </span>
+                        <img src="../IMG/img-carta-15.jpg" alt="" class="img-item">
+                        <span class="precio-item">16.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">PECHUGERA BURGER</span>
+                        <img src="../IMG/img-carta-16.jpg" alt="" class="img-item">
+                        <span class="precio-item">13.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+               
+                </div>
+
+                <div class="cont-tit">
+                    <h2 id="tx-sand">SANDWICHES</h2>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <span class="titulo-item">THE FELIPECS SANDWICH</span>
+                        <img src="../IMG/img-carta-17.jpg" alt="" class="img-item">
+                        <span class="precio-item">15.50</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">THE CHEESERO SANDWICH</span>
+                        <img src="../IMG/img-carta-18.jpg" alt="" class="img-item">
+                        <span class="precio-item">9.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">THE CREAMY BACON BUTTER</span>
+                        <img src="../IMG/img-carta-19.jpeg" alt="" class="img-item">
+                        <span class="precio-item">10.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">THE PECAMOLE BRIOCHE</span>
+                        <img src="../IMG/img-carta-20.jpeg" alt="" class="img-item">
+                        <span class="precio-item">10.50</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+               
+                
+                </div>
+
+
+
+
+                <div class="cont-tit">
+                    <h2 id="tx-sals">EXTRA SAUCES</h2>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <span class="titulo-item">BOURBON BBQ SAUCE</span>
+                        <img src="../IMG/img-carta-21.jpg" alt="" class="img-item">
+                        <span class="precio-item">0.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">CHIPOTLE SAUCE</span>
+                        <img src="../IMG/img-carta-22.jpg" alt="" class="img-item">
+                        <span class="precio-item">0.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">SMOKED MAYO SAUCE</span>
+                        <img src="../IMG/img-carta-23.jpg" alt="" class="img-item">
+                        <span class="precio-item">0.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">WASABI TOP SAUCE</span>
+                        <img src="../IMG/img-carta-24.jpeg" alt="" class="img-item">
+                        <span class="precio-item">0.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                </div>
+
+
+
+                <div class="cont-tit">
+                    <h2 id="tx-postr">DESSERTS</h2>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <span class="titulo-item">LOTUS CHEESPEC</span>
+                        <img src="../IMG/img-carta-25.jpg" alt="" class="img-item">
+                        <span class="precio-item">7.50</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">HIPO CHEESPEC</span>
+                        <img src="../IMG/img-carta-26.jpg" alt="" class="img-item">
+                        <span class="precio-item">8.45</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">TRADI CHEESPEC</span>
+                        <img src="../IMG/img-carta-27.jpg" alt="" class="img-item">
+                        <span class="precio-item">7.45</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">CHOCO BROWPEC</span>
+                        <img src="../IMG/img-carta-28.jpg" alt="" class="img-item">
+                        <span class="precio-item">6.45</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="cont-tit">
+                    <h2 id="tx-beb">DRINKS</h2>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <span class="titulo-item">COCA-COLA® ORIGINAL</span>
+                        <img src="../IMG/img-carta-29.jpg" alt="" class="img-item">
+                        <span class="precio-item">1.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">COCA‑COLA® ZERO</span>
+                        <img src="../IMG/img-carta-30.jpg" alt="" class="img-item">
+                        <span class="precio-item">1.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">FANTA® ORANGE</span>
+                        <img src="../IMG/img-carta-31.jpg" alt="" class="img-item">
+                        <span class="precio-item">1.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">AQUARIUS® LEMON</span>
+                        <img src="../IMG/img-carta-32.jpg" alt="" class="img-item">
+                        <span class="precio-item">1.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+
+
+                    <div class="item">
+                        <span class="titulo-item">NESTEA®</span>
+                        <img src="../IMG/img-carta-33.jpg" alt="" class="img-item">
+                        <span class="precio-item">1.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">SPRITE® </span>
+                        <img src="../IMG/img-carta-34.jpg" alt="" class="img-item">
+                        <span class="precio-item">1.90</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">WATER</span>
+                        <img src="../IMG/img-carta-35.jpg" alt="" class="img-item">
+                        <span class="precio-item">1.40</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">BEER</span>
+                        <img src="../IMG/img-carta-36.jpg" alt="" class="img-item">
+                        <span class="precio-item">2.10</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">RED BULL ORIGINAL</span>
+                        <img src="../IMG/img-carta-37.jpg" alt="" class="img-item">
+                        <span class="precio-item">2.40</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">RED BULL SUGARFREE</span>
+                        <img src="../IMG/img-carta-38.jpg" alt="" class="img-item">
+                        <span class="precio-item">2.40</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">RED BULL WATERMELON</span>
+                        <img src="../IMG/img-carta-39.jpg" alt="" class="img-item">
+                        <span class="precio-item">2.40</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">RED BULL APRICOT</span>
+                        <img src="../IMG/img-carta-40.jpg" alt="" class="img-item">
+                        <span class="precio-item">2.40</span>
+                        <button class="boton-item">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Carrito de Compras -->
+            <div class="carrito" id="carrito">
+                <div class="header-carrito">
+                    <h2>YOUR CART</h2>
+                </div>
+    
+                <div class="carrito-items">
+                    
+                    <!-- 
+                    <div class="carrito-item">
+                        <img src="img/boxengasse.png" width="80px" alt="">
+                        <div class="carrito-item-detalles">
+                            <span class="carrito-item-titulo">Box Engasse</span>
+                            <div class="selector-cantidad">
+                                <i class="fa-solid fa-minus restar-cantidad"></i>
+                                <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                                <i class="fa-solid fa-plus sumar-cantidad"></i>
+                            </div>
+                            <span class="carrito-item-precio">$15.000,00</span>
+                        </div>
+                       <span class="btn-eliminar">
+                            <i class="fa-solid fa-trash"></i>
+                       </span>
+                    </div>
+                    <div class="carrito-item">
+                        <img src="img/skinglam.png" width="80px" alt="">
+                        <div class="carrito-item-detalles">
+                            <span class="carrito-item-titulo">Skin Glam</span>
+                            <div class="selector-cantidad">
+                                <i class="fa-solid fa-minus restar-cantidad"></i>
+                                <input type="text" value="3" class="carrito-item-cantidad" disabled>
+                                <i class="fa-solid fa-plus sumar-cantidad"></i>
+                            </div>
+                            <span class="carrito-item-precio">$18.000,00</span>
+                        </div>
+                       <button class="btn-eliminar">
+                            <i class="fa-solid fa-trash"></i>
+                       </button>
+                    </div>
+                     -->
+                </div>
+                <div class="carrito-total">
+                    <div class="fila">
+                        <strong>TOTAL</strong>
+                        <span class="carrito-precio-total">
+                            $120.000,00
+                        </span>
+                    </div>
+                    
+                    <button class="btn-pagar" onclick="mostrarVentana()">PAY<i class="fa-solid fa-bag-shopping"></i> </button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <a href="#" id="scrollTopButton" class="scroll-top-button">
+            ▲
+          </a>
+       
+    </div>
+    <footer>
+        <div class="redes-footer">
+            <a class="letra-redes">ALL OUR CRAZIES ON NETWORKS</a>
+
+
+        </div>
+        <div class="redes">
+            <a href="#" class="social-img"><img src="../IMG/instagram.png" alt="Instagram"></a>
+
+            <a href="#" class="social-img"><img src="../IMG/tik-tok.png" alt="TikTok"></a>
+
+            <a href="#" class="social-img"><img src="../IMG/facebook.png" alt="Facebook"></a>
+        </div>
+
+
+        <div class="img-fin">
+            <a class="imagen" href="../HTML/inicio.html" target="_blank"><img class="img-logo-footer"
+                    src="../IMG/logo-bajo.png" alt="logo-bajo"></a>
+        </div>
+
+        <div class="footer-links">
+            <div class="contenedor-links">
+                <a class="item-footer" href="#">JOBS</a>
+                <a class="item-footer" href="#">REQUEST INVOICE</a>
+                <a class="item-footer" href="#">WARNING</a>
+                <a class="item-footer" href="#">PRIVACY POLICY</a>
+                <a class="item-footer" href="#">COOKIES</a>
+            </div>
+
+        </div>
+        <div class="pt-abajo-footer">
+            <br>
+            <a>Innovating burgers since 2020 - <a class="link-chorra" href="../HTML/">PEC Burger®</a></a>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+    <!--JS DEL CARRUSEL AUTOMÁTICO-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/CARRITO.JS"></script>
+</body>
+
+</html>
