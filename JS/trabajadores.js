@@ -31,7 +31,28 @@
   
   
   
-  
 
-  
 
+
+document.addEventListener("DOMContentLoaded",(event) => {
+  const botones = document.querySelectorAll(".boton_desplegable")
+  const tablas = document.querySelectorAll(".texto_desplegable")
+  botones.forEach((button, index) => {
+  button.addEventListener("click", () => {
+      if (tablas[index].style.display != "flex")
+      {
+          tablas[index].style.display = "flex";
+      }
+      else {
+          tablas[index].style.display = "none"
+      }
+
+      tablas.forEach(tabla => {
+      if (tabla != tablas[index]) 
+      {
+          tabla.style.display = "none"
+      }
+      })
+  });
+  });
+})

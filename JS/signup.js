@@ -33,6 +33,7 @@ document.getElementById('clienteForm').addEventListener('submit', async function
             let message = JSON.parse(data).message;
             messageContainer.innerHTML = `<p class='success-message'>${message}</p>`;
             if (message === 'Customer successfully registered') {
+                // Redirecciona después de 2 segundos
                 setTimeout(function() {
                     window.location.href = '../HTML/login.html';
                 }, 2000);
@@ -43,10 +44,6 @@ document.getElementById('clienteForm').addEventListener('submit', async function
             messageContainer.innerHTML = "<p class='error-message'>An error occurred. Please try again.</p>";
         });
 });
-
-  
-
-
 
 
 

@@ -581,7 +581,7 @@ body {
   
   
   
-  .custom-boton-R {
+  .boton_desplegable {
     font-family: "Seymour One", sans-serif;
     color: #ffffff;
     background-color: #ea344c;
@@ -610,7 +610,7 @@ body {
   
   
 
-  .custom-boton-R:hover {
+  .boton_desplegable:hover {
 
     background-color: #ffd5d5;
     color: #ff3b55;
@@ -633,9 +633,118 @@ body {
 
   }
   
-  
-  
-  
+
+  .texto_desplegable {
+    display: none;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  margin-bottom: 30px;
+}
+.section-title {
+  color: #ff3b55;
+  margin-bottom: 15px;
+}
+
+.texto_desplegable h2{
+  color: #ff3b55;
+  margin-top: 20px;
+  border-bottom: 2px solid #ff3b55;
+  padding-bottom: 5px;
+}
+
+.texto_desplegable h3{
+  color: #ff3b55;
+  margin-top: 20px;
+  border-bottom: 2px solid #ff3b55;
+  padding-bottom: 5px;
+}
+
+.texto_desplegable ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.video-link {
+  color: #ff3b55;
+  text-decoration: none;
+}
+.video-link:hover {
+  text-decoration: underline;
+}
+
+.texto_desplegable p {
+  margin-bottom: 20px;
+}
+
+.texto_desplegable ul {
+  margin-bottom: 20px;
+}
+
+.Personas-Crew{
+  font-family: "Lexend", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+  "Jefe Gerente"
+  "RRHH SubGerente";
+}
+
+.Crew-Imagenes{
+  align-items: center;
+  display: flex;
+  width: 40%;
+}
+
+.Crew-Imagenes img{
+  width: 100%;
+  height: 100%;
+}
+
+.Jefe{
+  grid-area: Jefe;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Gerente{
+  grid-area: Gerente;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.RRHH{
+  grid-area: RRHH;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.SubGerente{
+  grid-area: SubGerente;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
   
   /*MENU HAMBURGUESA DESPLEGABLE GRANDE*/
   
