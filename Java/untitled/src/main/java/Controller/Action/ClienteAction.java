@@ -58,7 +58,7 @@ public class ClienteAction implements IAction {
                 telefono == null || telefono.isEmpty() ||
                 email == null || email.isEmpty() ||
                 contrasena == null || contrasena.isEmpty()) {
-            return "{ \"error\": \"Mandatory data missing\" }";
+            return "{ \"error\": \"Faltan datos obligatorios\" }";
         }
 
         Cliente cliente = new Cliente();
@@ -76,9 +76,9 @@ public class ClienteAction implements IAction {
         int iFilasAnadidas = clienteDao.add(cliente);
 
         if (iFilasAnadidas > 0) {
-            return "{ \"message\": \"Customer successfully registered\" }";
+            return "{ \"message\": \"Cliente registrado exitosamente\" }";
         } else {
-            return "{ \"error\": \"Customer could not be registered\" }";
+            return "{ \"error\": \"No se pudo registrar el cliente\" }";
         }
     }
 
@@ -101,7 +101,7 @@ public class ClienteAction implements IAction {
                 telefono == null || telefono.isEmpty() ||
                 email == null || email.isEmpty() ||
                 contrasena == null || contrasena.isEmpty()) {
-            return "{ \"error\": \"Mandatory data missing\" }";
+            return "{ \"error\": \"Faltan datos obligatorios\" }";
         }
 
         Cliente cliente = new Cliente();
@@ -155,16 +155,16 @@ public class ClienteAction implements IAction {
         String contrasena = request.getParameter("contrasena");
 
         if (email == null || email.isEmpty() || contrasena == null || contrasena.isEmpty()) {
-            return "{ \"error\": \"Email and password are required\" }";
+            return "{ \"error\": \"Email y contraseña son obligatorios\" }";
         }
 
         ClienteDao clienteDao = new ClienteDao();
         Cliente cliente = clienteDao.login(email, contrasena);
 
         if (cliente != null) {
-            return "{ \"message\": \"Successful login\", \"cliente\": " + cliente.toJson() + " }";
+            return "{ \"message\": \"Login exitoso\", \"cliente\": " + cliente.toJson() + " }";
         } else {
-            return "{ \"error\": \"Incorrect email or password\" }";
+            return "{ \"error\": \"Email o contraseña incorrectos\" }";
         }
     }
 }
