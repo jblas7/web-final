@@ -20,7 +20,7 @@ public class TrabajadorDao implements IDao<Trabajador,Integer> {
         try {
             //Esto es para conectarnos a la bbdd
             motor.connect();
-            String sql = "SELECT * FROM TRABAJADOR";
+            String sql = "SELECT Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo FROM TRABAJADOR";
 
             //EJECUTAR LA SENTENCIA/CONSULTA/QUERY
             ResultSet rs = motor.executeQuery(sql);
