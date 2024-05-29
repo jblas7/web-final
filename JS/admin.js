@@ -31,8 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 item.innerHTML = `
                     <span class="titulo-item">${producto.nombre}</span>
-         
-                    <img src="${producto.rutaImagen}" alt="" class="img-item">
+       
                     <span class="precio-item">${producto.precio}</span>
                    
                 `;
@@ -68,6 +67,28 @@ window.addEventListener('DOMContentLoaded', () => {
     
     }
 });
+
+
+
+
+
+
+
+
+function showMenu(menuType) {
+    // Oculta todos los menús
+    var menus = document.getElementsByClassName('menu');
+    for (var i = 0; i < menus.length; i++) {
+        menus[i].style.display = 'none';
+    }
+
+    // Muestra el menú específico según el tipo
+    var menuId = menuType + 'Menu';
+    var menu = document.getElementById(menuId);
+    if (menu) {
+        menu.style.display = 'block';
+    }
+}
 
 
 
@@ -207,24 +228,22 @@ document.getElementById("productForm").onsubmit = function(event) {
 
 
   
-  
-  /*BOTON DESPLEGABLE RESPONSIVE*/
-  document.addEventListener("DOMContentLoaded", function () {
+/* BOTON DESPLEGABLE RESPONSIVE */
+document.addEventListener("DOMContentLoaded", function () {
     const dropdownButton = document.getElementById("dropdownButton");
     const dropdownMenu = document.getElementById("dropdownMenu");
-    const closeBtn = document.getElementById("closeBtn");
   
-    dropdownButton.addEventListener("click", function () {
-      if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
-        dropdownMenu.style.display = "block";
-      } else {
-        dropdownMenu.style.display = "none";
-      }
-    });
-  
-    closeBtn.addEventListener("click", function () {
-      dropdownMenu.style.display = "none";
-    });
+    if (dropdownButton && dropdownMenu) {
+        dropdownButton.addEventListener("click", function () {
+            if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
+                dropdownMenu.style.display = "block";
+            } else {
+                dropdownMenu.style.display = "none";
+            }
+        });
+    } else {
+        console.error('Error: Alguno de los elementos no se encontró en el DOM');
+    }
   });
   
   
@@ -235,38 +254,3 @@ document.getElementById("productForm").onsubmit = function(event) {
 
   
   
-  
-  
-  
-  
-
-  
-
-
-
-const authorizedUsers = [
-  { email: "juan@gmail.com", password: "123456789" },
-  { email: "maria@gmail.com", password: "123456789" },
-  { email: "manuelfernandez789@gmail.com", password: "123456789" },
-  { email: "carlosruiz456@gmail.com", password: "123456789" }
-];
-
-function validateLogin(event) {
-  event.preventDefault(); 
-
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  console.log(`Email: ${email}`);
-  console.log(`Password: ${password}`);
-
-  const user = authorizedUsers.find(user => user.email === email && user.password === password);
-
-  if (user) {
-      console.log('Login successful');
-      document.getElementById('login-form').style.display = 'none';
-  } else {
-      console.log('Invalid email or password');
-      alert('Invalid email or password.');
-  }
-}

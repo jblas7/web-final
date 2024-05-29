@@ -412,7 +412,20 @@ body {
   
   
   
-  
+  .menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 100;
+}
+
+.custom-boton-A {
+    display: block;
+    margin-bottom: 10px;
+}
+
   
   
   
