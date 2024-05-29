@@ -1,5 +1,6 @@
 	/* INSERTS PARA CATEGORIAS */
 
+BEGIN
 INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(1, 'STARTERS');
 
@@ -20,9 +21,15 @@ VALUES(6, 'DESSERTS');
 
 INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(7, 'DRINKS');
+EXCEPTION
+    WHEN OTHER THEN
+    ROLLBACK;
+END;
+
 
 	/* INSERTS PARA PRODUCTOS */
 
+BEGIN
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (1, 'CHICKEN LOLIPOPS', 'Uncover delight with each bite of our 8 Chicken Lollipop Wings: cooked at
                             low temperature and glazed with homemade bourbon-infused barbecue sauce. An irresistible
@@ -105,8 +112,6 @@ VALUES (16, 'PECHUGERA BURGER', 'Our ultimate vegan burger comes with our homema
                             cheese if desired).', 13.90, 'https://i.pinimg.com/originals/b5/e9/58/b5e95826031156989842d70b7fb6bbef.jpg', 3);
 
 
-
-
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (17, 'FELIPEC SANDWICH', 'Feel presidential with our grilled high-quality beef striploin
                             sandwich, layered with sautéed peppers, onions, and melted cheddar cheese, all
@@ -123,8 +128,6 @@ VALUES (19, 'THE CREAMY BACON BUTTER', 'Simply spectacular. Homemade brioche bre
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (20, 'THE PECAMOLE BRIOCHE', 'A great and crazy sandwich, cradled in our brioche bread, with a creamy interior, 
 thanks to our homemade guacamole...a surprise in every bite!', 10.50, 'https://i.pinimg.com/originals/c8/3b/fc/c83bfcac0f697d6b19aebad356a828cc.jpg', 4);
-
-
 
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
@@ -190,3 +193,7 @@ VALUES (39, 'RED BULL WATERMELON', '', 2.40, 'https://i.pinimg.com/originals/97/
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (40, 'RED BULL APRICOT', '', 2.40, 'https://i.pinimg.com/originals/d5/5f/22/d55f22ffc2a1eb0a0df350bbb391dbdd.jpg', 7);
+EXCEPTION
+    WHEN OTHER THEN
+    ROLLBACK;
+END;
