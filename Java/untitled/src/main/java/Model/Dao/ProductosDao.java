@@ -15,7 +15,7 @@ public class ProductosDao implements IDao<Producto, Integer> {
         MotorSQL motor = new MotorSQL();
         try {
             motor.connect();
-            String sql = "SELECT * FROM Productos";
+            String sql = "SELECT Nombre, Descripcion, Precio, Ruta_Imagen FROM Productos";
 
             ResultSet rs = motor.executeQuery(sql);
             while (rs.next()) {
