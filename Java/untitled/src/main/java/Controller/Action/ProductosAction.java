@@ -40,22 +40,29 @@ public class ProductosAction implements IAction {
     }
 
     private String add(HttpServletRequest request) {
-        String id = request.getParameter("id");
+        /*String id = request.getParameter("id");
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
         String precio = request.getParameter("precio");
         String rutaImagen = request.getParameter("rutaImagen");
-        String idCategoria = request.getParameter("idCategoria");
+        String idCategoria = request.getParameter("idCategoria");*/
 
 
+        String id = "1";
+        String nombre = "cheeseBurger";
+        String descripcion = "queso a topee";
+        String precio = "12.30";
+        String rutaImagen = "la ruta de la imagen";
+        String idCategoria = "1";
 
-        if (id == null || id.isEmpty() ||
+
+        /*if (id == null || id.isEmpty() ||
                 nombre == null || nombre.isEmpty() ||
                 precio == null || precio.isEmpty() ||
                 rutaImagen == null || rutaImagen.isEmpty() ||
                 idCategoria == null || idCategoria.isEmpty()) {
             return "{ \"error\": \"Faltan datos obligatorios\" }";
-        }
+        }*/
 
         Producto producto = new Producto();
         try {
