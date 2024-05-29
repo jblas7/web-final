@@ -1,6 +1,7 @@
 	/* INSERTS PARA CATEGORIAS */
 
 BEGIN
+    BEGIN
 INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(1, 'STARTERS');
 
@@ -21,15 +22,18 @@ VALUES(6, 'DESSERTS');
 
 INSERT INTO Categoria (ID_Categoria, Nombre)
 VALUES(7, 'DRINKS');
-EXCEPTION
-    WHEN OTHER THEN
-    ROLLBACK;
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END;
 END;
+/
 
 
 	/* INSERTS PARA PRODUCTOS */
 
 BEGIN
+    BEGIN
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (1, 'CHICKEN LOLIPOPS', 'Uncover delight with each bite of our 8 Chicken Lollipop Wings: cooked at
                             low temperature and glazed with homemade bourbon-infused barbecue sauce. An irresistible
@@ -193,7 +197,9 @@ VALUES (39, 'RED BULL WATERMELON', '', 2.40, 'https://i.pinimg.com/originals/97/
 
 INSERT INTO Productos (ID_Producto, Nombre, Descripcion, Precio, Ruta_Imagen, ID_Categoria)
 VALUES (40, 'RED BULL APRICOT', '', 2.40, 'https://i.pinimg.com/originals/d5/5f/22/d55f22ffc2a1eb0a0df350bbb391dbdd.jpg', 7);
-EXCEPTION
-    WHEN OTHER THEN
-    ROLLBACK;
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END;
 END;
+/

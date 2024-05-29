@@ -1,4 +1,5 @@
 BEGIN
+    BEGIN
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
 VALUES (1, 'Juan', 'Hernandez', 111111111333, 2000.00, 123456789,'juan@gmail.com', '123456789', 'Admin', '10/10/2023');
 
@@ -148,7 +149,9 @@ VALUES (49, 'Cristina', 'Fernandez', 484848484848, 2200.00, 901234567, 'cristina
 
 INSERT INTO Trabajador (ID_Trabajador, Nombre, Apellido, Numero_SS, Salario, Telefono, Email, Contrasena, Tipo_Trabajo, Fecha_Contratacion)
 VALUES (50, 'Pablo', 'Martinez', 494949494949, 2300.00, 012345678, 'pablomartinez789@gmail.com', '123456789', 'Cocinero', '30/05/2022');
-EXCEPTION
-    WHEN OTHER THEN
-    ROLLBACK;
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END;
 END;
+/
